@@ -1,0 +1,24 @@
+{
+  "conjunto": "teste",
+  "modelo": "claude-haiku-4-5-20251001",
+  "prompt_versao": "p4",
+  "prompt_sha256_12": "e61365e31601",
+  "por_chamada": 10,
+  "temperatura": 0,
+  "batch_id": "msgbatch_01Sv6XBSoPwUUAc9zfTnXx8p",
+  "quando": "2026-07-26T20:36:46",
+  "n_tweets": 1019,
+  "n_rotulados": 1018,
+  "n_faltando": 1,
+  "ids_faltando": [
+    "539"
+  ],
+  "uso_tokens": {
+    "entrada": 270362,
+    "saida": 25320,
+    "cache_leitura": 0,
+    "cache_escrita": 0
+  },
+  "custo_reservado_usd": 0.314211,
+  "custo_real_usd": 0.198481
+}

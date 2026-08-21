@@ -1,0 +1,128 @@
+{
+  "script": "analise/rede_modularidade.py",
+  "executado_em": "2026-07-23 07:06:31",
+  "grafo": {
+    "nos": 879189,
+    "arestas": 3343405,
+    "pares_rt": 3350803
+  },
+  "posts": {
+    "total": 6554705,
+    "fora_do_grafo": 742549
+  },
+  "louvain": {
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "n_comunidades": {
+      "42": 11664,
+      "43": 11455,
+      "44": 11657
+    },
+    "modularidade": {
+      "42": 0.6483,
+      "43": 0.6483,
+      "44": 0.6482
+    },
+    "nmi": {
+      "42x43": 0.9664,
+      "42x44": 0.9639,
+      "43x44": 0.9566
+    }
+  },
+  "AV1": {
+    "top5_comunidades_por_posts": [
+      {
+        "comunidade": 3,
+        "posts": 2007820,
+        "pct_posts": 30.6,
+        "autores": 86551
+      },
+      {
+        "comunidade": 2,
+        "posts": 1966221,
+        "pct_posts": 30.0,
+        "autores": 167469
+      },
+      {
+        "comunidade": 0,
+        "posts": 976569,
+        "pct_posts": 14.9,
+        "autores": 349181
+      },
+      {
+        "comunidade": 4,
+        "posts": 233726,
+        "pct_posts": 3.6,
+        "autores": 60064
+      },
+      {
+        "comunidade": 11,
+        "posts": 151438,
+        "pct_posts": 2.3,
+        "autores": 35213
+      }
+    ],
+    "cobertura_2_maiores_pct": 60.6,
+    "paper": "duas comunidades ~2/5 cada; juntas 78%"
+  },
+  "AV4": {
+    "top10": [
+      {
+        "autor": "@oatila",
+        "rts_recebidos": 64761,
+        "comunidade": 2
+      },
+      {
+        "autor": "@GFiuza_Oficial",
+        "rts_recebidos": 61380,
+        "comunidade": 3
+      },
+      {
+        "autor": "@Rconstantino",
+        "rts_recebidos": 50317,
+        "comunidade": 3
+      },
+      {
+        "autor": "@OsmarTerra",
+        "rts_recebidos": 46572,
+        "comunidade": 3
+      },
+      {
+        "autor": "@revistaoeste",
+        "rts_recebidos": 42027,
+        "comunidade": 3
+      },
+      {
+        "autor": "@JanainaDoBrasil",
+        "rts_recebidos": 31697,
+        "comunidade": 3
+      },
+      {
+        "autor": "@ClaudeLuca_",
+        "rts_recebidos": 31077,
+        "comunidade": 3
+      },
+      {
+        "autor": "@ThiagoResiste",
+        "rts_recebidos": 30839,
+        "comunidade": 2
+      },
+      {
+        "autor": "@Biakicis",
+        "rts_recebidos": 30025,
+        "comunidade": 3
+      },
+      {
+        "autor": "@CarlaZambelli38",
+        "rts_recebidos": 28442,
+        "comunidade": 3
+      }
+    ],
+    "total_rts": 4507889,
+    "pct_top10": 9.3,
+    "paper": "15,7%"
+  }
+}

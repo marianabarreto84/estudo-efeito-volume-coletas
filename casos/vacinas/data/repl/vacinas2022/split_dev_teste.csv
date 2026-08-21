@@ -1,0 +1,1526 @@
+ID,particao,stance,estrato
+52,teste,pro,pro|Children
+128,dev,pro,pro|Children
+154,teste,pro,pro|COVID risks
+187,dev,pro,pro|Science
+207,teste,pro,pro|COVID risks
+209,teste,pro,pro|COVID risks
+211,teste,pro,pro|COVID risks
+275,dev,pro,pro|Misinformation sources
+325,dev,pro,pro|Other drugs
+327,teste,pro,pro|Advantages of vaccines
+342,teste,pro,pro|Information sources
+345,teste,pro,pro|Restrictive policies
+347,teste,pro,pro|COVID risks
+371,teste,pro,pro|COVID risks
+396,teste,pro,pro|COVID risks
+469,teste,pro,pro|Other drugs
+472,teste,pro,pro|Science
+587,teste,pro,pro|Misinformation sources
+611,dev,pro,pro|Anti-vaccine people
+642,teste,pro,pro|Restrictive policies
+730,teste,pro,pro|COVID risks
+819,dev,pro,pro|Advantages of vaccines
+859,teste,pro,pro|Science
+885,teste,pro,pro|COVID risks
+888,teste,pro,pro|Restrictive policies
+968,teste,pro,pro|COVID risks
+975,teste,pro,pro|Misinformation sources
+1002,teste,pro,pro|COVID risks
+1006,dev,pro,pro|COVID risks
+1010,teste,pro,pro|COVID risks
+1083,teste,pro,pro|COVID risks
+1118,teste,pro,pro|COVID risks
+1290,teste,pro,pro|Restrictive policies
+1322,teste,pro,pro|Anti-vaccine people
+1384,teste,pro,pro|Restrictive policies
+1396,teste,pro,pro|Children
+1439,teste,pro,pro|Children
+1495,teste,pro,pro|Advantages of vaccines
+29,teste,anti,anti|International
+63,dev,anti,anti|Vaccines type or laboratories
+98,dev,anti,anti|Disadvantages of vaccines
+129,teste,anti,anti|Disadvantages of vaccines
+203,dev,anti,anti|Vaccines type or laboratories
+244,teste,anti,anti|Science
+298,teste,anti,anti|COVID risks
+351,teste,anti,anti|Children
+406,teste,anti,anti|Science
+438,teste,anti,anti|Vaccines type or laboratories
+497,dev,anti,anti|COVID risks
+531,dev,anti,anti|Science
+612,teste,anti,anti|COVID risks
+667,dev,anti,anti|Disadvantages of vaccines
+707,dev,anti,anti|Vaccines type or laboratories
+781,teste,anti,anti|COVID risks
+900,teste,anti,anti|Disadvantages of vaccines
+954,teste,anti,anti|Disadvantages of vaccines
+1039,dev,anti,anti|COVID risks
+1082,teste,anti,anti|Disadvantages of vaccines
+1089,teste,anti,anti|Science
+1095,dev,anti,anti|COVID risks
+1155,teste,anti,anti|Vaccines type or laboratories
+1169,teste,anti,anti|Science
+1184,teste,anti,anti|Advantages of vaccines
+1209,teste,anti,anti|Disadvantages of vaccines
+1270,teste,anti,anti|Science
+1273,teste,anti,anti|Vaccines type or laboratories
+1324,dev,anti,anti|Vaccines type or laboratories
+1344,dev,anti,anti|Vaccines type or laboratories
+1456,teste,anti,anti|International
+1505,dev,anti,anti|Disadvantages of vaccines
+1509,dev,anti,anti|International
+10,teste,anti,anti|Disadvantages of vaccines
+40,dev,anti,anti|International
+43,dev,anti,anti|Science
+46,teste,anti,anti|Religion
+67,teste,anti,anti|Information sources
+85,teste,anti,anti|Disadvantages of vaccines
+93,teste,anti,anti|Information sources
+179,dev,anti,anti|Restrictive policies
+197,dev,anti,anti|Science
+251,teste,anti,anti|Disadvantages of vaccines
+312,teste,anti,anti|Children
+314,teste,anti,anti|Restrictive policies
+356,teste,anti,anti|Disadvantages of vaccines
+465,teste,anti,anti|Disadvantages of vaccines
+545,dev,anti,anti|Religion
+661,dev,anti,anti|International
+799,dev,anti,anti|Disadvantages of vaccines
+906,teste,anti,anti|Restrictive policies
+948,teste,anti,anti|Disadvantages of vaccines
+1041,teste,anti,anti|Vaccines type or laboratories
+1192,dev,anti,anti|Restrictive policies
+1291,dev,anti,anti|Disadvantages of vaccines
+1331,teste,anti,anti|Information sources
+1406,teste,anti,anti|Information sources
+1423,dev,anti,anti|Restrictive policies
+1424,teste,anti,anti|International
+1438,dev,anti,anti|Information sources
+1473,dev,anti,anti|Information sources
+1477,teste,anti,anti|Vaccines type or laboratories
+221,dev,pro,pro|Restrictive policies
+257,teste,pro,pro|Information sources
+264,dev,pro,pro|COVID risks
+394,teste,pro,pro|Children
+400,dev,pro,pro|Restrictive policies
+425,dev,pro,pro|Misinformation sources
+539,teste,pro,pro|Information sources
+552,dev,pro,pro|COVID risks
+606,dev,pro,pro|COVID risks
+627,dev,pro,pro|Information sources
+649,teste,pro,pro|Advantages of vaccines
+651,teste,pro,pro|Children
+697,dev,pro,pro|Religion
+864,dev,pro,pro|Children
+868,dev,pro,pro|Information sources
+890,dev,pro,pro|Restrictive policies
+891,teste,pro,pro|COVID risks
+901,dev,pro,pro|Information sources
+1032,dev,pro,pro|Information sources
+1071,teste,pro,pro|Other drugs
+1084,teste,pro,pro|Other drugs
+1131,dev,pro,pro|Restrictive policies
+1168,teste,pro,pro|Restrictive policies
+1202,dev,pro,pro|Children
+1304,dev,pro,pro|COVID risks
+1515,teste,pro,pro|Politics
+69,dev,anti,anti|Disadvantages of vaccines
+73,teste,anti,anti|International
+194,teste,anti,anti|Restrictive policies
+273,teste,anti,anti|Science
+274,teste,anti,anti|Misinformation sources
+317,teste,anti,anti|Anti-vaccine people
+422,dev,anti,anti|Information sources
+460,teste,anti,anti|Restrictive policies
+462,teste,anti,anti|Misinformation sources
+470,teste,anti,anti|Anti-vaccine people
+486,teste,anti,anti|Disadvantages of vaccines
+529,dev,anti,anti|Disadvantages of vaccines
+542,teste,anti,anti|Disadvantages of vaccines
+674,dev,anti,anti|Information sources
+736,teste,anti,anti|Science
+755,dev,anti,anti|Anti-vaccine people
+758,dev,anti,anti|Anti-vaccine people
+759,teste,anti,anti|Disadvantages of vaccines
+831,teste,anti,anti|Information sources
+935,teste,anti,anti|Disadvantages of vaccines
+1013,teste,anti,anti|Restrictive policies
+1194,teste,anti,anti|Disadvantages of vaccines
+1257,teste,anti,anti|COVID risks
+1261,teste,anti,anti|Restrictive policies
+25,teste,anti,anti|Vaccines type or laboratories
+81,teste,anti,anti|Vaccines type or laboratories
+152,teste,anti,anti|International
+192,teste,anti,anti|Restrictive policies
+213,dev,anti,anti|International
+228,dev,anti,anti|Vaccines type or laboratories
+287,teste,anti,anti|Restrictive policies
+299,teste,anti,anti|Restrictive policies
+404,teste,anti,anti|Restrictive policies
+568,teste,anti,anti|International
+639,teste,anti,anti|Restrictive policies
+653,teste,anti,anti|Anti-vaccine people
+699,teste,anti,anti|International
+716,teste,anti,anti|International
+880,dev,anti,anti|Disadvantages of vaccines
+902,teste,anti,anti|International
+957,teste,anti,anti|Restrictive policies
+966,teste,anti,anti|Restrictive policies
+986,teste,anti,anti|Children
+1115,teste,anti,anti|International
+1138,teste,anti,anti|International
+1247,teste,anti,anti|Restrictive policies
+1280,teste,anti,anti|Vaccines type or laboratories
+1374,teste,anti,anti|Vaccines type or laboratories
+60,teste,anti,anti|International
+61,teste,anti,anti|Restrictive policies
+70,teste,anti,anti|Restrictive policies
+88,teste,anti,anti|Restrictive policies
+122,dev,anti,anti|Restrictive policies
+145,dev,anti,anti|Restrictive policies
+328,teste,anti,anti|Restrictive policies
+445,dev,anti,anti|International
+454,dev,anti,anti|Restrictive policies
+515,teste,anti,anti|Restrictive policies
+670,dev,anti,anti|Disadvantages of vaccines
+854,dev,anti,anti|Misinformation sources
+1188,dev,anti,anti|Misinformation sources
+1219,dev,anti,anti|Science
+1266,teste,anti,anti|Children
+1318,teste,anti,anti|Children
+1342,teste,anti,anti|Misinformation sources
+1381,dev,anti,anti|Vaccines type or laboratories
+173,teste,anti,anti|Vaccines type or laboratories
+245,teste,anti,anti|Information sources
+278,teste,anti,anti|Restrictive policies
+442,teste,anti,anti|Vaccines type or laboratories
+489,teste,anti,anti|Vaccines type or laboratories
+510,dev,anti,anti|Disadvantages of vaccines
+626,teste,anti,anti|International
+638,dev,anti,anti|Restrictive policies
+647,dev,anti,anti|Restrictive policies
+650,teste,anti,anti|Information sources
+692,teste,anti,anti|Restrictive policies
+769,teste,anti,anti|Disadvantages of vaccines
+887,dev,anti,anti|Vaccines type or laboratories
+918,dev,anti,anti|Vaccines type or laboratories
+1148,dev,anti,anti|Restrictive policies
+1180,teste,anti,anti|International
+1251,teste,anti,anti|Restrictive policies
+1312,teste,anti,anti|Other drugs
+162,teste,anti,anti|Disadvantages of vaccines
+313,teste,anti,anti|Information sources
+375,teste,anti,anti|Disadvantages of vaccines
+559,dev,anti,anti|Disadvantages of vaccines
+634,teste,anti,anti|Misinformation sources
+652,teste,anti,anti|Disadvantages of vaccines
+722,teste,anti,anti|Disadvantages of vaccines
+818,teste,anti,anti|Information sources
+820,teste,anti,anti|Disadvantages of vaccines
+1008,teste,anti,anti|International
+1027,teste,anti,anti|Disadvantages of vaccines
+1141,dev,anti,anti|Disadvantages of vaccines
+1174,dev,anti,anti|Disadvantages of vaccines
+1211,teste,anti,anti|Information sources
+1229,teste,anti,anti|Science
+1268,teste,anti,anti|Disadvantages of vaccines
+1442,teste,anti,anti|Anti-vaccine people
+118,teste,pro,pro|Misinformation sources
+149,dev,pro,pro|COVID risks
+185,teste,pro,pro|Misinformation sources
+311,teste,pro,pro|International
+398,teste,pro,pro|Other drugs
+522,dev,pro,pro|Misinformation sources
+524,dev,pro,pro|Anti-vaccine people
+528,teste,pro,pro|Misinformation sources
+543,teste,pro,pro|Advantages of vaccines
+592,teste,pro,pro|COVID risks
+760,teste,pro,pro|Science
+816,dev,pro,pro|Information sources
+921,teste,pro,pro|sem_cat
+938,dev,pro,pro|Anti-vaccine people
+999,teste,pro,pro|COVID risks
+1018,dev,pro,pro|Other drugs
+1102,teste,pro,pro|Anti-vaccine people
+13,dev,anti,anti|Restrictive policies
+23,dev,anti,anti|Restrictive policies
+32,dev,anti,anti|Vaccines type or laboratories
+55,teste,anti,anti|Disadvantages of vaccines
+127,dev,anti,anti|Restrictive policies
+135,teste,anti,anti|Disadvantages of vaccines
+163,teste,anti,anti|International
+260,teste,anti,anti|Restrictive policies
+293,teste,anti,anti|Disadvantages of vaccines
+341,teste,anti,anti|Children
+359,teste,anti,anti|International
+414,dev,anti,anti|Information sources
+432,teste,anti,anti|Politics
+563,teste,anti,anti|Disadvantages of vaccines
+664,teste,anti,anti|International
+1323,teste,anti,anti|Information sources
+146,teste,anti,anti|Vaccines type or laboratories
+155,teste,anti,anti|Restrictive policies
+224,teste,anti,anti|Information sources
+281,teste,anti,anti|International
+282,teste,anti,anti|Restrictive policies
+447,teste,anti,anti|International
+488,dev,anti,anti|Restrictive policies
+603,teste,anti,anti|Disadvantages of vaccines
+609,teste,anti,anti|Restrictive policies
+908,dev,anti,anti|Information sources
+1017,teste,anti,anti|Information sources
+1042,teste,anti,anti|Information sources
+1069,teste,anti,anti|Other drugs
+1204,teste,anti,anti|Information sources
+1259,teste,anti,anti|Disadvantages of vaccines
+1483,teste,anti,anti|Restrictive policies
+90,teste,anti,anti|Information sources
+92,teste,anti,anti|Science
+165,dev,anti,anti|International
+167,teste,anti,anti|Anti-vaccine people
+242,teste,anti,anti|Science
+336,dev,anti,anti|Information sources
+377,teste,anti,anti|Information sources
+473,dev,anti,anti|International
+512,teste,anti,anti|International
+731,teste,anti,anti|Information sources
+847,teste,anti,anti|Vaccines type or laboratories
+863,teste,anti,anti|International
+1222,dev,anti,anti|Information sources
+1227,teste,anti,anti|Vaccines type or laboratories
+1260,teste,anti,anti|International
+1347,teste,anti,anti|Children
+199,dev,pro,pro|Science
+402,dev,pro,pro|International
+570,teste,pro,pro|Misinformation sources
+643,teste,pro,pro|Science
+668,teste,pro,pro|Children
+793,teste,pro,pro|Vaccines type or laboratories
+852,dev,pro,pro|Vaccines type or laboratories
+1021,teste,pro,pro|Restrictive policies
+1110,teste,pro,pro|Misinformation sources
+1136,teste,pro,pro|Misinformation sources
+1140,dev,pro,pro|Advantages of vaccines
+1172,dev,pro,pro|COVID risks
+1189,teste,pro,pro|Restrictive policies
+1303,teste,pro,pro|sem_cat
+1364,teste,pro,pro|Advantages of vaccines
+1369,teste,pro,pro|International
+292,dev,pro,pro|Children
+353,teste,pro,pro|Misinformation sources
+407,teste,pro,pro|Restrictive policies
+485,dev,pro,pro|COVID risks
+558,teste,pro,pro|Children
+564,dev,pro,pro|Science
+595,teste,pro,pro|Science
+608,teste,pro,pro|Children
+797,teste,pro,pro|COVID risks
+803,dev,pro,pro|COVID risks
+822,teste,pro,pro|COVID risks
+899,teste,pro,pro|Advantages of vaccines
+956,teste,pro,pro|Science
+1036,teste,pro,pro|Misinformation sources
+1040,teste,pro,pro|Advantages of vaccines
+1430,teste,pro,pro|sem_cat
+391,teste,anti,anti|Restrictive policies
+523,dev,anti,anti|Science
+544,teste,anti,anti|Disadvantages of vaccines
+573,dev,anti,anti|Information sources
+753,teste,anti,anti|Disadvantages of vaccines
+784,dev,anti,anti|Restrictive policies
+910,teste,anti,anti|Children
+939,teste,anti,anti|Anti-vaccine people
+1122,dev,anti,anti|Disadvantages of vaccines
+1241,teste,anti,anti|Children
+1286,teste,anti,anti|Anti-vaccine people
+1293,dev,anti,anti|Information sources
+1295,teste,anti,anti|Children
+1390,teste,anti,anti|Science
+1482,teste,anti,anti|COVID risks
+443,teste,pro,pro|Religion
+691,teste,pro,pro|Information sources
+796,teste,pro,pro|Religion
+841,teste,pro,pro|Politics
+878,teste,pro,pro|Other drugs
+930,teste,pro,pro|International
+941,teste,pro,pro|Children
+951,dev,pro,pro|Misinformation sources
+1014,teste,pro,pro|Information sources
+1025,dev,pro,pro|Religion
+1028,teste,pro,pro|Other drugs
+1050,dev,pro,pro|Religion
+1073,teste,pro,pro|Religion
+1149,teste,pro,pro|Children
+1183,dev,pro,pro|Children
+302,dev,pro,pro|Children
+358,teste,pro,pro|Science
+419,teste,pro,pro|COVID risks
+453,teste,pro,pro|Information sources
+483,teste,pro,pro|Misinformation sources
+526,dev,pro,pro|COVID risks
+541,teste,pro,pro|International
+583,teste,pro,pro|COVID risks
+723,dev,pro,pro|Misinformation sources
+748,teste,pro,pro|Anti-vaccine people
+780,dev,pro,pro|COVID risks
+886,teste,pro,pro|Misinformation sources
+1011,teste,pro,pro|Politics
+1064,teste,pro,pro|Children
+1420,teste,pro,pro|Restrictive policies
+376,dev,pro,pro|COVID risks
+416,dev,pro,pro|Information sources
+494,dev,pro,pro|Religion
+550,dev,pro,pro|Religion
+569,teste,pro,pro|Information sources
+698,dev,pro,pro|Misinformation sources
+700,teste,pro,pro|Science
+754,dev,pro,pro|Religion
+826,teste,pro,pro|Information sources
+905,dev,pro,pro|Information sources
+973,teste,pro,pro|Information sources
+1030,teste,pro,pro|Misinformation sources
+1037,teste,pro,pro|International
+1075,dev,pro,pro|Restrictive policies
+1297,teste,pro,pro|Information sources
+256,teste,anti,anti|Restrictive policies
+401,dev,anti,anti|Anti-vaccine people
+413,teste,anti,anti|Restrictive policies
+842,teste,anti,anti|Disadvantages of vaccines
+967,teste,anti,anti|Anti-vaccine people
+1003,dev,anti,anti|Disadvantages of vaccines
+1005,dev,anti,anti|International
+1056,teste,anti,anti|Disadvantages of vaccines
+1156,teste,anti,anti|Restrictive policies
+1231,teste,anti,anti|International
+1262,dev,anti,anti|Restrictive policies
+1320,teste,anti,anti|Restrictive policies
+1380,dev,anti,anti|Children
+1511,teste,anti,anti|Restrictive policies
+1514,dev,anti,anti|Restrictive policies
+174,dev,pro,pro|COVID risks
+196,teste,pro,pro|Religion
+236,teste,pro,pro|COVID risks
+252,dev,pro,pro|COVID risks
+429,teste,pro,pro|Other drugs
+632,teste,pro,pro|Misinformation sources
+645,teste,pro,pro|Other drugs
+715,dev,pro,pro|Children
+717,teste,pro,pro|Politics
+750,teste,pro,pro|International
+814,dev,pro,pro|Science
+897,teste,pro,pro|Science
+1504,teste,pro,pro|COVID risks
+74,teste,anti,anti|Restrictive policies
+100,dev,anti,anti|Restrictive policies
+158,teste,anti,anti|Restrictive policies
+198,teste,anti,anti|Information sources
+405,dev,anti,anti|Restrictive policies
+565,teste,anti,anti|Disadvantages of vaccines
+678,teste,anti,anti|Restrictive policies
+811,teste,anti,anti|Restrictive policies
+913,dev,anti,anti|Science
+1237,dev,anti,anti|Restrictive policies
+1360,teste,anti,anti|Religion
+1425,teste,anti,anti|Disadvantages of vaccines
+161,teste,pro,pro|Children
+247,dev,pro,pro|International
+261,dev,pro,pro|COVID risks
+309,dev,pro,pro|Children
+410,teste,pro,pro|Children
+721,teste,pro,pro|Children
+770,teste,pro,pro|Politics
+963,dev,pro,pro|Misinformation sources
+1093,dev,pro,pro|Anti-vaccine people
+1186,teste,pro,pro|Anti-vaccine people
+1310,teste,pro,pro|International
+1458,teste,pro,pro|International
+296,teste,pro,pro|COVID risks
+451,dev,pro,pro|Vaccines type or laboratories
+487,teste,pro,pro|COVID risks
+503,teste,pro,pro|Children
+648,dev,pro,pro|Information sources
+666,teste,pro,pro|Information sources
+775,dev,pro,pro|Children
+1088,teste,pro,pro|COVID risks
+1191,teste,pro,pro|Misinformation sources
+1193,teste,pro,pro|Information sources
+1285,teste,pro,pro|sem_cat
+1493,teste,pro,pro|Anti-vaccine people
+1,dev,anti,anti|Information sources
+3,dev,anti,anti|Disadvantages of vaccines
+4,dev,anti,anti|Vaccines type or laboratories
+6,teste,anti,anti|International
+8,dev,anti,anti|International
+9,teste,anti,anti|Information sources
+12,teste,anti,anti|Information sources
+18,teste,anti,anti|Information sources
+21,teste,anti,anti|Science
+35,teste,anti,anti|Science
+36,teste,anti,anti|Information sources
+44,teste,anti,anti|Science
+389,teste,anti,anti|Disadvantages of vaccines
+540,teste,anti,anti|Disadvantages of vaccines
+556,teste,anti,anti|Disadvantages of vaccines
+688,teste,anti,anti|Science
+860,teste,anti,anti|Vaccines type or laboratories
+923,teste,anti,anti|Children
+1099,teste,anti,anti|Anti-vaccine people
+1199,dev,anti,anti|Science
+1250,dev,anti,anti|Disadvantages of vaccines
+1397,teste,anti,anti|COVID risks
+1412,teste,anti,anti|Disadvantages of vaccines
+1476,dev,anti,anti|Children
+95,teste,anti,anti|Disadvantages of vaccines
+125,dev,anti,anti|Restrictive policies
+182,teste,anti,anti|Disadvantages of vaccines
+318,teste,anti,anti|Restrictive policies
+338,teste,anti,anti|Politics
+517,teste,anti,anti|Restrictive policies
+795,dev,anti,anti|Vaccines type or laboratories
+981,dev,anti,anti|Restrictive policies
+1051,teste,anti,anti|Children
+1244,dev,anti,anti|Restrictive policies
+64,dev,anti,anti|Restrictive policies
+117,teste,anti,anti|Restrictive policies
+250,dev,anti,anti|International
+308,dev,anti,anti|Restrictive policies
+372,teste,anti,anti|Restrictive policies
+392,teste,anti,anti|Restrictive policies
+466,teste,anti,anti|Disadvantages of vaccines
+537,teste,anti,anti|Science
+1201,teste,anti,anti|Restrictive policies
+1468,teste,anti,anti|Anti-vaccine people
+133,dev,pro,pro|Restrictive policies
+249,teste,pro,pro|Children
+280,dev,pro,pro|Restrictive policies
+332,teste,pro,pro|Information sources
+713,teste,pro,pro|COVID risks
+765,teste,pro,pro|Vaccines type or laboratories
+786,dev,pro,pro|Politics
+1058,dev,pro,pro|Misinformation sources
+1067,dev,pro,pro|Children
+1081,teste,pro,pro|COVID risks
+126,dev,anti,anti|Anti-vaccine people
+172,teste,anti,anti|Anti-vaccine people
+259,dev,anti,anti|Misinformation sources
+393,teste,anti,anti|Restrictive policies
+455,teste,anti,anti|Information sources
+794,dev,anti,anti|Information sources
+879,dev,anti,anti|Anti-vaccine people
+894,teste,anti,anti|International
+1182,dev,anti,anti|Anti-vaccine people
+1263,teste,anti,anti|Restrictive policies
+354,teste,anti,anti|Disadvantages of vaccines
+535,teste,anti,anti|International
+577,dev,anti,anti|Disadvantages of vaccines
+593,dev,anti,anti|Restrictive policies
+961,dev,anti,anti|Disadvantages of vaccines
+1119,dev,anti,anti|International
+1130,dev,anti,anti|International
+1164,teste,anti,anti|International
+1190,dev,anti,anti|Children
+1271,teste,anti,anti|Restrictive policies
+288,dev,pro,pro|COVID risks
+471,dev,pro,pro|Children
+530,teste,pro,pro|Religion
+807,teste,pro,pro|Children
+810,teste,pro,pro|Children
+829,teste,pro,pro|Information sources
+943,dev,pro,pro|Information sources
+1046,teste,pro,pro|Information sources
+1092,teste,pro,pro|Other drugs
+1469,teste,pro,pro|COVID risks
+26,teste,anti,anti|International
+132,teste,anti,anti|Information sources
+144,teste,anti,anti|International
+160,teste,anti,anti|International
+417,teste,anti,anti|International
+574,teste,anti,anti|Information sources
+873,teste,anti,anti|International
+882,teste,anti,anti|Restrictive policies
+1313,teste,anti,anti|Information sources
+216,teste,anti,anti|COVID risks
+482,teste,anti,anti|International
+567,teste,anti,anti|Disadvantages of vaccines
+589,teste,anti,anti|Misinformation sources
+726,teste,anti,anti|International
+737,teste,anti,anti|Disadvantages of vaccines
+832,dev,anti,anti|Information sources
+1142,dev,anti,anti|Vaccines type or laboratories
+1144,teste,anti,anti|Misinformation sources
+150,dev,anti,anti|International
+458,dev,anti,anti|International
+479,teste,anti,anti|International
+582,teste,anti,anti|International
+727,teste,anti,anti|Information sources
+1070,teste,anti,anti|International
+1256,dev,anti,anti|International
+1299,dev,anti,anti|International
+1485,dev,anti,anti|International
+467,teste,pro,pro|COVID risks
+518,teste,pro,pro|Religion
+533,teste,pro,pro|Restrictive policies
+843,teste,pro,pro|Restrictive policies
+1346,dev,pro,pro|Religion
+1414,teste,pro,pro|Information sources
+1435,dev,pro,pro|Religion
+1503,teste,pro,pro|Religion
+1523,teste,pro,pro|Religion
+378,dev,pro,pro|Religion
+421,teste,pro,pro|Advantages of vaccines
+514,teste,pro,pro|COVID risks
+547,teste,pro,pro|Restrictive policies
+830,dev,pro,pro|Restrictive policies
+861,dev,pro,pro|Restrictive policies
+865,dev,pro,pro|Politics
+1334,teste,pro,pro|Information sources
+1377,dev,pro,pro|International
+218,teste,anti,anti|Vaccines type or laboratories
+235,teste,anti,anti|Vaccines type or laboratories
+267,dev,anti,anti|International
+291,teste,anti,anti|Vaccines type or laboratories
+513,dev,anti,anti|Disadvantages of vaccines
+955,dev,anti,anti|International
+1066,teste,anti,anti|Vaccines type or laboratories
+1096,dev,anti,anti|COVID risks
+1242,teste,anti,anti|Misinformation sources
+423,dev,pro,pro|Other drugs
+555,teste,pro,pro|Information sources
+733,teste,pro,pro|COVID risks
+945,teste,pro,pro|Restrictive policies
+1124,teste,pro,pro|Misinformation sources
+1143,teste,pro,pro|Misinformation sources
+1404,teste,pro,pro|Information sources
+1479,dev,pro,pro|International
+171,dev,pro,pro|Information sources
+246,teste,pro,pro|International
+301,dev,pro,pro|International
+340,dev,pro,pro|International
+379,teste,pro,pro|Information sources
+712,dev,pro,pro|COVID risks
+835,teste,pro,pro|International
+1173,teste,pro,pro|Information sources
+105,teste,anti,anti|Information sources
+411,teste,anti,anti|International
+520,teste,anti,anti|Restrictive policies
+704,dev,anti,anti|Other drugs
+928,teste,anti,anti|Disadvantages of vaccines
+1016,dev,anti,anti|International
+1112,teste,anti,anti|Information sources
+1522,dev,anti,anti|Children
+585,teste,pro,pro|COVID risks
+629,teste,pro,pro|Misinformation sources
+686,teste,pro,pro|Science
+725,teste,pro,pro|COVID risks
+884,dev,pro,pro|Politics
+1139,teste,pro,pro|Science
+1178,dev,pro,pro|Misinformation sources
+1513,teste,pro,pro|sem_cat
+119,teste,anti,anti|Information sources
+212,teste,anti,anti|Misinformation sources
+254,teste,anti,anti|Anti-vaccine people
+304,teste,anti,anti|Restrictive policies
+420,teste,anti,anti|Disadvantages of vaccines
+851,dev,anti,anti|Information sources
+1421,teste,anti,anti|Religion
+468,teste,anti,anti|Information sources
+677,dev,anti,anti|Restrictive policies
+747,teste,anti,anti|Misinformation sources
+838,teste,anti,anti|Anti-vaccine people
+849,dev,anti,anti|Disadvantages of vaccines
+1196,teste,anti,anti|Vaccines type or laboratories
+1499,teste,anti,anti|Restrictive policies
+690,teste,anti,anti|International
+893,dev,anti,anti|Children
+946,teste,anti,anti|COVID risks
+985,dev,anti,anti|Children
+1026,dev,anti,anti|International
+1308,teste,anti,anti|Information sources
+1440,dev,anti,anti|Anti-vaccine people
+434,dev,pro,pro|COVID risks
+474,teste,pro,pro|COVID risks
+579,teste,pro,pro|Misinformation sources
+752,teste,pro,pro|COVID risks
+1004,dev,pro,pro|COVID risks
+1043,teste,pro,pro|COVID risks
+1087,dev,pro,pro|Misinformation sources
+101,dev,anti,anti|Restrictive policies
+108,dev,anti,anti|Children
+234,dev,anti,anti|Restrictive policies
+382,dev,anti,anti|Religion
+673,teste,anti,anti|International
+866,teste,anti,anti|International
+987,dev,anti,anti|International
+189,teste,anti,anti|Restrictive policies
+269,dev,anti,anti|Disadvantages of vaccines
+761,teste,anti,anti|Restrictive policies
+1254,teste,anti,anti|sem_cat
+1373,teste,anti,anti|International
+1517,dev,anti,anti|Disadvantages of vaccines
+79,dev,anti,anti|Restrictive policies
+115,dev,anti,anti|Restrictive policies
+476,teste,anti,anti|Restrictive policies
+1091,dev,anti,anti|International
+1216,teste,anti,anti|Restrictive policies
+1225,teste,anti,anti|Science
+263,teste,anti,anti|Information sources
+701,teste,anti,anti|COVID risks
+749,dev,anti,anti|Restrictive policies
+788,teste,anti,anti|Disadvantages of vaccines
+926,teste,anti,anti|Restrictive policies
+1023,teste,anti,anti|Information sources
+656,dev,anti,anti|Children
+1236,dev,anti,anti|Restrictive policies
+1401,teste,anti,anti|Anti-vaccine people
+1427,teste,anti,anti|Religion
+1449,teste,anti,anti|Restrictive policies
+1459,teste,anti,anti|International
+448,dev,pro,pro|Children
+461,teste,pro,pro|Advantages of vaccines
+1057,teste,pro,pro|Restrictive policies
+1218,dev,pro,pro|Misinformation sources
+1391,teste,pro,pro|sem_cat
+1392,teste,pro,pro|Vaccines type or laboratories
+501,teste,anti,anti|Restrictive policies
+615,teste,anti,anti|Restrictive policies
+805,teste,anti,anti|Disadvantages of vaccines
+895,teste,anti,anti|Restrictive policies
+964,dev,anti,anti|Disadvantages of vaccines
+1328,teste,anti,anti|Disadvantages of vaccines
+140,teste,anti,anti|Anti-vaccine people
+195,dev,anti,anti|Disadvantages of vaccines
+334,teste,anti,anti|Information sources
+984,dev,anti,anti|COVID risks
+1316,dev,anti,anti|Science
+551,dev,anti,anti|Disadvantages of vaccines
+732,dev,anti,anti|Anti-vaccine people
+992,teste,anti,anti|Other drugs
+1233,dev,anti,anti|Vaccines type or laboratories
+1264,teste,anti,anti|Disadvantages of vaccines
+433,teste,anti,anti|Vaccines type or laboratories
+630,dev,anti,anti|Disadvantages of vaccines
+1097,teste,anti,anti|International
+1329,teste,anti,anti|Restrictive policies
+1467,teste,anti,anti|Vaccines type or laboratories
+186,teste,anti,anti|Children
+584,dev,anti,anti|Children
+718,teste,anti,anti|Vaccines type or laboratories
+1072,dev,anti,anti|Disadvantages of vaccines
+1489,teste,anti,anti|sem_cat
+295,dev,pro,pro|Misinformation sources
+374,dev,pro,pro|Religion
+596,teste,pro,pro|Misinformation sources
+1198,dev,pro,pro|Children
+1478,dev,pro,pro|sem_cat
+153,dev,pro,pro|Information sources
+290,teste,pro,pro|International
+315,dev,pro,pro|Anti-vaccine people
+500,teste,pro,pro|Misinformation sources
+1432,teste,pro,pro|International
+103,teste,pro,pro|Restrictive policies
+768,dev,pro,pro|Restrictive policies
+870,teste,pro,pro|Children
+1298,teste,pro,pro|Restrictive policies
+1524,teste,pro,pro|International
+265,dev,anti,anti|Restrictive policies
+310,teste,anti,anti|Restrictive policies
+998,teste,anti,anti|Disadvantages of vaccines
+1230,teste,anti,anti|Disadvantages of vaccines
+1335,dev,anti,anti|Restrictive policies
+226,teste,pro,pro|Restrictive policies
+509,dev,pro,pro|Misinformation sources
+821,teste,pro,pro|International
+995,teste,pro,pro|COVID risks
+1317,teste,pro,pro|Anti-vaccine people
+578,teste,pro,pro|Misinformation sources
+739,dev,pro,pro|COVID risks
+876,teste,pro,pro|COVID risks
+988,teste,pro,pro|Science
+1294,teste,pro,pro|COVID risks
+430,dev,anti,anti|Science
+710,teste,anti,anti|Children
+1019,teste,anti,anti|Information sources
+1146,teste,anti,anti|Politics
+1306,dev,anti,anti|Information sources
+623,dev,anti,anti|Disadvantages of vaccines
+1012,teste,anti,anti|International
+1129,teste,anti,anti|Disadvantages of vaccines
+1378,teste,anti,anti|Disadvantages of vaccines
+1487,teste,anti,anti|Vaccines type or laboratories
+47,teste,pro,pro|Information sources
+319,dev,pro,pro|Anti-vaccine people
+385,teste,pro,pro|Religion
+892,dev,pro,pro|Anti-vaccine people
+1336,dev,pro,pro|Politics
+289,dev,anti,anti|Anti-vaccine people
+452,dev,anti,anti|Information sources
+1302,dev,anti,anti|Anti-vaccine people
+1444,dev,anti,anti|Politics
+386,dev,anti,anti|Restrictive policies
+937,dev,anti,anti|International
+1339,dev,anti,anti|sem_cat
+1433,teste,anti,anti|sem_cat
+763,teste,anti,anti|Disadvantages of vaccines
+1052,teste,anti,anti|Other drugs
+1132,teste,anti,anti|Religion
+1345,teste,anti,anti|Disadvantages of vaccines
+303,teste,anti,anti|Information sources
+333,teste,anti,anti|Information sources
+920,dev,anti,anti|Vaccines type or laboratories
+1512,dev,anti,anti|Restrictive policies
+783,teste,pro,pro|Children
+940,teste,pro,pro|Science
+1065,teste,pro,pro|Information sources
+1348,dev,pro,pro|sem_cat
+279,teste,pro,pro|Religion
+350,teste,pro,pro|Misinformation sources
+599,teste,pro,pro|Misinformation sources
+1053,dev,pro,pro|Misinformation sources
+243,teste,pro,pro|Science
+408,teste,pro,pro|International
+481,dev,pro,pro|Anti-vaccine people
+744,teste,pro,pro|Advantages of vaccines
+124,teste,pro,pro|Children
+272,dev,pro,pro|Children
+277,teste,pro,pro|COVID risks
+671,teste,pro,pro|Restrictive policies
+175,teste,anti,anti|Anti-vaccine people
+220,teste,anti,anti|Restrictive policies
+399,dev,anti,anti|Restrictive policies
+1185,teste,anti,anti|Restrictive policies
+450,dev,anti,anti|Restrictive policies
+696,teste,anti,anti|Restrictive policies
+875,teste,anti,anti|Restrictive policies
+1167,teste,anti,anti|Children
+657,teste,pro,pro|COVID risks
+802,teste,pro,pro|Science
+1120,teste,pro,pro|Advantages of vaccines
+1128,teste,pro,pro|Misinformation sources
+767,teste,anti,anti|Anti-vaccine people
+980,teste,anti,anti|Disadvantages of vaccines
+1208,dev,anti,anti|Restrictive policies
+1240,dev,anti,anti|Children
+590,teste,pro,pro|COVID risks
+1214,teste,pro,pro|Religion
+1217,dev,pro,pro|International
+1399,teste,pro,pro|Misinformation sources
+446,teste,pro,pro|Restrictive policies
+919,teste,pro,pro|Children
+1366,dev,pro,pro|Vaccines type or laboratories
+1501,dev,pro,pro|Vaccines type or laboratories
+680,teste,anti,anti|International
+745,teste,anti,anti|International
+785,dev,anti,anti|International
+971,teste,anti,anti|International
+37,teste,anti,anti|Children
+134,teste,anti,anti|Information sources
+142,teste,anti,anti|Science
+322,teste,anti,anti|Restrictive policies
+435,teste,anti,anti|Restrictive policies
+440,teste,anti,anti|Restrictive policies
+607,dev,anti,anti|International
+1107,teste,anti,anti|Science
+307,teste,pro,pro|Religion
+329,teste,pro,pro|COVID risks
+728,teste,pro,pro|Anti-vaccine people
+1457,teste,pro,pro|Other drugs
+178,dev,pro,pro|Anti-vaccine people
+431,teste,pro,pro|Restrictive policies
+549,dev,pro,pro|Anti-vaccine people
+927,teste,pro,pro|Children
+355,teste,pro,pro|COVID risks
+457,teste,pro,pro|Advantages of vaccines
+504,teste,pro,pro|Misinformation sources
+660,dev,pro,pro|Advantages of vaccines
+459,teste,anti,anti|Information sources
+1340,teste,anti,anti|Information sources
+1451,teste,anti,anti|Anti-vaccine people
+1494,teste,anti,anti|Science
+694,teste,anti,anti|Information sources
+837,teste,anti,anti|COVID risks
+1054,dev,anti,anti|Restrictive policies
+1376,dev,anti,anti|Science
+255,teste,anti,anti|Restrictive policies
+546,teste,anti,anti|Restrictive policies
+719,dev,anti,anti|Restrictive policies
+845,teste,anti,anti|Restrictive policies
+424,teste,anti,anti|Disadvantages of vaccines
+779,dev,anti,anti|Restrictive policies
+1484,dev,anti,anti|Disadvantages of vaccines
+1510,teste,anti,anti|International
+111,teste,anti,anti|Children
+571,dev,anti,anti|International
+1007,teste,anti,anti|Misinformation sources
+1379,teste,anti,anti|Anti-vaccine people
+1275,teste,anti,anti|Anti-vaccine people
+1289,teste,anti,anti|Disadvantages of vaccines
+1436,teste,anti,anti|sem_cat
+662,teste,anti,anti|Restrictive policies
+709,teste,anti,anti|Politics
+1265,teste,anti,anti|Restrictive policies
+554,teste,pro,pro|Anti-vaccine people
+1325,dev,pro,pro|International
+1431,teste,pro,pro|Restrictive policies
+929,teste,anti,anti|International
+1309,teste,anti,anti|Other drugs
+1370,dev,anti,anti|Misinformation sources
+191,teste,pro,pro|Children
+1400,teste,pro,pro|Restrictive policies
+1462,dev,pro,pro|Anti-vaccine people
+827,teste,anti,anti|Children
+871,teste,anti,anti|COVID risks
+1239,teste,anti,anti|Vaccines type or laboratories
+357,teste,pro,pro|Restrictive policies
+598,teste,pro,pro|Information sources
+1362,dev,pro,pro|Misinformation sources
+625,teste,anti,anti|Disadvantages of vaccines
+1127,teste,anti,anti|International
+1245,dev,anti,anti|Misinformation sources
+104,dev,anti,anti|Restrictive policies
+344,dev,anti,anti|International
+772,teste,anti,anti|Restrictive policies
+801,teste,anti,anti|Disadvantages of vaccines
+993,teste,anti,anti|Disadvantages of vaccines
+1150,teste,anti,anti|Disadvantages of vaccines
+532,teste,anti,anti|Restrictive policies
+1103,teste,anti,anti|Restrictive policies
+1123,dev,anti,anti|Information sources
+588,teste,anti,anti|Science
+813,dev,anti,anti|Restrictive policies
+931,teste,anti,anti|Science
+576,dev,anti,anti|International
+798,teste,anti,anti|International
+1031,teste,anti,anti|Information sources
+51,teste,anti,anti|Restrictive policies
+581,teste,anti,anti|Children
+1177,teste,anti,anti|Restrictive policies
+817,dev,anti,anti|Anti-vaccine people
+1074,teste,anti,anti|Disadvantages of vaccines
+1137,teste,anti,anti|International
+636,teste,anti,anti|Information sources
+646,teste,anti,anti|Science
+1301,dev,anti,anti|Children
+159,teste,pro,pro|Restrictive policies
+384,teste,pro,pro|International
+735,dev,pro,pro|Vaccines type or laboratories
+320,teste,anti,anti|International
+702,teste,anti,anti|Anti-vaccine people
+1044,teste,anti,anti|International
+130,teste,pro,pro|Vaccines type or laboratories
+219,dev,pro,pro|Misinformation sources
+349,dev,pro,pro|COVID risks
+792,dev,pro,pro|Science
+1187,teste,pro,pro|Science
+1416,teste,pro,pro|Vaccines type or laboratories
+335,teste,pro,pro|Anti-vaccine people
+800,dev,pro,pro|Politics
+1371,teste,pro,pro|Misinformation sources
+601,teste,pro,pro|Other drugs
+720,dev,pro,pro|COVID risks
+1200,teste,pro,pro|Disadvantages of vaccines
+116,teste,pro,pro|Children
+147,teste,pro,pro|Children
+352,dev,pro,pro|Information sources
+412,teste,pro,pro|Other drugs
+839,teste,pro,pro|Misinformation sources
+881,teste,pro,pro|COVID risks
+1000,teste,anti,anti|Disadvantages of vaccines
+1269,dev,anti,anti|Disadvantages of vaccines
+1356,teste,anti,anti|International
+177,teste,anti,anti|Anti-vaccine people
+1001,teste,anti,anti|Misinformation sources
+1161,teste,anti,anti|Disadvantages of vaccines
+548,teste,anti,anti|Restrictive policies
+1078,teste,anti,anti|Politics
+1448,dev,anti,anti|Restrictive policies
+557,teste,pro,pro|Restrictive policies
+618,dev,pro,pro|Vaccines type or laboratories
+1116,teste,pro,pro|Restrictive policies
+751,dev,pro,pro|International
+1282,dev,pro,pro|Other drugs
+1500,teste,pro,pro|Vaccines type or laboratories
+693,dev,pro,pro|COVID risks
+1327,dev,pro,pro|Politics
+1419,teste,pro,pro|COVID risks
+1086,teste,anti,anti|International
+1134,teste,anti,anti|Science
+1226,teste,anti,anti|Vaccines type or laboratories
+330,teste,anti,anti|Disadvantages of vaccines
+848,dev,anti,anti|Misinformation sources
+1221,teste,anti,anti|Disadvantages of vaccines
+703,teste,pro,pro|Information sources
+1296,dev,pro,pro|Information sources
+1357,dev,pro,pro|sem_cat
+994,teste,anti,anti|Disadvantages of vaccines
+1171,teste,anti,anti|International
+1206,teste,anti,anti|Disadvantages of vaccines
+449,teste,pro,pro|Science
+695,dev,pro,pro|Advantages of vaccines
+1403,teste,pro,pro|Information sources
+917,teste,pro,pro|Children
+978,dev,pro,pro|COVID risks
+1480,teste,pro,pro|International
+368,teste,anti,anti|Restrictive policies
+684,dev,anti,anti|Restrictive policies
+1498,dev,anti,anti|International
+1015,teste,pro,pro|Advantages of vaccines
+1224,dev,pro,pro|Advantages of vaccines
+1395,dev,pro,pro|Restrictive policies
+853,teste,pro,pro|Vaccines type or laboratories
+1154,teste,pro,pro|Misinformation sources
+962,teste,pro,pro|Information sources
+1024,teste,pro,pro|Misinformation sources
+270,teste,anti,anti|Children
+1338,dev,anti,anti|Misinformation sources
+370,teste,anti,anti|Restrictive policies
+742,dev,anti,anti|Disadvantages of vaccines
+156,teste,anti,anti|Religion
+1441,dev,anti,anti|Restrictive policies
+484,teste,anti,anti|Anti-vaccine people
+669,dev,anti,anti|International
+521,dev,pro,pro|COVID risks
+959,dev,pro,pro|Information sources
+1147,teste,pro,pro|Advantages of vaccines
+1351,teste,pro,pro|Advantages of vaccines
+1109,dev,anti,anti|Disadvantages of vaccines
+1461,teste,anti,anti|Restrictive policies
+790,teste,pro,pro|COVID risks
+1126,dev,pro,pro|Science
+740,teste,anti,anti|Disadvantages of vaccines
+1034,dev,anti,anti|Disadvantages of vaccines
+1248,dev,anti,anti|Disadvantages of vaccines
+1249,teste,anti,anti|Disadvantages of vaccines
+1234,teste,anti,anti|International
+1276,teste,anti,anti|Disadvantages of vaccines
+1305,teste,pro,pro|Politics
+1382,dev,pro,pro|COVID risks
+1232,teste,pro,pro|Anti-vaccine people
+1389,teste,pro,pro|Politics
+766,teste,pro,pro|Vaccines type or laboratories
+969,teste,pro,pro|Vaccines type or laboratories
+734,dev,anti,anti|Disadvantages of vaccines
+823,teste,anti,anti|Restrictive policies
+82,teste,pro,pro|Children
+705,teste,pro,pro|COVID risks
+266,teste,anti,anti|Restrictive policies
+1179,dev,anti,anti|Restrictive policies
+364,teste,pro,pro|Science
+883,dev,pro,pro|Anti-vaccine people
+844,dev,pro,pro|Misinformation sources
+1020,dev,pro,pro|COVID risks
+58,dev,anti,anti|Children
+397,dev,anti,anti|Vaccines type or laboratories
+508,dev,anti,anti|Anti-vaccine people
+990,dev,anti,anti|Disadvantages of vaccines
+655,teste,pro,pro|COVID risks
+1048,teste,pro,pro|COVID risks
+409,teste,anti,anti|Disadvantages of vaccines
+889,teste,anti,anti|COVID risks
+672,teste,pro,pro|Children
+1506,teste,pro,pro|sem_cat
+169,dev,pro,pro|Children
+380,teste,pro,pro|Children
+480,dev,pro,pro|Restrictive policies
+635,teste,pro,pro|COVID risks
+663,dev,pro,pro|Misinformation sources
+1114,teste,pro,pro|Misinformation sources
+874,teste,pro,pro|Advantages of vaccines
+1170,teste,pro,pro|Information sources
+675,teste,pro,pro|Misinformation sources
+972,teste,pro,pro|Misinformation sources
+157,teste,pro,pro|Information sources
+1203,dev,pro,pro|Information sources
+527,dev,anti,anti|Disadvantages of vaccines
+856,teste,anti,anti|Information sources
+240,teste,anti,anti|Vaccines type or laboratories
+1076,teste,anti,anti|Restrictive policies
+804,dev,anti,anti|Vaccines type or laboratories
+904,teste,anti,anti|Disadvantages of vaccines
+1033,teste,anti,anti|Anti-vaccine people
+1383,teste,anti,anti|International
+687,teste,pro,pro|COVID risks
+1068,teste,pro,pro|Vaccines type or laboratories
+616,teste,pro,pro|Misinformation sources
+932,teste,pro,pro|Information sources
+225,dev,pro,pro|Science
+624,teste,pro,pro|Religion
+343,teste,anti,anti|Vaccines type or laboratories
+1213,teste,anti,anti|Disadvantages of vaccines
+57,dev,pro,pro|Misinformation sources
+1281,teste,pro,pro|Misinformation sources
+764,teste,anti,anti|Disadvantages of vaccines
+1272,dev,anti,anti|Science
+346,dev,anti,anti|Disadvantages of vaccines
+553,teste,anti,anti|Anti-vaccine people
+789,teste,anti,anti|Vaccines type or laboratories
+1238,teste,anti,anti|Religion
+123,teste,pro,pro|Children
+828,teste,pro,pro|Children
+597,teste,anti,anti|Disadvantages of vaccines
+806,teste,anti,anti|Children
+121,teste,anti,anti|Restrictive policies
+426,dev,anti,anti|Information sources
+1307,teste,anti,anti|Information sources
+1472,teste,anti,anti|Restrictive policies
+1077,teste,pro,pro|COVID risks
+1145,dev,pro,pro|Science
+136,dev,pro,pro|COVID risks
+202,teste,pro,pro|COVID risks
+808,teste,anti,anti|Anti-vaccine people
+1258,dev,anti,anti|Religion
+604,teste,pro,pro|COVID risks
+774,dev,pro,pro|COVID risks
+415,teste,pro,pro|Children
+1121,dev,pro,pro|Advantages of vaccines
+947,teste,pro,pro|COVID risks
+1108,teste,pro,pro|Science
+1446,teste,pro,pro|sem_cat
+1519,dev,pro,pro|Anti-vaccine people
+1332,teste,pro,pro|Restrictive policies
+1429,teste,pro,pro|sem_cat
+706,dev,pro,pro|Other drugs
+1474,teste,pro,pro|Politics
+496,teste,anti,anti|Restrictive policies
+1038,dev,anti,anti|Restrictive policies
+756,teste,anti,anti|Restrictive policies
+1009,teste,anti,anti|Restrictive policies
+365,teste,pro,pro|Information sources
+492,teste,pro,pro|Restrictive policies
+444,teste,pro,pro|Children
+1490,teste,pro,pro|Children
+974,dev,anti,anti|Disadvantages of vaccines
+1365,teste,anti,anti|Misinformation sources
+190,teste,pro,pro|Restrictive policies
+1352,teste,pro,pro|sem_cat
+1283,dev,pro,pro|Advantages of vaccines
+1525,teste,pro,pro|Anti-vaccine people
+714,teste,anti,anti|Vaccines type or laboratories
+824,teste,anti,anti|Restrictive policies
+28,teste,pro,pro|COVID risks
+1133,teste,pro,pro|Anti-vaccine people
+911,teste,pro,pro|Children
+1160,teste,pro,pro|Children
+773,dev,anti,anti|International
+1274,teste,anti,anti|International
+232,dev,anti,anti|International
+1413,teste,anti,anti|Restrictive policies
+437,dev,pro,pro|COVID risks
+622,teste,pro,pro|Information sources
+1175,teste,pro,pro|Restrictive policies
+1207,dev,pro,pro|COVID risks
+1321,dev,pro,pro|sem_cat
+1354,dev,pro,pro|Children
+72,teste,pro,pro|COVID risks
+903,teste,pro,pro|International
+498,dev,anti,anti|Children
+619,teste,anti,anti|Information sources
+949,dev,anti,anti|Restrictive policies
+1375,dev,anti,anti|Politics
+137,teste,anti,anti|Religion
+490,teste,anti,anti|Restrictive policies
+112,teste,pro,pro|Anti-vaccine people
+676,teste,pro,pro|Restrictive policies
+239,teste,pro,pro|Politics
+977,dev,pro,pro|COVID risks
+316,teste,pro,pro|Children
+1210,teste,pro,pro|Advantages of vaccines
+390,dev,pro,pro|Children
+1350,dev,pro,pro|Information sources
+982,dev,pro,pro|Restrictive policies
+1162,teste,pro,pro|Other drugs
+594,teste,anti,anti|Vaccines type or laboratories
+952,dev,anti,anti|Vaccines type or laboratories
+1049,teste,anti,anti|International
+1243,dev,anti,anti|Disadvantages of vaccines
+776,teste,anti,anti|Disadvantages of vaccines
+916,dev,anti,anti|Disadvantages of vaccines
+229,teste,pro,pro|Anti-vaccine people
+14,teste,pro,pro|Children
+1106,teste,pro,pro|COVID risks
+640,teste,pro,pro|COVID risks
+846,teste,anti,anti|Children
+580,teste,pro,pro|Misinformation sources
+41,teste,anti,anti|Restrictive policies
+850,dev,pro,pro|COVID risks
+1343,teste,anti,anti|Children
+1047,teste,anti,anti|Information sources
+1212,dev,pro,pro|International
+15,teste,anti,anti|Restrictive policies
+869,teste,anti,anti|Restrictive policies
+65,teste,pro,pro|Anti-vaccine people
+862,teste,anti,anti|Restrictive policies
+825,teste,anti,anti|Restrictive policies
+181,dev,anti,anti|Other drugs
+1463,teste,pro,pro|COVID risks
+113,teste,pro,pro|Restrictive policies
+1315,teste,pro,pro|sem_cat
+1158,teste,anti,anti|Vaccines type or laboratories
+109,teste,pro,pro|Information sources
+983,teste,pro,pro|Misinformation sources
+958,teste,pro,pro|Other drugs
+233,dev,pro,pro|Other drugs
+950,dev,pro,pro|Religion
+141,teste,pro,pro|Anti-vaccine people
+689,teste,pro,pro|Advantages of vaccines
+268,teste,pro,pro|Science
+360,teste,anti,anti|Restrictive policies
+131,dev,pro,pro|Restrictive policies
+1314,teste,pro,pro|Anti-vaccine people
+507,teste,pro,pro|Advantages of vaccines
+284,teste,pro,pro|COVID risks
+91,teste,pro,pro|COVID risks
+1163,teste,pro,pro|Anti-vaccine people
+836,teste,anti,anti|Restrictive policies
+262,teste,pro,pro|Anti-vaccine people
+201,teste,anti,anti|Disadvantages of vaccines
+253,teste,pro,pro|Misinformation sources
+1105,teste,anti,anti|Information sources
+66,teste,pro,pro|Children
+1497,teste,pro,pro|Information sources
+214,teste,pro,pro|Anti-vaccine people
+621,dev,anti,anti|COVID risks
+708,teste,pro,pro|Other drugs
+223,teste,pro,pro|Science
+1491,teste,pro,pro|Politics
+729,dev,pro,pro|Misinformation sources
+1417,teste,pro,pro|Misinformation sources
+654,teste,pro,pro|Anti-vaccine people
+1422,dev,pro,pro|International
+538,dev,pro,pro|Science
+659,teste,anti,anti|COVID risks
+96,teste,pro,pro|Misinformation sources
+1080,teste,anti,anti|Vaccines type or laboratories
+436,dev,pro,pro|Advantages of vaccines
+1035,dev,pro,pro|Other drugs
+33,teste,pro,pro|Science
+934,teste,pro,pro|Anti-vaccine people
+665,teste,pro,pro|Anti-vaccine people
+94,teste,pro,pro|COVID risks
+1098,dev,pro,pro|Misinformation sources
+78,dev,pro,pro|COVID risks
+738,dev,pro,pro|Restrictive policies
+855,teste,pro,pro|Misinformation sources
+1246,dev,anti,anti|International
+491,teste,pro,pro|Anti-vaccine people
+1165,teste,pro,pro|Other drugs
+168,teste,anti,anti|Vaccines type or laboratories
+348,teste,anti,anti|Disadvantages of vaccines
+1111,teste,anti,anti|Science
+49,teste,pro,pro|Misinformation sources
+151,dev,pro,pro|COVID risks
+1454,teste,anti,anti|sem_cat
+1101,dev,pro,pro|Anti-vaccine people
+193,dev,pro,pro|COVID risks
+428,teste,pro,pro|International
+166,teste,pro,pro|Children
+5,teste,pro,pro|COVID risks
+99,dev,pro,pro|COVID risks
+83,teste,anti,anti|International
+1455,dev,pro,pro|COVID risks
+1368,teste,anti,anti|International
+502,teste,anti,anti|Science
+75,teste,pro,pro|COVID risks
+276,teste,anti,anti|Restrictive policies
+960,teste,anti,anti|Disadvantages of vaccines
+205,teste,anti,anti|Disadvantages of vaccines
+208,dev,anti,anti|Disadvantages of vaccines
+633,teste,pro,pro|Restrictive policies
+238,dev,pro,pro|Information sources
+872,dev,pro,pro|COVID risks
+857,dev,pro,pro|Anti-vaccine people
+1152,teste,pro,pro|Restrictive policies
+139,teste,pro,pro|Restrictive policies
+658,teste,pro,pro|Anti-vaccine people
+1135,dev,pro,pro|Restrictive policies
+1387,teste,pro,pro|sem_cat
+1252,teste,anti,anti|Vaccines type or laboratories
+877,teste,anti,anti|Restrictive policies
+976,teste,anti,anti|Disadvantages of vaccines
+566,teste,pro,pro|COVID risks
+59,dev,pro,pro|Misinformation sources
+743,teste,anti,anti|Vaccines type or laboratories
+1029,teste,anti,anti|Misinformation sources
+1372,teste,pro,pro|sem_cat
+644,dev,anti,anti|COVID risks
+97,teste,pro,pro|Anti-vaccine people
+1159,dev,anti,anti|Vaccines type or laboratories
+324,dev,anti,anti|Disadvantages of vaccines
+724,teste,anti,anti|Disadvantages of vaccines
+1470,teste,pro,pro|sem_cat
+321,dev,pro,pro|COVID risks
+1255,teste,anti,anti|Disadvantages of vaccines
+1466,teste,anti,anti|Anti-vaccine people
+16,dev,anti,anti|Disadvantages of vaccines
+534,dev,pro,pro|COVID risks
+286,teste,pro,pro|Information sources
+1385,dev,anti,anti|Information sources
+561,teste,anti,anti|Vaccines type or laboratories
+1410,dev,pro,pro|Other drugs
+812,dev,pro,pro|Children
+516,dev,pro,pro|Restrictive policies
+511,teste,pro,pro|Science
+525,teste,anti,anti|Disadvantages of vaccines
+970,teste,anti,anti|Vaccines type or laboratories
+1300,teste,anti,anti|International
+34,teste,pro,pro|Misinformation sources
+22,teste,pro,pro|Misinformation sources
+1453,teste,anti,anti|Restrictive policies
+562,dev,pro,pro|Anti-vaccine people
+942,teste,anti,anti|Misinformation sources
+575,dev,pro,pro|Information sources
+997,teste,pro,pro|Restrictive policies
+463,dev,pro,pro|Children
+1176,teste,anti,anti|Disadvantages of vaccines
+258,teste,pro,pro|Children
+170,dev,anti,anti|Vaccines type or laboratories
+683,teste,pro,pro|Children
+300,teste,anti,anti|Disadvantages of vaccines
+71,teste,pro,pro|Restrictive policies
+230,teste,anti,anti|Disadvantages of vaccines
+1125,teste,anti,anti|Vaccines type or laboratories
+1358,teste,pro,pro|Advantages of vaccines
+241,teste,pro,pro|Children
+217,teste,pro,pro|COVID risks
+106,dev,pro,pro|Misinformation sources
+1471,teste,nenhum,nenhum|International
+180,teste,pro,pro|Restrictive policies
+176,teste,pro,pro|Politics
+19,teste,pro,pro|Advantages of vaccines
+1349,teste,anti,anti|International
+361,teste,pro,pro|Religion
+1445,teste,pro,pro|sem_cat
+965,dev,pro,pro|COVID risks
+1496,dev,anti,anti|sem_cat
+1223,dev,pro,pro|Advantages of vaccines
+614,dev,pro,pro|Children
+1292,teste,pro,pro|COVID risks
+441,teste,pro,pro|COVID risks
+840,dev,anti,anti|Disadvantages of vaccines
+777,teste,anti,anti|International
+222,dev,anti,anti|Disadvantages of vaccines
+1104,dev,pro,pro|Anti-vaccine people
+1521,teste,pro,pro|Other drugs
+366,dev,anti,anti|Information sources
+1062,dev,pro,pro|Advantages of vaccines
+1055,teste,pro,pro|Misinformation sources
+1284,dev,anti,anti|Vaccines type or laboratories
+206,teste,pro,pro|Misinformation sources
+248,dev,anti,anti|Restrictive policies
+1267,teste,anti,anti|Politics
+56,dev,pro,pro|sem_cat
+495,dev,pro,pro|Children
+478,teste,anti,anti|Misinformation sources
+84,dev,pro,pro|Restrictive policies
+1437,dev,anti,anti|Politics
+38,dev,pro,pro|Children
+493,teste,anti,anti|Disadvantages of vaccines
+637,dev,pro,pro|Anti-vaccine people
+326,dev,anti,anti|Science
+944,dev,anti,anti|Anti-vaccine people
+1279,teste,anti,anti|Politics
+572,teste,pro,pro|Advantages of vaccines
+746,teste,pro,pro|Anti-vaccine people
+782,teste,pro,pro|Vaccines type or laboratories
+27,teste,pro,pro|Advantages of vaccines
+305,teste,anti,anti|Disadvantages of vaccines
+1393,dev,pro,pro|sem_cat
+477,teste,pro,pro|COVID risks
+1488,teste,pro,pro|Information sources
+1353,dev,pro,pro|sem_cat
+285,teste,pro,pro|International
+600,dev,anti,anti|Anti-vaccine people
+383,teste,anti,anti|International
+617,teste,anti,anti|Information sources
+505,teste,anti,anti|International
+367,teste,pro,pro|Religion
+1481,dev,anti,anti|Religion
+1398,teste,anti,anti|Children
+388,teste,pro,pro|COVID risks
+475,teste,anti,anti|Disadvantages of vaccines
+631,teste,anti,anti|COVID risks
+757,teste,pro,pro|Children
+1460,teste,anti,anti|Restrictive policies
+1253,teste,anti,anti|Disadvantages of vaccines
+933,teste,anti,anti|Disadvantages of vaccines
+711,teste,pro,pro|Advantages of vaccines
+373,teste,pro,pro|Children
+1405,dev,pro,pro|COVID risks
+306,dev,pro,pro|COVID risks
+1516,teste,nenhum,nenhum|Information sources
+912,teste,pro,pro|Religion
+1337,dev,pro,pro|COVID risks
+339,teste,pro,pro|Anti-vaccine people
+925,teste,pro,pro|Science
+395,teste,pro,pro|COVID risks
+138,teste,pro,pro|Anti-vaccine people
+1277,dev,anti,anti|Information sources
+1090,teste,pro,pro|COVID risks
+20,dev,pro,pro|Children
+231,dev,pro,pro|Advantages of vaccines
+778,dev,anti,anti|Restrictive policies
+45,teste,pro,pro|Advantages of vaccines
+685,dev,anti,anti|Science
+1228,teste,pro,pro|Anti-vaccine people
+833,teste,anti,anti|Disadvantages of vaccines
+1341,teste,pro,pro|Advantages of vaccines
+381,teste,pro,pro|Misinformation sources
+1197,teste,anti,anti|Restrictive policies
+80,teste,pro,pro|Anti-vaccine people
+1079,dev,anti,anti|Information sources
+24,teste,pro,pro|International
+68,teste,pro,pro|Religion
+1151,teste,anti,anti|Vaccines type or laboratories
+439,teste,pro,pro|COVID risks
+787,teste,pro,pro|COVID risks
+1520,teste,pro,pro|sem_cat
+1355,teste,pro,pro|Misinformation sources
+1311,dev,pro,pro|sem_cat
+1475,teste,pro,pro|Politics
+989,teste,pro,pro|Children
+1085,teste,anti,anti|Disadvantages of vaccines
+1333,teste,pro,pro|Restrictive policies
+114,teste,anti,anti|International
+464,dev,pro,pro|Misinformation sources
+456,teste,pro,pro|Anti-vaccine people
+1205,dev,pro,pro|Children
+834,teste,pro,pro|Misinformation sources
+1502,dev,pro,pro|Information sources
+1287,dev,pro,pro|Disadvantages of vaccines
+915,teste,pro,pro|International
+1059,dev,anti,anti|Disadvantages of vaccines
+1181,teste,pro,pro|Vaccines type or laboratories
+1117,teste,anti,anti|Anti-vaccine people
+1022,teste,anti,anti|Information sources
+39,dev,pro,pro|Restrictive policies
+1450,teste,pro,pro|Anti-vaccine people
+215,teste,pro,pro|Children
+271,teste,pro,pro|COVID risks
+1426,teste,pro,pro|Politics
+77,teste,anti,anti|Restrictive policies
+613,dev,anti,anti|Information sources
+1465,teste,pro,pro|Information sources
+898,dev,anti,anti|Information sources
+2,dev,pro,pro|Anti-vaccine people
+188,teste,anti,anti|Vaccines type or laboratories
+1153,dev,anti,anti|Restrictive policies
+610,teste,pro,pro|Restrictive policies
+620,dev,pro,pro|Restrictive policies
+283,dev,pro,pro|COVID risks
+1411,dev,pro,pro|Misinformation sources
+815,teste,anti,anti|Restrictive policies
+86,teste,pro,pro|Restrictive policies
+1409,teste,pro,pro|COVID risks
+1394,teste,pro,pro|sem_cat
+17,dev,pro,pro|Children
+48,teste,anti,anti|Disadvantages of vaccines
+1507,dev,pro,pro|sem_cat
+120,teste,pro,pro|Anti-vaccine people
+1113,teste,pro,pro|COVID risks
+369,teste,pro,pro|Information sources
+586,dev,pro,pro|Science
+387,teste,pro,pro|Science
+605,dev,anti,anti|Disadvantages of vaccines
+1363,teste,pro,pro|International
+741,teste,pro,pro|Anti-vaccine people
+1388,dev,pro,pro|Restrictive policies
+896,teste,pro,pro|Children
+602,dev,anti,anti|International
+996,teste,anti,anti|COVID risks
+1367,teste,anti,anti|International
+107,dev,pro,pro|Anti-vaccine people
+682,teste,pro,pro|COVID risks
+1060,teste,anti,anti|Restrictive policies
+1045,dev,anti,anti|Information sources
+323,dev,pro,pro|COVID risks
+204,teste,pro,pro|COVID risks
+403,teste,pro,pro|Restrictive policies
+54,dev,pro,pro|Misinformation sources
+1443,teste,pro,pro|sem_cat
+1278,dev,anti,anti|Information sources
+536,teste,pro,pro|Religion
+297,teste,pro,pro|Religion
+1215,dev,pro,pro|Advantages of vaccines
+183,teste,pro,pro|Misinformation sources
+762,teste,pro,pro|Misinformation sources
+1235,teste,pro,pro|Religion
+914,dev,pro,pro|Science
+1061,dev,pro,pro|Restrictive policies
+506,teste,pro,pro|COVID risks
+227,teste,pro,pro|Religion
+681,teste,pro,pro|Anti-vaccine people
+907,dev,anti,anti|Information sources
+1288,teste,pro,pro|Information sources
+148,dev,anti,anti|Politics
+184,teste,anti,anti|Restrictive policies
+936,dev,pro,pro|Politics
+1100,dev,anti,anti|International
+1447,dev,anti,anti|Anti-vaccine people
+110,dev,pro,pro|Restrictive policies
+591,teste,anti,anti|International
+143,dev,pro,pro|Misinformation sources
+200,dev,anti,anti|Restrictive policies
+237,teste,anti,anti|Restrictive policies
+1407,teste,pro,pro|Restrictive policies
+31,teste,pro,pro|COVID risks
+867,teste,pro,pro|Information sources
+1418,teste,pro,pro|COVID risks
+1428,dev,anti,anti|Vaccines type or laboratories
+628,teste,anti,anti|Science
+1157,teste,pro,pro|Advantages of vaccines
+560,teste,pro,pro|COVID risks
+53,teste,pro,pro|Anti-vaccine people
+362,teste,anti,anti|Anti-vaccine people
+1319,teste,anti,anti|Restrictive policies
+102,teste,pro,pro|Religion
+294,teste,pro,pro|International
+1492,dev,pro,pro|Advantages of vaccines
+50,dev,pro,pro|Children
+1330,teste,pro,pro|Misinformation sources
+1508,teste,pro,pro|sem_cat
+1415,teste,pro,pro|sem_cat
+1408,teste,pro,pro|Anti-vaccine people
+62,teste,pro,pro|sem_cat
+858,teste,anti,anti|Information sources
+30,teste,anti,anti|Restrictive policies
+991,teste,pro,pro|COVID risks
+1452,teste,pro,pro|COVID risks
+924,teste,anti,anti|Children
+499,teste,pro,pro|COVID risks
+76,teste,pro,pro|COVID risks
+164,dev,pro,pro|Advantages of vaccines
+1361,dev,pro,pro|sem_cat
+953,teste,pro,pro|Information sources
+1094,teste,anti,anti|Children
+210,teste,anti,anti|Restrictive policies
+7,dev,pro,pro|Science
+1326,dev,anti,anti|Restrictive policies
+1486,teste,anti,anti|Vaccines type or laboratories
+909,teste,pro,pro|Restrictive policies
+679,teste,pro,pro|Restrictive policies
+331,teste,pro,pro|COVID risks
+791,dev,anti,anti|Restrictive policies
+11,teste,pro,pro|Misinformation sources
+641,teste,anti,anti|Anti-vaccine people
+519,teste,pro,pro|Religion
+922,teste,pro,pro|Misinformation sources
+42,teste,pro,pro|Children
+1518,dev,pro,pro|Information sources
+427,teste,pro,pro|COVID risks
+363,teste,anti,anti|Vaccines type or laboratories
+771,dev,anti,anti|International
+1464,teste,anti,anti|International
+1434,teste,pro,pro|Advantages of vaccines
+809,teste,pro,pro|Advantages of vaccines
+87,teste,pro,pro|Advantages of vaccines
+1195,teste,pro,pro|Children
+418,teste,pro,pro|Anti-vaccine people
+1166,dev,anti,anti|Disadvantages of vaccines
+1063,dev,anti,anti|Disadvantages of vaccines
+1359,dev,pro,pro|International
+1386,teste,nenhum,nenhum|sem_cat
+337,dev,pro,pro|Advantages of vaccines
+1402,dev,pro,pro|sem_cat
+89,teste,pro,pro|Restrictive policies
+1220,teste,pro,pro|COVID risks
+979,teste,anti,anti|Disadvantages of vaccines

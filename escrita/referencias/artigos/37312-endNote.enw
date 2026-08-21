@@ -1,0 +1,16 @@
+	
+%A Heine, Alexandre
+%A Barreto, Mariana Porto
+%A Motta Ferreira, Rodrigo
+%A Haeusler, Edward Hermann
+%A Lifschitz, Sérgio
+%D 2025
+%T  Addressing Database-Related Issues in Digital Social Network Data Analysis
+%K 
+%X The analysis of vast Digital Social Network datasets often neglects database systems, compromising effectiveness and efficiency, particularly in qualitative studies. We present some preliminary practical experiments, including quantitative mention counting and qualitative topic identification, showcasing (i) that managing large-scale social data is relevant and (ii) how leveraging DBMS could yield more robust and insightful social network data analysis.
+%U https://sol.sbc.org.br/index.php/sbbd/article/view/37312
+%J Anais do Simpósio Brasileiro de Banco de Dados (SBBD)
+%0 Journal Article
+%R 10.5753/sbbd.2025.247844
+%P 977-983%@ 2763-8979
+%8 2025-09-29

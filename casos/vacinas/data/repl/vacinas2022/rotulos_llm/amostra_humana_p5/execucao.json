@@ -1,0 +1,26 @@
+{
+  "conjunto": "amostra_humana",
+  "modelo": "claude-haiku-4-5-20251001",
+  "prompt_versao": "p5",
+  "prompt_sha256_12": "b9be726cdded",
+  "por_chamada": 10,
+  "temperatura": 0,
+  "batch_id": [
+    "msgbatch_01RpmoRGgbpAY496vTt6Tyom"
+  ],
+  "quando": "2026-07-27T18:04:33",
+  "n_tweets": 100,
+  "n_rotulados": 100,
+  "n_faltando": 0,
+  "ids_faltando": [],
+  "n_ids_corrigidos_por_posicao": 0,
+  "ids_corrigidos": [],
+  "uso_tokens": {
+    "entrada": 29121,
+    "saida": 3001,
+    "cache_leitura": 0,
+    "cache_escrita": 0
+  },
+  "custo_reservado_usd": 0.03215,
+  "custo_real_usd": 0.022063
+}

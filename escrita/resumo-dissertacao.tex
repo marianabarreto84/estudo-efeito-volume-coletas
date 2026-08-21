@@ -1,0 +1,277 @@
+%% -*- coding: utf-8; -*-
+%% Resumo estruturado da dissertação (visão geral, capítulo a capítulo).
+%% Documento autônomo, classe article (NÃO usa o template PUC-Rio).
+%% Compilar: pdflatex resumo-dissertacao
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\setlength{\parskip}{0.4em}
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{0.6em}{}
+
+\title{Resumo Estruturado da Dissertação\\
+\large O Efeito do Volume de Coleta sobre os Resultados de Análises:\\
+Redes Sociais Digitais como Caso de Estudo}
+\author{Mariana Barreto \quad (orientador: Prof.\ Sérgio Lifschitz)}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\noindent Este documento resume o estado atual da dissertação, capítulo a capítulo
+e seção a seção, e indica o que ainda será acrescentado à versão final. A
+introdução será escrita ao final, quando os demais capítulos estiverem
+consolidados; dos seis casos previstos, apenas um foi executado até agora.
+
+% =====================================================================
+\section{Tema e pergunta central}
+
+A dissertação investiga um problema metodológico geral: o efeito do volume de
+dados coletados sobre as conclusões de uma análise. Para as análises mais
+praticadas sobre Redes Sociais Digitais (RSD), como detecção de comunidades,
+centralidade, sentimento e modelagem de tópico, pergunta-se se coletar pouco ou
+muito muda a conclusão a que se chega. As RSD entram como caso de estudo, por
+serem um domínio em que esse efeito é ao mesmo tempo agudo e mensurável.
+
+A entrega não é um volume ideal único, e sim a identificação, por tipo de
+análise, de quando o volume de coleta é decisivo e quando é praticamente
+indiferente. Ficam fora do escopo a explicação do mecanismo (por que uma análise é
+sensível ou robusta ao volume) e a teoria estatística de amostragem; o efeito é
+medido empiricamente, comparando coletar mais e menos sobre o mesmo tema.
+
+% =====================================================================
+\section{Introdução (a redigir ao final)}
+
+A introdução será escrita ao final, quando os demais capítulos estiverem prontos.
+
+% =====================================================================
+\section{Contexto, Objetivos e Contribuições}
+
+\subsection{Contexto: o levantamento realizado}
+
+Um levantamento sistemático da literatura, reportado em artigo autônomo companion,
+fundamenta empiricamente a motivação. Foram catalogados 13.395 artigos; 2.139
+tiveram a coleta caracterizada por extração automática; e, após excluir 421 que não
+coletam dados de RSD (entrevistas e estudos qualitativos), restaram 1.718 como base
+de análise. O achado central para esta dissertação é sobre volume. O volume
+coletado varia por mais de sete ordens de grandeza, com
+mediana em torno de 273 mil itens, mas 40\% dos artigos passam de um milhão e 22\%
+coletam ao menos dez milhões. Coletar muito, porém, não implica amostrar: entre os
+maiores coletores quase nenhum amostra estatisticamente, e a fração de fato
+analisada pode ser mínima. A literatura dimensiona o volume por conveniência e
+tipicamente não verifica se esse recorte preserva as conclusões.
+
+\subsection{Objetivos, perguntas de pesquisa e contribuições}
+
+O objetivo é propor e instrumentar um protocolo que meça, para os tipos de análise
+mais recorrentes, o efeito de coletar mais do que o artigo coletou, produzindo
+evidência sobre para quais análises o volume é decisivo, e não uma prescrição
+numérica única. As três perguntas de pesquisa são: (PP1) coletar mais muda a
+conclusão, isto é, coletar mais era necessário?; (PP2) a conclusão já havia
+convergido no volume original, caso em que coletar menos bastaria, ou ainda se
+movia, indicando coleta prematura?; (PP3) para quais tipos de análise o volume é
+uma variável crítica e para quais é inócuo?
+
+As contribuições previstas são um protocolo reprodutível de replicação por
+expansão, com testes de mudança e de convergência da conclusão; um conjunto fixado
+de seis casos replicáveis, um por rede social; o levantamento sistemático como
+contribuição instrumental; e, como caso de estudo, evidência concreta sobre um
+problema metodológico que extrapola as RSD.
+
+% =====================================================================
+\section{Metodologia}
+
+\subsection{Lógica do protocolo}
+
+Para cada artigo, refaz-se a análise sobre a coleta original do próprio artigo
+(que chamamos de $A_{\text{paper}}$) e sobre uma coleta ampliada no mesmo tema
+($A_{\text{mais}}$), e comparam-se os resultados nos dois volumes. Duas perguntas
+guiam a comparação: o resultado mudou ao coletar mais, e ele já havia se
+estabilizado no volume original ou ainda estava mudando? Nenhum dos dois desfechos
+é um fracasso. Se o resultado muda, a coleta original era curta demais para
+sustentar aquela conclusão; se não muda, mostra-se que a conclusão não dependia de
+coletar mais, o que é um achado igualmente útil.
+
+Para não tratar como mudança qualquer diferença pequena, exige-se que ela seja ao
+mesmo tempo estatisticamente clara e grande o bastante para inverter a afirmação do
+artigo, sendo esta última a que de fato importa. Como a coleta ampliada permanece
+no mesmo tema, ela aproxima o retrato do assunto real em vez de introduzir um
+assunto diferente.
+
+\subsection{Eixos de expansão}
+
+Cada artigo ocupa um ponto restrito em um ou mais eixos de coleta, e a expansão
+percorre esses eixos sem sair do tema. Os eixos considerados são o volume (por
+exemplo, sair do topo de uma listagem para o conjunto completo), a janela
+temporal, a cobertura de fontes, a largura do filtro (mais hashtags ou termos) e
+a granularidade (incluir comentários e respostas). O tema é definido pelo próprio
+escopo do artigo, e é esse filtro temático que se mantém ao coletar mais.
+
+\subsection{Métricas de divergência por tipo de análise}
+
+Cada tipo de análise recebe métricas próprias para comparar a coleta original com
+a expandida. Para detecção de comunidades, usam-se índices de concordância entre
+partições (NMI e ARI) e a variação de modularidade, com Louvain ou Leiden. Para
+centralidade, correlações de ordenação (Spearman, Kendall) e sobreposição dos
+mais centrais. Para modelagem de tópico, o alinhamento das distribuições
+palavra-tópico e a sobrevivência dos tópicos. Para sentimento, a divergência entre
+distribuições de polaridade e o deslocamento da classe majoritária. Em todos, o
+modelo ou algoritmo é fixado ao do artigo, para não confundir efeito de coleta com
+efeito de método.
+
+\subsection{Coleta expandida por plataforma}
+
+A viabilidade de coletar mais depende da plataforma. O Reddit é o caso ideal,
+porque arquivos históricos fornecem a população completa de um subreddit, enquanto
+a API oficial entrega apenas cerca de mil itens por listagem. O YouTube tem
+amostragem forçada pelo teto de resultados por consulta. A Meta Content Library
+(Instagram e Facebook) e a API de pesquisa do TikTok, acessíveis
+institucionalmente, impõem cotas que delimitam a coleta expandida.
+
+\subsection{Conjunto de casos}
+
+O trabalho fixa seis casos, um por rede social distinta, cobrindo os tipos de
+análise mais recorrentes, escolhidos por terem sub-coletado de forma expansível e
+por ainda permitirem coleta hoje. O Twitter entra por exceção: a coleta nova é
+inviável, mas o laboratório eTC preserva um acervo histórico das eleições de 2014,
+o que dispensa coleta nova. Os cinco casos restantes cobrem Reddit, YouTube,
+TikTok e Instagram/Facebook (Seção~\ref{sec:futuro}).
+
+\subsection{Protocolo operacional}
+
+A execução procede em cinco fases: reprodução do artigo sobre a coleta original;
+coleta e congelamento de um superconjunto temático em versão fixa; construção da
+curva do resultado em frações crescentes de volume; cálculo da divergência com os
+dois testes; e síntese por caso. O entregável central é uma tabela mestre que
+registra, por análise e rede, se a coleta do artigo bastava, se a conclusão mudou
+e qual a fração mínima que a estabiliza, acompanhada das curvas e de uma leitura
+de quando o volume é decisivo.
+
+% =====================================================================
+\section{Primeiro caso executado: \#Eleições2014 no Twitter}
+
+\subsection{O que o artigo afirmou e o que se coletou}
+
+O caso replica o estudo de Ituassu e Lifschitz sobre a hashtag \#Eleições2014 no
+segundo turno de 2014. O artigo analisou uma amostra de 700 tweets (100 por dia,
+em horários de pico, na última semana), rotulados à mão, e afirmou, no eixo de
+mídia, que o retuíte de mídia vertical superava 50\% em quase toda a semana (H1) e
+que a mídia horizontal chegava a rivalizar com a vertical em ao menos um dia (H2).
+A expansão reproduz a classificação de mídia sobre o universo temático da mesma
+janela, com dezenas de milhares de tweets. Uma ressalva metodológica registra que
+o acervo é uma coleta vizinha, não um superconjunto estrito, o que leva o desenho
+a separar o efeito de volume do efeito de escopo. Os eixos de preferência
+eleitoral e de temas ainda dependem de rotulagem manual e não são avaliados.
+
+\subsection{O que se sustenta ao coletar mais (ponto positivo)}
+
+O resultado qualitativo central do artigo se sustenta. Entre o conteúdo com link
+de mídia identificável, a mídia vertical domina a horizontal em cerca de cinco
+para um, com folga estatística. Essa conclusão não depende do volume, pois já
+valia na amostra pequena e permanece no universo completo. Para ela, coletar mais
+não teria alterado o resultado, e a coleta original já bastava.
+
+\subsection{O que só o volume maior revela (pontos negativos)}
+
+Três afirmações quantitativas não sobrevivem à expansão, e só se poderia sabê-lo
+coletando mais. O limiar de retuítes de mídia vertical acima de 50\% (H1) é
+artefato da amostragem por pico: cai de cerca de 48\% na amostra para 36\% no
+universo, com intervalos disjuntos. A rivalidade da mídia horizontal (H2) não se
+reproduz. E a amostra não reconstrói nem as proporções do universo de onde saiu.
+Em um eixo adicional, ampliar o escopo de hashtags derruba a dominância da mídia
+vertical, um efeito que se mostra ligado à hashtag e não à composição de autores,
+comprovado no nível do indivíduo. A predição registrada antes da execução, de que
+H1 provavelmente não mudaria, foi refutada pelos dados.
+
+\subsection{Leitura em termos de volume}
+
+O caso ilustra os dois desfechos possíveis. Há uma conclusão robusta ao
+volume, para a qual a coleta original bastava, e há conclusões que a coleta pequena
+dava como certas mas que mais dados invertem. Para este caso, portanto, se coletar
+mais muda a conclusão depende do tipo de resultado em questão. Falta ainda o eixo
+de preferência eleitoral, onde o artigo faz sua afirmação mais forte e onde o teste
+de volume será mais informativo. Artigo replicado: ``Temas e Mídia em
+\#Eleições2014: Twitter, opinião pública e comunicação política no contexto
+eleitoral brasileiro'' (Ituassu; Lifschitz, 2015).
+
+% =====================================================================
+\section{Demais casos (a executar)}
+\label{sec:futuro}
+
+A versão final terá os seis casos. Além de completar os eixos pendentes do caso do
+Twitter (preferência eleitoral e temas), serão executados os cinco casos abaixo,
+cada um seguindo o mesmo protocolo e rendendo um capítulo de resultados análogo ao
+do Twitter. Todos alimentarão a tabela mestre, que registra por análise se o
+volume é decisivo, e ao final embasarão uma recomendação geral sobre o que fazer
+quando uma conclusão depende do volume.
+
+\begin{description}[leftmargin=1.4em,style=nextline]
+  \item[Centralidade --- Reddit (r/MyBoyfriendIsAI).] O artigo estuda a comunidade
+  do subreddit r/MyBoyfriendIsAI, dedicado a relações afetivas entre pessoas e
+  companhias de IA, e coletou apenas cerca de 1.500 publicações mais bem ranqueadas
+  via API. Como o tema é o próprio subreddit, a expansão para todas as publicações e comentários é natural. Testa
+  se o ranking de atores centrais e a permanência dos mais centrais sobrevivem ao
+  volume maior. Artigo original: ``My Boyfriend is AI'': A Computational Analysis
+  of Human--AI Companionship in Reddit's AI Community (Pataranutaporn et al., 2025).
+  \item[Detecção de comunidades --- YouTube.] O artigo analisa o viés do algoritmo
+  de recomendação do YouTube durante a eleição de 2024 em Taiwan, cobrindo duas
+  semanas e apenas 100 de quase 2.000 vídeos-semente. A expansão usa todos esses
+  vídeos-semente, uma
+  varredura mais profunda e uma janela maior. Testa se a partição em comunidades
+  (concordância por NMI e ARI) e a modularidade se mantêm. Artigo original:
+  Influence of Symbolic Content on Recommendation Bias: Analyzing YouTube's
+  Algorithm During Taiwan's 2024 Election (Cakmak; Agarwal, 2025).
+  \item[Modelagem de tópico --- TikTok.] O artigo reúne vídeos do TikTok sobre
+  transtornos alimentares, a partir de um conjunto curado de hashtags do tema, e
+  aplica modelagem de tópicos para mapear os assuntos que circulam nesse conteúdo.
+  A expansão parte dessas hashtags iniciais e incorpora, de forma iterativa, outras
+  hashtags que aparecem junto delas nos vídeos coletados, ampliando o conjunto de
+  vídeos do tema, e inclui também os comentários; testa-se se os tópicos encontrados
+  e a sua importância relativa se mantêm quando o volume cresce. Artigo original: EDTok: A
+  Dataset for Eating Disorder Content on TikTok (Bickham et al., 2025).
+  \item[Classificação --- Instagram/Facebook (possibilidade).] Este caso ainda
+  não tem um artigo definido. Idealmente seria um caso de classificação no
+  Instagram/Facebook, o que permitiria, mais adiante, não concentrar dois casos no
+  Reddit. Por ora fica registrado como possibilidade, a ser fechado quando um artigo
+  adequado for encontrado.
+  \item[Classificação --- Reddit.] O artigo analisa discussões sobre aborto no
+  Reddit após a decisão Dobbs, que derrubou o direito constitucional ao aborto nos
+  Estados Unidos, classificando os textos em relatos e barreiras de acesso. Partiu
+  de quatro subreddits e uma janela de cerca de seis meses; a expansão leva o termo
+  de busca sobre aborto a todo o Reddit e alarga a janela, testando se o resultado
+  da classificação muda com o volume. Artigo original: Reddit
+  After Roe: A Computational Analysis of Abortion Narratives and Barriers in the
+  Wake of Dobbs (Pessianzadeh et al., 2026).
+\end{description}
+
+Com os seis casos completos, a contribuição final será um quadro, por tipo de
+análise, de para quais o volume de coleta decide a conclusão e para quais não,
+acompanhado da recomendação prática derivada dele.
+
+% =====================================================================
+\section{Conclusão parcial e próximos passos}
+
+\subsection{Limitações conhecidas}
+
+As principais limitações reconhecidas são a acessibilidade das plataformas, com o
+Twitter entrando apenas por acervo histórico e o CrowdTangle ficando de fora; o
+fato de o acervo do Twitter ser um superconjunto aproximado, o que exige separar
+volume de escopo; o custo de coletar superconjuntos sob cotas; e o cuidado de
+fixar o método de cada análise para não confundir efeito de coleta com efeito de
+modelo. Além disso, a explicação do mecanismo e a teoria de amostragem ficam
+declaradamente fora do escopo.
+
+\subsection{Próximos passos}
+
+Os próximos passos são fechar o caso do Twitter, com a rotulagem de preferência
+eleitoral e temas e o teste da tese central sobre diferenças entre públicos;
+executar os cinco casos restantes; consolidar a tabela mestre e as curvas; e, com
+mais de um caso em mãos, propor uma solução genérica para os pontos negativos,
+comum a todos os casos, em vez de uma correção caso a caso.
+
+\end{document}

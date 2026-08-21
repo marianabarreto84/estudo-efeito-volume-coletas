@@ -1,0 +1,95 @@
+# ---------------------------------------------------------------------------
+# Segredos e credenciais — NUNCA versionar
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.p12
+*.pem
+*.key
+*.ovpn
+vpn/
+vpn-auth.txt
+vpn-p12-pass.txt
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------------------
+# Snapshots e caches de dados (reproduzíveis pelos scripts de pipeline/)
+#   snapshot_vacinas.sqlite  1,7 GB   snapshot_buntain.sqlite  120 MB
+#   snapshot_full.sqlite      71 MB   snapshot_hashtag.sqlite   49 MB
+# ---------------------------------------------------------------------------
+*.sqlite
+*.sqlite3
+*.db
+data/**/*.sqlite
+expand_cache.sqlite
+
+# Gabaritos externos volumosos (baixáveis da fonte original)
+#   Zenodo (AgeCoVP/YouTube): videos.csv 26 MB, comments.csv 13 MB
+casos/youtube-agecovp/data/repl/agecovp2020/gabarito_zenodo/
+#   PoliTok (TikTok): parquets de post_ids
+*.parquet
+#   Dump Reddit r/politics 2012-16
+*.bz2
+*.gz
+*.7z
+*.zip
+
+# ---------------------------------------------------------------------------
+# PDFs — saídas de compilação, artigos de terceiros e documentos administrativos
+# Exceção: puc.pdf é o brasão da PUC-Rio, dependência de build da classe LaTeX
+# ---------------------------------------------------------------------------
+*.pdf
+!escrita/dissertacao/puc.pdf
+!escrita/referencias/proposta/template-puc-rio/puc.pdf
+*.docx
+*.doc
+
+# ---------------------------------------------------------------------------
+# LaTeX — artefatos de compilação
+# ---------------------------------------------------------------------------
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.loa
+*.lol
+*.out
+*.toc
+*.synctex.gz
+*.log
+
+# ---------------------------------------------------------------------------
+# Logs de execução dos pipelines
+# ---------------------------------------------------------------------------
+*.log
+
+# ---------------------------------------------------------------------------
+# Configuração local do ambiente (não compartilhável)
+# ---------------------------------------------------------------------------
+.claude/settings.local.json
+**/.claude/settings.local.json
+
+# ---------------------------------------------------------------------------
+# Sistema operacional / editores
+# ---------------------------------------------------------------------------
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~

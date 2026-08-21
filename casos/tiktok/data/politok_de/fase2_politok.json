@@ -1,0 +1,59 @@
+{
+ "PT1": {
+  "saxonia": 195373,
+  "federal": 743588,
+  "total": 938961,
+  "alvo": ">930000",
+  "replica": true
+ },
+ "PT2": {
+  "medido": 18.7,
+  "alvo": 18.7
+ },
+ "PT3": {
+  "medido": 39.7,
+  "alvo": 39.7
+ },
+ "curvas_por_data": {
+  "saxonia": {
+   "2024-10-02": 3.3,
+   "2024-12-10": 9.5,
+   "2025-01-13": 18.7
+  },
+  "federal": {
+   "2026-06-11": 39.7
+  }
+ },
+ "PT4": {
+  "medido_pct_dos_deletados": 65.9,
+  "alvo": 66.7,
+  "distribuicao": {
+   "autor": 194413,
+   "plataforma": 30388,
+   "indefinido": 70300
+  }
+ },
+ "PT5": {
+  "convencoes": {
+   "A: audit_not_pass + violation": 4.1,
+   "B: A + status_reviewing": 10.3,
+   "C: A + content_classification": 5.5,
+   "D: A + reviewing + content_classification": 11.5,
+   "F: D + copyright": 11.6
+  },
+  "alvo": 13.0,
+  "melhor": "F: D + copyright",
+  "erro_pp": 1.4
+ },
+ "PT6": {
+  "por_anotacao": 20.5,
+  "por_post": 16.1,
+  "alvo": 20.0
+ },
+ "PT7": {
+  "por_anotacao": 63.0,
+  "por_post": 59.2,
+  "alvo": ">50"
+ },
+ "nota_anotacoes": "935 anotacoes sobre 360 posts (300 com mais de uma). As porcentagens do artigo batem com a contagem POR ANOTACAO; por post o valor muda. Convencao nao declarada no artigo."
+}

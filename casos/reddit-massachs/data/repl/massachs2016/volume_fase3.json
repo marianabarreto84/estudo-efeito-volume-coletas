@@ -1,0 +1,183 @@
+{
+ "subreddits": {
+  "politics": {
+   "2012": null,
+   "2016": null
+  },
+  "news": {
+   "2012": null,
+   "2016": null
+  },
+  "worldnews": {
+   "2012": null,
+   "2016": null
+  },
+  "Libertarian": {
+   "2012": null,
+   "2016": null
+  },
+  "GaryJohnson": {
+   "2012": null,
+   "2016": 142170
+  },
+  "TrueReddit": {
+   "2012": null,
+   "2016": null
+  },
+  "PoliticalHumor": {
+   "2012": null,
+   "2016": null
+  },
+  "atheism": {
+   "2012": null,
+   "2016": null
+  },
+  "Documentaries": {
+   "2012": null,
+   "2016": null
+  },
+  "todayilearned": {
+   "2012": null,
+   "2016": null
+  },
+  "conspiracy": {
+   "2012": null,
+   "2016": null
+  },
+  "progressive": {
+   "2012": null,
+   "2016": null
+  },
+  "POLITIC": {
+   "2012": 37538,
+   "2016": null
+  },
+  "Futurology": {
+   "2012": null,
+   "2016": null
+  },
+  "Conservative": {
+   "2012": null,
+   "2016": null
+  },
+  "Economics": {
+   "2012": null,
+   "2016": null
+  },
+  "Liberal": {
+   "2012": null,
+   "2016": null
+  },
+  "law": {
+   "2012": null,
+   "2016": null
+  },
+  "Ask_Politics": {
+   "2012": null,
+   "2016": null
+  },
+  "ShitPoliticsSays": {
+   "2012": 2460,
+   "2016": null
+  },
+  "dataisbeautiful": {
+   "2012": null,
+   "2016": null
+  },
+  "PoliticalDiscussion": {
+   "2012": null,
+   "2016": null
+  },
+  "moderatepolitics": {
+   "2012": null,
+   "2016": 9057
+  },
+  "worldpolitics": {
+   "2012": null,
+   "2016": null
+  },
+  "WikiLeaks": {
+   "2012": null,
+   "2016": null
+  },
+  "economy": {
+   "2012": null,
+   "2016": null
+  },
+  "NeutralPolitics": {
+   "2012": null,
+   "2016": null
+  },
+  "Republican": {
+   "2012": null,
+   "2016": 83588
+  },
+  "AmericanPolitics": {
+   "2012": null,
+   "2016": null
+  },
+  "lostgeneration": {
+   "2012": 20608,
+   "2016": null
+  },
+  "uspolitics": {
+   "2012": null,
+   "2016": null
+  },
+  "democrats": {
+   "2012": null,
+   "2016": null
+  },
+  "inthenews": {
+   "2012": null,
+   "2016": null
+  },
+  "on": {
+   "2012": null,
+   "2016": null
+  }
+ },
+ "COMPLETO": false,
+ "falhas": [
+  "politics",
+  "news",
+  "worldnews",
+  "Libertarian",
+  "GaryJohnson",
+  "TrueReddit",
+  "PoliticalHumor",
+  "atheism",
+  "Documentaries",
+  "todayilearned",
+  "conspiracy",
+  "progressive",
+  "POLITIC",
+  "Futurology",
+  "Conservative",
+  "Economics",
+  "Liberal",
+  "law",
+  "Ask_Politics",
+  "ShitPoliticsSays",
+  "dataisbeautiful",
+  "PoliticalDiscussion",
+  "moderatepolitics",
+  "worldpolitics",
+  "WikiLeaks",
+  "economy",
+  "NeutralPolitics",
+  "Republican",
+  "AmericanPolitics",
+  "lostgeneration",
+  "uspolitics",
+  "democrats",
+  "inthenews",
+  "on"
+ ],
+ "soma_2012": 60606,
+ "soma_2016": 234815,
+ "soma_total": 295421,
+ "aviso": "PARCIAL: 34 subreddits sem contagem; a soma NAO e o universo",
+ "taxa_itens_por_s": 95.0,
+ "nota": "34 subreddits do dataset; o artigo declara 51"
+}

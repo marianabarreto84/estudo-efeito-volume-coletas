@@ -1,0 +1,164 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+
+\definecolor{puc}{RGB}{0,60,113}
+\titleformat{\section}{\large\bfseries\color{puc}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+\setlist{nosep,leftmargin=1.4em}
+
+\pagestyle{fancy}\fancyhf{}
+\lhead{\small\color{puc}Avanços — Caso de Replicação Heine (Xande)}
+\rhead{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries\color{puc} Avanços do Caso de Replicação: Heine (Xande)}\\[2pt]
+{\large Amostragem em Grandes Volumes de Dados em Redes Sociais Digitais}\\[6pt]
+{\normalsize Dissertação de Mestrado — Mariana Barreto \textbullet\ PUC-Rio, Informática}\\
+{\small Orientador: Prof.\ Sérgio Lifschitz (grupo eTC/TriTech) \textbullet\ Relatório de progresso — 17/07/2026}
+\end{center}
+
+\vspace{2pt}
+\noindent\fcolorbox{puc}{puc!5}{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule}{%
+\small\textbf{Em uma frase.} Este caso replica, por \emph{expansão}, a dissertação de
+mestrado de Alexandre Heine (2025) — o precursor metodológico direto da linhagem do
+grupo — aplicando a ela o mesmo fluxo já usado no caso Twitter/Ituassu. O trabalho até
+aqui deixou \textbf{a documentação e o \emph{pipeline} de análise prontos} e concluiu a
+\textbf{Fase~0 (descoberta dos dados)}, que revelou onde a coleta original está — e onde
+não está. A execução das análises aguarda o \emph{download} dos dados (SharePoint do BioBD).}}
+
+\section{O caso e por que ele importa}
+
+A dissertação de Heine \& Lifschitz (2025), \emph{Um Estudo sobre Amostragem em Grandes
+Volumes de Dados em RSD}, comparou \textbf{amostra estatística $\times$ conjunto completo}
+em $\sim$57,9 milhões de \emph{tweets} das eleições brasileiras de 2022 (Lula $\times$
+Bolsonaro), em duas análises: \textbf{modelagem de tópicos} (BERTopic) e \textbf{estatística
+quantitativa} (engajamento e distribuição temporal, via SGBD).
+
+O encaixe na dissertação da Mariana é privilegiado: enquanto os demais casos do
+\emph{lineup} tratam autores que \emph{sub-coletaram sem perceber}, \textbf{o próprio Heine
+já mediu os dois lados} — e concluiu que \emph{a amostra falha} em reproduzir os tópicos do
+todo, \emph{mesmo usando o tamanho de amostra calculado pela fórmula de proporção}
+(99\,\% de confiança, $\pm$1\,\%). Mais: nos Trabalhos Futuros ele \emph{deixa em aberto} a
+suspeita de que a fórmula de proporção seria inadequada para uma ``medida composta'' como o
+sentido de um texto. \textbf{É essa fresta que a replicação ocupa.}
+
+\section{O fluxo seguido (espelhando o caso Twitter/Ituassu)}
+
+Reproduzimos, para o caso Heine, a mesma estrutura do caso já avançado do grupo:
+
+\begin{itemize}
+\item \textbf{Documentação da replicação:} plano de fases, ficha do alvo e um documento por
+eixo de análise (tópicos e quantitativo), com \emph{predições pré-registradas}.
+\item \textbf{Infraestrutura de conexão:} acesso ao banco da PUC via túnel SSH sobre a VPN
+Cloud-DI, reaproveitando o módulo do caso Twitter.
+\item \textbf{\emph{Pipeline} reprodutível:} diagnóstico do banco (Fase~0) $\rightarrow$
+\emph{snapshot} congelado local (Fase~1) $\rightarrow$ curva de convergência e análises
+(Fases~2--3) $\rightarrow$ tabela mestre ``mudou? / convergiu?'' (Fase~4).
+\end{itemize}
+
+Os hiperparâmetros do BERTopic foram \textbf{extraídos do repositório do próprio Heine}
+(\texttt{Maxteralex/representative-dataset-problem}) para garantir fidelidade:
+\emph{embeddings} \texttt{paraphrase-multilingual-MiniLM-L12-v2}; UMAP
+($n\_neighbors{=}15$, $n\_components{=}5$, $min\_dist{=}0$, cosseno, \texttt{random\_state=42});
+HDBSCAN ($min\_cluster\_size{=}15$); e vetorizador com \emph{stopwords} em português.
+
+\section{Descoberta dos dados (Fase 0) — concluída}
+
+A Fase~0 foi uma investigação sistemática para localizar a coleta de 2022. Foram varridos
+\textbf{3 servidores (vm031, vm037, vm067), 29 bancos PostgreSQL, 3 MongoDBs}, o disco
+local e o repositório do Heine no GitHub. Resultado:
+
+\begin{center}\small
+\begin{tabular}{@{}p{5.2cm}p{9.3cm}@{}}
+\toprule
+\textbf{Onde} & \textbf{O que tem} \\
+\midrule
+Postgres \texttt{eTC\_Producao} (vm067) & Coleta 2014 (\texttt{ituassu\_2014}, caso Twitter) e 2018; 2022 apenas testes. \\
+Postgres \texttt{eTC\_Producao} (vm031) & Coleta contínua; a busca eleitoral 2022 tem só $\sim$25 mil \emph{tweets} (o dia 2/out tem $\sim$8 mil — vs.\ 1,29 milhão do Heine). \\
+vm037 & Servidor das \emph{disciplinas} de Banco de Dados (bancos de alunos). \\
+MongoDB (vm031) & \textbf{Coleta \emph{Instagram} do Heine} (\texttt{xande\_search}, $\sim$628 mil posts) \textbf{+ Reddit}. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Achado central:} o \emph{Twitter} de 57,9\,M / 1,29\,M-do-dia-2 que a dissertação
+usa \textbf{não está nos bancos acessíveis} — provavelmente foi arquivado após a defesa
+(abr/2025). O que está acessível é a coleta \emph{Instagram} do Heine (628\,k) e uma coleta
+\emph{Reddit} (que servem, de bônus, a outros casos do \emph{lineup}). O dado de Twitter
+está no \textbf{SharePoint do BioBD PUC-Rio}, acessível pela conta institucional da Mariana.
+O repositório do Heine mostrou ainda que as análises dele leem de \textbf{CSVs}
+(\texttt{1st\_turn\_day.csv}), coluna \texttt{content\_text}.
+
+\section{O que já roda quando o dado chegar}
+
+O \emph{pipeline} está pronto e aceita tanto \textbf{CSV} (coluna \texttt{content\_text},
+como o Heine usou) quanto \emph{snapshot} local:
+
+\begin{itemize}
+\item \textbf{Eixo tópicos:} treina o BERTopic no dia completo e mede, para \emph{frações
+crescentes} do volume (com réplicas \emph{bootstrap}), a distância entre a distribuição de
+tópicos da fração e a do todo (divergência de Jensen--Shannon), sobrepondo o $n$ da fórmula
+de proporção do Heine para mostrar \emph{onde a estrutura de tópicos realmente estabiliza}.
+\item \textbf{Eixo quantitativo:} recalcula engajamento por faixa e a série temporal
+diretamente no servidor e mede em que fração de dados essas conclusões já convergem.
+\end{itemize}
+
+\section{Perguntas e predições pré-registradas (o valor científico)}
+
+\begin{itemize}
+\item \textbf{Contraste-chave:} a hipótese é que o \emph{quantitativo converge cedo}
+(coletar mais é barato \emph{e} dispensável) enquanto os \emph{tópicos convergem tarde ou
+nunca} dentro do orçamento da fórmula. O mesmo objeto (``coletar mais'') com respostas
+opostas \emph{por tipo de análise} — exatamente a tese da dissertação.
+\item \textbf{Correção do diagnóstico do Heine:} a fórmula $n_0 = Z^2pq/e^2$ governa a
+estabilidade de \emph{uma proporção escalar}, não de um objeto de alta dimensão (a
+distribuição de tópicos). A contribuição é \emph{medir a curva real} e mostrar
+empiricamente que a estabilização exige muito mais do que o $n$ da fórmula — respondendo à
+pergunta que o próprio Heine deixou em aberto.
+\end{itemize}
+
+\section{Estado atual e próximos passos}
+
+\begin{center}\small
+\begin{tabular}{@{}p{10.8cm}c@{}}
+\toprule
+\textbf{Item} & \textbf{Estado} \\
+\midrule
+Documentação da replicação (plano, alvo, eixos) & \checkmark\ pronto \\
+\emph{Pipeline} (diagnóstico, \emph{snapshot}, convergência, quantitativo) & \checkmark\ pronto \\
+Fase 0 — descoberta e caracterização dos dados & \checkmark\ concluída \\
+Organização em \texttt{Documents/dissertacao/} (escrita + casos) & \checkmark\ feita \\
+Fases 1--4 — execução das análises & aguardando dados \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Falta apenas} baixar do SharePoint do BioBD os CSVs (\texttt{1st\_turn\_day.csv} e
+\texttt{1st\_turn\_day\_random\_sample.csv}) ou o \emph{dump} do MongoDB de Twitter. Com o
+arquivo em mãos, as Fases~1--4 rodam de imediato e produzem a curva de convergência, as
+tabelas comparativas e a seção correspondente do texto da dissertação — sempre com números
+rastreáveis a \emph{scripts} e consultas.
+
+\vspace{4pt}
+\noindent\rule{\textwidth}{0.4pt}\\[-2pt]
+{\footnotesize Documentos de apoio (na pasta do caso): \texttt{REPLICACAO\_CASO\_HEINE.md},
+\texttt{DISSERTACAO\_HEINE\_alvo.md}, \texttt{EIXO\_TOPICOS.md},
+\texttt{EIXO\_QUANTITATIVO.md} e o \emph{log} de descoberta
+\texttt{data/repl/heine2022/FASE0\_descoberta.md}.}
+
+\end{document}

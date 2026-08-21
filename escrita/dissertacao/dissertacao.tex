@@ -1,0 +1,157 @@
+%% -*- coding: utf-8; -*-
+%% Dissertação de Mestrado — PUC-Rio (classe oficial thesispuc)
+%% Compilar: pdflatex dissertacao && bibtex dissertacao && pdflatex dissertacao && pdflatex dissertacao
+%% Corpo em corpo.tex; bibliografia em referencias.bib.
+%% Campos marcados com % TODO precisam de confirmação antes da versão final.
+\documentclass[msc,brazilian,digital]{thesispuc}
+
+%%% Pacotes adicionais
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{colortbl}
+\usepackage[dvipsnames,svgnames,x11names,fixpdftex,table]{xcolor}
+\usepackage{numprint}
+\usepackage{textcomp}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage[alf,bibjustif,abnt-emphasize=bf]{abntex2cite}
+
+\npthousandsep{.}
+\npdecimalsign{,}
+
+\setcounter{tocdepth}{1}
+\usecolour{true}
+
+%% Seções opcionais da classe desativadas (esta dissertação não as usa)
+\abreviationsmode{none}
+\codesmode{none}
+\algorithmsmode{none}
+
+%%% Autoria
+\author{Mariana Barreto}
+\authorR{Barreto, Mariana}
+
+\advisor{Sérgio Lifschitz}{Prof.}
+\advisorR{Lifschitz, Sérgio}
+
+\title{O Efeito do Volume de Coleta sobre os Resultados de Análises: Redes Sociais Digitais como Caso de Estudo}
+\titleuk{The Effect of Collection Volume on the Results of Analyses: Online Social Networks as a Case Study}
+
+\day{8}          % TODO: data da defesa
+\month{Julho}    % TODO: data da defesa
+\year{2026}      % TODO: data da defesa
+
+\city{Rio de Janeiro}
+\CDD{004}
+\department{Informática}
+\program{Informática}
+\school{Pós-Graduação em Informática}
+\university{Pontifícia Universidade Católica do Rio de Janeiro}
+\uni{PUC-Rio }
+
+%%% Banca — TODO: confirmar composição
+\jury{%
+  \jurymember{Nome do Membro}{Prof.}
+    {Departamento de Informática}{PUC-Rio}
+}
+
+%%% Resumo pessoal (bio) — TODO: preencher
+\resume{%
+Bacharel em [curso] pela [instituição].%
+}
+
+%%% Agradecimentos — TODO: personalizar/ampliar
+\acknowledgment{%
+\noindent Ao meu orientador, Professor Sérgio Lifschitz, pelo estímulo e
+parceria ao longo deste trabalho.
+\bigskip
+
+\noindent O presente trabalho foi realizado com apoio da Coordenação de
+Aperfeiçoamento de Pessoal de Nível Superior --- Brasil (CAPES) --- Código de
+Financiamento 001.
+}
+
+\catalogprekeywords{%
+  \catalogprekey{Informática}%
+}
+
+\keywords{%
+  \key{Volume de Coleta de Dados}
+  \key{Redes Sociais Digitais}
+  \key{Amostragem}
+  \key{Análise de Redes Sociais (SNA)}
+  \key{Validade de Conclusões}
+  \key{Reprodutibilidade}
+}
+
+\keywordsuk{%
+  \key{Data Collection Volume}
+  \key{Online Social Networks}
+  \key{Sampling}
+  \key{Social Network Analysis (SNA)}
+  \key{Validity of Conclusions}
+  \key{Reproducibility}
+}
+
+\abstract{%
+Para as análises mais praticadas sobre Redes Sociais Digitais (RSD), como detecção
+de comunidades, centralidade, sentimento e modelagem de tópico, coletar pouco ou
+muito muda a conclusão? A pergunta é uma instância de um problema metodológico
+mais amplo, o do efeito do volume de coleta sobre os resultados de uma análise, e
+esta dissertação toma as RSD como caso de estudo, por serem um domínio em que esse
+efeito é agudo e mensurável. Um levantamento sistemático feito como parte do
+projeto~\cite{barreto2026survey} mostra que o volume coletado varia enormemente
+(mediana de \(\approx\)273 mil itens, mas 40\% dos artigos passam de 1 milhão), que
+coletar muito não implica amostrar e que quase nunca se avalia se esse volume
+altera a conclusão. Para medir o efeito, propõe-se um protocolo que trata cada
+artigo como uma amostra sub-coletada do seu tema, coleta um superconjunto temático
+e reproduz a análise sobre a coleta original e a expandida, testando se a conclusão
+muda e se já havia convergido (caso em que coletar menos bastaria). Um conjunto de
+seis casos, um por rede social (Reddit, YouTube, TikTok, Instagram/Facebook e
+Twitter), instancia o protocolo. A entrega não é um volume ideal único, mas a
+identificação de para quais tipos de análise o volume de coleta é decisivo e para
+quais é indiferente. Como caso de estudo, as RSD dão evidência concreta sobre um problema que as
+extrapola.%
+}
+
+\abstractuk{%
+For the analyses most practiced over Online Social Networks (OSN), such as
+community detection, centrality, sentiment and topic modeling, does collecting
+little or a lot change the conclusion? The question is an instance of a broader
+methodological problem, that of the effect of collection volume on the results of
+an analysis, and this dissertation takes OSN as a case study, as a domain where
+the effect is acute and measurable. A systematic survey conducted as part of the
+project~\cite{barreto2026survey} shows that the collected volume varies enormously
+(a median of \(\approx\)273{,}000 items, yet 40\% of papers exceed one million),
+that collecting a lot does not imply sampling, and that whether that volume changes
+the conclusion is almost never assessed. To measure the effect, we propose a
+protocol that treats each paper as an under-collected sample of its theme, collects
+an on-theme superset and reproduces the analysis over the original and the expanded
+collection, testing whether the conclusion changes and whether it had already
+converged (in which case less would suffice). A lineup of six cases, one per social
+network (Reddit, YouTube, TikTok, Instagram/Facebook and Twitter), instantiates the
+protocol. The deliverable is not a single ideal volume but an account of the
+analysis types for which collection volume is decisive and those for which it is
+immaterial. As
+a case study, OSN provide concrete evidence on a problem that extends beyond them.%
+}
+
+%%% Dedicatória / Epígrafe — TODO: personalizar
+\dedication{%
+  A todos que apoiaram este trabalho.
+}
+\epigraph{%
+  % TODO: epígrafe (opcional)
+}
+\epigraphauthor{}
+\epigraphbook{}
+
+\begin{document}
+  \input{corpo}
+  \arial
+  \bibliographystyle{abnt-alf}
+  \bibliography{referencias}
+\end{document}

@@ -1,0 +1,75 @@
+{
+  "script": "analise/av3_influentes_por_limiar.py",
+  "executado_em": "2026-08-07 10:20:20",
+  "regra_lado": "topologia (comunidade), maioria das 599 sementes publicadas",
+  "unidade": "autor com >= 1 tweet original pt acima do limiar de RT",
+  "paper_tabela3": {
+    "n": 602,
+    "pro": 353,
+    "anti": 246,
+    "pro_pct": 58.6,
+    "anti_pct": 40.9
+  },
+  "por_limiar": [
+    {
+      "limiar": 500,
+      "n_autores": 625,
+      "pro": 361,
+      "anti": 252,
+      "nao_ident": 12,
+      "pro_pct_entre_com_lado": 58.9,
+      "anti_pct_entre_com_lado": 41.1,
+      "razao_pro_anti": 1.433
+    },
+    {
+      "limiar": 250,
+      "n_autores": 986,
+      "pro": 595,
+      "anti": 379,
+      "nao_ident": 12,
+      "pro_pct_entre_com_lado": 61.1,
+      "anti_pct_entre_com_lado": 38.9,
+      "razao_pro_anti": 1.57
+    },
+    {
+      "limiar": 100,
+      "n_autores": 1704,
+      "pro": 1111,
+      "anti": 559,
+      "nao_ident": 34,
+      "pro_pct_entre_com_lado": 66.5,
+      "anti_pct_entre_com_lado": 33.5,
+      "razao_pro_anti": 1.987
+    },
+    {
+      "limiar": 50,
+      "n_autores": 2691,
+      "pro": 1833,
+      "anti": 793,
+      "nao_ident": 65,
+      "pro_pct_entre_com_lado": 69.8,
+      "anti_pct_entre_com_lado": 30.2,
+      "razao_pro_anti": 2.311
+    },
+    {
+      "limiar": 25,
+      "n_autores": 4483,
+      "pro": 3038,
+      "anti": 1296,
+      "nao_ident": 149,
+      "pro_pct_entre_com_lado": 70.1,
+      "anti_pct_entre_com_lado": 29.9,
+      "razao_pro_anti": 2.344
+    },
+    {
+      "limiar": 10,
+      "n_autores": 8665,
+      "pro": 5644,
+      "anti": 2616,
+      "nao_ident": 405,
+      "pro_pct_entre_com_lado": 68.3,
+      "anti_pct_entre_com_lado": 31.7,
+      "razao_pro_anti": 2.157
+    }
+  ]
+}

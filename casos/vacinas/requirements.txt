@@ -1,0 +1,15 @@
+# Conexão às VMs da Cloud-DI (Fase 0-1) — mesma infra dos casos irmãos
+paramiko
+sshtunnel
+psycopg2-binary
+
+# Eixo B — rotulador de conteúdo (LLM)
+anthropic>=0.120        # output_config (saída estruturada) exige >=0.11x
+pandas
+openpyxl                # leitura do suplementar_rotulos.xlsx
+
+# Fases 2-3 (descomentar quando chegar lá):
+# networkx            # grafo de RTs
+# python-louvain      # modularidade (Louvain, seed fixável)
+# scikit-learn        # NMI entre partições (o kappa é calculado à mão em
+#                       analise/valida_rotulador.py, sem dependência)

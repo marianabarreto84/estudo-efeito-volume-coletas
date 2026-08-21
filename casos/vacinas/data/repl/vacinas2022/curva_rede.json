@@ -1,0 +1,568 @@
+{
+  "script": "analise/curva_rede_por_fracao.py",
+  "executado_em": "2026-08-07 13:33:52",
+  "aviso_replicas": "5 replicas ate f=0,25; 3 em 0,50/0,75; 1 em 1,0. ABAIXO das >=30 do protocolo (custo de Louvain). Bandas sao min-max, nao IC bootstrap.",
+  "regra_lado": "maioria das 599 sementes publicadas, min. 1",
+  "pontos": [
+    {
+      "fracao": 0.01,
+      "n_replicas": 5,
+      "posts_medio": 65506,
+      "razao_pro_anti": {
+        "min": 1.282,
+        "max": 1.341,
+        "media": 1.306
+      },
+      "cobertura_pct": {
+        "min": 60.1,
+        "max": 60.9,
+        "media": 60.5
+      },
+      "nmi_vs_cheio": {
+        "min": 0.4156,
+        "max": 0.4241,
+        "media": 0.42
+      },
+      "replicas": [
+        {
+          "replica": 0,
+          "arestas": 44589,
+          "nos": 39800,
+          "posts": 65679,
+          "modularidade": 0.8283,
+          "n_comunidades": 3706,
+          "razao_pro_anti": 1.294,
+          "cobertura_pct": 60.7,
+          "nmi_vs_cheio": 0.4156,
+          "com_com_lado": 115
+        },
+        {
+          "replica": 1,
+          "arestas": 44649,
+          "nos": 39800,
+          "posts": 65664,
+          "modularidade": 0.8274,
+          "n_comunidades": 3813,
+          "razao_pro_anti": 1.282,
+          "cobertura_pct": 60.5,
+          "nmi_vs_cheio": 0.4217,
+          "com_com_lado": 108
+        },
+        {
+          "replica": 2,
+          "arestas": 44293,
+          "nos": 39554,
+          "posts": 65159,
+          "modularidade": 0.8257,
+          "n_comunidades": 3777,
+          "razao_pro_anti": 1.341,
+          "cobertura_pct": 60.9,
+          "nmi_vs_cheio": 0.4202,
+          "com_com_lado": 100
+        },
+        {
+          "replica": 3,
+          "arestas": 44636,
+          "nos": 39973,
+          "posts": 65500,
+          "modularidade": 0.8317,
+          "n_comunidades": 3865,
+          "razao_pro_anti": 1.297,
+          "cobertura_pct": 60.1,
+          "nmi_vs_cheio": 0.4183,
+          "com_com_lado": 96
+        },
+        {
+          "replica": 4,
+          "arestas": 44654,
+          "nos": 39814,
+          "posts": 65528,
+          "modularidade": 0.8286,
+          "n_comunidades": 3776,
+          "razao_pro_anti": 1.315,
+          "cobertura_pct": 60.5,
+          "nmi_vs_cheio": 0.4241,
+          "com_com_lado": 106
+        }
+      ]
+    },
+    {
+      "fracao": 0.025,
+      "n_replicas": 5,
+      "posts_medio": 163816,
+      "razao_pro_anti": {
+        "min": 1.368,
+        "max": 1.415,
+        "media": 1.392
+      },
+      "cobertura_pct": {
+        "min": 64.2,
+        "max": 64.7,
+        "media": 64.5
+      },
+      "nmi_vs_cheio": {
+        "min": 0.4762,
+        "max": 0.4873,
+        "media": 0.4809
+      },
+      "replicas": [
+        {
+          "replica": 0,
+          "arestas": 109438,
+          "nos": 79138,
+          "posts": 163659,
+          "modularidade": 0.7655,
+          "n_comunidades": 5175,
+          "razao_pro_anti": 1.381,
+          "cobertura_pct": 64.5,
+          "nmi_vs_cheio": 0.4794,
+          "com_com_lado": 73
+        },
+        {
+          "replica": 1,
+          "arestas": 109783,
+          "nos": 79454,
+          "posts": 163771,
+          "modularidade": 0.7654,
+          "n_comunidades": 5194,
+          "razao_pro_anti": 1.403,
+          "cobertura_pct": 64.6,
+          "nmi_vs_cheio": 0.4806,
+          "com_com_lado": 68
+        },
+        {
+          "replica": 2,
+          "arestas": 109782,
+          "nos": 79563,
+          "posts": 163555,
+          "modularidade": 0.765,
+          "n_comunidades": 5384,
+          "razao_pro_anti": 1.394,
+          "cobertura_pct": 64.7,
+          "nmi_vs_cheio": 0.4808,
+          "com_com_lado": 71
+        },
+        {
+          "replica": 3,
+          "arestas": 109856,
+          "nos": 79904,
+          "posts": 163927,
+          "modularidade": 0.7658,
+          "n_comunidades": 5406,
+          "razao_pro_anti": 1.415,
+          "cobertura_pct": 64.2,
+          "nmi_vs_cheio": 0.4762,
+          "com_com_lado": 63
+        },
+        {
+          "replica": 4,
+          "arestas": 110158,
+          "nos": 79764,
+          "posts": 164169,
+          "modularidade": 0.7634,
+          "n_comunidades": 5282,
+          "razao_pro_anti": 1.368,
+          "cobertura_pct": 64.7,
+          "nmi_vs_cheio": 0.4873,
+          "com_com_lado": 67
+        }
+      ]
+    },
+    {
+      "fracao": 0.05,
+      "n_replicas": 5,
+      "posts_medio": 327848,
+      "razao_pro_anti": {
+        "min": 1.386,
+        "max": 1.441,
+        "media": 1.425
+      },
+      "cobertura_pct": {
+        "min": 67.4,
+        "max": 67.7,
+        "media": 67.6
+      },
+      "nmi_vs_cheio": {
+        "min": 0.5096,
+        "max": 0.5154,
+        "media": 0.5118
+      },
+      "replicas": [
+        {
+          "replica": 0,
+          "arestas": 214171,
+          "nos": 130234,
+          "posts": 327183,
+          "modularidade": 0.7324,
+          "n_comunidades": 6479,
+          "razao_pro_anti": 1.434,
+          "cobertura_pct": 67.7,
+          "nmi_vs_cheio": 0.5096,
+          "com_com_lado": 55
+        },
+        {
+          "replica": 1,
+          "arestas": 215439,
+          "nos": 131298,
+          "posts": 327905,
+          "modularidade": 0.7334,
+          "n_comunidades": 6606,
+          "razao_pro_anti": 1.441,
+          "cobertura_pct": 67.6,
+          "nmi_vs_cheio": 0.5119,
+          "com_com_lado": 50
+        },
+        {
+          "replica": 2,
+          "arestas": 214822,
+          "nos": 130735,
+          "posts": 327353,
+          "modularidade": 0.7305,
+          "n_comunidades": 6530,
+          "razao_pro_anti": 1.386,
+          "cobertura_pct": 67.6,
+          "nmi_vs_cheio": 0.5154,
+          "com_com_lado": 51
+        },
+        {
+          "replica": 3,
+          "arestas": 215543,
+          "nos": 131230,
+          "posts": 328198,
+          "modularidade": 0.7327,
+          "n_comunidades": 6618,
+          "razao_pro_anti": 1.432,
+          "cobertura_pct": 67.7,
+          "nmi_vs_cheio": 0.5102,
+          "com_com_lado": 52
+        },
+        {
+          "replica": 4,
+          "arestas": 215534,
+          "nos": 131342,
+          "posts": 328602,
+          "modularidade": 0.7321,
+          "n_comunidades": 6694,
+          "razao_pro_anti": 1.434,
+          "cobertura_pct": 67.4,
+          "nmi_vs_cheio": 0.5119,
+          "com_com_lado": 50
+        }
+      ]
+    },
+    {
+      "fracao": 0.1,
+      "n_replicas": 5,
+      "posts_medio": 655457,
+      "razao_pro_anti": {
+        "min": 1.453,
+        "max": 1.475,
+        "media": 1.461
+      },
+      "cobertura_pct": {
+        "min": 70.3,
+        "max": 70.7,
+        "media": 70.5
+      },
+      "nmi_vs_cheio": {
+        "min": 0.5569,
+        "max": 0.5654,
+        "media": 0.5608
+      },
+      "replicas": [
+        {
+          "replica": 0,
+          "arestas": 415776,
+          "nos": 210760,
+          "posts": 654661,
+          "modularidade": 0.701,
+          "n_comunidades": 7965,
+          "razao_pro_anti": 1.455,
+          "cobertura_pct": 70.5,
+          "nmi_vs_cheio": 0.558,
+          "com_com_lado": 38
+        },
+        {
+          "replica": 1,
+          "arestas": 417121,
+          "nos": 211584,
+          "posts": 655213,
+          "modularidade": 0.7009,
+          "n_comunidades": 8074,
+          "razao_pro_anti": 1.453,
+          "cobertura_pct": 70.5,
+          "nmi_vs_cheio": 0.5654,
+          "com_com_lado": 35
+        },
+        {
+          "replica": 2,
+          "arestas": 416792,
+          "nos": 211456,
+          "posts": 655387,
+          "modularidade": 0.7012,
+          "n_comunidades": 7933,
+          "razao_pro_anti": 1.475,
+          "cobertura_pct": 70.7,
+          "nmi_vs_cheio": 0.5589,
+          "com_com_lado": 39
+        },
+        {
+          "replica": 3,
+          "arestas": 417125,
+          "nos": 212080,
+          "posts": 655828,
+          "modularidade": 0.7025,
+          "n_comunidades": 7949,
+          "razao_pro_anti": 1.466,
+          "cobertura_pct": 70.3,
+          "nmi_vs_cheio": 0.5569,
+          "com_com_lado": 37
+        },
+        {
+          "replica": 4,
+          "arestas": 417036,
+          "nos": 211611,
+          "posts": 656197,
+          "modularidade": 0.7012,
+          "n_comunidades": 8036,
+          "razao_pro_anti": 1.458,
+          "cobertura_pct": 70.3,
+          "nmi_vs_cheio": 0.5648,
+          "com_com_lado": 33
+        }
+      ]
+    },
+    {
+      "fracao": 0.25,
+      "n_replicas": 5,
+      "posts_medio": 1638104,
+      "razao_pro_anti": {
+        "min": 1.482,
+        "max": 1.511,
+        "media": 1.499
+      },
+      "cobertura_pct": {
+        "min": 73.3,
+        "max": 74.1,
+        "media": 73.8
+      },
+      "nmi_vs_cheio": {
+        "min": 0.6666,
+        "max": 0.6759,
+        "media": 0.6723
+      },
+      "replicas": [
+        {
+          "replica": 0,
+          "arestas": 975403,
+          "nos": 384243,
+          "posts": 1637488,
+          "modularidade": 0.6783,
+          "n_comunidades": 10019,
+          "razao_pro_anti": 1.502,
+          "cobertura_pct": 73.9,
+          "nmi_vs_cheio": 0.6733,
+          "com_com_lado": 21
+        },
+        {
+          "replica": 1,
+          "arestas": 975922,
+          "nos": 385052,
+          "posts": 1637910,
+          "modularidade": 0.6786,
+          "n_comunidades": 10110,
+          "razao_pro_anti": 1.511,
+          "cobertura_pct": 74.1,
+          "nmi_vs_cheio": 0.6666,
+          "com_com_lado": 23
+        },
+        {
+          "replica": 2,
+          "arestas": 976161,
+          "nos": 384853,
+          "posts": 1638899,
+          "modularidade": 0.679,
+          "n_comunidades": 9990,
+          "razao_pro_anti": 1.495,
+          "cobertura_pct": 73.8,
+          "nmi_vs_cheio": 0.6736,
+          "com_com_lado": 18
+        },
+        {
+          "replica": 3,
+          "arestas": 975758,
+          "nos": 385512,
+          "posts": 1638280,
+          "modularidade": 0.6794,
+          "n_comunidades": 10014,
+          "razao_pro_anti": 1.504,
+          "cobertura_pct": 73.8,
+          "nmi_vs_cheio": 0.6723,
+          "com_com_lado": 23
+        },
+        {
+          "replica": 4,
+          "arestas": 975690,
+          "nos": 385434,
+          "posts": 1637942,
+          "modularidade": 0.6797,
+          "n_comunidades": 10053,
+          "razao_pro_anti": 1.482,
+          "cobertura_pct": 73.3,
+          "nmi_vs_cheio": 0.6759,
+          "com_com_lado": 17
+        }
+      ]
+    },
+    {
+      "fracao": 0.5,
+      "n_replicas": 3,
+      "posts_medio": 3277480,
+      "razao_pro_anti": {
+        "min": 1.509,
+        "max": 1.527,
+        "media": 1.518
+      },
+      "cobertura_pct": {
+        "min": 76.0,
+        "max": 76.1,
+        "media": 76.0
+      },
+      "nmi_vs_cheio": {
+        "min": 0.7714,
+        "max": 0.7798,
+        "media": 0.7744
+      },
+      "replicas": [
+        {
+          "replica": 0,
+          "arestas": 1821977,
+          "nos": 589296,
+          "posts": 3276147,
+          "modularidade": 0.6633,
+          "n_comunidades": 11135,
+          "razao_pro_anti": 1.527,
+          "cobertura_pct": 76.1,
+          "nmi_vs_cheio": 0.7798,
+          "com_com_lado": 11
+        },
+        {
+          "replica": 1,
+          "arestas": 1822967,
+          "nos": 589580,
+          "posts": 3278383,
+          "modularidade": 0.6632,
+          "n_comunidades": 10814,
+          "razao_pro_anti": 1.509,
+          "cobertura_pct": 76.0,
+          "nmi_vs_cheio": 0.7719,
+          "com_com_lado": 12
+        },
+        {
+          "replica": 2,
+          "arestas": 1822976,
+          "nos": 588856,
+          "posts": 3277910,
+          "modularidade": 0.6632,
+          "n_comunidades": 11162,
+          "razao_pro_anti": 1.519,
+          "cobertura_pct": 76.0,
+          "nmi_vs_cheio": 0.7714,
+          "com_com_lado": 12
+        }
+      ]
+    },
+    {
+      "fracao": 0.75,
+      "n_replicas": 3,
+      "posts_medio": 4916952,
+      "razao_pro_anti": {
+        "min": 1.539,
+        "max": 1.558,
+        "media": 1.548
+      },
+      "cobertura_pct": {
+        "min": 77.2,
+        "max": 77.8,
+        "media": 77.5
+      },
+      "nmi_vs_cheio": {
+        "min": 0.8496,
+        "max": 0.8533,
+        "media": 0.851
+      },
+      "replicas": [
+        {
+          "replica": 0,
+          "arestas": 2605203,
+          "nos": 747006,
+          "posts": 4916189,
+          "modularidade": 0.6536,
+          "n_comunidades": 11494,
+          "razao_pro_anti": 1.539,
+          "cobertura_pct": 77.2,
+          "nmi_vs_cheio": 0.8533,
+          "com_com_lado": 11
+        },
+        {
+          "replica": 1,
+          "arestas": 2606592,
+          "nos": 747225,
+          "posts": 4917274,
+          "modularidade": 0.6561,
+          "n_comunidades": 11465,
+          "razao_pro_anti": 1.558,
+          "cobertura_pct": 77.8,
+          "nmi_vs_cheio": 0.85,
+          "com_com_lado": 12
+        },
+        {
+          "replica": 2,
+          "arestas": 2606084,
+          "nos": 746879,
+          "posts": 4917392,
+          "modularidade": 0.6558,
+          "n_comunidades": 11483,
+          "razao_pro_anti": 1.546,
+          "cobertura_pct": 77.4,
+          "nmi_vs_cheio": 0.8496,
+          "com_com_lado": 11
+        }
+      ]
+    },
+    {
+      "fracao": 1.0,
+      "n_replicas": 1,
+      "posts_medio": 6554705,
+      "razao_pro_anti": {
+        "min": 1.553,
+        "max": 1.553,
+        "media": 1.553
+      },
+      "cobertura_pct": {
+        "min": 78.0,
+        "max": 78.0,
+        "media": 78.0
+      },
+      "nmi_vs_cheio": {
+        "min": 0.972,
+        "max": 0.972,
+        "media": 0.972
+      },
+      "replicas": [
+        {
+          "replica": 0,
+          "arestas": 3348122,
+          "nos": 879148,
+          "posts": 6554705,
+          "modularidade": 0.6487,
+          "n_comunidades": 11501,
+          "razao_pro_anti": 1.553,
+          "cobertura_pct": 78.0,
+          "nmi_vs_cheio": 0.972,
+          "com_com_lado": 7
+        }
+      ]
+    }
+  ]
+}

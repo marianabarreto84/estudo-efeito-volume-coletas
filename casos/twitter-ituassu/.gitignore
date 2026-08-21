@@ -1,0 +1,14 @@
+# Segredos / credenciais — NUNCA versionar
+.env
+vpn-auth.txt
+vpn-p12-pass.txt
+*.p12
+*.ovpn
+vpn.log
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/

@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python explora_ituassu.py)",
+      "Bash(PYTHONIOENCODING=utf-8 python diag_encoding.py)",
+      "Bash(PYTHONIOENCODING=utf-8 python conta_universo.py)",
+      "Bash(PYTHONIOENCODING=utf-8 python -c ' *)",
+      "Bash(PYTHONIOENCODING=utf-8 python diag_urls.py)",
+      "Bash(PYTHONIOENCODING=utf-8 python extrai_snapshot.py)",
+      "Bash(PYTHONIOENCODING=utf-8 python analisa_midia.py)",
+      "Bash(PYTHONIOENCODING=utf-8 python expandir_links.py)",
+      "Bash(PYTHONIOENCODING=utf-8 python conta_full.py)",
+      "Bash(PYTHONIOENCODING=utf-8 python extrai_snapshot.py full)",
+      "Bash(PYTHONIOENCODING=utf-8 python expandir_links.py full)",
+      "Bash(PYTHONIOENCODING=utf-8 python compara_escopo.py)",
+      "Bash(mkdir -p documentos)",
+      "Bash(cp \"artigo_sergio_ituassu.pdf\" documentos/)",
+      "Bash(cp \"REPLICACAO_CASO_COMPOS2014.md\" documentos/)",
+      "Bash(cp \"STANCE_como_o_paper_fez_e_onde_estamos.md\" documentos/)",
+      "Bash(cp \"../survey-redacao/survey/survey.pdf\" documentos/)"
+    ]
+  }
+}

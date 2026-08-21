@@ -1,0 +1,700 @@
+{
+  "script": "analise/cdx_links_mortos.py",
+  "executado_em": "2026-08-07 16:34:07",
+  "n_amostra": 150,
+  "semente": 20141026,
+  "contagens": {
+    "sem_snapshot": 74,
+    "erro_consulta": 72,
+    "snapshot_sem_alvo": 3,
+    "indefinido": 1,
+    "recuperado": 1
+  },
+  "mp_pct_entre_recuperados": null,
+  "detalhe": [
+    {
+      "url": "http://t.co/WsFzYBtQan",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://uol.com/brdX5z",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/tIJsPAS9I1",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/jUQQOUS4NL",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/N9gRMtnrfy",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/JyL6FXbi26",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://ow.ly/CMUj3",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://tinyurl.com/lldlmyn",
+      "status": "erro",
+      "detalhe": "TimeoutError"
+    },
+    {
+      "url": "http://zhora.co/ZYBuEf",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/QoSBtB7OBS",
+      "status": "erro",
+      "detalhe": "TimeoutError"
+    },
+    {
+      "url": "http://t.co/PwPSMXhs8Y",
+      "status": "erro",
+      "detalhe": "TimeoutError"
+    },
+    {
+      "url": "http://bit.ly/1n6f5i9",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/FJdwzs7kYw",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://glo.bo/1BDX4cr",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://fb.me/3kAz99OcH",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/G5gvHG7uNX",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/rpT8BcTjbp",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/QoBcoSuoel",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://fb.me/1DbbmXwDO",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://ift.tt/1EQCMAF",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/6qavNlo2tc",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/Dt82AM4cJ1",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://ow.ly/CG2s0",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://uol.com/brdXlX",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/agsXJS2CU0",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://glo.bo/1rqRbt0",
+      "status": "erro",
+      "detalhe": "TimeoutError"
+    },
+    {
+      "url": "http://ow.ly/i/7gp5R",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/uyqnmGnqd1",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/0bbjPA1sKx",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/P1Q96pjKpA",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://fb.me/3WAMsU8jd",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/yjTSJtCvCV",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/0NbfyUjdJS",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://tinyurl.com/muuxw53",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/ztJORqjuW6",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://ow.ly/DcWQy",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/xsQBfjVDds",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://buff.ly/1wcwaZC",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/Ny…",
+      "status": "arquivado",
+      "snapshot": "https://web.archive.org/web/20131207221735id_/http://t.co/NY%E2%80%A6",
+      "alvo": null,
+      "classe": null
+    },
+    {
+      "url": "http://t.co/Au78k7FoyJ",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://ow.ly/i/7gpRZ",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/BabcNehngt",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/orv3SeayJg",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://bit.ly/10KhrJM",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/dbx8FwlC40",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/12VnvrDZbp",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://ow.ly/i/77c85",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://ow.ly/CG2wy",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://uol.com/bldW7X",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/MiXfYxogHi",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/s8…",
+      "status": "arquivado",
+      "snapshot": "https://web.archive.org/web/20190805223447id_/https://t.co/s8%E2%80%A6",
+      "alvo": null,
+      "classe": null
+    },
+    {
+      "url": "http://goo.gl/JWFNwr",
+      "status": "arquivado",
+      "snapshot": "https://web.archive.org/web/20250225030638id_/https://goo.gl/jwfNWR",
+      "alvo": null,
+      "classe": null
+    },
+    {
+      "url": "http://tinyurl.com/ooyc54a",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/jgJVrb914d",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://uol.com/btdWTZ",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://ow.ly/CiVQ5",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://bit.ly/1vshSUx",
+      "status": "erro",
+      "detalhe": "TimeoutError"
+    },
+    {
+      "url": "http://t.co/ceTEoN8Dpx",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://zhora.co/1s2lN9A",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/amtvQQgYC2",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/OCkn9Uuwpb",
+      "status": "erro",
+      "detalhe": "TimeoutError"
+    },
+    {
+      "url": "http://uol.com/bldYJV",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://uol.com/bvdXSh",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/wr140yJcnB",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://buff.ly/1xdlMzw",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://glo.bo/1BDXLSU",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/OEkT1c3mhr",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://tinyurl.com/mjdfjs6",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/Ogcd1NixZn",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://bit.ly/1rkqlCW",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://uol.com/bcdXvv",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://bit.ly/1vHrrin",
+      "status": "arquivado",
+      "snapshot": "https://web.archive.org/web/20141005234020id_/http://bit.ly/1vHRRiN",
+      "alvo": "http://www.mynet.com/haber/politika/davutoglundan-akademisyenlere-mujde-1489471-1?utm_source=google&utm_medium=referral&utm_campaign=haberwallpost",
+      "classe": "indefinido"
+    },
+    {
+      "url": "http://t.co/Aw0NeJ0bcp",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/FRoWGipmXf",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/tlAMCrHfF5",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/GKIp2zoBsB",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/4Zr7TlRpvy",
+      "status": "erro",
+      "detalhe": "TimeoutError"
+    },
+    {
+      "url": "http://t.co/dnzfHH5d6d",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/AHpavgJXxb",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/CaWZNxCS2A",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://bit.ly/1sM7NTj",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://ift.tt/1w7UCcB",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/mv0JxG3o5O",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://uol.com/bldXJX",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/4o94KX7gWd",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/oBZiv4M2lM",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/KfElpOv8Dl",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/zV2PVYKSIm",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://bit.ly/1suJbwL",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/vqxHbOuYLv",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://uol.com/bddXVh",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/JLfFi7sPmg",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/fMJRmhRCVg",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/zvVqlAsm0I",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://uol.com/bkdX4B",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/DIqzeRUB1W",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/GQBbKxOqU5",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/CV9NNXDjVm",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://bit.ly/1pE8XsZ",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/BqUUeOVkFY”",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/Yme6EtaNG1",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/MvuP3tVZSp",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://bit.ly/112WQQY",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://bit.ly/1EhNBvk",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/QpODbQPlen",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/MWHsxvJ978",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/JHQDXOM6js",
+      "status": "erro",
+      "detalhe": "TimeoutError"
+    },
+    {
+      "url": "http://t.co/ADF2G9RBkP",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/OE3zPUtxJP",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/qYSNX5gthL",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/DR99o8PPVZ",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://glo.bo/1xzVQye",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "https://t.co/uoqt0lj31f",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/vDqNonpHVb",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://fb.me/6PG8eeyBp",
+      "status": "erro",
+      "detalhe": "TimeoutError"
+    },
+    {
+      "url": "http://t.co/rLT0r0fV7T",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "https://t.co/rLUrNOnzkT",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://glo.bo/1BFNCoT",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/i1lGz24J",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/Krhhz93RNN",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/kEVFNbhflo",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/NH1aSqoQeC",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://fb.me/2Cy4cUFmT",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/QwJlolpTPb",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://bit.ly/1rUVX5y",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/yhXmd5Dy4l",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/B1ira2OPwr",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://uol.com/bvdXgh",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/XaqNl1Qsza",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://oesta.do/1t0VRf3",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/26fUshXxzt",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://goo.gl/fb/Ezz2T8",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/eYGboEaFJx",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/xbBz33L5GI",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://ow.ly/CiRxA",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://fb.me/3wzF4eyhR",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/rzgdDEAvY1",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/6z3rTpViIO",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://bit.ly/1uOodus",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://t.co/bYgP6MV7dP",
+      "status": "erro",
+      "detalhe": "TimeoutError"
+    },
+    {
+      "url": "http://glo.bo/ZH5Evz",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://ow.ly/CsAAj",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://zhora.co/1o5tBr9",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://bit.ly/ZgMPya",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/hl9kk",
+      "status": "erro",
+      "detalhe": "TimeoutError"
+    },
+    {
+      "url": "http://t.co/LjXSJN9KBJ",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://fb.me/1jGJpqNH3",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/0AL9439XnB",
+      "status": "sem_snapshot"
+    },
+    {
+      "url": "http://t.co/n8mwbVDpjN",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    },
+    {
+      "url": "http://uol.com/bwdX02",
+      "status": "erro",
+      "detalhe": "HTTP 503"
+    }
+  ]
+}

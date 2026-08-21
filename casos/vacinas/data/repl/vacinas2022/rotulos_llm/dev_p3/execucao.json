@@ -1,0 +1,22 @@
+{
+  "conjunto": "dev",
+  "modelo": "claude-haiku-4-5-20251001",
+  "prompt_versao": "p3",
+  "prompt_sha256_12": "380f49882a55",
+  "por_chamada": 10,
+  "temperatura": 0,
+  "batch_id": "msgbatch_01GAS5Qw2RQ9MA2jepGVCirL",
+  "quando": "2026-07-26T09:41:00",
+  "n_tweets": 506,
+  "n_rotulados": 506,
+  "n_faltando": 0,
+  "ids_faltando": [],
+  "uso_tokens": {
+    "entrada": 128261,
+    "saida": 11887,
+    "cache_leitura": 0,
+    "cache_escrita": 0
+  },
+  "custo_reservado_usd": 0.152872,
+  "custo_real_usd": 0.093848
+}

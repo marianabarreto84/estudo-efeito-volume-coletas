@@ -1,0 +1,54 @@
+% ============================================================
+% INTRODUÇÃO (Cap. 1) — a escrever ao final. NÃO incluída no PDF.
+% Contém apenas a introdução propriamente dita. Contexto, Objetivos,
+% Perguntas de pesquisa e Contribuições foram movidos para um capítulo
+% próprio, compilado, em corpo.tex.
+% ============================================================
+
+\chapter{Introdução}
+\label{cap:intro}
+% =====================================================================
+
+As Redes Sociais Digitais (RSD) tornaram-se um substrato central de observação
+do comportamento social, e sobre elas se pratica um amplo repertório de análises
+computacionais --- da detecção de comunidades à análise de sentimento. Toda essa
+prática, porém, repousa sobre uma etapa anterior e raramente problematizada: a
+coleta dos dados ---  e, em particular, o seu volume. Quanto se
+coleta é quase sempre decidido por conveniência (o que a API entrega, uma janela
+de tempo, os itens ``top''), e quase nunca se pergunta se coletar mais
+mudaria a conclusão, ou se o volume coletado já bastava. Essa pergunta ---
+coletar pouco ou muito muda a conclusão? --- não é exclusiva das RSD; é
+uma instância concreta de uma preocupação metodológica mais ampla, presente
+sempre que se analisa um recorte de um universo grande demais para ser
+observado por inteiro. É por isso que esta dissertação toma as RSD como
+caso de estudo: um domínio em que a questão do volume é ao mesmo tempo
+aguda, recorrente e, sobretudo, mensurável.
+
+Em trabalho anterior, foi proposta uma especificação conceitual para RSD, com
+esquemas conceituais específicos e um esquema genérico que viabiliza armazenar e
+consultar dados de plataformas distintas de maneira
+consistente~\cite{salgueiro2023,salgueiro2022dbmodels}. Aquele trabalho assume,
+como ponto de partida, os dados já coletados. Esta dissertação
+problematiza a etapa anterior --- a coleta, e sobretudo o seu volume ---
+e o seu efeito sobre as conclusões.
+
+Toda análise computacional sobre uma RSD é executada não sobre o universo de
+interações da plataforma, mas sobre um recorte: uma amostra, uma janela
+temporal, um conjunto de palavras-chave, os itens mais votados que uma API entrega,
+ou um conjunto de dados pré-existente. A questão é se esse recorte, e o volume que
+ele descarta, é inocente. Para grafos, sabe-se que amostrar uma rede pode
+distorcer fortemente suas propriedades estruturais~\cite{leskovec2006sampling};
+resta saber quão sensível é cada tipo de análise efetivamente praticado na
+literatura de RSD, e o que acontece quando se coleta mais do que os
+trabalhos coletaram. A resposta, obtida no caso das RSD por serem um domínio em
+que o efeito é mensurável, informa diretamente a preocupação metodológica de que
+ele é instância.
+
+\section{Organização do texto}
+
+O Capítulo~\ref{cap:experimento} apresenta a metodologia --- a lógica,
+os eixos de expansão, as métricas, o conjunto de casos fixado e o protocolo
+operacional. O Capítulo~\ref{cap:conclusao} resume o estado atual e os próximos
+passos. O levantamento que fundamenta a motivação está detalhado no artigo
+companion~\cite{barreto2026survey}.
+

@@ -1,0 +1,116 @@
+{
+ "fonte": "data\\repl\\massachs2016\\reddit-politics-12-16.csv.bz2",
+ "n_usuarios": 44924,
+ "taxa_positiva": 0.1577,
+ "baseline_aleatorio_f1": 15.6,
+ "min_usuarios_feature": 500,
+ "n_folds": 5,
+ "seed": 20260818,
+ "resultados": {
+  "participacao (homofilia)": {
+   "n_features_bruto": 766,
+   "n_features": 360,
+   "balanced": {
+    "f1": 34.61,
+    "f1_dp": 0.22,
+    "auc": 0.671,
+    "precisao": 0.2497,
+    "recall": 0.5643
+   },
+   "sem peso": {
+    "f1": 8.17,
+    "f1_dp": 1.05,
+    "auc": 0.6704,
+    "precisao": 0.4552,
+    "recall": 0.0449
+   },
+   "f1_artigo": 34.8,
+   "delta_pp": -0.19
+  },
+  "scores (feedback social)": {
+   "n_features_bruto": 1532,
+   "n_features": 495,
+   "balanced": {
+    "f1": 32.43,
+    "f1_dp": 0.47,
+    "auc": 0.6385,
+    "precisao": 0.2416,
+    "recall": 0.4934
+   },
+   "sem peso": {
+    "f1": 5.67,
+    "f1_dp": 1.18,
+    "auc": 0.6308,
+    "precisao": 0.3478,
+    "recall": 0.0309
+   },
+   "f1_artigo": 33.7,
+   "delta_pp": -1.27
+  },
+  "interacoes (influencia)": {
+   "n_features_bruto": 69,
+   "n_features": 67,
+   "balanced": {
+    "f1": 26.79,
+    "f1_dp": 0.74,
+    "auc": 0.5584,
+    "precisao": 0.1824,
+    "recall": 0.505
+   },
+   "sem peso": {
+    "f1": 0.0,
+    "f1_dp": 0.0,
+    "auc": 0.5585,
+    "precisao": 0.0,
+    "recall": 0.0
+   },
+   "f1_artigo": 26.7,
+   "delta_pp": 0.09
+  },
+  "participacao + scores": {
+   "n_features_bruto": 2298,
+   "n_features": 855,
+   "balanced": {
+    "f1": 34.14,
+    "f1_dp": 0.29,
+    "auc": 0.6647,
+    "precisao": 0.2487,
+    "recall": 0.5448
+   },
+   "sem peso": {
+    "f1": 12.0,
+    "f1_dp": 2.07,
+    "auc": 0.6636,
+    "precisao": 0.4234,
+    "recall": 0.07
+   },
+   "f1_artigo": 35.3,
+   "delta_pp": -1.16
+  },
+  "TODAS": {
+   "n_features_bruto": 2367,
+   "n_features": 922,
+   "balanced": {
+    "f1": 34.5,
+    "f1_dp": 0.21,
+    "auc": 0.6654,
+    "precisao": 0.2505,
+    "recall": 0.5541
+   },
+   "sem peso": {
+    "f1": 12.49,
+    "f1_dp": 2.2,
+    "auc": 0.6642,
+    "precisao": 0.428,
+    "recall": 0.0733
+   }
+  }
+ },
+ "ordenacao": [
+  "participacao (homofilia)",
+  "participacao + scores",
+  "scores (feedback social)",
+  "interacoes (influencia)"
+ ],
+ "mh1_reproduz": true
+}

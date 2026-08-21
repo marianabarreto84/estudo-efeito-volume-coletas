@@ -1,0 +1,45 @@
+{
+ "combinacoes_concluidas": 50,
+ "de": 85,
+ "n_videos": 2320,
+ "Q1": {
+  "passa": 923,
+  "descarta": 1397,
+  "pct_descartado": 60.2,
+  "alvo_artigo": 52.1
+ },
+ "Q2": {
+  "perfil_passa": {
+   "Society": 70.3,
+   "Knowledge": 11.5,
+   "Politics": 6.1,
+   "Lifestyle_(sociology)": 4.6,
+   "Health": 2.9,
+   "Entertainment": 1.9
+  },
+  "perfil_descartado": {
+   "Society": 74.4,
+   "Politics": 5.7,
+   "Knowledge": 4.9,
+   "Sport": 4.5,
+   "Lifestyle_(sociology)": 4.3,
+   "Baseball": 3.4
+  },
+  "canais_casados_passa": 589,
+  "canais_casados_descartado": 507
+ },
+ "Q3": {
+  "passam o filtro": {
+   "n": 923,
+   "no_artigo": 305,
+   "pct": 33.0
+  },
+  "descartados": {
+   "n": 1397,
+   "no_artigo": 86,
+   "pct": 6.2
+  },
+  "total_intersecao": 391,
+  "cobertura_do_artigo_pct": 10.4
+ }
+}

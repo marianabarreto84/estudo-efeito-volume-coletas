@@ -1,0 +1,344 @@
+{
+  "script": "analise/curva_h2_por_dia.py",
+  "executado_em": "2026-08-07 14:40:59",
+  "B_replicas": 300,
+  "definicao_rivalidade": "MH% >= MV% no dia",
+  "dias": [
+    {
+      "dia": "2014-10-19",
+      "n_dia": 3063,
+      "universo": {
+        "mv_pct": 39.7,
+        "mh_pct": 6.6,
+        "gap_mv_mh": 33.1
+      },
+      "amostra_paper": {
+        "n": 100,
+        "mv_pct": 84.0,
+        "mh_pct": 3.0,
+        "gap_mv_mh": 81.0,
+        "rivalidade": false
+      },
+      "por_n": {
+        "25": {
+          "taxa_rivalidade_pct": 0.3,
+          "gap_medio": 33.2,
+          "gap_min": 0.0
+        },
+        "50": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 33.2,
+          "gap_min": 8.0
+        },
+        "100": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 33.4,
+          "gap_min": 16.0
+        },
+        "200": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 33.0,
+          "gap_min": 20.0
+        },
+        "400": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 33.1,
+          "gap_min": 25.2
+        },
+        "800": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 33.0,
+          "gap_min": 27.5
+        }
+      }
+    },
+    {
+      "dia": "2014-10-20",
+      "n_dia": 2992,
+      "universo": {
+        "mv_pct": 54.9,
+        "mh_pct": 11.9,
+        "gap_mv_mh": 43.0
+      },
+      "amostra_paper": {
+        "n": 100,
+        "mv_pct": 59.0,
+        "mh_pct": 16.0,
+        "gap_mv_mh": 43.0,
+        "rivalidade": false
+      },
+      "por_n": {
+        "25": {
+          "taxa_rivalidade_pct": 0.3,
+          "gap_medio": 42.5,
+          "gap_min": -8.0
+        },
+        "50": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 43.2,
+          "gap_min": 14.0
+        },
+        "100": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 43.1,
+          "gap_min": 24.0
+        },
+        "200": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 43.4,
+          "gap_min": 26.0
+        },
+        "400": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 43.1,
+          "gap_min": 32.5
+        },
+        "800": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 42.9,
+          "gap_min": 36.9
+        }
+      }
+    },
+    {
+      "dia": "2014-10-21",
+      "n_dia": 3257,
+      "universo": {
+        "mv_pct": 50.1,
+        "mh_pct": 15.3,
+        "gap_mv_mh": 34.8
+      },
+      "amostra_paper": {
+        "n": 100,
+        "mv_pct": 54.0,
+        "mh_pct": 11.0,
+        "gap_mv_mh": 43.0,
+        "rivalidade": false
+      },
+      "por_n": {
+        "25": {
+          "taxa_rivalidade_pct": 2.0,
+          "gap_medio": 34.5,
+          "gap_min": -16.0
+        },
+        "50": {
+          "taxa_rivalidade_pct": 0.3,
+          "gap_medio": 34.4,
+          "gap_min": 0.0
+        },
+        "100": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 34.6,
+          "gap_min": 14.0
+        },
+        "200": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 34.9,
+          "gap_min": 20.0
+        },
+        "400": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 34.7,
+          "gap_min": 23.2
+        },
+        "800": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 34.9,
+          "gap_min": 27.8
+        }
+      }
+    },
+    {
+      "dia": "2014-10-22",
+      "n_dia": 2908,
+      "universo": {
+        "mv_pct": 52.6,
+        "mh_pct": 9.8,
+        "gap_mv_mh": 42.8
+      },
+      "amostra_paper": {
+        "n": 100,
+        "mv_pct": 55.0,
+        "mh_pct": 7.0,
+        "gap_mv_mh": 48.0,
+        "rivalidade": false
+      },
+      "por_n": {
+        "25": {
+          "taxa_rivalidade_pct": 0.7,
+          "gap_medio": 42.3,
+          "gap_min": -8.0
+        },
+        "50": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 42.9,
+          "gap_min": 14.0
+        },
+        "100": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 43.3,
+          "gap_min": 25.0
+        },
+        "200": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 43.2,
+          "gap_min": 28.5
+        },
+        "400": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 43.0,
+          "gap_min": 33.2
+        },
+        "800": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 42.9,
+          "gap_min": 36.9
+        }
+      }
+    },
+    {
+      "dia": "2014-10-23",
+      "n_dia": 6106,
+      "universo": {
+        "mv_pct": 59.0,
+        "mh_pct": 10.1,
+        "gap_mv_mh": 48.9
+      },
+      "amostra_paper": {
+        "n": 100,
+        "mv_pct": 62.0,
+        "mh_pct": 13.0,
+        "gap_mv_mh": 49.0,
+        "rivalidade": false
+      },
+      "por_n": {
+        "25": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 49.1,
+          "gap_min": 8.0
+        },
+        "50": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 48.7,
+          "gap_min": 20.0
+        },
+        "100": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 48.8,
+          "gap_min": 31.0
+        },
+        "200": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 48.9,
+          "gap_min": 37.0
+        },
+        "400": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 48.7,
+          "gap_min": 39.8
+        },
+        "800": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 48.8,
+          "gap_min": 43.0
+        }
+      }
+    },
+    {
+      "dia": "2014-10-24",
+      "n_dia": 7246,
+      "universo": {
+        "mv_pct": 29.9,
+        "mh_pct": 9.8,
+        "gap_mv_mh": 20.1
+      },
+      "amostra_paper": {
+        "n": 100,
+        "mv_pct": 51.0,
+        "mh_pct": 11.0,
+        "gap_mv_mh": 40.0,
+        "rivalidade": false
+      },
+      "por_n": {
+        "25": {
+          "taxa_rivalidade_pct": 7.7,
+          "gap_medio": 19.4,
+          "gap_min": -8.0
+        },
+        "50": {
+          "taxa_rivalidade_pct": 1.0,
+          "gap_medio": 19.4,
+          "gap_min": -6.0
+        },
+        "100": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 19.8,
+          "gap_min": 5.0
+        },
+        "200": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 19.9,
+          "gap_min": 8.0
+        },
+        "400": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 20.1,
+          "gap_min": 11.5
+        },
+        "800": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 20.1,
+          "gap_min": 14.4
+        }
+      }
+    },
+    {
+      "dia": "2014-10-25",
+      "n_dia": 6621,
+      "universo": {
+        "mv_pct": 32.7,
+        "mh_pct": 10.5,
+        "gap_mv_mh": 22.2
+      },
+      "amostra_paper": {
+        "n": 100,
+        "mv_pct": 19.0,
+        "mh_pct": 10.0,
+        "gap_mv_mh": 9.0,
+        "rivalidade": false
+      },
+      "por_n": {
+        "25": {
+          "taxa_rivalidade_pct": 4.7,
+          "gap_medio": 21.2,
+          "gap_min": -12.0
+        },
+        "50": {
+          "taxa_rivalidade_pct": 0.3,
+          "gap_medio": 22.1,
+          "gap_min": 0.0
+        },
+        "100": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 21.8,
+          "gap_min": 3.0
+        },
+        "200": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 21.7,
+          "gap_min": 7.5
+        },
+        "400": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 21.9,
+          "gap_min": 12.0
+        },
+        "800": {
+          "taxa_rivalidade_pct": 0.0,
+          "gap_medio": 22.1,
+          "gap_min": 16.5
+        }
+      }
+    }
+  ]
+}

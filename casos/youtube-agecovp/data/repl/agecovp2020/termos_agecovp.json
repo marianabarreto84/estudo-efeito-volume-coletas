@@ -1,0 +1,49 @@
+{
+ "fonte": "Ghenai, Nath & Satsangi (2025), EPJ Data Science 14:65 — Tabela 1 e nota de rodape 3",
+ "extraido_em": "2026-08-18",
+ "busca": {
+  "older_adults_N17": ["ageism", "ageist", "elderly", "older", "boomer", "senior",
+                       "aging", "ageing", "later life", "age-related", "retiree",
+                       "retired", "elders", "geriatric", "grandparent", "grandmother",
+                       "grandfather"],
+  "covid_N5_extraido_do_pdf": ["coronavirus", "covid19", "covid-19", "covid19", "coronavirus"],
+  "covid_N5_hipotese_de_trabalho": ["coronavirus", "corona virus", "covid19", "covid 19", "covid-19"],
+  "ressalva": "O PDF perde espacos na extracao (ex.: 'WegeneratealistaX'), o que faz 'corona virus' virar 'coronavirus' e 'covid 19' virar 'covid19'. A lista extraida tem duplicatas aparentes; a hipotese de trabalho restaura os espacos. NAO reportar as duplicatas como achado sem conferir a tabela renderizada.",
+  "combinacoes_declaradas": 85,
+  "paginas_por_combinacao": "todas as paginas ou as 12 primeiras (600 resultados), o que vier antes"
+ },
+ "filtro_palavras_chave": {
+  "descricao": "lista usada no filtro de regex sobre titulo e descricao (nota de rodape do artigo)",
+  "n": 88,
+  "termos": ["elderly", "older adults", "seniors", "senior citizens", "aging population",
+   "old people", "geriatric", "retired individuals", "the aged", "advanced in age",
+   "golden years", "over the hill", "getting old", "senior living", "older generation",
+   "silver-haired", "aging parents", "retired workers", "nursing home", "assisted living",
+   "long-term care", "home care", "retirement home", "elder care", "dementia care",
+   "hospice care", "senior care", "memory care", "senior health", "age-related diseases",
+   "Alzheimer's disease", "dementia", "cognitive decline", "frailty", "osteoporosis",
+   "mobility issues", "too old to", "set in their ways", "old-fashioned", "senile",
+   "out of touch", "slow learners", "stubborn old people", "past their prime", "too slow",
+   "cranky old people", "can't keep up", "losing it with age", "inflexible",
+   "can't teach an old dog new tricks", "ageist", "ageism", "age discrimination",
+   "age bias", "anti-aging", "burden on society", "useless old people", "aging out",
+   "old and irrelevant", "aging workforce", "too old for this",
+   "dealing with the elderly", "older people are a burden", "ageism in the workplace",
+   "retirement age", "pensioner", "social security", "retirement fund",
+   "retirement planning", "retired life", "senior discounts", "pension plan",
+   "early retirement", "aging into retirement", "post-retirement",
+   "financial planning for seniors", "respect your elders", "generational gap", "fossil",
+   "old fart", "old geezer", "old bag", "dinosaur", "dead weight", "washed up"]
+ },
+ "funil_declarado": {
+  "videos_iniciais": 6997,
+  "apos_filtro_regex_e_deletados": 3353,
+  "sugeridos_coletados": 104172,
+  "sugeridos_apos_filtro": 1025,
+  "merge": 4378,
+  "final_apos_filtro_idioma": 3782,
+  "canais": 2243,
+  "comentarios": 69425,
+  "comentarios_rotulados": 4390
+ }
+}

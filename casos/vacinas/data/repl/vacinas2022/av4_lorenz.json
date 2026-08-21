@@ -1,0 +1,127 @@
+{
+  "script": "analise/av4_lorenz_por_limiar.py",
+  "executado_em": "2026-08-07 13:05:39",
+  "nota_dado": "tweet_referenciado_id 100% nulo na re-coleta; usa-se a coluna `retweets` dos originais agregada por autor (= SUM_Retweets_Per_Author do suplemento)",
+  "paper_top10_pct_amostra_viral": 15.7,
+  "por_limiar": [
+    {
+      "limiar": 500,
+      "n_autores": 625,
+      "rts_totais": 2451210,
+      "top10_pct": 15.3,
+      "top100_pct": 60.6,
+      "gini": 0.609,
+      "lorenz": {
+        "top_10pct_autores": 47.9,
+        "top_25pct_autores": 72.5,
+        "top_50pct_autores": 88.3,
+        "top_75pct_autores": 96.0,
+        "top_90pct_autores": 98.6,
+        "top_95pct_autores": 99.3,
+        "top_99pct_autores": 99.9
+      }
+    },
+    {
+      "limiar": 250,
+      "n_autores": 986,
+      "rts_totais": 2996414,
+      "top10_pct": 13.7,
+      "top100_pct": 55.6,
+      "gini": 0.675,
+      "lorenz": {
+        "top_10pct_autores": 55.3,
+        "top_25pct_autores": 77.9,
+        "top_50pct_autores": 91.8,
+        "top_75pct_autores": 97.3,
+        "top_90pct_autores": 99.1,
+        "top_95pct_autores": 99.6,
+        "top_99pct_autores": 99.9
+      }
+    },
+    {
+      "limiar": 100,
+      "n_autores": 1704,
+      "rts_totais": 3470066,
+      "top10_pct": 12.5,
+      "top100_pct": 51.7,
+      "gini": 0.753,
+      "lorenz": {
+        "top_10pct_autores": 64.5,
+        "top_25pct_autores": 84.6,
+        "top_50pct_autores": 95.0,
+        "top_75pct_autores": 98.4,
+        "top_90pct_autores": 99.5,
+        "top_95pct_autores": 99.7,
+        "top_99pct_autores": 100.0
+      }
+    },
+    {
+      "limiar": 50,
+      "n_autores": 2691,
+      "rts_totais": 3735681,
+      "top10_pct": 11.8,
+      "top100_pct": 49.4,
+      "gini": 0.808,
+      "lorenz": {
+        "top_10pct_autores": 72.4,
+        "top_25pct_autores": 89.7,
+        "top_50pct_autores": 96.7,
+        "top_75pct_autores": 98.9,
+        "top_90pct_autores": 99.6,
+        "top_95pct_autores": 99.8,
+        "top_99pct_autores": 100.0
+      }
+    },
+    {
+      "limiar": 25,
+      "n_autores": 4483,
+      "rts_totais": 3950268,
+      "top10_pct": 11.2,
+      "top100_pct": 47.5,
+      "gini": 0.854,
+      "lorenz": {
+        "top_10pct_autores": 80.2,
+        "top_25pct_autores": 93.1,
+        "top_50pct_autores": 97.5,
+        "top_75pct_autores": 99.1,
+        "top_90pct_autores": 99.7,
+        "top_95pct_autores": 99.9,
+        "top_99pct_autores": 100.0
+      }
+    },
+    {
+      "limiar": 10,
+      "n_autores": 8665,
+      "rts_totais": 4178561,
+      "top10_pct": 10.6,
+      "top100_pct": 45.4,
+      "gini": 0.895,
+      "lorenz": {
+        "top_10pct_autores": 87.7,
+        "top_25pct_autores": 95.2,
+        "top_50pct_autores": 98.1,
+        "top_75pct_autores": 99.3,
+        "top_90pct_autores": 99.8,
+        "top_95pct_autores": 99.9,
+        "top_99pct_autores": 100.0
+      }
+    },
+    {
+      "limiar": 0,
+      "n_autores": 75082,
+      "rts_totais": 4599451,
+      "top10_pct": 9.7,
+      "top100_pct": 41.5,
+      "gini": 0.957,
+      "lorenz": {
+        "top_10pct_autores": 95.2,
+        "top_25pct_autores": 97.9,
+        "top_50pct_autores": 99.1,
+        "top_75pct_autores": 99.6,
+        "top_90pct_autores": 99.8,
+        "top_95pct_autores": 99.9,
+        "top_99pct_autores": 100.0
+      }
+    }
+  ]
+}

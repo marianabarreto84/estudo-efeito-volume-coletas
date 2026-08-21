@@ -1,0 +1,71 @@
+{
+  "script": "analise/sensibilidade_mp_mc.py",
+  "executado_em": "2026-08-07 15:19:45",
+  "janela": [
+    "2014-10-13",
+    "2014-10-23"
+  ],
+  "paper_mp_pct": 59.0,
+  "cenarios": {
+    "base (estrita, sem curadoria)": {
+      "MP": 15852,
+      "MC": 6096,
+      "com_midia": 21948,
+      "MP_pct_de_C": 72.2,
+      "indefinido": 515,
+      "NDA": 9423,
+      "nao_resolvido": 4926,
+      "nao_midia": 256,
+      "gap_vs_paper_pp": 13.2
+    },
+    "A · + curadoria do indefinido": {
+      "MP": 15852,
+      "MC": 6503,
+      "com_midia": 22355,
+      "MP_pct_de_C": 70.9,
+      "indefinido": 0,
+      "NDA": 9423,
+      "nao_resolvido": 4966,
+      "nao_midia": 324,
+      "gap_vs_paper_pp": 11.9
+    },
+    "B · convencao CONCEITUAL": {
+      "MP": 16954,
+      "MC": 5401,
+      "com_midia": 22355,
+      "MP_pct_de_C": 75.8,
+      "indefinido": 0,
+      "NDA": 9423,
+      "nao_resolvido": 4966,
+      "nao_midia": 324,
+      "gap_vs_paper_pp": 16.8
+    },
+    "C · + regra de coluna ampliada": {
+      "MP": 15825,
+      "MC": 6530,
+      "com_midia": 22355,
+      "MP_pct_de_C": 70.8,
+      "indefinido": 0,
+      "NDA": 9423,
+      "nao_resolvido": 4966,
+      "nao_midia": 324,
+      "gap_vs_paper_pp": 11.8
+    },
+    "A+B+C (tudo junto)": {
+      "MP": 16922,
+      "MC": 5433,
+      "com_midia": 22355,
+      "MP_pct_de_C": 75.7,
+      "indefinido": 0,
+      "NDA": 9423,
+      "nao_resolvido": 4966,
+      "nao_midia": 324,
+      "gap_vs_paper_pp": 16.7
+    },
+    "_diagnostico_path": {
+      "mp_com_path": 15472,
+      "mp_sem_path": 380,
+      "pct_sem_path": 2.4
+    }
+  }
+}

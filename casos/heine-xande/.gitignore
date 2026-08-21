@@ -1,0 +1,8 @@
+# Segredos — NUNCA versionar
+.env
+# Snapshots grandes / caches
+data/repl/**/*.sqlite
+# Python
+__pycache__/
+*.py[cod]
+.venv/

@@ -1,0 +1,31 @@
+{
+ "combinacoes": 50,
+ "n": 2320,
+ "no_tema": 1090,
+ "fora_tema": 1230,
+ "descartados_no_tema": 273,
+ "descartados_fora_tema": 1124,
+ "UGC": {
+  "passa": 30.9,
+  "descartado": 38.8,
+  "delta_pp": 7.9
+ },
+ "categorias": {
+  "passa": {
+   "Society": 68.9,
+   "Knowledge": 12.2,
+   "Politics": 6.2,
+   "Lifestyle_(sociology)": 5.1,
+   "Health": 3.2,
+   "Entertainment": 1.5
+  },
+  "descartado": {
+   "Society": 77.0,
+   "Knowledge": 7.9,
+   "Sport": 3.0,
+   "Politics": 3.0,
+   "Religion": 2.4,
+   "Health": 1.8
+  }
+ }
+}

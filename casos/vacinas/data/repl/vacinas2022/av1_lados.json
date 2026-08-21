@@ -1,0 +1,316 @@
+{
+  "script": "analise/atribui_lado_comunidades.py",
+  "executado_em": "2026-08-07 09:41:39",
+  "particao": {
+    "origem": "comunidades_autores (rede_modularidade.py, seed 42)",
+    "n_comunidades": 11664,
+    "n_autores": 879148
+  },
+  "sementes": {
+    "pro": 353,
+    "anti": 246,
+    "sem_lado": 3,
+    "localizadas": 599,
+    "comunidades_atingidas": 8,
+    "comunidades_mistas": {
+      "3": {
+        "anti": 244,
+        "pro": 1
+      },
+      "13": {
+        "pro": 5,
+        "anti": 2
+      }
+    }
+  },
+  "bases": {
+    "ampla": {
+      "total_posts": 6554690,
+      "posts_fora_grafo": 742487,
+      "cenarios": {
+        "1": {
+          "min_sementes": 1,
+          "comunidades_com_lado": 8,
+          "pro_pct": 47.8,
+          "anti_pct": 30.6,
+          "nao_ident_pct": 21.6,
+          "cobertura_pct": 78.4,
+          "razao_pro_anti": 1.56,
+          "posts": {
+            "pro": 3132208,
+            "anti": 2007833,
+            "nao_ident": 1414649
+          },
+          "comunidades_detalhe": [
+            {
+              "comunidade": 3,
+              "lado": "anti",
+              "sementes": {
+                "anti": 244,
+                "pro": 1
+              },
+              "posts": 2007833,
+              "pct_posts": 30.63
+            },
+            {
+              "comunidade": 2,
+              "lado": "pro",
+              "sementes": {
+                "pro": 183
+              },
+              "posts": 1966266,
+              "pct_posts": 30.0
+            },
+            {
+              "comunidade": 0,
+              "lado": "pro",
+              "sementes": {
+                "pro": 158
+              },
+              "posts": 976541,
+              "pct_posts": 14.9
+            },
+            {
+              "comunidade": 13,
+              "lado": "pro",
+              "sementes": {
+                "pro": 5,
+                "anti": 2
+              },
+              "posts": 73534,
+              "pct_posts": 1.12
+            },
+            {
+              "comunidade": 17,
+              "lado": "pro",
+              "sementes": {
+                "pro": 1
+              },
+              "posts": 39871,
+              "pct_posts": 0.61
+            },
+            {
+              "comunidade": 9,
+              "lado": "pro",
+              "sementes": {
+                "pro": 1
+              },
+              "posts": 37146,
+              "pct_posts": 0.57
+            },
+            {
+              "comunidade": 8,
+              "lado": "pro",
+              "sementes": {
+                "pro": 3
+              },
+              "posts": 21394,
+              "pct_posts": 0.33
+            },
+            {
+              "comunidade": 19,
+              "lado": "pro",
+              "sementes": {
+                "pro": 1
+              },
+              "posts": 17456,
+              "pct_posts": 0.27
+            }
+          ]
+        },
+        "2": {
+          "min_sementes": 2,
+          "comunidades_com_lado": 5,
+          "pro_pct": 46.3,
+          "anti_pct": 30.6,
+          "nao_ident_pct": 23.0,
+          "cobertura_pct": 77.0,
+          "razao_pro_anti": 1.513,
+          "posts": {
+            "pro": 3037735,
+            "anti": 2007833,
+            "nao_ident": 1509122
+          }
+        },
+        "3": {
+          "min_sementes": 3,
+          "comunidades_com_lado": 5,
+          "pro_pct": 46.3,
+          "anti_pct": 30.6,
+          "nao_ident_pct": 23.0,
+          "cobertura_pct": 77.0,
+          "razao_pro_anti": 1.513,
+          "posts": {
+            "pro": 3037735,
+            "anti": 2007833,
+            "nao_ident": 1509122
+          }
+        },
+        "5": {
+          "min_sementes": 5,
+          "comunidades_com_lado": 4,
+          "pro_pct": 46.0,
+          "anti_pct": 30.6,
+          "nao_ident_pct": 23.3,
+          "cobertura_pct": 76.7,
+          "razao_pro_anti": 1.502,
+          "posts": {
+            "pro": 3016341,
+            "anti": 2007833,
+            "nao_ident": 1530516
+          }
+        }
+      }
+    },
+    "paper": {
+      "total_posts": 5637000,
+      "posts_fora_grafo": 0,
+      "cenarios": {
+        "1": {
+          "min_sementes": 1,
+          "comunidades_com_lado": 8,
+          "pro_pct": 55.2,
+          "anti_pct": 35.4,
+          "nao_ident_pct": 9.4,
+          "cobertura_pct": 90.6,
+          "razao_pro_anti": 1.558,
+          "posts": {
+            "pro": 3110679,
+            "anti": 1997102,
+            "nao_ident": 529219
+          },
+          "comunidades_detalhe": [
+            {
+              "comunidade": 3,
+              "lado": "anti",
+              "sementes": {
+                "anti": 244,
+                "pro": 1
+              },
+              "posts": 1997102,
+              "pct_posts": 35.43
+            },
+            {
+              "comunidade": 2,
+              "lado": "pro",
+              "sementes": {
+                "pro": 183
+              },
+              "posts": 1952701,
+              "pct_posts": 34.64
+            },
+            {
+              "comunidade": 0,
+              "lado": "pro",
+              "sementes": {
+                "pro": 158
+              },
+              "posts": 971860,
+              "pct_posts": 17.24
+            },
+            {
+              "comunidade": 13,
+              "lado": "pro",
+              "sementes": {
+                "pro": 5,
+                "anti": 2
+              },
+              "posts": 72669,
+              "pct_posts": 1.29
+            },
+            {
+              "comunidade": 17,
+              "lado": "pro",
+              "sementes": {
+                "pro": 1
+              },
+              "posts": 38942,
+              "pct_posts": 0.69
+            },
+            {
+              "comunidade": 9,
+              "lado": "pro",
+              "sementes": {
+                "pro": 1
+              },
+              "posts": 36996,
+              "pct_posts": 0.66
+            },
+            {
+              "comunidade": 8,
+              "lado": "pro",
+              "sementes": {
+                "pro": 3
+              },
+              "posts": 20213,
+              "pct_posts": 0.36
+            },
+            {
+              "comunidade": 19,
+              "lado": "pro",
+              "sementes": {
+                "pro": 1
+              },
+              "posts": 17298,
+              "pct_posts": 0.31
+            }
+          ]
+        },
+        "2": {
+          "min_sementes": 2,
+          "comunidades_com_lado": 5,
+          "pro_pct": 53.5,
+          "anti_pct": 35.4,
+          "nao_ident_pct": 11.0,
+          "cobertura_pct": 89.0,
+          "razao_pro_anti": 1.511,
+          "posts": {
+            "pro": 3017443,
+            "anti": 1997102,
+            "nao_ident": 622455
+          }
+        },
+        "3": {
+          "min_sementes": 3,
+          "comunidades_com_lado": 5,
+          "pro_pct": 53.5,
+          "anti_pct": 35.4,
+          "nao_ident_pct": 11.0,
+          "cobertura_pct": 89.0,
+          "razao_pro_anti": 1.511,
+          "posts": {
+            "pro": 3017443,
+            "anti": 1997102,
+            "nao_ident": 622455
+          }
+        },
+        "5": {
+          "min_sementes": 5,
+          "comunidades_com_lado": 4,
+          "pro_pct": 53.2,
+          "anti_pct": 35.4,
+          "nao_ident_pct": 11.4,
+          "cobertura_pct": 88.6,
+          "razao_pro_anti": 1.501,
+          "posts": {
+            "pro": 2997230,
+            "anti": 1997102,
+            "nao_ident": 642668
+          }
+        }
+      }
+    }
+  },
+  "razao_pro_anti": {
+    "min": 1.501,
+    "max": 1.56,
+    "paper": 1.022
+  },
+  "paper_tabela1": {
+    "posts_total": 5149274,
+    "pro_pct": 39.3,
+    "anti_pct": 38.4,
+    "nao_ident_pct": 22.3,
+    "cobertura_pct": 77.7
+  }
+}

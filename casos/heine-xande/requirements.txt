@@ -1,0 +1,12 @@
+# Conexão ao Postgres via túnel SSH (Fase 0-1)
+paramiko
+sshtunnel
+psycopg2-binary
+# Eixo tópicos (Fase 2) — CPU, reprodutível (sem GPU/Gemini)
+sentence-transformers
+bertopic
+umap-learn
+hdbscan
+scikit-learn
+numpy
+scipy

@@ -1,0 +1,7 @@
+Snapshot A_mais_hashtag (Fase 1)
+origem: vm067 / eTC_Producao / public.ituassu_2014
+filtro: hashtag normalizada (lower+sem acento) == 'eleicoes2014'
+linhas: 140909
+colunas: id_tweet, twitter_id, autor, nome_autor, autor_id, texto, idioma, hashtags, links, urls_detalhes, likes, retweets, replies, quotes, status_retweet, status_verificado, num_seguidores, num_seguindo, num_tweets, autor_original, tweet_tipo, conversa_id, tweet_referenciado_id, resposta_a_id, data_brt, primeiro_host, classe_midia
+data_brt: timestamp em America/Sao_Paulo (naive)
+extraido_em_segundos: 82.3

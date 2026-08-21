@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -oE '^@[a-zA-Z]+\\\\{[^,]+' survey/referencias.bib)",
+      "Bash(grep -oE '\\\\\\\\cite[pt]?\\\\{[^}]+\\\\}' survey/survey.tex)",
+      "WebFetch(domain:link.springer.com)",
+      "WebFetch(domain:www.researchgate.net)",
+      "Bash(curl -s \"https://api.crossref.org/works/10.1007/978-3-030-37484-6_6\")",
+      "Bash(python -c ' *)",
+      "Bash(grep -oE '^@[a-zA-Z]+\\\\{[^,]+' dissertacao/referencias.bib)",
+      "WebSearch",
+      "Bash(command -v pdflatex)",
+      "Bash(pdflatex -interaction=nonstopmode -halt-on-error survey.tex)",
+      "Bash(bibtex survey *)",
+      "Bash(echo \"exit: $?\")",
+      "Read(//tmp/**)",
+      "Bash(cd \"C:/Users/maria/Downloads/survey-redacao\" && echo \"--- Heine no .bbl? ---\" && grep -i \"heine\\\\|Addressing Database\" survey.bbl | head && echo \"--- limpando auxiliares ---\" && rm -f survey.aux survey.log survey.out survey.bbl survey.blg && ls survey.*)",
+      "Bash(rm -f survey.aux survey.log survey.out survey.bbl survey.blg)",
+      "Bash(PYTHONIOENCODING=utf-8 python -c ' *)"
+    ],
+    "additionalDirectories": [
+      "C:/Users/maria/Documents/GitHub/redes-sociais-digitais-survey",
+      "C:\\Users\\maria\\Downloads\\survey-redacao"
+    ]
+  }
+}

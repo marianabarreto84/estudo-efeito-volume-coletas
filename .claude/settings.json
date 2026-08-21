@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ' *)",
+      "Bash(python -c \"import requests;print\\('requests',requests.__version__\\)\")"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"Pasta da dissertacao: LEIA o ESTADO.md da raiz antes de propor ou comecar trabalho — ele diz o que esta desbloqueado, o que esta travado e em que, e o que espera decisao da Mariana. Ao terminar qualquer trabalho que mude o estado do projeto (rodou analise, fechou fase, achou/descartou dado, mudou numero, fechou decisao), ATUALIZE o ESTADO.md na mesma sessao, junto com os .md do contrato de documentacao (skill docs-em-dia).\"}}'"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+ "alvo_AG3": 7.0,
+ "limiares": {
+  "1000": {
+   "ugc_videos_pct": 22.9,
+   "ugc_canais_pct": 39.2
+  },
+  "5000": {
+   "ugc_videos_pct": 29.9,
+   "ugc_canais_pct": 50.2
+  },
+  "10000": {
+   "ugc_videos_pct": 32.0,
+   "ugc_canais_pct": 53.9
+  },
+  "20000": {
+   "ugc_videos_pct": 34.7,
+   "ugc_canais_pct": 57.4
+  },
+  "50000": {
+   "ugc_videos_pct": 37.8,
+   "ugc_canais_pct": 60.9
+  },
+  "100000": {
+   "ugc_videos_pct": 41.2,
+   "ugc_canais_pct": 63.8
+  },
+  "200000": {
+   "ugc_videos_pct": 45.2,
+   "ugc_canais_pct": 66.1
+  },
+  "500000": {
+   "ugc_videos_pct": 48.4,
+   "ugc_canais_pct": 67.7
+  },
+  "1000000": {
+   "ugc_videos_pct": 50.6,
+   "ugc_canais_pct": 68.7
+  }
+ },
+ "limiar_escolhido": 1000,
+ "erro_pp": 15.9,
+ "controle_no_tema_pct": 99.9
+}

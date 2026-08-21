@@ -1,0 +1,1188 @@
+{
+  "versao": "v1",
+  "fonte": "suplementar_rotulos.xlsx (Apendice A, Verjovsky et al. 2023)",
+  "n_gabarito": 1525,
+  "stance": {
+    "coluna_pro": "Tweet_ProVax",
+    "coluna_anti": "Tweet_AntiVax",
+    "n_pro": 738,
+    "n_anti": 784,
+    "n_nenhum": 3
+  },
+  "categorias": [
+    {
+      "numero": 1,
+      "nome_en": "Politics",
+      "nome_pt": "Politica",
+      "coluna": "All_Category_1_Politics",
+      "total_publicado": 719,
+      "pro_publicado": 356,
+      "anti_publicado": 363,
+      "total_no_gabarito": 719,
+      "subcategorias": [
+        {
+          "refinada": "Government politicians",
+          "coluna": "About_Bolsonaro",
+          "total": 171,
+          "pro": 119,
+          "anti": 52
+        },
+        {
+          "refinada": "Government politicians",
+          "coluna": "About_GovernmentNotRegional",
+          "total": 74,
+          "pro": 57,
+          "anti": 17
+        },
+        {
+          "refinada": "Government politicians",
+          "coluna": "About_All_Bolsonaro_OR_GovNotRegional",
+          "total": 219,
+          "pro": 154,
+          "anti": 65
+        },
+        {
+          "refinada": "Pro-government politicians",
+          "coluna": "About_other_FarRight_politicians",
+          "total": 55,
+          "pro": 39,
+          "anti": 16
+        },
+        {
+          "refinada": "Other politicians",
+          "coluna": "About_senators_deputies_councilors",
+          "total": 131,
+          "pro": 39,
+          "anti": 92
+        },
+        {
+          "refinada": "Other politicians",
+          "coluna": "About_Regional_Governments",
+          "total": 17,
+          "pro": 8,
+          "anti": 9
+        },
+        {
+          "refinada": "Left-wing politicians",
+          "coluna": "About_Lula",
+          "total": 17,
+          "pro": 9,
+          "anti": 8
+        },
+        {
+          "refinada": "Left-wing politicians",
+          "coluna": "About_PT",
+          "total": 10,
+          "pro": 2,
+          "anti": 8
+        },
+        {
+          "refinada": "Left-wing politicians",
+          "coluna": "About_other_Left_politicians",
+          "total": 29,
+          "pro": 5,
+          "anti": 24
+        },
+        {
+          "refinada": "All left-wing politicians",
+          "coluna": "About_ALL_Left_politicians",
+          "total": 51,
+          "pro": 13,
+          "anti": 38
+        },
+        {
+          "refinada": "Opposition politicians",
+          "coluna": "Paes",
+          "total": 7,
+          "pro": 1,
+          "anti": 6
+        },
+        {
+          "refinada": "Opposition politicians",
+          "coluna": "Dória",
+          "total": 21,
+          "pro": 3,
+          "anti": 18
+        },
+        {
+          "refinada": "All politicians",
+          "coluna": "About_all_Brazilian_Politicians",
+          "total": 405,
+          "pro": 213,
+          "anti": 192
+        },
+        {
+          "refinada": "Anti-vacine policies",
+          "coluna": "About_Antivax_government",
+          "total": 250,
+          "pro": 194,
+          "anti": 56
+        },
+        {
+          "refinada": "Vaccination delay",
+          "coluna": "About_Vaccine_DELAY",
+          "total": 72,
+          "pro": 68,
+          "anti": 4
+        },
+        {
+          "refinada": "Public Consultation on COVID-19 child immunization",
+          "coluna": "About_public_consult",
+          "total": 35,
+          "pro": 15,
+          "anti": 20
+        },
+        {
+          "refinada": "All anti-vaccine policies",
+          "coluna": "About_All_AntiVaccine_policies",
+          "total": 297,
+          "pro": 226,
+          "anti": 71
+        },
+        {
+          "refinada": "Minister of National Health Services",
+          "coluna": "About_Queiroga",
+          "total": 58,
+          "pro": 45,
+          "anti": 13
+        },
+        {
+          "refinada": "Ministry of National Health Services",
+          "coluna": "About_MS",
+          "total": 54,
+          "pro": 29,
+          "anti": 25
+        },
+        {
+          "refinada": "Public National Health Services",
+          "coluna": "About_SUS",
+          "total": 33,
+          "pro": 26,
+          "anti": 7
+        },
+        {
+          "refinada": "National Health Surveillance Agency",
+          "coluna": "About_Anvisa",
+          "total": 105,
+          "pro": 62,
+          "anti": 43
+        },
+        {
+          "refinada": "All Public health government structures",
+          "coluna": "About_All_Public_health_gov_structures",
+          "total": 218,
+          "pro": 140,
+          "anti": 78
+        },
+        {
+          "refinada": "Corruption",
+          "coluna": "About_Corruption",
+          "total": 31,
+          "pro": 23,
+          "anti": 8
+        },
+        {
+          "refinada": "Lobby",
+          "coluna": "About_LOBBY",
+          "total": 47,
+          "pro": 5,
+          "anti": 42
+        },
+        {
+          "refinada": "All Political illegalities",
+          "coluna": "About_All_Corruption_OR_Lobby",
+          "total": 76,
+          "pro": 27,
+          "anti": 49
+        },
+        {
+          "refinada": "Political supporters",
+          "coluna": "About_Bolsonaro_Supporters",
+          "total": 85,
+          "pro": 71,
+          "anti": 14
+        },
+        {
+          "refinada": "Judiciary",
+          "coluna": "About_JUDICIARY",
+          "total": 154,
+          "pro": 39,
+          "anti": 115
+        }
+      ],
+      "subcategorias_fronteira": [
+        {
+          "refinada": "Antivax people and government",
+          "coluna": "About_All_Antivax_PeopleA1toA8_OR_Gov",
+          "total": 570,
+          "pro": 420,
+          "anti": 150
+        },
+        {
+          "refinada": "International politicians",
+          "coluna": "Trump",
+          "total": 4,
+          "pro": 4,
+          "anti": 0
+        },
+        {
+          "refinada": "International politicians",
+          "coluna": "Biden",
+          "total": 11,
+          "pro": 0,
+          "anti": 11
+        },
+        {
+          "refinada": "International politicians",
+          "coluna": "About_Other_internationalPoliticians",
+          "total": 11,
+          "pro": 1,
+          "anti": 10
+        },
+        {
+          "refinada": "All international politicians",
+          "coluna": "About_all_International_Politicians",
+          "total": 25,
+          "pro": 4,
+          "anti": 21
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "nome_en": "Children",
+      "nome_pt": "Criancas",
+      "coluna": "About_all_Children",
+      "total_publicado": 592,
+      "pro_publicado": 302,
+      "anti_publicado": 290,
+      "total_no_gabarito": 592,
+      "subcategorias": [
+        {
+          "refinada": "Children",
+          "coluna": "About_All_Children",
+          "total": 592,
+          "pro": 302,
+          "anti": 290
+        },
+        {
+          "refinada": "Pro need of vaccine prescription for children",
+          "coluna": "PRO_prescript_for_kids",
+          "total": 6,
+          "pro": 0,
+          "anti": 6
+        },
+        {
+          "refinada": "Against need of vaccine prescription for children",
+          "coluna": "AGAINST_prescript_for_kids",
+          "total": 13,
+          "pro": 13,
+          "anti": 0
+        },
+        {
+          "refinada": "All vaccine prescription for children (pro and against)",
+          "coluna": "About_All_PrescriptionForKids_Pro_OR_Against",
+          "total": 284,
+          "pro": 271,
+          "anti": 13
+        }
+      ],
+      "subcategorias_fronteira": [
+        {
+          "refinada": "Pro-adult vaccination, but against childhood immunization against COVID-19",
+          "coluna": "About_YesVAccine_BUT_NotForChildren_A8",
+          "total": 2,
+          "pro": 0,
+          "anti": 2
+        },
+        {
+          "refinada": "Pro vaccine to school enrollment",
+          "coluna": "About_Pro_VaccineTo_SCHOOL_Enrollment",
+          "total": 9,
+          "pro": 8,
+          "anti": 1
+        },
+        {
+          "refinada": "Against vaccine to school enrollment",
+          "coluna": "About_Against_VaccineTo_SCHOOL_Enrollment",
+          "total": 33,
+          "pro": 0,
+          "anti": 33
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "nome_en": "Restrictive policies",
+      "nome_pt": "Politicas restritivas",
+      "coluna": "All_Category_3_RestrictivePolicies",
+      "total_publicado": 531,
+      "pro_publicado": 152,
+      "anti_publicado": 379,
+      "total_no_gabarito": 531,
+      "subcategorias": [
+        {
+          "refinada": "Pro freedom for the vaccinees",
+          "coluna": "Pro_ProVax_Freedom",
+          "total": 32,
+          "pro": 31,
+          "anti": 1
+        },
+        {
+          "refinada": "Against freedom for the anti-vaccine",
+          "coluna": "Against_Antivax_Freedom",
+          "total": 96,
+          "pro": 96,
+          "anti": 0
+        },
+        {
+          "refinada": "Pro mandatory vaccination",
+          "coluna": "Pro_Mandatory_vacc",
+          "total": 20,
+          "pro": 20,
+          "anti": 0
+        },
+        {
+          "refinada": "Pro vaccination but against its obligation",
+          "coluna": "About_YesVAccine_BUT_NotMandatory",
+          "total": 14,
+          "pro": 1,
+          "anti": 13
+        },
+        {
+          "refinada": "Pro freedom for the anti-vaccine",
+          "coluna": "Pro_AntiVax_Freedom",
+          "total": 335,
+          "pro": 5,
+          "anti": 330
+        },
+        {
+          "refinada": "Against mandatory vaccination",
+          "coluna": "Against_Mandatory_vacc",
+          "total": 167,
+          "pro": 3,
+          "anti": 164
+        },
+        {
+          "refinada": "Freedom",
+          "coluna": "About_All_FREEDOM_Pro_OR_Against_OR_Neutral",
+          "total": 439,
+          "pro": 110,
+          "anti": 329
+        },
+        {
+          "refinada": "Pro vaccine to university enrollment",
+          "coluna": "About_Pro_VaccineTo_UNIVERSITY_Enrollment",
+          "total": 4,
+          "pro": 4,
+          "anti": 0
+        },
+        {
+          "refinada": "Pro vaccine to school / University enrollment",
+          "coluna": "About_Pro_VaccineToSchoolORUniversityEnrollment",
+          "total": 12,
+          "pro": 12,
+          "anti": 0
+        },
+        {
+          "refinada": "Against vaccine to university enrollment",
+          "coluna": "About_Against_VaccineTo_UNIVERSITY_Enrollment",
+          "total": 12,
+          "pro": 0,
+          "anti": 12
+        },
+        {
+          "refinada": "Against vaccine to school / University enrollment",
+          "coluna": "About_Against_VaccineToSchoolORUniversityEnrollment",
+          "total": 41,
+          "pro": 0,
+          "anti": 41
+        },
+        {
+          "refinada": "School / University enrollment",
+          "coluna": "About_All_VaccineTo_SchoolORUniversity_Enrollment_ProORAgainst",
+          "total": 56,
+          "pro": 13,
+          "anti": 43
+        },
+        {
+          "refinada": "Pro COVID-19 vaccine certificate",
+          "coluna": "About_Pro_Vaccine_Passport_OR_Certificate",
+          "total": 89,
+          "pro": 87,
+          "anti": 2
+        },
+        {
+          "refinada": "Against COVID-19 vaccine certificate",
+          "coluna": "About_Against_Vaccine_Passport_OR_Certificate",
+          "total": 171,
+          "pro": 1,
+          "anti": 170
+        },
+        {
+          "refinada": "All COVID-19 vaccine certificate (pro and against)",
+          "coluna": "About_All_Vaccine_Passport_OR_Certificate_Pro_OR_Against",
+          "total": 260,
+          "pro": 88,
+          "anti": 172
+        }
+      ],
+      "subcategorias_fronteira": [
+        {
+          "refinada": "Pro vaccine to school enrollment",
+          "coluna": "About_Pro_VaccineTo_SCHOOL_Enrollment",
+          "total": 9,
+          "pro": 8,
+          "anti": 1
+        },
+        {
+          "refinada": "Against vaccine to school enrollment",
+          "coluna": "About_Against_VaccineTo_SCHOOL_Enrollment",
+          "total": 33,
+          "pro": 0,
+          "anti": 33
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "nome_en": "Disadvantages of vaccines",
+      "nome_pt": "Desvantagens das vacinas",
+      "coluna": "About_all_disadvantages_vaccines_",
+      "total_publicado": 378,
+      "pro_publicado": 37,
+      "anti_publicado": 341,
+      "total_no_gabarito": 378,
+      "subcategorias": [
+        {
+          "refinada": "Non-severity of covid in children",
+          "coluna": "About_CHILD_NOT_risk",
+          "total": 31,
+          "pro": 4,
+          "anti": 27
+        },
+        {
+          "refinada": "Non-severity of covid",
+          "coluna": "About_omicron_NOT_risk",
+          "total": 25,
+          "pro": 3,
+          "anti": 22
+        },
+        {
+          "refinada": "Natural immunity is better than vaccine",
+          "coluna": "About_natural_immun",
+          "total": 21,
+          "pro": 3,
+          "anti": 18
+        },
+        {
+          "refinada": "Ineffectiveness of vaccines",
+          "coluna": "About_vacc_INEFFECTIVE",
+          "total": 152,
+          "pro": 20,
+          "anti": 132
+        },
+        {
+          "refinada": "Vaccine risks",
+          "coluna": "About_VACC_RISKS",
+          "total": 214,
+          "pro": 8,
+          "anti": 206
+        },
+        {
+          "refinada": "All disadvantages of vaccines",
+          "coluna": "About_all_disadvantages_vaccines_",
+          "total": 378,
+          "pro": 37,
+          "anti": 341
+        }
+      ],
+      "subcategorias_fronteira": []
+    },
+    {
+      "numero": 5,
+      "nome_en": "Anti-vaccine people",
+      "nome_pt": "Pessoas anti-vacina",
+      "coluna": "ALL_Category_5_AntivaxPeople",
+      "total_publicado": 375,
+      "pro_publicado": 269,
+      "anti_publicado": 106,
+      "total_no_gabarito": 375,
+      "subcategorias": [
+        {
+          "refinada": "Unvaccinated do not risk others",
+          "coluna": "About_Unvax_NOT_RiskOthers",
+          "total": 12,
+          "pro": 0,
+          "anti": 12
+        },
+        {
+          "refinada": "Unvaccinated risk others",
+          "coluna": "About_Unvax_RiskOthers",
+          "total": 36,
+          "pro": 33,
+          "anti": 3
+        },
+        {
+          "refinada": "All whether or not unvaccinated people are a risk to others",
+          "coluna": "About_All_Unvax_Risk_OR_Not_Others",
+          "total": 48,
+          "pro": 33,
+          "anti": 15
+        },
+        {
+          "refinada": "Anti- only COVID-19 vaccine",
+          "coluna": "About_AntiJustCOVIDvax_A1",
+          "total": 13,
+          "pro": 1,
+          "anti": 12
+        },
+        {
+          "refinada": "Oneself anti-vaccine",
+          "coluna": "About_Antivax_Oneself_A2",
+          "total": 3,
+          "pro": 0,
+          "anti": 3
+        },
+        {
+          "refinada": "General people anti-vaccine",
+          "coluna": "About_Antivax_GeneralPeople_Against_OR_Unvaxinated_A3",
+          "total": 189,
+          "pro": 169,
+          "anti": 20
+        },
+        {
+          "refinada": "Someone specific anti-vaccine",
+          "coluna": "About_Antivax_SomeoneSpecific_A4",
+          "total": 141,
+          "pro": 112,
+          "anti": 29
+        },
+        {
+          "refinada": "Pointing someone not vaccinated",
+          "coluna": "About_Antivax_SomeoneNOTvaccinated_A5",
+          "total": 25,
+          "pro": 0,
+          "anti": 25
+        },
+        {
+          "refinada": "Anti-vax movement",
+          "coluna": "About_Antivax_Movement_A6",
+          "total": 40,
+          "pro": 20,
+          "anti": 20
+        },
+        {
+          "refinada": "Anti-vaccination people who get vaccinated",
+          "coluna": "About_Antivax_Vaccinated_A7",
+          "total": 26,
+          "pro": 23,
+          "anti": 3
+        },
+        {
+          "refinada": "All mentions on anti-vaccination people",
+          "coluna": "About_All_AntivaxPeople_A1_OR_to_A8",
+          "total": 371,
+          "pro": 269,
+          "anti": 102
+        }
+      ],
+      "subcategorias_fronteira": [
+        {
+          "refinada": "Someone specific anti-vaccine / International",
+          "coluna": "Elon_Musk",
+          "total": 6,
+          "pro": 0,
+          "anti": 6
+        },
+        {
+          "refinada": "Someone specific anti-vaccine / International",
+          "coluna": "Djokovic",
+          "total": 27,
+          "pro": 10,
+          "anti": 17
+        },
+        {
+          "refinada": "Pro-adult vaccination, but against childhood immunization against COVID-19",
+          "coluna": "About_YesVAccine_BUT_NotForChildren_A8",
+          "total": 2,
+          "pro": 0,
+          "anti": 2
+        },
+        {
+          "refinada": "Antivax people and government",
+          "coluna": "About_All_Antivax_PeopleA1toA8_OR_Gov",
+          "total": 570,
+          "pro": 420,
+          "anti": 150
+        }
+      ]
+    },
+    {
+      "numero": 6,
+      "nome_en": "International",
+      "nome_pt": "Internacional",
+      "coluna": "About_Other_Countries",
+      "total_publicado": 253,
+      "pro_publicado": 82,
+      "anti_publicado": 170,
+      "total_no_gabarito": 253,
+      "subcategorias": [
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "USA",
+          "total": 58,
+          "pro": 20,
+          "anti": 38
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "World",
+          "total": 32,
+          "pro": 18,
+          "anti": 14
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Australia",
+          "total": 25,
+          "pro": 10,
+          "anti": 15
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "England_UK",
+          "total": 20,
+          "pro": 4,
+          "anti": 16
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Canada",
+          "total": 13,
+          "pro": 4,
+          "anti": 9
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Germany",
+          "total": 8,
+          "pro": 0,
+          "anti": 8
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Austria",
+          "total": 7,
+          "pro": 0,
+          "anti": 7
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "France",
+          "total": 7,
+          "pro": 2,
+          "anti": 5
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Italy",
+          "total": 7,
+          "pro": 3,
+          "anti": 4
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Sweden",
+          "total": 7,
+          "pro": 0,
+          "anti": 7
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "China",
+          "total": 5,
+          "pro": 1,
+          "anti": 4
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Europe",
+          "total": 5,
+          "pro": 3,
+          "anti": 2
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Israel",
+          "total": 5,
+          "pro": 1,
+          "anti": 4
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Mexico",
+          "total": 5,
+          "pro": 1,
+          "anti": 4
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Czech republic",
+          "total": 4,
+          "pro": 1,
+          "anti": 3
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Norway",
+          "total": 4,
+          "pro": 0,
+          "anti": 4
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "South_Africa",
+          "total": 4,
+          "pro": 1,
+          "anti": 3
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Cuba",
+          "total": 3,
+          "pro": 3,
+          "anti": 0
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Argentina",
+          "total": 2,
+          "pro": 1,
+          "anti": 1
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Denmark",
+          "total": 2,
+          "pro": 1,
+          "anti": 1
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "New_Zeland",
+          "total": 2,
+          "pro": 0,
+          "anti": 2
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Portugal",
+          "total": 2,
+          "pro": 1,
+          "anti": 0
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Serbia",
+          "total": 2,
+          "pro": 0,
+          "anti": 2
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "South Korea",
+          "total": 2,
+          "pro": 1,
+          "anti": 1
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Spain",
+          "total": 2,
+          "pro": 0,
+          "anti": 2
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Switzerland",
+          "total": 2,
+          "pro": 1,
+          "anti": 1
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Belgium",
+          "total": 1,
+          "pro": 0,
+          "anti": 1
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Bolivia",
+          "total": 1,
+          "pro": 0,
+          "anti": 1
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Bulgaria",
+          "total": 1,
+          "pro": 0,
+          "anti": 1
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Georgia",
+          "total": 1,
+          "pro": 0,
+          "anti": 1
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Jamaica",
+          "total": 1,
+          "pro": 1,
+          "anti": 0
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Romania",
+          "total": 1,
+          "pro": 0,
+          "anti": 1
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Russia",
+          "total": 1,
+          "pro": 0,
+          "anti": 1
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "Others_Indonesia_Turkmenistan_Tajikistan_NewCaledonia_and_Micronesia",
+          "total": 1,
+          "pro": 0,
+          "anti": 1
+        },
+        {
+          "refinada": "About countries other than Brazil",
+          "coluna": "About_Other_Countries",
+          "total": 253,
+          "pro": 82,
+          "anti": 170
+        }
+      ],
+      "subcategorias_fronteira": [
+        {
+          "refinada": "Someone specific anti-vaccine / International",
+          "coluna": "Elon_Musk",
+          "total": 6,
+          "pro": 0,
+          "anti": 6
+        },
+        {
+          "refinada": "Someone specific anti-vaccine / International",
+          "coluna": "Djokovic",
+          "total": 27,
+          "pro": 10,
+          "anti": 17
+        },
+        {
+          "refinada": "International politicians",
+          "coluna": "Trump",
+          "total": 4,
+          "pro": 4,
+          "anti": 0
+        },
+        {
+          "refinada": "International politicians",
+          "coluna": "Biden",
+          "total": 11,
+          "pro": 0,
+          "anti": 11
+        },
+        {
+          "refinada": "International politicians",
+          "coluna": "About_Other_internationalPoliticians",
+          "total": 11,
+          "pro": 1,
+          "anti": 10
+        },
+        {
+          "refinada": "All international politicians",
+          "coluna": "About_all_International_Politicians",
+          "total": 25,
+          "pro": 4,
+          "anti": 21
+        }
+      ]
+    },
+    {
+      "numero": 7,
+      "nome_en": "Advantages of vaccines",
+      "nome_pt": "Vantagens das vacinas",
+      "coluna": "About_all_advantages_vaccines",
+      "total_publicado": 242,
+      "pro_publicado": 235,
+      "anti_publicado": 7,
+      "total_no_gabarito": 242,
+      "subcategorias": [
+        {
+          "refinada": "Effectiveness of vaccines",
+          "coluna": "About_vacc_EFFECTIVE",
+          "total": 164,
+          "pro": 157,
+          "anti": 7
+        },
+        {
+          "refinada": "Vaccine safety",
+          "coluna": "About_Vacccine SAFE",
+          "total": 30,
+          "pro": 30,
+          "anti": 0
+        },
+        {
+          "refinada": "Misinformation on vaccine risks",
+          "coluna": "About_Misinf_Vacc_RISK",
+          "total": 71,
+          "pro": 71,
+          "anti": 0
+        },
+        {
+          "refinada": "All advantages of vaccines",
+          "coluna": "About_all_advantages_vaccines",
+          "total": 242,
+          "pro": 235,
+          "anti": 7
+        }
+      ],
+      "subcategorias_fronteira": []
+    },
+    {
+      "numero": 8,
+      "nome_en": "COVID risks",
+      "nome_pt": "Riscos da COVID",
+      "coluna": "About_COVID_risks",
+      "total_publicado": 241,
+      "pro_publicado": 196,
+      "anti_publicado": 45,
+      "total_no_gabarito": 241,
+      "subcategorias": [
+        {
+          "refinada": "COVID risks",
+          "coluna": "About_COVID_risks",
+          "total": 241,
+          "pro": 196,
+          "anti": 45
+        }
+      ],
+      "subcategorias_fronteira": []
+    },
+    {
+      "numero": 9,
+      "nome_en": "Misinformation sources",
+      "nome_pt": "Fontes de desinformacao",
+      "coluna": "About_Misinformation",
+      "total_publicado": 201,
+      "pro_publicado": 141,
+      "anti_publicado": 60,
+      "total_no_gabarito": 201,
+      "subcategorias": [
+        {
+          "refinada": "Misinformation",
+          "coluna": "About_Misinformation",
+          "total": 201,
+          "pro": 141,
+          "anti": 60
+        }
+      ],
+      "subcategorias_fronteira": []
+    },
+    {
+      "numero": 10,
+      "nome_en": "Information sources",
+      "nome_pt": "Fontes de informacao",
+      "coluna": "About_All_InformationSources_Social_OR_Official",
+      "total_publicado": 179,
+      "pro_publicado": 77,
+      "anti_publicado": 101,
+      "total_no_gabarito": 179,
+      "subcategorias": [
+        {
+          "refinada": "Social media",
+          "coluna": "About_Social_media",
+          "total": 63,
+          "pro": 44,
+          "anti": 18
+        },
+        {
+          "refinada": "Official media",
+          "coluna": "About_official_media",
+          "total": 118,
+          "pro": 33,
+          "anti": 85
+        },
+        {
+          "refinada": "All Information sources",
+          "coluna": "About_All_InformationSources_Social_OR_Official",
+          "total": 179,
+          "pro": 77,
+          "anti": 101
+        }
+      ],
+      "subcategorias_fronteira": []
+    },
+    {
+      "numero": 11,
+      "nome_en": "Science",
+      "nome_pt": "Ciencia",
+      "coluna": "About_SCIENCE",
+      "total_publicado": 94,
+      "pro_publicado": 44,
+      "anti_publicado": 50,
+      "total_no_gabarito": 94,
+      "subcategorias": [
+        {
+          "refinada": "Science",
+          "coluna": "About_SCIENCE",
+          "total": 94,
+          "pro": 44,
+          "anti": 50
+        }
+      ],
+      "subcategorias_fronteira": []
+    },
+    {
+      "numero": 12,
+      "nome_en": "Vaccines type or laboratories",
+      "nome_pt": "Tipos de vacina / laboratorios",
+      "coluna": "About_All_VaccinesLabs_L1_to_L9_OR",
+      "total_publicado": 86,
+      "pro_publicado": 19,
+      "anti_publicado": 67,
+      "total_no_gabarito": 86,
+      "subcategorias": [
+        {
+          "refinada": "Vaccine labs",
+          "coluna": "About_VaccineLab_generally_L1",
+          "total": 12,
+          "pro": 2,
+          "anti": 10
+        },
+        {
+          "refinada": "Vaccine labs",
+          "coluna": "About_BioCuba_Pharma_L2",
+          "total": 1,
+          "pro": 1,
+          "anti": 0
+        },
+        {
+          "refinada": "Vaccine labs",
+          "coluna": "About_Moderna_L3",
+          "total": 1,
+          "pro": 0,
+          "anti": 1
+        },
+        {
+          "refinada": "Vaccine labs",
+          "coluna": "About_Butantan_L4",
+          "total": 5,
+          "pro": 1,
+          "anti": 4
+        },
+        {
+          "refinada": "Vaccine type / lab",
+          "coluna": "About_Sinovac_L5",
+          "total": 2,
+          "pro": 0,
+          "anti": 2
+        },
+        {
+          "refinada": "Vaccine type / lab",
+          "coluna": "About_Sputnik_L6",
+          "total": 2,
+          "pro": 0,
+          "anti": 2
+        },
+        {
+          "refinada": "Vaccine type / lab",
+          "coluna": "About_AstraZenecaOxford_L7",
+          "total": 8,
+          "pro": 1,
+          "anti": 7
+        },
+        {
+          "refinada": "Vaccine types",
+          "coluna": "About_CORONAVAC_L8",
+          "total": 11,
+          "pro": 7,
+          "anti": 4
+        },
+        {
+          "refinada": "Vaccine type / lab",
+          "coluna": "About_Pfizer_L9",
+          "total": 58,
+          "pro": 12,
+          "anti": 46
+        },
+        {
+          "refinada": "Vaccine labs",
+          "coluna": "About_CEO_Pfizer",
+          "total": 86,
+          "pro": 19,
+          "anti": 67
+        },
+        {
+          "refinada": "All vaccine types or labs",
+          "coluna": "About_All_VaccinesLabs_L1_to_L9_OR",
+          "total": 7,
+          "pro": 0,
+          "anti": 7
+        }
+      ],
+      "subcategorias_fronteira": []
+    },
+    {
+      "numero": 13,
+      "nome_en": "Religion",
+      "nome_pt": "Religiao",
+      "coluna": "Religion",
+      "total_publicado": 46,
+      "pro_publicado": 34,
+      "anti_publicado": 12,
+      "total_no_gabarito": 46,
+      "subcategorias": [
+        {
+          "refinada": "Religion",
+          "coluna": "Religion",
+          "total": 46,
+          "pro": 34,
+          "anti": 12
+        }
+      ],
+      "subcategorias_fronteira": []
+    },
+    {
+      "numero": 14,
+      "nome_en": "Other drugs",
+      "nome_pt": "Outras drogas",
+      "coluna": "About_OtherDrugs_CloroquinaORIvermectna",
+      "total_publicado": 32,
+      "pro_publicado": 25,
+      "anti_publicado": 7,
+      "total_no_gabarito": 32,
+      "subcategorias": [
+        {
+          "refinada": "Other drugs disproved against COVID",
+          "coluna": "About_OtherDrugs_CloroquinaORIvermectna",
+          "total": 32,
+          "pro": 25,
+          "anti": 7
+        }
+      ],
+      "subcategorias_fronteira": []
+    }
+  ]
+}

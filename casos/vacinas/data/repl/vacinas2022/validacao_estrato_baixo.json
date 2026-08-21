@@ -1,0 +1,12 @@
+{
+  "n": 100,
+  "veredito": "REPROVADO",
+  "stance": {
+    "kappa": 0.47335811648079307,
+    "acuracia": 0.66
+  },
+  "categorias": {
+    "mediana": null,
+    "por_categoria": []
+  }
+}

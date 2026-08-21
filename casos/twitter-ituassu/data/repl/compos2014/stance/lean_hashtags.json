@@ -1,0 +1,437 @@
+{
+ "janela": [
+  "2014-10-19",
+  "2014-10-25"
+ ],
+ "sementes_ED": [
+  "13rasiltodocomdilma",
+  "dilma13",
+  "dilma13presidenta",
+  "dilmaemichel13",
+  "euvotodilma13",
+  "melhorcomdilma13",
+  "querodilmatreze",
+  "somostodosdilma"
+ ],
+ "sementes_EA": [
+  "aecio45",
+  "aecio45pelobrasil",
+  "aeciopelobr45il",
+  "aeciopresidente",
+  "eaecio45confirma",
+  "euvotoaecio45",
+  "foradilma",
+  "forapt",
+  "muda45brasil",
+  "votoaeciopelobr45il"
+ ],
+ "min_total": 70,
+ "min_ladeadas": 15,
+ "hashtags": [
+  {
+   "hashtag": "g1",
+   "total": 6166,
+   "com_ED": 8,
+   "com_EA": 26,
+   "lado": "EA",
+   "pureza_pct": 76.5,
+   "semente": null
+  },
+  {
+   "hashtag": "debatenaglobo",
+   "total": 1520,
+   "com_ED": 34,
+   "com_EA": 122,
+   "lado": "EA",
+   "pureza_pct": 78.2,
+   "semente": null
+  },
+  {
+   "hashtag": "aecio",
+   "total": 1322,
+   "com_ED": 11,
+   "com_EA": 139,
+   "lado": "EA",
+   "pureza_pct": 92.7,
+   "semente": null
+  },
+  {
+   "hashtag": "dilma",
+   "total": 1275,
+   "com_ED": 29,
+   "com_EA": 46,
+   "lado": "EA",
+   "pureza_pct": 61.3,
+   "semente": null
+  },
+  {
+   "hashtag": "aecio45pelobrasil",
+   "total": 755,
+   "com_ED": 0,
+   "com_EA": 741,
+   "lado": "EA",
+   "pureza_pct": 100.0,
+   "semente": "EA"
+  },
+  {
+   "hashtag": "debatenarecord",
+   "total": 619,
+   "com_ED": 32,
+   "com_EA": 35,
+   "lado": "EA",
+   "pureza_pct": 52.2,
+   "semente": null
+  },
+  {
+   "hashtag": "brasil",
+   "total": 596,
+   "com_ED": 24,
+   "com_EA": 139,
+   "lado": "EA",
+   "pureza_pct": 85.3,
+   "semente": null
+  },
+  {
+   "hashtag": "aecio45",
+   "total": 548,
+   "com_ED": 0,
+   "com_EA": 448,
+   "lado": "EA",
+   "pureza_pct": 100.0,
+   "semente": "EA"
+  },
+  {
+   "hashtag": "pt",
+   "total": 519,
+   "com_ED": 32,
+   "com_EA": 17,
+   "lado": "ED",
+   "pureza_pct": 65.3,
+   "semente": null
+  },
+  {
+   "hashtag": "dilma13",
+   "total": 436,
+   "com_ED": 326,
+   "com_EA": 0,
+   "lado": "ED",
+   "pureza_pct": 100.0,
+   "semente": "ED"
+  },
+  {
+   "hashtag": "eaecio45confirma",
+   "total": 417,
+   "com_ED": 0,
+   "com_EA": 416,
+   "lado": "EA",
+   "pureza_pct": 100.0,
+   "semente": "EA"
+  },
+  {
+   "hashtag": "vemprarua25deoutubro",
+   "total": 395,
+   "com_ED": 0,
+   "com_EA": 395,
+   "lado": "EA",
+   "pureza_pct": 100.0,
+   "semente": null
+  },
+  {
+   "hashtag": "forapt",
+   "total": 392,
+   "com_ED": 0,
+   "com_EA": 384,
+   "lado": "EA",
+   "pureza_pct": 100.0,
+   "semente": "EA"
+  },
+  {
+   "hashtag": "mudabrasil",
+   "total": 383,
+   "com_ED": 1,
+   "com_EA": 191,
+   "lado": "EA",
+   "pureza_pct": 99.5,
+   "semente": null
+  },
+  {
+   "hashtag": "foradilma",
+   "total": 372,
+   "com_ED": 0,
+   "com_EA": 368,
+   "lado": "EA",
+   "pureza_pct": 100.0,
+   "semente": "EA"
+  },
+  {
+   "hashtag": "lula",
+   "total": 339,
+   "com_ED": 1,
+   "com_EA": 24,
+   "lado": "EA",
+   "pureza_pct": 96.0,
+   "semente": null
+  },
+  {
+   "hashtag": "eleicoes",
+   "total": 245,
+   "com_ED": 12,
+   "com_EA": 25,
+   "lado": "EA",
+   "pureza_pct": 67.6,
+   "semente": null
+  },
+  {
+   "hashtag": "ovotonarecord",
+   "total": 229,
+   "com_ED": 6,
+   "com_EA": 0,
+   "lado": null,
+   "pureza_pct": null,
+   "semente": null
+  },
+  {
+   "hashtag": "querodilmatreze",
+   "total": 227,
+   "com_ED": 219,
+   "com_EA": 0,
+   "lado": "ED",
+   "pureza_pct": 100.0,
+   "semente": "ED"
+  },
+  {
+   "hashtag": "politica",
+   "total": 218,
+   "com_ED": 0,
+   "com_EA": 0,
+   "lado": null,
+   "pureza_pct": null,
+   "semente": null
+  },
+  {
+   "hashtag": "ibope",
+   "total": 199,
+   "com_ED": 1,
+   "com_EA": 6,
+   "lado": null,
+   "pureza_pct": null,
+   "semente": null
+  },
+  {
+   "hashtag": "hojeemdia",
+   "total": 194,
+   "com_ED": 0,
+   "com_EA": 0,
+   "lado": null,
+   "pureza_pct": null,
+   "semente": null
+  },
+  {
+   "hashtag": "aecioneves",
+   "total": 190,
+   "com_ED": 0,
+   "com_EA": 26,
+   "lado": "EA",
+   "pureza_pct": 100.0,
+   "semente": null
+  },
+  {
+   "hashtag": "debate",
+   "total": 170,
+   "com_ED": 1,
+   "com_EA": 12,
+   "lado": null,
+   "pureza_pct": null,
+   "semente": null
+  },
+  {
+   "hashtag": "votoaeciopelobr45il",
+   "total": 161,
+   "com_ED": 0,
+   "com_EA": 156,
+   "lado": "EA",
+   "pureza_pct": 100.0,
+   "semente": "EA"
+  },
+  {
+   "hashtag": "veja",
+   "total": 160,
+   "com_ED": 1,
+   "com_EA": 2,
+   "lado": null,
+   "pureza_pct": null,
+   "semente": null
+  },
+  {
+   "hashtag": "aecionever",
+   "total": 157,
+   "com_ED": 84,
+   "com_EA": 0,
+   "lado": "ED",
+   "pureza_pct": 100.0,
+   "semente": null
+  },
+  {
+   "hashtag": "tv",
+   "total": 154,
+   "com_ED": 0,
+   "com_EA": 0,
+   "lado": null,
+   "pureza_pct": null,
+   "semente": null
+  },
+  {
+   "hashtag": "euvotoaecio45",
+   "total": 150,
+   "com_ED": 0,
+   "com_EA": 150,
+   "lado": "EA",
+   "pureza_pct": 100.0,
+   "semente": "EA"
+  },
+  {
+   "hashtag": "acordabrasil",
+   "total": 149,
+   "com_ED": 0,
+   "com_EA": 19,
+   "lado": "EA",
+   "pureza_pct": 100.0,
+   "semente": null
+  },
+  {
+   "hashtag": "datafolha",
+   "total": 134,
+   "com_ED": 3,
+   "com_EA": 4,
+   "lado": null,
+   "pureza_pct": null,
+   "semente": null
+  },
+  {
+   "hashtag": "desesperodaveja",
+   "total": 128,
+   "com_ED": 22,
+   "com_EA": 0,
+   "lado": "ED",
+   "pureza_pct": 100.0,
+   "semente": null
+  },
+  {
+   "hashtag": "debatedaglobo",
+   "total": 121,
+   "com_ED": 0,
+   "com_EA": 7,
+   "lado": null,
+   "pureza_pct": null,
+   "semente": null
+  },
+  {
+   "hashtag": "aeciopelobr45il",
+   "total": 108,
+   "com_ED": 0,
+   "com_EA": 104,
+   "lado": "EA",
+   "pureza_pct": 100.0,
+   "semente": "EA"
+  },
+  {
+   "hashtag": "videos",
+   "total": 99,
+   "com_ED": 0,
+   "com_EA": 0,
+   "lado": null,
+   "pureza_pct": null,
+   "semente": null
+  },
+  {
+   "hashtag": "somostodosdilma",
+   "total": 92,
+   "com_ED": 88,
+   "com_EA": 0,
+   "lado": "ED",
+   "pureza_pct": 100.0,
+   "semente": "ED"
+  },
+  {
+   "hashtag": "rio",
+   "total": 90,
+   "com_ED": 0,
+   "com_EA": 0,
+   "lado": null,
+   "pureza_pct": null,
+   "semente": null
+  },
+  {
+   "hashtag": "corrupcao",
+   "total": 90,
+   "com_ED": 0,
+   "com_EA": 17,
+   "lado": "EA",
+   "pureza_pct": 100.0,
+   "semente": null
+  },
+  {
+   "hashtag": "brazil",
+   "total": 90,
+   "com_ED": 2,
+   "com_EA": 5,
+   "lado": null,
+   "pureza_pct": null,
+   "semente": null
+  },
+  {
+   "hashtag": "aeciopresidente",
+   "total": 89,
+   "com_ED": 0,
+   "com_EA": 89,
+   "lado": "EA",
+   "pureza_pct": 100.0,
+   "semente": "EA"
+  },
+  {
+   "hashtag": "psdb",
+   "total": 86,
+   "com_ED": 4,
+   "com_EA": 16,
+   "lado": "EA",
+   "pureza_pct": 80.0,
+   "semente": null
+  },
+  {
+   "hashtag": "meioambiente",
+   "total": 85,
+   "com_ED": 0,
+   "com_EA": 3,
+   "lado": null,
+   "pureza_pct": null,
+   "semente": null
+  },
+  {
+   "hashtag": "13rasiltodocomdilma",
+   "total": 83,
+   "com_ED": 77,
+   "com_EA": 0,
+   "lado": "ED",
+   "pureza_pct": 100.0,
+   "semente": "ED"
+  },
+  {
+   "hashtag": "elemidia",
+   "total": 73,
+   "com_ED": 0,
+   "com_EA": 0,
+   "lado": null,
+   "pureza_pct": null,
+   "semente": null
+  },
+  {
+   "hashtag": "brasildecide2014",
+   "total": 72,
+   "com_ED": 8,
+   "com_EA": 0,
+   "lado": null,
+   "pureza_pct": null,
+   "semente": null
+  }
+ ]
+}
