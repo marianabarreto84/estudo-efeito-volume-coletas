@@ -1,0 +1,84 @@
+{
+ "ROTULADOS": {
+  "forte": 35,
+  "fraca": 11,
+  "nenhuma": 104,
+  "ilegivel": 0,
+  "lidos": 150,
+  "exemplos": [
+   [
+    5208,
+    "COVID-19 Surveillance through Twitter using Self-Supervised and Few Shot Learnin"
+   ],
+   [
+    12938,
+    "Leveraging the Semantics of Tweets for Adaptive Faceted Search on Twitter"
+   ],
+   [
+    3056,
+    "Black-box Audit of YouTube's Video Recommendation: Investigation of Misinformati"
+   ],
+   [
+    7187,
+    "Pop-up political advocacy communities on reddit.com: SandersForPresident and The"
+   ],
+   [
+    10154,
+    "How Jordanian University Students Perceive the Opportunities and Challenges of U"
+   ],
+   [
+    11802,
+    "Silent Listeners: The Evolution of Privacy and Disclosure on Facebook"
+   ],
+   [
+    3172,
+    "How Does Twitter Account Moderation Work? Dynamics of Account Creation and Suspe"
+   ],
+   [
+    8248,
+    "QUB at SemEval-2017 Task 6: Cascaded Imbalanced Classification for Humor Analysi"
+   ]
+  ]
+ },
+ "CONTROLE": {
+  "forte": 20,
+  "fraca": 13,
+  "nenhuma": 117,
+  "ilegivel": 0,
+  "lidos": 150,
+  "exemplos": [
+   [
+    6186,
+    "Contrast Pattern-Based Classification for Bot Detection on Twitter"
+   ],
+   [
+    10990,
+    "Adapting Sentiment Lexicons Using Contextual Semantics for Sentiment Analysis of"
+   ],
+   [
+    274,
+    "Coordinated Inauthentic Behavior and Information Spreading on Twitter"
+   ],
+   [
+    313,
+    "Evaluation of A National Digitally-Enabled Health Promotion Campaign for Mental "
+   ],
+   [
+    1094,
+    "Exploring Social Media Posts for Depression Identification: A Study on Reddit Da"
+   ],
+   [
+    8232,
+    "MDLText e Indexação Semântica aplicados na Detecção de Spam nos Comentários do Y"
+   ],
+   [
+    75,
+    "Changing modes of public connection: an essay on TikTok and the social affordanc"
+   ],
+   [
+    3271,
+    "Quantifying the structure of controversial discussions with unsupervised methods"
+   ]
+  ]
+ }
+}
