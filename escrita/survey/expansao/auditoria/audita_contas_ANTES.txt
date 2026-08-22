@@ -1,0 +1,10 @@
+==============================================================================
+AUDITORIA DAS CONTAS DO corpo.tex
+==============================================================================
+ATENCAO  L780   par complementar                                                           58,6% + 40,9% = 99,5% (nao fecha 100; ha classe residual?)
+
+99 checagens: 98 OK, 1 ATENCAO, 0 ERRO.
+
+PROCEDENCIA: 271 numeros distintos no corpo.tex -- 17 sem fonte nenhuma neste repo,
+12 so em .md de caso (sem JSON reexecutavel), o resto rastreado ate um JSON congelado.
+(rode com --procedencia para ver as duas listas.)

@@ -1,0 +1,78 @@
+OK   RTMV: piso da faixa                                   35,7\%        <- curva_midia.json
+OK   RTMV: teto da faixa                                   36,1\%        <- curva_midia.json
+OK   banda em n=700, limite inferior                       32,6\%        <- curva_midia.json
+OK   banda em n=700, limite superior                       39,9\%        <- curva_midia.json
+OK   poder em n=200                                        99,7\%        <- curva_midia.json
+OK   Politics em >500 RT                                   39,6\%        <- fase3_curvas.json
+OK   Politics em >10 RT                                    38,2\%        <- fase3_curvas.json
+OK   Children em >500 RT                                   31,8\%        <- fase3_curvas.json
+OK   Children em >10 RT                                    30,6\%        <- fase3_curvas.json
+OK   Restrictive policies em >500 RT                       31,8\%        <- fase3_curvas.json
+OK   Restrictive policies em >10 RT                        23,4\%        <- fase3_curvas.json
+OK   Disadvantages of vaccines em >500 RT                  16,2\%        <- fase3_curvas.json
+OK   Disadvantages of vaccines em >10 RT                   12,5\%        <- fase3_curvas.json
+OK   maior deslocamento tematico (Restrictive policies)    8,4           <- fase3_curvas.json
+OK   multi-comunidade em k=1                               15,2\%        <- curva_rb3.json
+OK   multi-comunidade em k=2                               32,7\%        <- curva_rb3.json
+OK   multi-comunidade em k=5                               48,8\%        <- curva_rb3.json
+OK   multi-comunidade em k=10                              55,0\%        <- curva_rb3.json
+OK   multi-comunidade em k=20                              57,6\%        <- curva_rb3.json
+OK   multi-comunidade em k=50                              56,1\%        <- curva_rb3.json
+OK   participantes em k=20                                 5.991         <- curva_rb3.json
+OK   multi em k=20                                         3.450         <- curva_rb3.json
+OK   participantes sem corte                               217.386       <- curva_rb3.json
+OK   UGC entre aprovados                                   39,0\%        <- fase3_ugc_completo.json
+OK   UGC entre descartados                                 32,7\%        <- fase3_ugc_completo.json
+OK   delta do filtro                                       6,4           <- fase3_ugc_completo.json
+OK   IC do filtro, limite inferior                         11,4          <- fase3_ugc_completo.json
+OK   IC do filtro, limite superior                         1,4           <- fase3_ugc_completo.json
+OK   UGC no corpus publicado                               23,5\%        <- fase3_ugc_completo.json
+OK   UGC fora do corpus                                    61,7\%        <- fase3_ugc_completo.json
+OK   delta do funil                                        38,3          <- fase3_ugc_completo.json
+OK   IC do funil, limite inferior                          33,5          <- fase3_ugc_completo.json
+OK   IC do funil, limite superior                          43,0          <- fase3_ugc_completo.json
+OK   videos no tema                                        1.615         <- fase3_ugc_completo.json
+OK   AV3: pro publicado pelo artigo                        58,6\%        <- av3_influentes.json
+OK   AV3: anti publicado pelo artigo                       40,9\%        <- av3_influentes.json
+OK   AV3: pro medido na replica                            58,9\%        <- av3_influentes.json
+OK   AV3: anti medido na replica                           41,1\%        <- av3_influentes.json
+OK   AV3: razao no ponto original                          1,43          <- av3_influentes.json
+OK   AV4: top-10 publicado pelo artigo                     15,7\%        <- av4_lorenz.json
+AUSENTE AV4: top-10 na replica, no corte do artigo            15,3\%        <- av4_lorenz.json
+AUSENTE AV4: top-10 no corpus completo                        9,7\%         <- av4_lorenz.json
+AUSENTE AV4: RTs do corpus completo (milhoes)                 4,6           <- av4_lorenz.json
+OK   rede: autores (nos do grafo)                          879.189       <- fase2_rede.json
+OK   rede: arestas de retuite (milhoes)                    3,34          <- fase2_rede.json
+OK   AV1: comunidades da particao                          11.664        <- av1_lados.json
+OK   AV1: razao pro/anti (cenario base)                    1,56          <- av1_lados.json
+OK   AV1: posts do lado pro (milhoes)                      3,13          <- av1_lados.json
+OK   AV1: posts do lado anti (milhoes)                     2,01          <- av1_lados.json
+OK   AV1: sementes anti na comunidade coesa                244           <- av1_lados.json
+OK   stance: pro entre com-lado, >500 RT (esq. do artigo)  48,4\%        <- fase3_curvas.json (stance)
+OK   stance: pro entre com-lado, >10 RT (esq. do artigo)   62,6\%        <- fase3_curvas.json (stance)
+OK   stance: pro entre com-lado, >500 RT (3 classes)       50,0\%        <- fase3_curvas.json (stance)
+OK   stance: pro entre com-lado, >10 RT (3 classes)        61,7\%        <- fase3_curvas.json (stance)
+OK   stance: neutros em >500 RT                            24,6\%        <- fase3_curvas.json (stance)
+OK   stance: neutros em >10 RT                             33,4\%        <- fase3_curvas.json (stance)
+OK   stance: pro bruto em >10 RT (esq. do artigo)          58,8\%        <- fase3_curvas.json (stance)
+OK   stance: anti bruto em >10 RT (esq. do artigo)         35,1\%        <- fase3_curvas.json (stance)
+OK   stance: pro em >10 RT (3 classes)                     41,1\%        <- fase3_curvas.json (stance)
+OK   stance: anti em >10 RT (3 classes)                    25,5\%        <- fase3_curvas.json (stance)
+OK   Massachs: participantes do grupo focal                44.924        <- mh1_ponto_original.json
+OK   Massachs: baseline aleatorio                          15,6\%        <- mh1_ponto_original.json
+OK   PoliTok: total de publicacoes                         938.961       <- fase2_politok.json
+OK   PoliTok: delecao na estadual                          18,7\%        <- fase2_politok.json
+OK   PoliTok: delecao na federal                           39,7\%        <- fase2_politok.json
+OK   PoliTok: delecao pela plataforma, melhor convencao    11,6\%        <- fase2_politok.json
+OK   PoliTok: alvo da plataforma                           13,0\%        <- fase2_politok.json
+OK   PoliTok: intolerancia por anotacao                    20,5\%        <- fase2_politok.json
+OK   PoliTok: intolerancia por post                        16,1\%        <- fase2_politok.json
+OK   PoliTok: reverificacao em 2024-10-02                  3,3\%         <- fase2_politok.json
+OK   PoliTok: reverificacao em 2024-12-10                  9,5\%         <- fase2_politok.json
+OK   PoliTok: reverificacao em 2025-01-13                  18,7\%        <- fase2_politok.json
+
+72 conferidos, 69 encontrados, 3 ausentes.
+
+AUSENTE nao e necessariamente erro: o numero pode ter sido
+deliberadamente omitido do texto, ou escrito por extenso
+('trinta e dois por cento'). Cada ausencia pede olho humano.
