@@ -1,0 +1,51 @@
+SEM DESCARTADOS | N = 1718  (descartados pelo Gemini = 421)
+
+## Plataformas
+  Twitter       1095  (63.7%)
+  Reddit         230  (13.4%)
+  Youtube        204  (11.9%)
+  Facebook       102  (5.9%)
+  Tiktok          88  (5.1%)
+  Instagram       62  (3.6%)
+
+## Estratégia de coleta
+  API                     1198  (69.7%)
+  Dataset pré-existente    787  (45.8%)
+  Outro método             366  (21.3%)
+  Scraping                 328  (19.1%)
+
+## Tipos de análise (bucketizados)
+  Estatística descritiva       805  (46.9%)
+  Sentimento                   775  (45.1%)
+  Classificação                687  (40.0%)
+  Temporal                     629  (36.6%)
+  Análise de rede              499  (29.0%)
+  PLN (NER/embed.)             399  (23.2%)
+  Modelagem de tópico          394  (22.9%)
+  Detecção de comunidades      323  (18.8%)
+  Centralidade                 304  (17.7%)
+  Influência                   228  (13.3%)
+  Clusterização                148  (8.6%)
+  Desinformação/bots           130  (7.6%)
+  Predição de links              3  (0.2%)
+
+## Amostragem vs filtragem (base Gemini, gN=1718)
+  amostragem: 321 (18.7%) | filtragem: 1379 (80.3%)
+
+## Persistência
+  tec. BD (mentions/tech): 239 (13.9%)
+  GitHub: 382 | sob solicitação: 143 | DOI persistente (zenodo/figshare/osf): 143 (8.3%)
+  [Claude Haiku, subconj. clN=732] amostragem 157 (21.4%) | filtragem 665 (90.8%)
+
+## Volume (N com quantidade legível = 1518)
+  mediana: 273,290
+  %<10k: 19.0 | %>=1M: 39.5
+  grandes coletores >=10M: 339 (22.3%)
+  [grandes coletores n=339] amostram 80 (24%) | filtram 297 (88%) | tec.BD 24 (7%)
+  persistência: doi=36 github=64 request=21 outra=69 nenhuma=149
+  top extremos:
+     118,000,000,000 tweets
+     30,860,000,000 arestas
+     23,950,000,000 links
+     13,000,000,000 comentários
+     11,993,211,616 tweets
