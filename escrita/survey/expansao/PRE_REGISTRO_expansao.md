@@ -216,3 +216,34 @@ a diferença entre as duas saídas é o que se edita.
 `revisao-3.pdf`** — o PDF que ela comenta tem de bater com a fonte. Se houver
 número a propagar antes disso, ele fica registrado no documento de resultados e
 espera.
+
+---
+
+## 10. Adendo de execução (22/ago/2026)
+
+> Escrito **depois** do pré-registro e mantido separado dele de propósito: nenhum
+> valor registrado acima foi alterado. Isto registra o que a execução acrescentou.
+
+**Piloto de 5 artigos, antes da corrida paga.** Foram extraídos 5 artigos
+sorteados da população recuperada (semente `20260822`, **distinta** da semente do
+sorteio) para responder a três perguntas que só o gasto responde: a chave do
+Gemini ainda funciona (não era usada desde mai/2026), o esquema de saída continua
+o mesmo, e os PDFs vindos de repositório extraem sem quebrar. Resultado: **5/5 em
+2 min 13 s, zero falhas**, as **29 chaves** do JSON idênticas às de maio, e todos
+os campos que o `agg_results.py` lê (`social_networks`, `sampling_used`,
+`mentions_filtering`/`filtering_info`, `analysis_types`, `collection_items`)
+preenchidos. Custo ≈ **R$0,27**.
+
+Os 5 ids (`2433 2658 8620 9126 11879`) **permanecem elegíveis** ao sorteio pela
+regra da §3, que exclui apenas quem já tinha análise **no baseline congelado**. Se
+forem sorteados, o `analyze_pdfs` os pula por já terem análise — não há gasto
+duplo nem amostra encurtada.
+
+**Por que a extração não começou junto.** A regra de sorteio da §3 sorteia de
+"quem ganhou PDF nesta expansão". Com a recuperação a 34% da fila, essa população
+ainda está crescendo (436 elegíveis contra ~1.280 projetados), e sortear ali
+**não seria o sorteio pré-registrado**. A extração ficou encadeada num script
+(`scripts/extrai_apos_varredura.sh`, no repositório da survey) que só age quando
+não resta artigo por tentar, aplica o `sorteia_amostra.py` e extrai **no máximo
+os 800** da §3 — o teto de gasto continua valendo sozinho, sem depender de
+alguém lembrar dele.

@@ -164,4 +164,19 @@ Rastreabilidade fechada nesta sessão. Observações remanescentes:
 
 - [ ] Como reportar a fração inacessível do corpus (limitação vs. trabalho futuro).
       Parcialmente endereçado: Limitações §2 já quantifica o viés de editora.
+      ◐ **Em andamento desde 21/ago/2026** — a decisão pode deixar de ser
+      "como reportar" e virar "o que a medição mostrou". Apurou-se que a marcação
+      `pdf_inaccessible` está desatualizada: **13,25%** do estrato pago (IC95%
+      10,3–16,9%) baixa por acesso aberto, o que projeta **~1.334 artigos** e
+      levaria a base de 2.139 para **~3.473 (+62%)**.
+      **Atualizado em 22/ago/2026:** a varredura já tentou **3.742** artigos e
+      recuperou **443** — no estrato pago, **12,4%** (412/3.321, IC95% 11,3–13,6),
+      dentro do IC do lote de 400 e **acima** do piso de 11% da condição de
+      parada. Projeção para os 6.718 pagos ainda não tentados: **+833** (IC95%
+      +761 a +912). A varredura foi retomada às 17:02 de 22/ago e a extração
+      **ainda não começou**.
+      Ver [EXPANSAO_recuperacao.md](EXPANSAO_recuperacao.md); o passo seguinte é
+      pré-registrar a amostra e medir se os achados se movem, não extrair tudo.
+      ⚠ O proxy institucional **não** foi usado: as editoras bloqueiam automação
+      e o risco recai sobre o acesso da PUC-Rio inteira (§4 daquele documento).
 - [ ] Gao/tipologia — resgatar se surgir fonte (ver memória do projeto).
