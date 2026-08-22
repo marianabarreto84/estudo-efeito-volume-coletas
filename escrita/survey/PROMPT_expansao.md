@@ -92,6 +92,6 @@ fica quantificado e a limitação encolhe; se se moverem, é resultado. Os dois
 desfechos são publicáveis, que é a marca de uma boa pergunta.
 
 ⚠️ **A prioridade da Mariana continua sendo outra** e não muda por causa disto:
-ler o `revisao-3.pdf` (cadeia de dependência mais longa) e rotular as 320 linhas
+ler o `revisao-3.pdf` (cadeia de dependência mais longa) e rotular as 210 do teste cego do stance (o dev de 110 fechou em 22/ago/2026)
 do stance (fecham três linhas da tabela mestre). Esta expansão roda em paralelo,
 do lado do assistente.

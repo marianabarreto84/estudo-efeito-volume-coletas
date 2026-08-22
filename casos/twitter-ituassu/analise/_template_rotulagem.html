@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Rotulagem stance — __CONJUNTO__ (__N__)</title>
+<style>
+:root{
+  --bg:#f6f5f2; --card:#fff; --ink:#1b1a17; --mut:#6b6862; --line:#dedbd4;
+  --ea:#1f6feb; --ed:#c2410c; --nda:#6b6862; --ok:#15803d; --bad:#b91c1c;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#16151a; --card:#201f26; --ink:#eceaf2; --mut:#9d99a8; --line:#332f3c;
+         --ea:#6aa4ff; --ed:#f97316; --nda:#9d99a8; --ok:#4ade80; --bad:#f87171; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+header{position:sticky;top:0;z-index:9;background:var(--bg);border-bottom:1px solid var(--line);
+  padding:10px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.bar{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden;min-width:140px}
+.bar>i{display:block;height:100%;background:var(--ink);width:0;transition:width .2s}
+.small{font-size:13px;color:var(--mut)}
+button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);border-radius:8px;padding:7px 12px}
+button:hover{border-color:var(--ink)}
+main{max-width:1180px;margin:0 auto;padding:22px 20px 80px;display:grid;
+  grid-template-columns:minmax(0,1fr) 310px;gap:26px;align-items:start}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.meta{display:flex;gap:10px;flex-wrap:wrap;align-items:baseline;margin-bottom:14px}
+.handle{font-weight:600}
+.tag{font-size:12px;color:var(--mut);border:1px solid var(--line);border-radius:20px;padding:1px 9px}
+.tag.hot{color:var(--ed);border-color:var(--ed)}
+.txt{font-size:21px;line-height:1.45;white-space:pre-wrap;word-break:break-word;margin:6px 0 16px}
+.host{font-size:13px;color:var(--mut);margin-bottom:4px}
+.host b{color:var(--ink);font-weight:600}
+fieldset{border:0;padding:0;margin:16px 0 0}
+legend{font-size:13px;color:var(--mut);margin-bottom:7px}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opt{border:1px solid var(--line);border-radius:9px;padding:9px 15px;background:var(--card);
+  display:flex;gap:8px;align-items:center;color:var(--ink)}
+.opt kbd{font:600 11px ui-monospace,Menlo,Consolas,monospace;color:var(--mut);
+  border:1px solid var(--line);border-radius:4px;padding:0 4px}
+.opt.sel{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.opt.sel[data-v=EA]{border-color:var(--ea);box-shadow:inset 0 0 0 1px var(--ea);color:var(--ea)}
+.opt.sel[data-v=ED]{border-color:var(--ed);box-shadow:inset 0 0 0 1px var(--ed);color:var(--ed)}
+input[type=text]{width:100%;font:inherit;padding:9px 11px;border:1px solid var(--line);
+  border-radius:9px;background:var(--bg);color:var(--ink)}
+.nav{display:flex;gap:10px;margin-top:20px;align-items:center}
+.nav .go{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600}
+.nav .go[disabled]{opacity:.35;cursor:not-allowed}
+aside{position:sticky;top:64px}
+aside h3{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);margin:0 0 8px}
+aside .card{padding:14px 16px;font-size:13.5px}
+aside table{width:100%;border-collapse:collapse}
+aside td{padding:4px 0;vertical-align:top;border-top:1px solid var(--line)}
+aside td:first-child{padding-right:10px;color:var(--mut)}
+aside tr:first-child td{border-top:0}
+.rule{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--ink);
+  border-radius:8px;padding:10px 13px;font-size:13.5px;margin-top:12px}
+.cmp{width:100%;border-collapse:collapse;font-size:14px;margin-top:14px}
+.cmp th,.cmp td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+.cmp th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+.cmp tr.div{background:color-mix(in srgb,var(--bad) 9%,transparent)}
+.cmp .t{color:var(--mut);max-width:420px}
+.pill{font:600 12px ui-monospace,Menlo,Consolas,monospace;border-radius:5px;padding:1px 6px;border:1px solid var(--line)}
+.pill.EA{color:var(--ea);border-color:var(--ea)} .pill.ED{color:var(--ed);border-color:var(--ed)}
+.stat{display:flex;gap:22px;flex-wrap:wrap;margin:14px 0 2px}
+.stat div{font-size:13px;color:var(--mut)} .stat b{display:block;font-size:26px;color:var(--ink)}
+</style>
+</head>
+<body>
+<header>
+  <strong>stance · __CONJUNTO__</strong>
+  <span class="bar"><i id="prog"></i></span>
+  <span class="small" id="pos"></span>
+  <button id="exp">Exportar CSV</button>
+  <span class="small">amostra __SHA__</span>
+</header>
+
+<main>
+<section id="pane"></section>
+<aside>
+  <h3>Consulta rápida</h3>
+  <div class="card">
+    <table>
+      <tr><td>RT sem comentário</td><td>vale o conteúdo retuitado (RT é endosso)</td></tr>
+      <tr><td>RT com comentário</td><td>vale o comentário · <code>rt_ironico</code></td></tr>
+      <tr><td>Pesquisa / notícia sem valência</td><td><b>NDA</b></td></tr>
+      <tr><td>…com comentário valorado</td><td>vale o comentário</td></tr>
+      <tr><td>Marina / nulo / branco</td><td><b>NDA</b> · <code>terceiro</code></td></tr>
+      <tr><td>Ironia</td><td>pelo alvo; senão NDA conf. 1</td></tr>
+      <tr><td>Link morto e texto não decide</td><td><b>NDA</b> · <code>link_morto</code></td></tr>
+      <tr><td>Institucional com lado óbvio</td><td><code>cidadao=N</code> + o stance real</td></tr>
+      <tr><td>Ataque à Veja/Globo</td><td><b>ED</b> · conf. ≤2</td></tr>
+      <tr><td>Ataque à mídia chapa-branca</td><td><b>EA</b> · conf. ≤2</td></tr>
+      <tr><td>Hashtags dos dois lados</td><td><b>NDA</b> · <code>spam_tag</code></td></tr>
+      <tr><td>Texto repetido</td><td>rotule de novo, sem procurar o anterior</td></tr>
+      <tr><td>Manchete de <b>terceiro</b>, valência forte</td><td>vale o <b>lado</b></td></tr>
+      <tr><td>Manchete que é <b>fala do candidato</b>, ou criticazinha</td><td><b>NDA</b> · <code>manchete</code></td></tr>
+      <tr><td>Nome do perfil declara lado, tweet não</td><td><b>NDA</b> — o nome só serve ao portão</td></tr>
+      <tr><td>Volume alto de tweets</td><td>não decide o portão sozinho</td></tr>
+      <tr><td>Handle e nome não decidem</td><td>pode abrir o perfil na web · <code>perfil_2026</code> se contradisser 2014</td></tr>
+    </table>
+    <div class="rule"><b>Regra de ouro:</b> na dúvida entre um lado e NDA, é <b>NDA</b> com confiança 1.</div>
+    <div class="rule">Dilma ≡ PT ≡ Lula ≡ governo · atacar ⇒ <b>EA</b><br>
+      Aécio ≡ PSDB ≡ FHC ≡ tucanos · atacar ⇒ <b>ED</b></div>
+    <div class="rule">Hashtag temática (#G1, #Ibope, #DebateNaGlobo) <b>não</b> é sinal de lado.</div>
+  </div>
+</aside>
+</main>
+
+<script>
+const ITENS = /*__ITENS__*/;
+const LOTE = __LOTE__;
+const CHAVE = 'stance___CONJUNTO___' + '__SHA__';
+const SEG = '__SEGREDO__';
+let R = JSON.parse(localStorage.getItem(CHAVE) || '{}');
+let VISTO = JSON.parse(localStorage.getItem(CHAVE + '_lotes') || '[]');
+let i = ITENS.findIndex(t => !R[t.id_tweet]); if (i < 0) i = ITENS.length - 1;
+let modo = 'rot';
+
+const salva = () => { localStorage.setItem(CHAVE, JSON.stringify(R));
+                      localStorage.setItem(CHAVE + '_lotes', JSON.stringify(VISTO)); };
+const esc = s => (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const feito = () => ITENS.filter(t => R[t.id_tweet] && R[t.id_tweet].stance).length;
+
+function pinta() {
+  document.getElementById('prog').style.width = (100 * feito() / ITENS.length) + '%';
+  document.getElementById('pos').textContent =
+    feito() + ' / ' + ITENS.length + ' · lote ' + (Math.floor(i / LOTE) + 1) + ' de ' + Math.ceil(ITENS.length / LOTE);
+}
+
+function tela() {
+  if (modo === 'rev') return;
+  const t = ITENS[i], r = R[t.id_tweet] || {};
+  const tags = [];
+  if (t.eh_retweet === '1') tags.push('<span class="tag">retweet</span>');
+  if (t.verificado === '1') tags.push('<span class="tag hot">verificado</span>');
+  if (t.idioma && t.idioma !== 'pt') tags.push('<span class="tag hot">idioma: ' + esc(t.idioma) + '</span>');
+  tags.push('<span class="tag">' + Number(t.seguidores).toLocaleString('pt-BR') + ' seguidores</span>');
+  tags.push('<span class="tag">' + Number(t.tweets_do_autor).toLocaleString('pt-BR') + ' tweets</span>');
+  const bt = (g, v, k, lb) => '<button class="opt' + (r[g] === v ? ' sel' : '') + '" data-g="' + g +
+      '" data-v="' + v + '"><kbd>' + k + '</kbd>' + lb + '</button>';
+  document.getElementById('pane').innerHTML =
+  '<div class="card">' +
+    '<div class="meta"><span class="handle">' + esc(t.autor) + '</span>' +
+      '<span class="small">' + esc(t.nome_autor) + '</span>' +
+      '<span class="small">· ' + esc(t.data_brt).replace('T', ' ').slice(0, 16) + '</span> ' + tags.join(' ') + '</div>' +
+    '<div class="txt">' + esc(t.texto) + '</div>' +
+    (t.host1 ? '<div class="host">link resolve em <b>' + esc(t.host1) + '</b></div>' : '') +
+    (t.hashtags && t.hashtags !== '[]' ? '<div class="host">' + esc(t.hashtags) + '</div>' : '') +
+    '<fieldset><legend>a conta é de cidadão comum?</legend><div class="opts">' +
+      bt('cidadao','S','q','Sim') + bt('cidadao','N','w','Não') + bt('cidadao','?','e','Não dá pra saber') + '</div></fieldset>' +
+    '<fieldset><legend>preferência expressa neste tweet</legend><div class="opts">' +
+      bt('stance','EA','a','EA — Aécio') + bt('stance','ED','s','ED — Dilma') + bt('stance','NDA','d','NDA') + '</div></fieldset>' +
+    '<fieldset><legend>confiança</legend><div class="opts">' +
+      bt('confianca','3','3','3 óbvio') + bt('confianca','2','2','2 inferência') + bt('confianca','1','1','1 chute') + '</div></fieldset>' +
+    '<fieldset><legend>notas <span class="small">(/ para focar)</span></legend>' +
+      '<input type="text" id="nt" value="' + esc(r.notas) + '" placeholder="rt_ironico · terceiro · idioma · link_morto · spam_tag"></fieldset>' +
+    '<div class="nav"><button id="ant">← anterior</button>' +
+      '<button class="go" id="prox">próximo →</button>' +
+      '<span class="small">Enter avança</span></div>' +
+  '</div>';
+  document.querySelectorAll('.opt').forEach(b => b.onclick = () => marca(b.dataset.g, b.dataset.v));
+  document.getElementById('nt').oninput = e => { const t2 = ITENS[i];
+    R[t2.id_tweet] = Object.assign({cidadao:'',stance:'',confianca:'',notas:''}, R[t2.id_tweet], {notas: e.target.value}); salva(); };
+  document.getElementById('ant').onclick = () => { if (i > 0) { i--; tela(); pinta(); } };
+  document.getElementById('prox').onclick = avanca;
+  document.getElementById('prox').disabled = !completo();
+  pinta();
+}
+
+const completo = () => { const r = R[ITENS[i].id_tweet]; return !!(r && r.cidadao && r.stance && r.confianca); };
+
+function marca(g, v) {
+  const id = ITENS[i].id_tweet;
+  R[id] = Object.assign({cidadao:'',stance:'',confianca:'',notas:''}, R[id]);
+  R[id][g] = v; salva(); tela();
+}
+
+function avanca() {
+  if (!completo()) return;
+  const lote = Math.floor(i / LOTE);
+  const fim = Math.min((lote + 1) * LOTE, ITENS.length);
+  const cheio = ITENS.slice(lote * LOTE, fim).every(t => R[t.id_tweet] && R[t.id_tweet].stance);
+  if (SEG && i === fim - 1 && cheio && VISTO.indexOf(lote) < 0) { VISTO.push(lote); salva(); return revela(lote); }
+  if (i < ITENS.length - 1) { i++; tela(); } else fim_de_tudo();
+}
+
+function kappa(a, b) {
+  const cls = ['EA','ED','NDA'], n = a.length;
+  let po = 0; for (let k = 0; k < n; k++) if (a[k] === b[k]) po++;
+  po /= n;
+  let pe = 0; for (const c of cls) pe += (a.filter(x => x === c).length / n) * (b.filter(x => x === c).length / n);
+  return pe === 1 ? 1 : (po - pe) / (1 - pe);
+}
+
+function revela(lote) {
+  modo = 'rev';
+  const seg = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(SEG), c => c.charCodeAt(0))));
+  const its = ITENS.slice(lote * LOTE, Math.min((lote + 1) * LOTE, ITENS.length));
+  const meu = its.map(t => seg[t.id_tweet].stance), seu = its.map(t => R[t.id_tweet].stance);
+  const div = its.filter(t => seg[t.id_tweet].stance !== R[t.id_tweet].stance).length;
+  const divc = its.filter(t => seg[t.id_tweet].cidadao !== R[t.id_tweet].cidadao).length;
+  const linhas = its.map(t => {
+    const m = seg[t.id_tweet], s = R[t.id_tweet], d = m.stance !== s.stance;
+    return '<tr class="' + (d ? 'div' : '') + '">' +
+      '<td class="t">' + esc(t.texto).slice(0, 190) + '</td>' +
+      '<td><span class="pill ' + s.stance + '">' + s.stance + '</span> <span class="small">' + s.cidadao + '·' + s.confianca + '</span></td>' +
+      '<td><span class="pill ' + m.stance + '">' + m.stance + '</span> <span class="small">' + m.cidadao + '·' + m.confianca +
+        (m.notas ? ' · ' + esc(m.notas) : '') + '</span></td></tr>';
+  }).join('');
+  document.getElementById('pane').innerHTML =
+  '<div class="card">' +
+    '<h2 style="margin:0 0 4px">Lote ' + (lote + 1) + ' fechado</h2>' +
+    '<p class="small" style="margin:0">Sua rotulagem já está salva. Abaixo, a comparação com a pré-anotação automática — ' +
+      'ela <b>não</b> entra no gabarito; serve para discutirmos as divergências e afinar o codebook.</p>' +
+    '<div class="stat">' +
+      '<div><b>' + (its.length - div) + '/' + its.length + '</b> concordância no stance</div>' +
+      '<div><b>' + kappa(meu, seu).toFixed(3) + '</b> κ do lote (n pequeno, é só sinal)</div>' +
+      '<div><b>' + (its.length - divc) + '/' + its.length + '</b> concordância no portão cidadão</div>' +
+    '</div>' +
+    '<table class="cmp"><tr><th>tweet</th><th>você</th><th>automático</th></tr>' + linhas + '</table>' +
+    '<div class="nav"><button class="go" id="segue">continuar →</button>' +
+      '<button id="voltar">rever este lote</button></div>' +
+  '</div>';
+  document.getElementById('segue').onclick = () => { modo = 'rot';
+    if (i < ITENS.length - 1) { i++; tela(); } else fim_de_tudo(); };
+  document.getElementById('voltar').onclick = () => { modo = 'rot'; i = lote * LOTE; tela(); };
+  window.scrollTo(0, 0); pinta();
+}
+
+function fim_de_tudo() {
+  modo = 'rev';
+  document.getElementById('pane').innerHTML = '<div class="card"><h2>__N__ de __N__ — __CONJUNTO__ fechado</h2>' +
+    '<p>__FIM_TXT__</p>' +
+    '<div class="nav"><button class="go" id="ex2">Exportar CSV</button>' +
+    '<button id="rev0">rever do início</button></div></div>';
+  document.getElementById('ex2').onclick = exporta;
+  document.getElementById('rev0').onclick = () => { modo = 'rot'; i = 0; tela(); };
+  pinta();
+}
+
+function exporta() {
+  const cab = ["n","id_tweet","data_brt","autor","nome_autor","verificado","seguidores","tweets_do_autor",
+    "eh_retweet","autor_original","idioma","texto","link1","host1","hashtags","cidadao","stance","confianca","notas"];
+  const marcadas = ['cidadao','stance','confianca','notas'];
+  const q = v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+  const linhas = [cab.map(q).join(',')];
+  for (const t of ITENS) { const r = R[t.id_tweet] || {};
+    linhas.push(cab.map(c => q(marcadas.indexOf(c) >= 0 ? (r[c] || '') : t[c])).join(',')); }
+  const blob = new Blob(['﻿' + linhas.join('\r\n')], {type: 'text/csv;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = '__SAIDA__'; a.click();
+}
+document.getElementById('exp').onclick = exporta;
+
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') { if (e.key === 'Escape') e.target.blur(); return; }
+  if (e.key === '/') { e.preventDefault(); const n = document.getElementById('nt'); if (n) n.focus(); return; }
+  if (modo === 'rev') { if (e.key === 'Enter') { const b = document.getElementById('segue'); if (b) b.click(); } return; }
+  const m = {q:['cidadao','S'], w:['cidadao','N'], e:['cidadao','?'],
+             a:['stance','EA'], s:['stance','ED'], d:['stance','NDA'],
+             '1':['confianca','1'], '2':['confianca','2'], '3':['confianca','3']}[e.key.toLowerCase()];
+  if (m) { e.preventDefault(); marca(m[0], m[1]); return; }
+  if (e.key === 'Enter') { e.preventDefault(); avanca(); }
+  if (e.key === 'ArrowLeft' && i > 0) { i--; tela(); }
+});
+tela();
+</script>
+</body>
+</html>

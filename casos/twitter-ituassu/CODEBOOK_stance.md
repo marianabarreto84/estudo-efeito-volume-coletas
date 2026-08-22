@@ -6,7 +6,9 @@
 > §*análise de sentimento*) e do fluxo já validado no caso vacinas
 > (κ 0,759 — ver [DECISOES_ROTULADOR.md](../vacinas/data/repl/vacinas2022/DECISOES_ROTULADOR.md)).
 >
-> **Planilha:** `data/repl/compos2014/stance/gold_stance_para_rotular.csv` (320 linhas).
+> **Onde rotular:** `data/repl/compos2014/stance/rotulagem_teste.html` (210 do teste cego — é
+> o que falta em 22/ago/2026). O dev (110) já fechou. A planilha completa,
+> `gold_stance_para_rotular.csv` (320 linhas), segue valendo como alternativa em Excel.
 > **Regra de ouro:** na dúvida entre um lado e NDA, **é NDA** — e ponha `confianca=1`.
 
 ---
@@ -48,6 +50,25 @@ Marque `?` quando o handle não decide e o texto não ajuda.
 > ⚠ **Assimetria declarada com o artigo:** eles viram *"algo no ícone do usuário"*
 > (foto/avatar). Avatares de 2014 **não existem mais**. Onde eles tinham a foto, nós temos
 > só handle + nome + métricas. Registrado como limite, não como falha.
+
+**Volume não decide sozinho** (decidido em 22/ago/2026). Uma conta com centenas de
+milhares de tweets e poucos seguidores *sugere* agregador, mas não basta: contas assim no
+dev eram de pessoas reais. Marque `N` só com outros sinais (só manchete + link, nenhuma
+1ª pessoa, nome de veículo/marca); na dúvida, `?`.
+
+**Consultar o perfil na web é permitido** (decidido em 22/ago/2026, pela autora). Se
+handle, nome e métricas não decidem, abrir o perfil e olhar vale — o gabarito tem de ser
+verdadeiro, e essa é a informação que decide. Duas consequências, que ficam declaradas no
+capítulo e **não** são motivo para deixar de fazer:
+
+- o rótulo do portão deixa de ser reproduzível **só** a partir do CSV congelado, e o
+  rotulador automático não tem acesso a essa informação — por isso a acurácia do portão é
+  reportada **em duas versões**: em todos os itens e restrita aos decidíveis pelo
+  congelado (ver [PRE_REGISTRO](data/repl/compos2014/stance/PRE_REGISTRO_stance.md) §4.2 e
+  o [diário](data/repl/compos2014/stance/DECISOES_ROTULADOR.md));
+- o perfil que você abre é o de **hoje**, não o de out/2014. Para conta que mudou de dono
+  ou de propósito em doze anos, você está vendo outra coisa. Se o perfil atual contradiz o
+  que o tweet de 2014 aparenta, anote `perfil_2026` em `notas`.
 
 ---
 
@@ -117,6 +138,8 @@ gabarito humano **e** para o rotulador automático (é isso que torna o κ inter
 | **10** | **Crítica à mídia** ("Veja é lixo", "Globo golpista") | ataque à *Veja*/Globo em 2014 = ataque ao antipetismo ⇒ **ED**; ataque a "mídia chapa-branca"/EBC ⇒ **EA** | `confianca` ≤ 2 |
 | **11** | Tweet só com hashtags dos **dois** lados (spam de tags) | **NDA** | `nota=spam_tag` |
 | **12** | **Duplicata** — você reconhece um texto já rotulado | rotule **de novo**, do mesmo jeito, sem procurar o anterior | ver §5 |
+| **13** | **Manchete de notícia retuitada sem comentário** | depende de **quem fala** e de **quão forte é a valência**. Se é **fato de terceiro** que fere ou favorece de forma inequívoca uma campanha (a irmã do adversário pedindo voto; propaganda suspensa pelo TSE), vale o **lado**. Se é a **fala do próprio candidato**, ou crítica fraca — "criticazinha" —, é **NDA**: pode ser só quem circula notícia de eleição | decidido em 22/ago/2026 a partir do dev. `nota=manchete` |
+| **14** | **Nome de exibição declara lado, o tweet não** (perfil "#Lula13Presidente" retuitando manchete neutra) | **NDA** — o stance é o expresso *neste tweet*. O nome só serve ao portão `cidadao`, nunca como sinal de lado | decidido em 22/ago/2026 |
 
 > ⚠ **Link morto é a maior assimetria com o artigo.** Em 2014 os anotadores **abriram**
 > os links; em 2026 a maioria dos `t.co` está morta. Da amostra, **219 de 320 (68%)** têm

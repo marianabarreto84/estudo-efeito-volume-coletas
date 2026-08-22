@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Revisão das divergências — stance dev</title>
+<style>
+:root{ --bg:#f6f5f2; --card:#fff; --ink:#1b1a17; --mut:#6b6862; --line:#dedbd4;
+  --ea:#1f6feb; --ed:#c2410c; --bad:#b91c1c; --ok:#15803d; }
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#16151a; --card:#201f26; --ink:#eceaf2; --mut:#9d99a8; --line:#332f3c;
+         --ea:#6aa4ff; --ed:#f97316; --bad:#f87171; --ok:#4ade80; } }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+header{position:sticky;top:0;z-index:9;background:var(--bg);border-bottom:1px solid var(--line);
+  padding:10px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.bar{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden;min-width:140px}
+.bar>i{display:block;height:100%;background:var(--ink);width:0;transition:width .2s}
+.small{font-size:13px;color:var(--mut)}
+button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);border-radius:8px;padding:7px 12px}
+button:hover{border-color:var(--ink)}
+main{max-width:860px;margin:0 auto;padding:22px 20px 80px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.meta{display:flex;gap:10px;flex-wrap:wrap;align-items:baseline;margin-bottom:12px}
+.handle{font-weight:600}
+.tag{font-size:12px;color:var(--mut);border:1px solid var(--line);border-radius:20px;padding:1px 9px}
+.txt{font-size:20px;line-height:1.45;white-space:pre-wrap;word-break:break-word;margin:6px 0 14px}
+.host{font-size:13px;color:var(--mut);margin-bottom:4px}
+.host b{color:var(--ink);font-weight:600}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0 4px}
+@media(max-width:700px){.duo{grid-template-columns:1fr}}
+.box{border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.box h4{margin:0 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+.box.auto{border-left:3px solid var(--mut)}
+.box p{margin:8px 0 0;font-size:14px;color:var(--mut)}
+.pill{font:600 13px ui-monospace,Menlo,Consolas,monospace;border-radius:5px;padding:2px 7px;border:1px solid var(--line)}
+.pill.EA{color:var(--ea);border-color:var(--ea)} .pill.ED{color:var(--ed);border-color:var(--ed)}
+fieldset{border:0;padding:0;margin:14px 0 0}
+legend{font-size:13px;color:var(--mut);margin-bottom:7px}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opt{border:1px solid var(--line);border-radius:9px;padding:8px 14px;background:var(--card);color:var(--ink)}
+.opt kbd{font:600 11px ui-monospace,Menlo,Consolas,monospace;color:var(--mut);
+  border:1px solid var(--line);border-radius:4px;padding:0 4px;margin-right:7px}
+.opt.sel{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.opt.sel[data-v=EA]{border-color:var(--ea);box-shadow:inset 0 0 0 1px var(--ea);color:var(--ea)}
+.opt.sel[data-v=ED]{border-color:var(--ed);box-shadow:inset 0 0 0 1px var(--ed);color:var(--ed)}
+textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:9px;
+  background:var(--bg);color:var(--ink);min-height:78px;resize:vertical}
+.nav{display:flex;gap:10px;margin-top:18px;align-items:center;flex-wrap:wrap}
+.nav .go{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600}
+.flag{font-size:13px;padding:2px 9px;border-radius:20px;border:1px solid var(--line);color:var(--mut)}
+.flag.mud{color:var(--bad);border-color:var(--bad)}
+.flag.man{color:var(--ok);border-color:var(--ok)}
+table.fim{width:100%;border-collapse:collapse;font-size:14px;margin-top:12px}
+table.fim th,table.fim td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+table.fim th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+</style>
+</head>
+<body>
+<header>
+  <strong>revisão · divergências do dev</strong>
+  <span class="bar"><i id="prog"></i></span>
+  <span class="small" id="pos"></span>
+  <button id="exp">Exportar CSV</button>
+</header>
+<main><section id="pane"></section></main>
+
+<script>
+const ITENS = [{"ordem_dev": "1", "id_tweet": "10848437", "autor": "@MauzinhaS", "nome_autor": "Boazinha.", "verificado": "0", "seguidores": "229", "tweets_do_autor": "10291", "eh_retweet": "0", "texto": "É bom ter esperanças de um Brasil melhor, mas é bom lembrar que Aécio não é super-herói, né pessoas? #Eleicoes2014", "host1": "", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "S", "stance_auto": "ED", "confianca_auto": "2", "tipo": "lado × NDA", "porque": "Regra do tom (§3): 'Aécio não é super-herói' é ressalva negativa a Aécio — negativo a um candidato ⇒ eleitor do adversário."}, {"ordem_dev": "2", "id_tweet": "12571485", "autor": "@oxenampera", "nome_autor": "ai dento", "verificado": "0", "seguidores": "395", "tweets_do_autor": "12290", "eh_retweet": "1", "texto": "RT @g1: Irmã de Lula grava vídeo em que pede votos para Aécio no segundo turno http://t.co/V1kFzD6E1a #Eleições2014 #G1 http://t.co/HysRZiu…", "host1": "glo.bo", "cidadao_v1": "?", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "rt", "cidadao_auto": "S", "stance_auto": "EA", "confianca_auto": "2", "tipo": "lado × NDA", "porque": "Manchete favorável a Aécio (a irmã de Lula pede voto nele) e RT sem comentário é endosso pelo caso-limite 1. É exatamente a lacuna de regra nº1: manchete com valência, retuitada sem comentário."}, {"ordem_dev": "6", "id_tweet": "14256551", "autor": "@denise_mrezende", "nome_autor": "Denise Rezende", "verificado": "0", "seguidores": "122", "tweets_do_autor": "4788", "eh_retweet": "0", "texto": "Samba #diva, #rainhadanaçao #Eleições2014 #DebateNaGlobo", "host1": "", "cidadao_v1": "S", "stance_v1": "ED", "confianca_v1": "3", "notas_v1": "", "cidadao_auto": "S", "stance_auto": "NDA", "confianca_auto": "3", "tipo": "lado × NDA", "porque": "Não achei alvo político em 'Samba #diva #rainhadanaçao' — li como apolítico. Se 'rainha da nação' era leitura pró-Dilma, é você quem tem o contexto."}, {"ordem_dev": "7", "id_tweet": "10855370", "autor": "@natanae66243438", "nome_autor": "natanael", "verificado": "0", "seguidores": "992", "tweets_do_autor": "266349", "eh_retweet": "1", "texto": "RT @UOLNoticias: Irmã de Aécio chefiou órgão que fiscalizava verbas para rádios de tucano http://t.co/5uWDKGm8ol #Eleições2014", "host1": "uol.com", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "?", "stance_auto": "ED", "confianca_auto": "2", "tipo": "lado × NDA", "porque": "Manchete negativa a Aécio (irmã dele chefiando órgão que fiscalizava verbas de rádios tucanas) ⇒ ED. E 266 mil tweets com 992 seguidores, só manchete: portão '?' pela lacuna nº2."}, {"ordem_dev": "9", "id_tweet": "12087891", "autor": "@PrDaneCosta", "nome_autor": "Dane Costa", "verificado": "0", "seguidores": "132", "tweets_do_autor": "8282", "eh_retweet": "1", "texto": "RT @AraoAmazonas: Inserção de discurso de Lula na TV rende punição ao PT http://t.co/2kTmv9wTFM #Eleições2014”", "host1": "atarde.com.br", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "S", "stance_auto": "EA", "confianca_auto": "2", "tipo": "lado × NDA", "porque": "'Inserção de discurso de Lula rende punição ao PT' é manchete com valência negativa ao PT ⇒ EA. Mesma lacuna nº1."}, {"ordem_dev": "11", "id_tweet": "12585719", "autor": "@Flavio_Soli", "nome_autor": "Flavio Almeida 🅰️➕", "verificado": "0", "seguidores": "218", "tweets_do_autor": "3595", "eh_retweet": "1", "texto": "RT @g1: Irmã de Lula grava vídeo em que pede votos para Aécio no segundo turno http://t.co/V1kFzD6E1a #Eleições2014 #G1 http://t.co/HysRZiu…", "host1": "glo.bo", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "S", "stance_auto": "EA", "confianca_auto": "2", "tipo": "lado × NDA", "porque": "Idêntico ao item 2 — mesmo texto, mesma leitura."}, {"ordem_dev": "24", "id_tweet": "15073320", "autor": "@fernandor159", "nome_autor": "Fernando Eustaquio", "verificado": "0", "seguidores": "4016", "tweets_do_autor": "152899", "eh_retweet": "1", "texto": "RT @UOLNoticias: \"Ataque à revista 'Veja' é ataque à democracia\", diz #Aécio Neves http://t.co/UWwzCKDEu4 #Eleições2014", "host1": "uol.com", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "S", "stance_auto": "EA", "confianca_auto": "2", "tipo": "lado × NDA", "porque": "RT de fala do próprio Aécio defendendo a Veja: retuitar sem comentário endossa o enquadramento dele ⇒ EA."}, {"ordem_dev": "38", "id_tweet": "11496582", "autor": "@CAAMG", "nome_autor": "CAA/MG", "verificado": "0", "seguidores": "1463", "tweets_do_autor": "6138", "eh_retweet": "0", "texto": "O povo brasileiro, ao longo dos últimos tempos, clama por mudanças  #AntonioAnastasia #Eleições2014 #ConferênciaOAB", "host1": "", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "terceiro", "cidadao_auto": "N", "stance_auto": "EA", "confianca_auto": "2", "tipo": "lado × NDA", "porque": "CAA/MG é a Caixa de Assistência dos Advogados de Minas — instituição ⇒ `N`. E #AntonioAnastasia era o candidato ao Senado na chapa do Aécio em MG, com 'clama por mudanças' no enquadramento da oposição ⇒ EA. Sua nota foi `terceiro`, mas Anastasia não é terceira via: é a mesma chapa."}, {"ordem_dev": "41", "id_tweet": "13877221", "autor": "@DouglasFaria10", "nome_autor": "Douglas Faria", "verificado": "0", "seguidores": "299", "tweets_do_autor": "4093", "eh_retweet": "0", "texto": "Estudos e os últimos debates apontam... Dilma criou o Loren Ipsum. #soudev #Eleicoes2014 #DebateNaGlobo", "host1": "", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "S", "stance_auto": "EA", "confianca_auto": "2", "tipo": "lado × NDA", "porque": "'Dilma criou o Loren Ipsum' é o meme de deboche das atribuições a ela ⇒ piada negativa a Dilma ⇒ EA. Mesma forma do exemplo do cachorro que o próprio artigo rotula EA."}, {"ordem_dev": "43", "id_tweet": "14467308", "autor": "@MinhaCarta", "nome_autor": "Carlos Renato Amaral", "verificado": "0", "seguidores": "26", "tweets_do_autor": "222", "eh_retweet": "1", "texto": "RT @UOL: Na TV, Dilma Rousseff afirma que a VEJA faz \"terrorismo eleitoral\" http://t.co/HPI5RjX5i4 #Eleições2014 http://t.co/6F774MsMgN", "host1": "uol.com.br", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "S", "stance_auto": "ED", "confianca_auto": "2", "tipo": "lado × NDA", "porque": "RT de Dilma chamando a Veja de 'terrorismo eleitoral': ataque à Veja em 2014 ⇒ ED pelo caso-limite 10."}, {"ordem_dev": "44", "id_tweet": "12191425", "autor": "@gabislosaski", "nome_autor": "Gabrielle", "verificado": "0", "seguidores": "594", "tweets_do_autor": "13916", "eh_retweet": "1", "texto": "RT @g1: Dilma tem 52%, e Aécio, 48% dos votos válidos, diz pesquisa Datafolha http://t.co/7amhvgASzp #Eleições2014 #G1 http://t.co/WqhwIgj9…", "host1": "glo.bo", "cidadao_v1": "S", "stance_v1": "ED", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "S", "stance_auto": "NDA", "confianca_auto": "3", "tipo": "lado × NDA", "porque": "Aqui invertemos os papéis — pesquisa eleitoral sem comentário é NDA pelo caso-limite 3, e foi você que atribuiu lado. Vale conferir se foi deslize de tecla."}, {"ordem_dev": "80", "id_tweet": "10316087", "autor": "@dakotabalzak", "nome_autor": "cidadão da cidade ", "verificado": "0", "seguidores": "159", "tweets_do_autor": "1056", "eh_retweet": "1", "texto": "RT @Estadao: CORREÇÃO: Propaganda de Aécio que fala de irmão de Dilma é suspensa pelo TSE #Eleições2014  http://t.co/JtUqsqvnCe http://t.co…", "host1": "oesta.do", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "S", "stance_auto": "ED", "confianca_auto": "2", "tipo": "lado × NDA", "porque": "Manchete negativa à campanha do Aécio (propaganda dele suspensa pelo TSE) ⇒ ED. Lacuna nº1 de novo."}, {"ordem_dev": "81", "id_tweet": "14010800", "autor": "@lucas_rabbelo", "nome_autor": "lucas rabelo", "verificado": "0", "seguidores": "856", "tweets_do_autor": "78360", "eh_retweet": "0", "texto": "Dima recebendo palmas, MILAGRE #DebateDaGlobo #Eleições2014", "host1": "", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "S", "stance_auto": "EA", "confianca_auto": "2", "tipo": "lado × NDA", "porque": "'Dima recebendo palmas, MILAGRE' é sarcasmo com alvo claro (Dilma) ⇒ caso-limite 6 ⇒ EA."}, {"ordem_dev": "82", "id_tweet": "10769758", "autor": "@francenilson131", "nome_autor": "Francenilson Santos ", "verificado": "0", "seguidores": "0", "tweets_do_autor": "23", "eh_retweet": "1", "texto": "RT @TerraNoticiasBR: Dilma faz campanha com Crivella no RJ e ataca Aécio: \"se ajoelharam para o FMI\" / http://t.co/QVuUFQ9G6U #Eleicoes2014", "host1": "noticias.terra.com.br", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "S", "stance_auto": "ED", "confianca_auto": "2", "tipo": "lado × NDA", "porque": "RT de Dilma atacando Aécio ('se ajoelharam para o FMI'): endosso do ataque ⇒ ED."}, {"ordem_dev": "90", "id_tweet": "14478385", "autor": "@underlineamaral", "nome_autor": "Hermes", "verificado": "0", "seguidores": "669", "tweets_do_autor": "270060", "eh_retweet": "0", "texto": "Que surpresa! RT @portald24am: Coligação de Aécio defende apuração de denúncias da Veja: http://t.co/jlgLXswedR  #Eleições2014", "host1": "ow.ly", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "rt_ironico", "cidadao_auto": "S", "stance_auto": "ED", "confianca_auto": "2", "tipo": "lado × NDA", "porque": "Você marcou `rt_ironico` e parou em NDA; eu apliquei o caso-limite 2 até o fim — se vale o comentário, 'Que surpresa!' ironiza a coligação do Aécio ⇒ ED."}, {"ordem_dev": "100", "id_tweet": "10315156", "autor": "@FabiRih", "nome_autor": "Fabi Prattes", "verificado": "0", "seguidores": "1700", "tweets_do_autor": "16882", "eh_retweet": "1", "texto": "RT @Estadao: CORREÇÃO: Propaganda de Aécio que fala de irmão de Dilma é suspensa pelo TSE #Eleições2014  http://t.co/JtUqsqvnCe http://t.co…", "host1": "oesta.do", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "S", "stance_auto": "ED", "confianca_auto": "2", "tipo": "lado × NDA", "porque": "Idêntico ao item 80 — mesma manchete."}, {"ordem_dev": "106", "id_tweet": "14116197", "autor": "@GuuhMng", "nome_autor": "Gυυн ⓟ", "verificado": "0", "seguidores": "221", "tweets_do_autor": "29150", "eh_retweet": "0", "texto": "Seu tempo candidata, mas que porra toda hora, presta atenção no cronômetro sua mula #Eleicoes2014", "host1": "", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "S", "stance_auto": "EA", "confianca_auto": "2", "tipo": "lado × NDA", "porque": "'presta atenção no cronômetro sua mula' é dirigido à 'candidata', isto é, Dilma ⇒ xingamento com alvo ⇒ EA."}, {"ordem_dev": "5", "id_tweet": "13743651", "autor": "@delgrepe", "nome_autor": "ECOSilva", "verificado": "0", "seguidores": "928", "tweets_do_autor": "42128", "eh_retweet": "1", "texto": "RT @CandidoRonildo: O Aecio massacrou a candidata petista!!! Sem dúvida o mais preparado!!#Eleicoes2014", "host1": "", "cidadao_v1": "?", "stance_v1": "EA", "confianca_v1": "3", "notas_v1": "rt", "cidadao_auto": "S", "stance_auto": "EA", "confianca_auto": "3", "tipo": "só o portão cidadão", "porque": "Só o portão diverge. O `cidadao` é atributo da conta, não do tweet: ser RT não impede que @delgrepe seja pessoa física."}, {"ordem_dev": "12", "id_tweet": "11775662", "autor": "@g1", "nome_autor": "g1", "verificado": "1", "seguidores": "14074092", "tweets_do_autor": "741028", "eh_retweet": "0", "texto": "Tema: privatizações. Quem mandou bem? Veja frases de Dilma e Aécio e tuíte: http://t.co/Dj2qThvRM3 #Eleições2014 #G1 http://t.co/pvjZFDxteo", "host1": "glo.bo", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "N", "stance_auto": "NDA", "confianca_auto": "3", "tipo": "só o portão cidadão", "porque": "@g1 é veículo de imprensa: o codebook §1 manda `N` de saída, e o selo de verificado reforça."}, {"ordem_dev": "14", "id_tweet": "10700422", "autor": "@ardnas440", "nome_autor": "JESUS É A SOLUÇÃO", "verificado": "0", "seguidores": "10972", "tweets_do_autor": "376261", "eh_retweet": "1", "texto": "RT @g1: Quem mandou bem? Até sexta, compare frases de Dilma e Aécio sobre 10 temas: http://t.co/OFd8BYMN6k #Eleições2014 #G1 http://t.co/lE…", "host1": "glo.bo", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "?", "stance_auto": "NDA", "confianca_auto": "3", "tipo": "só o portão cidadão", "porque": "376 mil tweets, 10,9 mil seguidores, só RT de manchete, sem 1ª pessoa: é o perfil de agregador do §1. Marquei '?' em vez de 'N' por não ter certeza."}, {"ordem_dev": "28", "id_tweet": "12517624", "autor": "@depjoaoananias", "nome_autor": "João Ananias", "verificado": "0", "seguidores": "767", "tweets_do_autor": "4318", "eh_retweet": "1", "texto": "RT @opovoonline: Mais pesquisa: @dilmabr abre vantagem e tem 54%; Aécio tem 46%, segundo Ibope. http://t.co/uf3r1LgLQJ / #Eleições2014 http:/…", "host1": "bit.ly", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "N", "stance_auto": "NDA", "confianca_auto": "2", "tipo": "só o portão cidadão", "porque": "O prefixo 'dep' no handle indica deputado eleito (João Ananias, PCdoB-CE) — §1 põe candidato/partido em `N`. O stance fica NDA porque o tweet é só pesquisa."}, {"ordem_dev": "32", "id_tweet": "13729437", "autor": "@dominiofeminino", "nome_autor": "Dominio Feminino", "verificado": "0", "seguidores": "6347", "tweets_do_autor": "221477", "eh_retweet": "0", "texto": "#ÉAecio45Confirma #ALERTA FRAUDE POSSÍVEL.  /  / #DebateNaGlobo / #Eleicoes2014 http://t.co/cL9JzVGWZN", "host1": "t.co", "cidadao_v1": "S", "stance_v1": "EA", "confianca_v1": "3", "notas_v1": "", "cidadao_auto": "N", "stance_auto": "EA", "confianca_auto": "3", "tipo": "só o portão cidadão", "porque": "'Dominio Feminino' com 221 mil tweets tem cara de página/marca, não de pessoa — §1, 'ativismo organizado com marca própria'. O stance EA está declarado pela hashtag; é o caso-limite 9 (conta institucional com lado óbvio)."}, {"ordem_dev": "33", "id_tweet": "14650945", "autor": "@lucrjviola", "nome_autor": "Luc", "verificado": "0", "seguidores": "3096", "tweets_do_autor": "557253", "eh_retweet": "1", "texto": "RT @brasilpost: Dilma 54% X Aécio 46% http://t.co/vpJgt3d0VV #Ibope #Eleições2014 http://t.co/O2a9vVvmsT", "host1": "huff.to", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "?", "stance_auto": "NDA", "confianca_auto": "3", "tipo": "só o portão cidadão", "porque": "557 mil tweets: mesma leitura de agregador do item 14. Lacuna nº2."}, {"ordem_dev": "35", "id_tweet": "11634195", "autor": "@blogdejamildo", "nome_autor": "Blog de Jamildo", "verificado": "0", "seguidores": "108368", "tweets_do_autor": "85252", "eh_retweet": "0", "texto": "Em Goiana, tudo pronto para chegada de Dilma e Lula na cidade. Antes a dupla visita a fábrica da Fiat. #Eleicoes2014 http://t.co/IU0biVKcP1", "host1": "t.co", "cidadao_v1": "?", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "N", "stance_auto": "NDA", "confianca_auto": "3", "tipo": "só o portão cidadão", "porque": "'Blog de Jamildo' é veículo jornalístico (blog do Jornal do Commercio), não pessoa física ⇒ `N`."}, {"ordem_dev": "69", "id_tweet": "14872346", "autor": "@DiariodaCPTM", "nome_autor": "Diário da CPTM", "verificado": "0", "seguidores": "209125", "tweets_do_autor": "94641", "eh_retweet": "0", "texto": "Todas as linhas operam normalmente neste domingo. #CPTM #Metrosp #Eleições2014", "host1": "", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "N", "stance_auto": "NDA", "confianca_auto": "3", "tipo": "só o portão cidadão", "porque": "@DiariodaCPTM é página de serviço da linha de trem ⇒ `N`; o tweet é aviso operacional."}, {"ordem_dev": "71", "id_tweet": "10744757", "autor": "@MPF_AP", "nome_autor": "MPF no Amapá", "verificado": "1", "seguidores": "17631", "tweets_do_autor": "4043", "eh_retweet": "0", "texto": "#Eleicoes2014 Propaganda paga no Facebook gera representação contra cinco candidatos. Saiba quem são: http://t.co/v7UdzC0kUa", "host1": "preap.mpf.mp.br", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "N", "stance_auto": "NDA", "confianca_auto": "3", "tipo": "só o portão cidadão", "porque": "@MPF_AP é órgão público (Ministério Público Federal no Amapá), verificado ⇒ `N` pelo §1."}, {"ordem_dev": "85", "id_tweet": "14627650", "autor": "@profetiza_vida", "nome_autor": "Profetizando Vida", "verificado": "0", "seguidores": "5248", "tweets_do_autor": "1215", "eh_retweet": "0", "texto": "Deus deseja ver o #Brasil curado. / Assista à #mensagem do pastor Márcio Valadão: http://t.co/pMmzgVRAoH / #eleições2014", "host1": "bit.ly", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "N", "stance_auto": "NDA", "confianca_auto": "3", "tipo": "só o portão cidadão", "porque": "'Profetizando Vida' é página religiosa com marca própria ⇒ `N`. O stance é NDA nos dois."}, {"ordem_dev": "87", "id_tweet": "14478394", "autor": "@cuentosycircoGP", "nome_autor": "Cuentos y Circo", "verificado": "0", "seguidores": "796", "tweets_do_autor": "3324", "eh_retweet": "0", "texto": "Domingo iremos transmitir ao vivo a apuração das #Eleicoes2014. / Acompanhe pelo nosso canal  http://t.co/3KnBDnpMds http://t.co/H16OESUXpo", "host1": "youtube.com", "cidadao_v1": "?", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "N", "stance_auto": "NDA", "confianca_auto": "3", "tipo": "só o portão cidadão", "porque": "'Cuentos y Circo' anuncia transmissão 'pelo nosso canal' — coletivo/veículo, não pessoa ⇒ `N`."}, {"ordem_dev": "99", "id_tweet": "11554338", "autor": "@wwwtanaondacom", "nome_autor": "Tanaonda CarlosMafra", "verificado": "0", "seguidores": "456", "tweets_do_autor": "48887", "eh_retweet": "1", "texto": "RT @flaviosoares78: #Eleições2014 BRAVA GENTE DE SÃO PAULO! NÃO PERMITA QUE O PERÍODO DE ESTIAGEM SEJA INSTRUMENTO PARA JUSTIFICAR... http:…", "host1": "", "cidadao_v1": "?", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "N", "stance_auto": "NDA", "confianca_auto": "1", "tipo": "só o portão cidadão", "porque": "Handle `wwwtanaondacom` é endereço de site ⇒ `N`. No stance concordamos: texto truncado, NDA com confiança 1."}, {"ordem_dev": "105", "id_tweet": "12779094", "autor": "@ptrevisani", "nome_autor": "Paulo Trevisani", "verificado": "1", "seguidores": "2543", "tweets_do_autor": "12502", "eh_retweet": "1", "texto": "RT @agomezlicon: Brazil race hinges on fickle lower middle class, by @bradleybrooks #eleicoes2014 http://t.co/l1cCrGOXhL", "host1": "m.apnews.com", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "?", "stance_auto": "NDA", "confianca_auto": "3", "tipo": "só o portão cidadão", "porque": "Paulo Trevisani é jornalista profissional verificado (correspondente). Não é veículo, mas também não é 'cidadão comum' no sentido do artigo — daí o '?'."}, {"ordem_dev": "107", "id_tweet": "14907702", "autor": "@natanae66243438", "nome_autor": "natanael", "verificado": "0", "seguidores": "992", "tweets_do_autor": "266347", "eh_retweet": "1", "texto": "RT @g1: Ibope, votos válidos no Acre: Tião Viana tem 55% e Marcio Bittar, 45% http://t.co/5SbeJUNtMP #Eleições2014 #G1", "host1": "glo.bo", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "terceiro", "cidadao_auto": "?", "stance_auto": "NDA", "confianca_auto": "3", "tipo": "só o portão cidadão", "porque": "No stance concordamos (pesquisa estadual do Acre ⇒ NDA). Só o portão diverge, pela mesma conta de 266 mil tweets do item 7."}, {"ordem_dev": "108", "id_tweet": "12328455", "autor": "@MECBURRINHO", "nome_autor": "MEC DA DEPRESSÃO", "verificado": "0", "seguidores": "258", "tweets_do_autor": "1627", "eh_retweet": "1", "texto": "RT @OdeCarvalho: No meu entender, a única esperança do #PT é a fraude eleitoral. Como e se vão fazê-la, não sei. #Eleicoes2014", "host1": "", "cidadao_v1": "?", "stance_v1": "EA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "S", "stance_auto": "EA", "confianca_auto": "3", "tipo": "só o portão cidadão", "porque": "Só o portão. 'MEC DA DEPRESSÃO' é persona de humor — o §1 diz `S` explicitamente para pessoa física 'mesmo com nome fantasia'."}, {"ordem_dev": "109", "id_tweet": "11711377", "autor": "@pantolfisalerno", "nome_autor": "Pantolfi e Salerno", "verificado": "0", "seguidores": "3", "tweets_do_autor": "125", "eh_retweet": "1", "texto": "RT @JornaldoBrasil: #eleições2014 / Dilma Rousseff: SP não pode nos responsabilizar pela crise da água  http://t.co/K9LdDmFrbN via", "host1": "jb.com.br", "cidadao_v1": "S", "stance_v1": "NDA", "confianca_v1": "1", "notas_v1": "", "cidadao_auto": "N", "stance_auto": "NDA", "confianca_auto": "1", "tipo": "só o portão cidadão", "porque": "'Pantolfi e Salerno' tem forma de escritório/firma (3 seguidores, 125 tweets) ⇒ `N`. No stance concordamos."}];
+const CHAVE = 'stance_rev_' + 'dc8ee39ff69b';
+let R = JSON.parse(localStorage.getItem(CHAVE) || '{}');
+let i = 0;
+const salva = () => localStorage.setItem(CHAVE, JSON.stringify(R));
+const esc = s => (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function estado(t) {
+  if (!R[t.id_tweet]) R[t.id_tweet] = {cidadao: t.cidadao_v1, stance: t.stance_v1,
+                                       confianca: t.confianca_v1, justificativa: '', visto: false};
+  return R[t.id_tweet];
+}
+const mudou = t => { const r = estado(t);
+  return r.cidadao !== t.cidadao_v1 || r.stance !== t.stance_v1 || r.confianca !== t.confianca_v1; };
+const vistos = () => ITENS.filter(t => R[t.id_tweet] && R[t.id_tweet].visto).length;
+
+function pinta() {
+  document.getElementById('prog').style.width = (100 * vistos() / ITENS.length) + '%';
+  document.getElementById('pos').textContent = (i + 1) + ' de ' + ITENS.length + ' · ' + vistos() + ' revistos';
+}
+
+function tela() {
+  if (i >= ITENS.length) return fim();
+  const t = ITENS[i], r = estado(t);
+  const bt = (g, v, k, lb) => '<button class="opt' + (r[g] === v ? ' sel' : '') + '" data-g="' + g +
+      '" data-v="' + v + '"><kbd>' + k + '</kbd>' + lb + '</button>';
+  const tags = [];
+  if (t.eh_retweet === '1') tags.push('<span class="tag">retweet</span>');
+  if (t.verificado === '1') tags.push('<span class="tag">verificado</span>');
+  tags.push('<span class="tag">' + Number(t.seguidores).toLocaleString('pt-BR') + ' seguidores</span>');
+  tags.push('<span class="tag">' + Number(t.tweets_do_autor).toLocaleString('pt-BR') + ' tweets</span>');
+  document.getElementById('pane').innerHTML =
+  '<div class="card">' +
+    '<div class="meta"><span class="handle">' + esc(t.autor) + '</span>' +
+      '<span class="small">' + esc(t.nome_autor) + '</span>' +
+      '<span class="small">· item ' + t.ordem_dev + ' do dev · ' + esc(t.tipo) + '</span> ' + tags.join(' ') + '</div>' +
+    '<div class="txt">' + esc(t.texto) + '</div>' +
+    (t.host1 ? '<div class="host">link resolve em <b>' + esc(t.host1) + '</b></div>' : '') +
+    '<div class="duo">' +
+      '<div class="box"><h4>o que você marcou</h4>' +
+        '<span class="pill ' + t.stance_v1 + '">' + t.stance_v1 + '</span> ' +
+        '<span class="small">cidadão ' + t.cidadao_v1 + ' · confiança ' + t.confianca_v1 +
+        (t.notas_v1 ? ' · ' + esc(t.notas_v1) : '') + '</span></div>' +
+      '<div class="box auto"><h4>o automático marcou</h4>' +
+        '<span class="pill ' + t.stance_auto + '">' + t.stance_auto + '</span> ' +
+        '<span class="small">cidadão ' + t.cidadao_auto + ' · confiança ' + t.confianca_auto + '</span>' +
+        '<p>' + esc(t.porque) + '</p></div>' +
+    '</div>' +
+    '<fieldset><legend>cidadão comum?</legend><div class="opts">' +
+      bt('cidadao','S','q','Sim') + bt('cidadao','N','w','Não') + bt('cidadao','?','e','Não dá') + '</div></fieldset>' +
+    '<fieldset><legend>stance</legend><div class="opts">' +
+      bt('stance','EA','a','EA') + bt('stance','ED','s','ED') + bt('stance','NDA','d','NDA') + '</div></fieldset>' +
+    '<fieldset><legend>confiança</legend><div class="opts">' +
+      bt('confianca','3','3','3') + bt('confianca','2','2','2') + bt('confianca','1','1','1') + '</div></fieldset>' +
+    '<fieldset><legend>por que você foi por esse caminho? <span class="small">(entra no diário de decisões)</span></legend>' +
+      '<textarea id="jt" placeholder="ex.: li o RT como circulação de notícia, não como endosso — para mim endosso exige comentário">' +
+      esc(r.justificativa) + '</textarea></fieldset>' +
+    '<div class="nav"><button id="ant">← anterior</button>' +
+      '<button class="go" id="prox">próximo →</button>' +
+      '<span class="flag ' + (mudou(t) ? 'mud' : 'man') + '">' + (mudou(t) ? 'mudou' : 'mantido') + '</span>' +
+      '<span class="small">q/w/e · a/s/d · 1/2/3 · Enter avança</span></div>' +
+  '</div>';
+  document.querySelectorAll('.opt').forEach(b => b.onclick = () => marca(b.dataset.g, b.dataset.v));
+  document.getElementById('jt').oninput = e => { estado(ITENS[i]).justificativa = e.target.value; salva(); };
+  document.getElementById('ant').onclick = () => { if (i > 0) { i--; tela(); } };
+  document.getElementById('prox').onclick = avanca;
+  pinta();
+}
+
+function marca(g, v) { const t = ITENS[i]; estado(t)[g] = v; salva(); tela(); }
+function avanca() { estado(ITENS[i]).visto = true; salva(); i++; tela(); }
+
+function fim() {
+  const mud = ITENS.filter(mudou);
+  const linhas = mud.map(t => { const r = R[t.id_tweet];
+    return '<tr><td class="small">' + t.ordem_dev + '</td><td class="small">' + esc(t.texto).slice(0, 90) + '…</td>' +
+      '<td><span class="pill ' + t.stance_v1 + '">' + t.stance_v1 + '</span> ' + t.cidadao_v1 + '</td>' +
+      '<td><span class="pill ' + r.stance + '">' + r.stance + '</span> ' + r.cidadao + '</td></tr>'; }).join('');
+  document.getElementById('pane').innerHTML =
+  '<div class="card"><h2 style="margin:0 0 6px">Revisão fechada</h2>' +
+    '<p class="small">Você reviu ' + ITENS.length + ' divergências e mudou <b>' + mud.length + '</b>. ' +
+      'Exporte o CSV e me mande — as justificativas viram seção do diário de decisões, e as três lacunas de regra ' +
+      'do codebook se resolvem com elas.</p>' +
+    (mud.length ? '<table class="fim"><tr><th>#</th><th>tweet</th><th>antes</th><th>depois</th></tr>' + linhas + '</table>' : '') +
+    '<div class="nav"><button class="go" id="ex2">Exportar CSV</button>' +
+      '<button id="rev0">rever do início</button></div></div>';
+  document.getElementById('ex2').onclick = exporta;
+  document.getElementById('rev0').onclick = () => { i = 0; tela(); };
+  pinta();
+}
+
+function exporta() {
+  const cab = ["ordem_dev","id_tweet","autor","texto","tipo","cidadao_v1","stance_v1","confianca_v1",
+    "cidadao_auto","stance_auto","cidadao_v2","stance_v2","confianca_v2","mudou","justificativa"];
+  const q = v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+  const linhas = [cab.map(q).join(',')];
+  for (const t of ITENS) { const r = estado(t);
+    const v = {ordem_dev: t.ordem_dev, id_tweet: t.id_tweet, autor: t.autor, texto: t.texto, tipo: t.tipo,
+      cidadao_v1: t.cidadao_v1, stance_v1: t.stance_v1, confianca_v1: t.confianca_v1,
+      cidadao_auto: t.cidadao_auto, stance_auto: t.stance_auto,
+      cidadao_v2: r.cidadao, stance_v2: r.stance, confianca_v2: r.confianca,
+      mudou: mudou(t) ? '1' : '0', justificativa: r.justificativa};
+    linhas.push(cab.map(c => q(v[c])).join(',')); }
+  const blob = new Blob(['﻿' + linhas.join('\r\n')], {type: 'text/csv;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'revisao_dev_MARIANA.csv'; a.click();
+}
+document.getElementById('exp').onclick = exporta;
+
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'TEXTAREA') { if (e.key === 'Escape') e.target.blur(); return; }
+  if (i >= ITENS.length) return;
+  const m = {q:['cidadao','S'], w:['cidadao','N'], e:['cidadao','?'],
+             a:['stance','EA'], s:['stance','ED'], d:['stance','NDA'],
+             '1':['confianca','1'], '2':['confianca','2'], '3':['confianca','3']}[e.key.toLowerCase()];
+  if (m) { e.preventDefault(); marca(m[0], m[1]); return; }
+  if (e.key === 'Enter') { e.preventDefault(); avanca(); }
+  if (e.key === 'ArrowLeft' && i > 0) { i--; tela(); }
+});
+tela();
+</script>
+</body>
+</html>

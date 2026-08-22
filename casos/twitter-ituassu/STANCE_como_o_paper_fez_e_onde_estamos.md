@@ -267,10 +267,14 @@ humano primeiro**.
 
 ---
 
-## 9. Próximo passo concreto — ✅ **o kit está pronto** (18/ago/2026)
+## 9. Próximo passo concreto — ◐ **dev fechado, falta o teste cego** (22/ago/2026)
 
-O que era "à sua espera" já foi feito: **o kit de rotulagem existe e está congelado.**
-Só falta o ato de rotular.
+O kit existe e está congelado desde 18/ago. Em **22/ago/2026** a rotulagem começou: o
+**dev (110)** fechou em duas rodadas — `v1` cego e `v2` revisto contra uma pré-anotação
+automática declarada — e as três lacunas de regra que ele revelou já viraram os
+casos-limite 13 e 14 do codebook. **Falta o teste cego de 210**, que é o conjunto de onde
+sai o κ do critério de aceite. Números, desenho e decisões em
+[DECISOES_ROTULADOR.md](data/repl/compos2014/stance/DECISOES_ROTULADOR.md).
 
 | artefato | onde |
 |---|---|
@@ -280,10 +284,18 @@ Só falta o ato de rotular.
 | **Pré-registro** (split congelado, apostas, critério de aceite) | [.../stance/PRE_REGISTRO_stance.md](data/repl/compos2014/stance/PRE_REGISTRO_stance.md) |
 | Sorteador (reprodutível, seed `20260818`) | `analise/amostra_stance_humana.py` |
 
-**Como usar:** abra o CSV no Excel, leia o codebook uma vez (10 min) e preencha as
-quatro últimas colunas — `cidadao`, `stance`, `confianca`, `notas`. São 320 linhas,
-~3–4 h. Se houver uma segunda pessoa, ela preenche uma **cópia** do mesmo arquivo (aí
-sai o κ humano×humano). Depois disso a validação e a aplicação em escala são automáticas.
+**Como usar (atualizado em 22/ago/2026):** o caminho recomendado deixou de ser o Excel.
+Abra `data/repl/compos2014/stance/rotulagem_dev.html` no navegador — um tweet por tela,
+atalhos de teclado, o codebook resumido ao lado, salvamento automático e exportação no
+formato exato do gold set. Comece pelas **110 do dev**, em lotes de 20: ao fechar cada
+lote, a página mostra a **pré-anotação automática** e as divergências, para afinar o
+codebook antes do que conta. As **210 do teste** são rotuladas **sem** pré-anotação —
+é delas que sai o κ. O desenho e o porquê estão em
+[DECISOES_ROTULADOR.md](data/repl/compos2014/stance/DECISOES_ROTULADOR.md).
+O CSV no Excel continua valendo como alternativa (preencher `cidadao`, `stance`,
+`confianca`, `notas`). Se houver uma segunda pessoa, ela preenche uma **cópia** do mesmo
+arquivo (aí sai o κ humano×humano). Depois disso a validação e a aplicação em escala são
+automáticas.
 
 *(Este documento cobre só o eixo stance. O plano completo das fases está em
 `REPLICACAO_CASO_COMPOS2014.md`; os resultados do eixo mídia em

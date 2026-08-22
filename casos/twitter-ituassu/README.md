@@ -87,21 +87,41 @@ efetivo. Não use a coluna.
   `BLOGS_EM_PORTAL_candidatos.md` ficaram **superadas**: esperavam marcação à mão que
   nunca aconteceu, e as perguntas foram respondidas por medição.
 
-### Eixo stance (H3) — ◐ **kit pronto; falta o ato de rotular**
+### Eixo stance (H3) — ◐ **dev fechado; falta o teste cego de 210**
 
-Em **18/ago/2026** o kit de rotulagem foi montado e **congelado**:
+O kit foi montado e congelado em **18/ago/2026**; em **22/ago/2026** a rotulagem começou
+e o conjunto de **calibragem (dev, 110)** fechou, em duas rodadas.
 
 | artefato | onde |
 |---|---|
-| codebook operacional (casos-limite decididos) | [CODEBOOK_stance.md](CODEBOOK_stance.md) |
-| planilha para preencher — **320 tweets**, ~3–4 h | `data/repl/compos2014/stance/gold_stance_para_rotular.csv` |
-| reteste intracodificador (40 itens, ≥7 dias depois) | `.../stance/gold_stance_RETESTE.csv` |
+| codebook operacional (14 casos-limite decididos) | [CODEBOOK_stance.md](CODEBOOK_stance.md) |
+| **página de rotulagem — teste cego, 210 tweets, ~5–6 h** ← *o que falta* | `data/repl/compos2014/stance/rotulagem_teste.html` |
+| gabarito do dev: `v1` cego e `v2` revisto | `.../stance/gold_stance_dev_MARIANA.csv` · `.../stance/gold_stance_dev_v2.csv` |
+| diário de decisões (desenho, números, 3 regras novas) | [.../stance/DECISOES_ROTULADOR.md](data/repl/compos2014/stance/DECISOES_ROTULADOR.md) |
+| reteste intracodificador (40 itens, ≥ 29/ago) | `.../stance/gold_stance_RETESTE.csv` |
 | pré-registro: split 110/210, apostas, critério κ ≥ 0,70 | [.../stance/PRE_REGISTRO_stance.md](data/repl/compos2014/stance/PRE_REGISTRO_stance.md) |
+| planilha completa (320) — alternativa em Excel à página | `.../stance/gold_stance_para_rotular.csv` |
 | sorteador (seed `20260818`, sha `dc8ee39ff69b`) | `analise/amostra_stance_humana.py` |
+| geradores das páginas de rotulagem e de revisão | `analise/gera_pagina_rotulagem.py` · `analise/gera_pagina_revisao.py` |
 | lado medido das hashtags (contexto, não regra) | `analise/lean_hashtags.py` |
 
-O fluxo seguinte (validação κ → aplicação em escala → curva `A(volume)`) já está
-validado no caso irmão `vacinas` (κ 0,759) e é automático. Ver
+**Dois achados já saíram do dev** (n = 110), e nenhum depende do teste:
+
+- **zero divergência de polo.** Entre o gabarito humano e uma pré-anotação automática,
+  nunca um leu EA onde o outro leu ED. **Toda** a discordância é sobre *haver ou não*
+  lado — a fronteira frágil do rótulo do artigo é `lado × NDA`, e é ela que decide o
+  23,4% de NDA que ele reporta;
+- **NDA em 61%** do dev contra **23,4%** do artigo, nas duas leituras — a aposta P1
+  (≥ 35%) se confirma com folga e **não depende de quem rotula**.
+
+★ E o dev produziu um terceiro número, sobre método: a rodada de revisão das divergências
+levou o mesmo anotador, nos mesmos itens, de **κ 0,699 para 0,916** depois de ver os
+rótulos da máquina — **+0,22 de ancoragem medida dentro do próprio caso**. É por isso que
+o teste de 210 é cego, e o `v2` do dev fica registrado como gabarito **de consenso**, não
+independente.
+
+O fluxo seguinte (validação κ → aplicação em escala → curva `A(volume)`) espelha o caso
+irmão `vacinas` (κ 0,759) e é automático. Ver
 [STANCE_...md](STANCE_como_o_paper_fez_e_onde_estamos.md) §9.
 
 ⚠ De passagem, o kit **corrigiu um erro nosso**: `#AecioNever` é pró-Dilma (**ED**), não
