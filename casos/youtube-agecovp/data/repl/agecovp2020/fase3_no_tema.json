@@ -1,31 +1,31 @@
 {
- "combinacoes": 50,
- "n": 2320,
- "no_tema": 1090,
- "fora_tema": 1230,
- "descartados_no_tema": 273,
- "descartados_fora_tema": 1124,
+ "combinacoes": 85,
+ "n": 3446,
+ "no_tema": 1615,
+ "fora_tema": 1831,
+ "descartados_no_tema": 493,
+ "descartados_fora_tema": 1654,
  "UGC": {
-  "passa": 30.9,
-  "descartado": 38.8,
-  "delta_pp": 7.9
+  "passa": 27.0,
+  "descartado": 23.8,
+  "delta_pp": -3.2
  },
  "categorias": {
   "passa": {
-   "Society": 68.9,
-   "Knowledge": 12.2,
-   "Politics": 6.2,
-   "Lifestyle_(sociology)": 5.1,
-   "Health": 3.2,
-   "Entertainment": 1.5
+   "Society": 68.7,
+   "Knowledge": 10.1,
+   "Lifestyle_(sociology)": 5.8,
+   "Politics": 5.5,
+   "Health": 3.7,
+   "Entertainment": 3.1
   },
   "descartado": {
-   "Society": 77.0,
-   "Knowledge": 7.9,
-   "Sport": 3.0,
-   "Politics": 3.0,
-   "Religion": 2.4,
-   "Health": 1.8
+   "Society": 81.8,
+   "Knowledge": 5.0,
+   "Politics": 3.4,
+   "Lifestyle_(sociology)": 3.1,
+   "Sport": 2.2,
+   "Religion": 1.3
   }
  }
 }

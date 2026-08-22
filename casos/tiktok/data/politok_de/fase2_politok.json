@@ -24,6 +24,32 @@
    "2026-06-11": 39.7
   }
  },
+ "painel_temporal": {
+  "n_painel": 100926,
+  "n_total_saxonia": 195373,
+  "serie_painel": {
+   "2024-10-02": 6.3,
+   "2024-12-10": 17.4,
+   "2025-01-13": 20.9
+  },
+  "serie_so_rechecados": {
+   "2024-10-02": 6.3,
+   "2024-12-10": 17.3,
+   "2025-01-13": 18.9
+  },
+  "serie_todos_os_posts": {
+   "2024-10-02": 3.3,
+   "2024-12-10": 9.5,
+   "2025-01-13": 18.7
+  },
+  "artigo_tabela5_apendice_C": {
+   "1_mes": 6.3,
+   "3_meses": 17.4,
+   "4.5_meses": 20.5,
+   "n_painel": 102953
+  },
+  "nota": "O artigo JA reporta o crescimento da delecao ao longo das datas (Apendice C, Tabela 5). O painel refeito reproduz 6,3 e 17,4 exatamente e difere em 0,4 p.p. no ultimo horizonte, diferenca atribuivel ao tratamento de UNKNOWN_ERROR, nao declarado. A serie de bases mistas 3,3 / 9,5 / 18,7 nao deve ser usada como curva."
+ },
  "PT4": {
   "medido_pct_dos_deletados": 65.9,
   "alvo": 66.7,

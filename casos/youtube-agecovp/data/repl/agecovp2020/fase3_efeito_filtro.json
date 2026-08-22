@@ -1,45 +1,45 @@
 {
- "combinacoes_concluidas": 50,
+ "combinacoes_concluidas": 85,
  "de": 85,
- "n_videos": 2320,
+ "n_videos": 3446,
  "Q1": {
-  "passa": 923,
-  "descarta": 1397,
-  "pct_descartado": 60.2,
+  "passa": 1299,
+  "descarta": 2147,
+  "pct_descartado": 62.3,
   "alvo_artigo": 52.1
  },
  "Q2": {
   "perfil_passa": {
-   "Society": 70.3,
-   "Knowledge": 11.5,
-   "Politics": 6.1,
-   "Lifestyle_(sociology)": 4.6,
-   "Health": 2.9,
-   "Entertainment": 1.9
+   "Society": 69.6,
+   "Knowledge": 9.6,
+   "Lifestyle_(sociology)": 5.8,
+   "Politics": 5.6,
+   "Health": 3.5,
+   "Entertainment": 3.1
   },
   "perfil_descartado": {
-   "Society": 74.4,
-   "Politics": 5.7,
-   "Knowledge": 4.9,
-   "Sport": 4.5,
-   "Lifestyle_(sociology)": 4.3,
-   "Baseball": 3.4
+   "Society": 76.4,
+   "Politics": 5.9,
+   "Knowledge": 5.4,
+   "Lifestyle_(sociology)": 5.1,
+   "Sport": 3.1,
+   "Baseball": 2.0
   },
-  "canais_casados_passa": 589,
-  "canais_casados_descartado": 507
+  "canais_casados_passa": 806,
+  "canais_casados_descartado": 835
  },
  "Q3": {
   "passam o filtro": {
-   "n": 923,
-   "no_artigo": 305,
-   "pct": 33.0
+   "n": 1299,
+   "no_artigo": 393,
+   "pct": 30.3
   },
   "descartados": {
-   "n": 1397,
-   "no_artigo": 86,
-   "pct": 6.2
+   "n": 2147,
+   "no_artigo": 159,
+   "pct": 7.4
   },
-  "total_intersecao": 391,
-  "cobertura_do_artigo_pct": 10.4
+  "total_intersecao": 552,
+  "cobertura_do_artigo_pct": 14.6
  }
 }

@@ -1,0 +1,74 @@
+{
+ "fonte": "arctic-shift.photon-reddit.com (agregacao)",
+ "janela": "2020-12-01T00:00:00Z a 2021-05-16T00:00:00Z (exclusivo)",
+ "COMPLETO": false,
+ "motivo_incompleto": "rate limit do Arctic Shift ('Timeout. Maybe slow down a bit'); o prompt do caso manda parar, nao contornar",
+ "medidos": {
+  "Vaccines": {
+   "submissoes": 1148,
+   "comentarios": 4216,
+   "total": 5364,
+   "confirmado_em_2_rodadas": true,
+   "chamadas_rodada1": 4,
+   "chamadas_rodada2": 16
+  },
+  "CovidVaccine": {
+   "submissoes": 2432,
+   "comentarios": 18641,
+   "total": 21073,
+   "confirmado_em_2_rodadas": true,
+   "chamadas_rodada1": 2,
+   "chamadas_rodada2": 12
+  },
+  "CovidVaccinated": {
+   "submissoes": 12385,
+   "comentarios": 100316,
+   "total": 112701,
+   "confirmado_em_2_rodadas": true,
+   "chamadas_rodada1": 2,
+   "chamadas_rodada2": 4
+  },
+  "AntiVaxxers": {
+   "submissoes": 1380,
+   "comentarios": 15643,
+   "total": 17023,
+   "confirmado_em_2_rodadas": true,
+   "chamadas_rodada1": 2,
+   "chamadas_rodada2": 6
+  },
+  "vaxxhappened": {
+   "submissoes": 2788,
+   "comentarios": 55927,
+   "total": 58715,
+   "confirmado_em_2_rodadas": true,
+   "chamadas_rodada1": 2,
+   "chamadas_rodada2": 8
+  },
+  "antivaccine": {
+   "submissoes": 222,
+   "comentarios": 296,
+   "total": 518,
+   "confirmado_em_2_rodadas": true,
+   "chamadas_rodada1": 2,
+   "chamadas_rodada2": 2
+  }
+ },
+ "nao_medidos": [
+  "conspiracy",
+  "conspiracytheories",
+  "NoNewNormal",
+  "conspiracy_commons",
+  "COVID19",
+  "COVID",
+  "coronavirus"
+ ],
+ "soma_parcial_submissoes": 20355,
+ "soma_parcial_comentarios": 195039,
+ "soma_parcial_total": 215394,
+ "aviso": "PARCIAL: 7 de 13 subreddits nao medidos, entre eles os 3 maiores (conspiracy, COVID19, coronavirus). A soma NAO e a populacao.",
+ "corpus_do_alvo": {
+  "submissoes": 1401,
+  "comentarios": 10240,
+  "total": 11641
+ }
+}

@@ -92,7 +92,7 @@ p.p. encolhe para menos de 4 p.p.** no limiar ≥1. *(Se falhar, reportar — pr
 ## 5. Linhas na tabela mestre
 
 Este resultado preenche a coluna *"o ponto original replica?"* da **linha 12**
-(reddit-massachs / homofilia) de [`RESULTADOS_tabela_mestre.md`](../../../RESULTADOS_tabela_mestre.md):
+(reddit-massachs / homofilia) de [`RESULTADOS_tabela_mestre.md`](../../../../RESULTADOS_tabela_mestre.md):
 **replica** (Δ ≤ 0,25 p.p. nas duas pontas da ordenação). As colunas *mudou?* e
 *convergiu?* ficam **declaradas como não executadas** na versão de 31/ago, com o motivo
 em §6 — não são um ⏳ que a sessão seguinte resolve.
@@ -120,6 +120,24 @@ o script **se recusa a imprimir total** quando há qualquer falha, gravando
 em janelas longas, e a estratégia mês a mês transforma qualquer falha isolada em falha
 do subreddit inteiro. Pode ser limitação de taxa acumulada das tentativas anteriores;
 pode ser limite do serviço. Não foi investigado além disso — ver abaixo.
+
+> ⚠ **Atualização de 22/ago/2026 — a dúvida acima foi parcialmente resolvida, e em
+> desfavor desta leitura.** O caso [`reddit-topicos`](../../../../reddit-topicos/README.md),
+> ao dimensionar outros 13 subreddits no mesmo endpoint, mediu que a mensagem
+> `"Timeout. Maybe slow down a bit"` aparece por **duas** causas que ela não distingue:
+> **estrangulamento por taxa** (um subreddit de 222 submissões falhou sob uso intenso e
+> respondeu bem após **~5 min de silêncio**) e **tamanho real da consulta** (um
+> subreddit grande falhou em 14 s mesmo após silêncio total). Ou seja: **as duas
+> hipóteses levantadas aqui são verdadeiras ao mesmo tempo**, e uma sonda que insiste
+> rápido converte estrangulamento em algo que parece limite de serviço.
+>
+> **O que isso muda, e o que não muda.** Não muda a decisão: `politics`, `news` e
+> `worldnews` são grandes, e para grandes a falha é real. Mas o **"34 de 34"** pode
+> estar **inflado** — a 2ª rodada rodou logo depois da 1ª, sem recuo entre elas, que é
+> exatamente a receita do estrangulamento. **Antes de a dissertação afirmar em
+> definitivo que a expansão do Massachs não é dimensionável pela API, vale uma
+> reconferência paciente** (uma consulta por vez, com ≥5 min de folga). Registrado em
+> [ESTADO.md §4.23](../../../../../ESTADO.md).
 
 **Decisão:** a Fase 3 do Massachs **fica fora do escopo** da versão de 31/ago/2026. O
 caminho realista é o **dump por subreddit no Academic Torrents** (para o qual o próprio

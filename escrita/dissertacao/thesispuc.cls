@@ -1586,6 +1586,10 @@
   \puc@showtables%
   \if@pucepigraph
     \puc@showepigraph
+  \fi% <- correção local: este \fi faltava na classe original. Sem ele, e com
+     % a epígrafe desligada, o TeX pula procurando o fecho e engole
+     % \puc@setmargins@text, \onehalfspacing, \rmfamily, \puc@setpagestyle
+     % e o próprio \begin{document}.
   \puc@setmargins@text%
   \if@puctight
   \else

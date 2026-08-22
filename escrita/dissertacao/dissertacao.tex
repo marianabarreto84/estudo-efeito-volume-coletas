@@ -19,8 +19,29 @@
 \usepackage{enumitem}
 \usepackage[alf,bibjustif,abnt-emphasize=bf]{abntex2cite}
 
+%% --- Legendas de tabelas e figuras -----------------------------------
+%% Pedido recorrente da revisao: a legenda vinha no mesmo corpo e na mesma
+%% fonte do texto e se confundia com ele. Aqui ela fica menor, com o rotulo
+%% em negrito, travessao no lugar dos dois-pontos e recuo das margens do
+%% bloco de texto.
+\captionsetup{font=footnotesize,labelfont=bf,labelsep=endash,
+              justification=raggedright,singlelinecheck=false,
+              margin=14pt,skip=6pt,belowskip=2pt}
+
+%% --- Colocacao de floats ---------------------------------------------
+%% Sem afrouxar estes parametros o LaTeX empurra tabela grande para pagina
+%% propria, longe do trecho que a discute.
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.70}
+\renewcommand{\textfraction}{0.10}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{3}
+\setcounter{totalnumber}{4}
+
 \npthousandsep{.}
 \npdecimalsign{,}
+
+\graphicspath{{figuras/}{./}}
 
 \setcounter{tocdepth}{1}
 \usecolour{true}
@@ -40,9 +61,9 @@
 \title{O Efeito do Volume de Coleta sobre os Resultados de Análises: Redes Sociais Digitais como Caso de Estudo}
 \titleuk{The Effect of Collection Volume on the Results of Analyses: Online Social Networks as a Case Study}
 
-\day{8}          % TODO: data da defesa
-\month{Julho}    % TODO: data da defesa
-\year{2026}      % TODO: data da defesa
+\day{29}          % data da defesa (Formulário de Marcação de Defesa)
+\month{Setembro}
+\year{2026}
 
 \city{Rio de Janeiro}
 \CDD{004}
@@ -52,15 +73,18 @@
 \university{Pontifícia Universidade Católica do Rio de Janeiro}
 \uni{PUC-Rio }
 
-%%% Banca — TODO: confirmar composição
+%%% Banca (a classe acrescenta o orientador; aqui vão os demais membros)
 \jury{%
-  \jurymember{Nome do Membro}{Prof.}
+  \jurymember{Edward Hermann Haeusler}{Prof.}
     {Departamento de Informática}{PUC-Rio}
+  \jurymember{Ana Carolina Brito de Almeida}{Profa.}
+    {Instituto de Matemática e Estatística}{UERJ}
 }
 
-%%% Resumo pessoal (bio) — TODO: preencher
+%%% Resumo pessoal (bio)
 \resume{%
-Bacharel em [curso] pela [instituição].%
+Bacharel em Engenharia da Computação pela Pontifícia Universidade Católica
+do Rio de Janeiro (PUC-Rio).%
 }
 
 %%% Agradecimentos — TODO: personalizar/ampliar
@@ -97,57 +121,60 @@ Financiamento 001.
 }
 
 \abstract{%
-Para as análises mais praticadas sobre Redes Sociais Digitais (RSD), como detecção
-de comunidades, centralidade, sentimento e modelagem de tópico, coletar pouco ou
+Para as análises mais realizadas sobre Redes Sociais Digitais (RSD), como detecção
+de comunidades, análise de conteúdo, sentimento e classificação, coletar pouco ou
 muito muda a conclusão? A pergunta é uma instância de um problema metodológico
-mais amplo, o do efeito do volume de coleta sobre os resultados de uma análise, e
-esta dissertação toma as RSD como caso de estudo, por serem um domínio em que esse
-efeito é agudo e mensurável. Um levantamento sistemático feito como parte do
-projeto~\cite{barreto2026survey} mostra que o volume coletado varia enormemente
-(mediana de \(\approx\)273 mil itens, mas 40\% dos artigos passam de 1 milhão), que
-coletar muito não implica amostrar e que quase nunca se avalia se esse volume
-altera a conclusão. Para medir o efeito, propõe-se um protocolo que trata cada
+mais amplo, o do efeito do volume de coleta sobre os resultados de uma análise.
+Esta dissertação toma as RSD como caso de estudo, por serem um domínio em que esse
+efeito é mensurável. Um levantamento sistemático feito como parte do
+projeto~\cite{barreto2026survey} mostra que o volume coletado varia enormemente,
+mas que menos da metade dos artigos passa de 1 milhão de publicações coletadas,
+e que quase nunca se avalia se esse volume altera a conclusão. Para medir o efeito, propõe-se um protocolo que trata cada
 artigo como uma amostra sub-coletada do seu tema, coleta um superconjunto temático
 e reproduz a análise sobre a coleta original e a expandida, testando se a conclusão
 muda e se já havia convergido (caso em que coletar menos bastaria). Um conjunto de
-seis casos, um por rede social (Reddit, YouTube, TikTok, Instagram/Facebook e
-Twitter), instancia o protocolo. A entrega não é um volume ideal único, mas a
-identificação de para quais tipos de análise o volume de coleta é decisivo e para
-quais é indiferente. Como caso de estudo, as RSD dão evidência concreta sobre um problema que as
-extrapola.%
+casos replicáveis, distribuídos por diferentes redes sociais e tipos de análise,
+instancia o protocolo. A entrega não é um volume ideal único, mas a identificação
+de para quais tipos de análise o volume de coleta é decisivo e para quais é
+indiferente, de modo que declarar o volume coletado, e o quanto a conclusão depende
+dele, passe a integrar o relato de qualquer trabalho que colete dados de RSD.%
 }
 
 \abstractuk{%
-For the analyses most practiced over Online Social Networks (OSN), such as
-community detection, centrality, sentiment and topic modeling, does collecting
+For the analyses most frequently performed over Online Social Networks (OSN), such as
+community detection, content analysis, sentiment and classification, does collecting
 little or a lot change the conclusion? The question is an instance of a broader
 methodological problem, that of the effect of collection volume on the results of
-an analysis, and this dissertation takes OSN as a case study, as a domain where
-the effect is acute and measurable. A systematic survey conducted as part of the
-project~\cite{barreto2026survey} shows that the collected volume varies enormously
-(a median of \(\approx\)273{,}000 items, yet 40\% of papers exceed one million),
-that collecting a lot does not imply sampling, and that whether that volume changes
-the conclusion is almost never assessed. To measure the effect, we propose a
+an analysis. This dissertation takes OSN as a case study, as a domain where the
+effect is measurable. A systematic survey conducted as part of the
+project~\cite{barreto2026survey} shows that the collected volume varies enormously,
+yet that fewer than half of the papers exceed one million collected posts, and
+that whether that volume changes the conclusion is almost never assessed. To measure the effect, we propose a
 protocol that treats each paper as an under-collected sample of its theme, collects
 an on-theme superset and reproduces the analysis over the original and the expanded
 collection, testing whether the conclusion changes and whether it had already
-converged (in which case less would suffice). A lineup of six cases, one per social
-network (Reddit, YouTube, TikTok, Instagram/Facebook and Twitter), instantiates the
-protocol. The deliverable is not a single ideal volume but an account of the
-analysis types for which collection volume is decisive and those for which it is
-immaterial. As
-a case study, OSN provide concrete evidence on a problem that extends beyond them.%
+converged (in which case less would suffice). A lineup of replicable cases, spread
+across different social networks and analysis types, instantiates the protocol. The
+deliverable is not a single ideal volume but an account of the analysis types for
+which collection volume is decisive and those for which it is immaterial, so that
+stating the collected volume, and how much the conclusion depends on it, becomes
+part of the report of any work that collects OSN data.%
 }
 
-%%% Dedicatória / Epígrafe — TODO: personalizar
+%%% Dedicatória — TODO: personalizar
 \dedication{%
   A todos que apoiaram este trabalho.
 }
-\epigraph{%
-  % TODO: epígrafe (opcional)
-}
-\epigraphauthor{}
-\epigraphbook{}
+
+%%% Epígrafe: opcional, ainda não escolhida. As três linhas ficam comentadas
+%%% de propósito. A classe liga a página de epígrafe ao ver a chamada de
+%%% \epigraph, e não pelo conteúdo dela, de modo que chamá-la vazia
+%%% imprime uma página em branco com a vírgula e o ponto do crédito.
+% \epigraph{%
+%   TODO: epígrafe (opcional)
+% }
+% \epigraphauthor{}
+% \epigraphbook{}
 
 \begin{document}
   \input{corpo}

@@ -1,0 +1,57 @@
+{
+ "fonte": "snapshot_buntain.sqlite (43.479 submissions + 1.015.247 comentários, 13 subreddits, jul/2013)",
+ "paper": {
+  "usuarios": 279,
+  "multi": 7,
+  "pct_multi": 3.0
+ },
+ "curva_por_limiar": [
+  {
+   "k": 1,
+   "usuarios": 217386,
+   "multi": 33115,
+   "pct_multi": 15.23
+  },
+  {
+   "k": 2,
+   "usuarios": 101270,
+   "multi": 33115,
+   "pct_multi": 32.7
+  },
+  {
+   "k": 5,
+   "usuarios": 34566,
+   "multi": 16875,
+   "pct_multi": 48.82
+  },
+  {
+   "k": 10,
+   "usuarios": 14622,
+   "multi": 8047,
+   "pct_multi": 55.03
+  },
+  {
+   "k": 20,
+   "usuarios": 5991,
+   "multi": 3450,
+   "pct_multi": 57.59
+  },
+  {
+   "k": 50,
+   "usuarios": 1709,
+   "multi": 959,
+   "pct_multi": 56.11
+  }
+ ],
+ "subreddits_por_usuario": {
+  "1": 184271,
+  "2": 28624,
+  "3": 3767,
+  "4": 615,
+  "5": 95,
+  "6": 8,
+  "7": 4,
+  "8": 1,
+  "9": 1
+ }
+}

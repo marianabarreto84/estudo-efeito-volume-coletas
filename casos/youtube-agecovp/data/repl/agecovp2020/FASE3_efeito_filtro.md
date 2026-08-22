@@ -155,3 +155,123 @@ cairia estava errada nos dois recortes — registrada como falha.
 - `no_tema` não é perfeito: `Sport` (3,0%) e `Religion` (2,4%) ainda aparecem entre os
   descartados no tema — vídeos que mencionam idosos e covid de passagem.
 - Parcial: 50 de 85 combinações.
+
+---
+
+## 7. ⚠ COLETA COMPLETA (21/ago/2026) — **P1 cai, e o achado do caso muda de lugar**
+
+> As 85 combinações fecharam: **3.446 vídeos**, 1.299 passam o filtro (37,7%).
+> Além disso, os **2.165 canais** do instantâneo foram buscados pela própria API
+> (`pipeline/coleta_canais.py`, 44 unidades, **cobertura de 100%**), o que a §6.4
+> pedia. Script: [`analise/fase3_ugc_completo.py`](../../../analise/fase3_ugc_completo.py) ·
+> saída: `fase3_ugc_completo.json`.
+>
+> **Tudo o que a §6 afirma sobre P1 está superado por esta seção.** As §§1–5
+> permanecem válidas quanto às taxas de descarte; os números absolutos foram
+> recalculados abaixo.
+
+### 7.1 Os números da coleta completa
+
+| | parcial (50/85) | **completa (85/85)** |
+|---|--:|--:|
+| vídeos coletados | 2.320 | **3.446** |
+| passam o filtro | 39,8% | **37,7%** |
+| descartados | 60,2% | **62,3%** |
+| no tema | — | **1.615** (46,9%) |
+| descartados que estão no tema | 19,5% | **23,0%** (493 de 2.147) |
+| cobertura do corpus dos autores | 10,4% | **14,6%** |
+
+A validação da §2 fica **mais forte** com a coleta completa: vídeos que passam o
+filtro têm **30,3%** de chance de estar no corpus publicado contra **7,4%** dos
+descartados — razão de **4,1×**. A reimplementação do filtro reproduz a lógica deles.
+
+### 7.2 ❌ P1 **não confirma** — e o sinal se inverte com significância
+
+Entre os vídeos **no tema**, sob a mesma regra `eh_ugc` declarada:
+
+| base de canais | passa | descarta | Δ | IC95% |
+|---|--:|--:|--:|---|
+| gabarito dos autores (o que a §6.2 usou) | 27,0% (n=721) | 23,8% (n=319) | **−3,2** | [−8,9; +2,5] |
+| **API, todos os canais** | 39,0% (n=1.122) | 32,7% (n=493) | **−6,4** | **[−11,4; −1,4]** |
+
+O `+7,9 p.p.` da §6.2 **não sobrevive**. Na coleta completa o efeito é **negativo e
+significativo**: o conteúdo que o filtro descarta é *menos* de usuário comum, não mais.
+
+**Robusto ao limiar** — a regra `eh_ugc` fixa 10.000 inscritos por decisão declarada,
+e o sinal não depende disso:
+
+| limiar | 1.000 | 5.000 | 10.000 | 50.000 | 100.000 |
+|---|--:|--:|--:|--:|--:|
+| Δ (p.p.) | −7,5 | −8,1 | −6,4 | −7,2 | −7,4 |
+
+Todos os cinco intervalos excluem o zero. E **sem limiar nenhum**, pelos inscritos
+medianos do canal: **28.000** entre os que passam contra **61.500** entre os
+descartados — os canais descartados são *maiores*.
+
+⚠ **A causa da inversão não é a que a §6.4 supunha.** A hipótese registrada era viés
+de cobertura do gabarito. Medida, ela **não se sustenta**: o gabarito cobre 64,3% dos
+que passam e 64,7% dos descartados (razão 0,99×). E a fonte dos inscritos também não
+explica — na *mesma* subamostra de 721 vídeos, os inscritos do gabarito dão 27,0% de
+UGC e os da API 24,5%, diferença compatível com o crescimento dos canais entre 2020 e
+2026. O que muda o resultado é **quais canais entram na base**: os 36% de canais que
+o gabarito não tem são muito mais de usuário comum — o que é a §7.3.
+
+### 7.3 ★ O efeito de seleção existe, é enorme, e **não é do filtro de palavra-chave**
+
+Entre os **1.615 vídeos no tema** que as mesmas 85 buscas devolvem, medidos todos
+pela mesma fonte:
+
+| | UGC | n | inscritos medianos |
+|---|--:|--:|--:|
+| canal **está** no corpus publicado | 23,5% | 1.040 | **199.000** |
+| canal **não está** no corpus | **61,7%** | 575 | **1.070** |
+| **diferença** | **+38,3 p.p.** | | **186×** |
+
+IC95% da diferença: **[+33,5; +43,0]**. O corpus do artigo é drasticamente mais
+institucional que a população que as próprias buscas dele alcançam — a mediana de
+inscritos difere por **duas ordens de grandeza**.
+
+Mas o filtro de palavra-chave **não é o mecanismo**. Dentro de cada estrato ele quase
+não age, e age na direção contrária:
+
+| estrato | passa | descarta | Δ |
+|---|--:|--:|--:|
+| canal no corpus | 24,5% | 21,0% | −3,5 |
+| canal fora do corpus | 65,1% | 54,0% | −11,1 |
+
+**Leitura, e é uma correção de rumo do caso.** A conclusão do capítulo — o corpus é
+institucional por decisão de coleta, o que torna parcialmente circular a explicação
+que o artigo dá para o sentimento positivo — **sobrevive e sai reforçada**: 38,3 p.p.
+é muito maior que os 7,9 p.p. que a versão parcial atribuía ao filtro. O que **cai é
+a atribuição do mecanismo**: não é a exigência da palavra-chave no título que
+institucionaliza o corpus.
+
+**O que resta como candidato**, sem que se possa decidir entre eles com o que é
+reproduzível hoje:
+
+1. o **ramo dos sugeridos** (104.172 → 1.025, 99% de descarte), que é o maior funil
+   do artigo e é **irreproduzível** — `relatedToVideoId` saiu da API em ago/2023;
+2. a **profundidade da busca** (até 600 resultados por consulta contra as 2 páginas
+   que a cota nos permite), que muda a mistura de canais alcançados;
+3. o **filtro de idioma**, aplicado à união e não descrito em detalhe.
+
+Registrar que o mecanismo não foi isolado é mais honesto do que atribuí-lo ao filtro,
+que foi testado e não o explica.
+
+⚠ **Confundidor declarado:** "canal fora do corpus" inclui canais que o artigo pode
+simplesmente não ter alcançado por ordenação de busca, e não por descarte deliberado.
+A janela de publicação é a mesma (2020-01-01 a 2022-09-01), o que exclui canais
+criados depois, mas a comparação mede o funil **como um todo** — não um passo dele.
+
+### 7.4 P4 (a fatia *Society* cairia) — continua falhando
+
+Com as categorias vindas da API para todos os canais, `Society` fica em 33,2% (passa)
+contra 34,8% (descartados), Δ **+1,6**. A aposta errou nos três recortes já testados.
+A diferença notável agora é `Politics`, **+5,4 p.p.** entre os descartados.
+
+### 7.5 O que isto muda nos outros documentos
+
+- **`corpo.tex`, capítulo do YouTube:** o parágrafo que atribui a circularidade ao
+  filtro de palavra-chave precisa ser reescrito — ver §7.3. **Sinalizado à Mariana.**
+- **Tabela mestre, linha 15:** passa de ⏳ a preenchível no eixo do filtro.
+- **§6 deste documento:** superada quanto a P1, mantida como registro.

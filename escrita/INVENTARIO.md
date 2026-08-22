@@ -10,9 +10,11 @@
 | Arquivo | O que é |
 |---|---|
 | `dissertacao.tex` | Arquivo principal, **classe oficial PUC-Rio `thesispuc`** (front-matter). Núcleo = desenho experimental "coletar mais". |
-| `corpo.tex` | Capítulos (Introdução, Desenho Experimental, Conclusão). |
+| `corpo.tex` | Capítulos: Contexto/Objetivos, Metodologia, os seis casos executados (Twitter ×2, Reddit, YouTube, TikTok) e a Conclusão parcial. |
 | `referencias.bib` | Bibliografia da dissertação (ABNT). |
-| `dissertacao.pdf` | Última compilação (20 p., limpa). |
+| `dissertacao.pdf` | Última compilação (65 p., limpa e sem `Overfull`, 21/ago/2026, após a 3ª rodada de revisão). |
+| `figuras/` | Figuras da dissertação **e** o `gerar_figuras.py` que as produz a partir dos JSON congelados dos casos. Nenhum número é digitado à mão. |
+| `revisoes/` | Ciclo de revisão da Mariana: ela comenta o `revisao-N.pdf`, a rodada seguinte aplica no fonte e salva o `revisao-N+1.pdf`. Contém o extrator de comentários (`extrai_comentarios.py`) e o mapa comentário→mudança (`REVISOES.md`); o procedimento da rodada está na skill `.claude/skills/revisao-dissertacao/`. Estado: rodadas 1, 2 e 3 aplicadas; `revisao-4.pdf` aguarda leitura, **do Cap. 3 em diante** — a 3ª rodada parou na p. 21. **Não sincronizar com a cópia de `Documents/dissertacao/`.** |
 | `thesispuc.cls` + `.bst`/`.sty` + `puc.pdf` | Classe/estilos/recursos do template PUC-Rio. |
 | `README.md` | Como compilar, pendências `% TODO` e notas da classe. |
 

@@ -1,0 +1,60 @@
+{
+ "testes": [
+  {
+   "subreddit": "conspiracy",
+   "tipo": "posts",
+   "horas_da_janela": 24.0,
+   "after": 1606780800,
+   "before": 1606867200,
+   "campos": "id,created_utc,subreddit,author,title,selftext,score,num_comments",
+   "funciona": true,
+   "itens": 684,
+   "paginas": 7,
+   "segundos": 12.8,
+   "itens_por_s": 53.55,
+   "kb_por_item": 0.46,
+   "bytes_recebidos": 322242,
+   "falhas": [],
+   "nota": "endpoint /search paginado — NAO e /search/aggregate, que falha nos subreddits grandes"
+  },
+  {
+   "subreddit": "conspiracy",
+   "tipo": "comments",
+   "horas_da_janela": 6.0,
+   "after": 1606780800,
+   "before": 1606802400,
+   "campos": "id,created_utc,subreddit,author,body,score",
+   "funciona": true,
+   "itens": 5050,
+   "paginas": 51,
+   "segundos": 96.6,
+   "itens_por_s": 52.3,
+   "kb_por_item": 0.289,
+   "bytes_recebidos": 1496906,
+   "falhas": [],
+   "nota": "endpoint /search paginado — NAO e /search/aggregate, que falha nos subreddits grandes"
+  },
+  {
+   "subreddit": "politics",
+   "tipo": "comments",
+   "horas_da_janela": 2.0,
+   "after": 1477958400,
+   "before": 1477965600,
+   "campos": "id,created_utc,subreddit,author,body,score",
+   "funciona": false,
+   "itens": 0,
+   "paginas": 1,
+   "segundos": 3.3,
+   "itens_por_s": 0.0,
+   "kb_por_item": 0,
+   "bytes_recebidos": 0,
+   "falhas": [
+    {
+     "pagina": 1,
+     "motivo": "http:422 {\"data\":null,\"error\":\"Timeout. Maybe slow down a bit\"}"
+    }
+   ],
+   "nota": "endpoint /search paginado — NAO e /search/aggregate, que falha nos subreddits grandes"
+  }
+ ]
+}

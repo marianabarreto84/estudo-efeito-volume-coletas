@@ -37,9 +37,17 @@ reddit-buntain/
 ├── pipeline/
 │   ├── probe_volume.py          <- sonda de volume (jul/2013)
 │   └── collect.py               <- coletor resumível -> snapshot_buntain.sqlite
-├── analise/rb3.py               <- teste RB3 (multi-comunidade)
+├── analise/rb3.py               <- teste RB3 (multi-comunidade); grava curva_rb3.json
 └── data/repl/buntain2013/
     ├── FASE0_descoberta.md      <- viabilidade + predições
     ├── FASE1_coleta.md          <- volume do universo + estado da coleta
+    ├── RESULTADOS_RB3.md        <- o resultado: 3% -> 57,6% sob o mesmo limiar
+    ├── curva_rb3.json           <- (gerado) curva por limiar; alimenta a Fig. 5.1
+    │                               da dissertação via figuras/gerar_figuras.py
     └── snapshot_buntain.sqlite  <- (gerado) submissions + comentários
 ```
+
+> ⚠ `rb3.py` só roda onde o `snapshot_buntain.sqlite` existe, isto é, na cópia com
+> dados (`Documents/dissertacao/`) — o `.sqlite` é `.gitignore`. O `curva_rb3.json`,
+> por ser pequeno, **é** versionado, para que a figura da dissertação seja
+> reproduzível a partir do repositório.

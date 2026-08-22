@@ -98,10 +98,85 @@ comentários.
 
 ---
 
-## 5. Decisão pendente
+## 5. Decisão — **fechada em 21/ago/2026: nenhum dos dois entra**
 
-- [ ] **#14** (recomendado) · **#299** (mantém o previsto na `tab:casos`) · **outro**
-- [ ] se #14: a `tab:casos` precisa trocar a linha TikTok (hoje diz "#299 · hashtags ED
-      curadas; 56k vídeos")
-- [ ] em qualquer caso: declarar no capítulo que a célula TikTok tem **tração menor** que
-      as demais, e por quê (§1)
+> Sondagem feita a pedido da Mariana, que perguntou se não haveria um alvo de TikTok
+> **reconstruível por um crawler próprio**. A resposta é não, e as razões são
+> específicas de cada candidato. Nada foi coletado do TikTok para chegar a isto.
+
+### 5.1 ❌ #14 (AI vs. Human Paintings) — **irreconstruível**
+
+Três obstáculos independentes, e o terceiro basta sozinho:
+
+1. **O `robots.txt` do TikTok proíbe a busca.** Em 21/ago/2026 ele traz, para
+   `User-agent: *`, `Disallow: /search?`, `/search/video?` e `/search/user?q=`. A coleta
+   do #14 foi *"pesquisar por tags … e raspar a web"* — o endpoint que a reconstrução
+   exige é exatamente o bloqueado. (`/tag` segue permitido, mas é feed por recência, não
+   a busca que o artigo usou.) O mesmo arquivo põe `ClaudeBot`, `anthropic-ai`,
+   `Claude-User` e `Claude-SearchBot` sob `Disallow: /` — o assistente não coleta; a
+   ferramenta, se houver, é rodada pela pesquisadora.
+2. **O artigo não publica identificadores.** As três extrações do `research.db`
+   concordam (`mentions_data_publication = false`). Os vídeos que os filtros excluíram
+   — que **são** o objeto da expansão — não são identificáveis.
+3. **A janela não é reconstruível.** A coleta é um *snapshot de 15/nov/2023*, um corte
+   **sem data de início**; e a busca do TikTok ordena por recência, sem recorte de data
+   confiável. Um crawler de 2026 devolve o presente, não o corpus de 2023 — que hoje tem
+   quase três anos e sofreu deleção.
+
+### 5.2 ❌ #369 (*Just Another Hour on TikTok*) — reconstruível, mas sem tração
+
+[arXiv 2504.13279](https://doi.org/10.48550/arXiv.2504.13279), Steel, Schirmer, Ruths &
+Pfeffer. **É o único alvo de TikTok cuja coleta é reconstruível**, porque não usa busca:
+faz engenharia reversa dos IDs de post e **enumera o espaço de identificadores** de uma
+fatia de tempo, o que torna o bloqueio de `/search?` irrelevante. Código público em
+[`bendavidsteel/tiktok-slice`](https://github.com/bendavidsteel/tiktok-slice) (⚠ **sem
+licença declarada** = todos os direitos reservados; dá para ler e reimplementar citando).
+
+**Por que ficou de fora mesmo assim:** **1 citação**, preprint — o perfil exato que a
+Mariana recusou duas vezes (#207, #299). E o custo não cabe: os autores levaram **cinco
+meses** para uma hora de TikTok (5 M de vídeos), e a dissertação congela o texto em
+meados de setembro.
+
+### 5.3 ⭐ O que se aproveita do #369 **sem** abrir caso
+
+Os autores publicaram no Zenodo, **CC-BY**, 27 MB
+([15330828](https://zenodo.org/records/15330828)), as **mesmas oito distribuições
+calculadas duas vezes**: em `hour/` (censo completo de uma hora, 5.148.076 vídeos,
+17–18h UTC de 10/abr/2024) e em `day/` (um minuto de cada hora ao longo de 24 h,
+1.876.255 vídeos). É uma **população e uma amostra dela, publicadas lado a lado** —
+material raro para o que esta dissertação pergunta.
+
+Comparação rodada em 21/ago/2026 sobre o arquivo baixado:
+
+| quantidade | censo da hora | amostra do dia | razão |
+|---|---:|---:|---:|
+| média de visualizações | 2.533,1 | 2.243,9 | **0,886** |
+| média de curtidas | 177,9 | 145,8 | **0,820** |
+| média de comentários | 4,9 | 4,2 | **0,850** |
+| média de compartilhamentos | 14,1 | 9,1 | **0,646** |
+| p99 de visualizações | 20.100 | 14.800 | **0,736** |
+
+Todas as quantidades de engajamento são **sistematicamente menores** na amostra do dia,
+de 11% a 35%, sempre na mesma direção. A leitura que interessa: os autores tinham
+**100% da hora** — não é sub-coleta por volume, é sub-coleta por **janela**. Ter o censo
+completo de um recorte não compra representatividade do recorte maior que o contém.
+
+⚠ **Ressalva que impede tratar isso como resultado fechado:** as duas fatias não são a
+mesma população (17–18h UTC é um horário específico), de modo que a diferença mistura o
+esquema de amostragem com efeito de horário — a mesma confusão do H1 do caso Ituassu.
+Separar exigiria os dados brutos, que não estão publicados. Serve como **evidência de
+apoio** à terceira pergunta do protocolo, não como caso.
+
+⏳ **Pendente de decisão da Mariana:** se este trecho entra na dissertação (meia tarde,
+sem coleta) ou fica só aqui.
+
+### 5.4 O que fica registrado para não refazer
+
+- ❌ #14 e ❌ #369 **avaliados e recusados** — não reabrir sem fato novo.
+- O alvo vigente da célula segue sendo o **PoliTok-DE**, com o eixo temporal
+  ([FASE2_politok.md](FASE2_politok.md)), e a célula segue **parcial por escolha
+  declarada**, não por descuido.
+- ❗ A §2.4 do `corpo.tex` justifica o TikTok fechado apenas pela **credencial
+  revogada**. O `robots.txt` de 21/ago/2026 é um argumento mais forte e verificável, e
+  fecha a rota de raspagem por tag independentemente de credencial — vale acrescentar.
+

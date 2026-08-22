@@ -94,6 +94,44 @@ def main():
     res["PT3"] = {"medido": fed_final, "alvo": 39.7}
     res["curvas_por_data"] = curvas
 
+    # ---- painel temporal estrito (compara com a Tabela 5 / Apendice C do artigo) ----
+    # O artigo reporta um PAINEL: os mesmos 102.953 posts da Saxonia rechecados em
+    # 1, 3 e 4,5 meses -> 6,3% / 17,4% / 20,5%. A serie sobre "todos os posts" e sobre
+    # "os rechecados em cada data" NAO e comparavel a essa, porque a base muda de uma
+    # data para a outra. Aqui se reconstroi o painel para poder confrontar.
+    log("\n== painel temporal (mesmos posts nas tres datas) ==")
+    cols_sx = sorted(c for c in sx.columns if c.startswith("availability"))
+    valido = None
+    for c in cols_sx:
+        m = sx[c].isin(["AVAILABLE", "DELETED"])
+        valido = m if valido is None else (valido & m)
+    painel = sx[valido]
+    serie_painel, serie_rechecados, serie_todos = {}, {}, {}
+    for c in cols_sx:
+        data = c.replace("availability_", "").replace("_", "-")
+        serie_painel[data] = round(100 * (painel[c] == "DELETED").mean(), 1)
+        m = sx[c].isin(["AVAILABLE", "DELETED"])
+        serie_rechecados[data] = round(100 * (sx[c][m] == "DELETED").mean(), 1)
+        serie_todos[data] = round(100 * (sx[c] == "DELETED").mean(), 1)
+        log("  %s : painel %5.1f%%  | rechecados %5.1f%% (n=%d) | todos %5.1f%%"
+            % (data, serie_painel[data], serie_rechecados[data], int(m.sum()),
+               serie_todos[data]))
+    log("  n do painel = %d  (o artigo usa 102.953)" % len(painel))
+    res["painel_temporal"] = {
+        "n_painel": int(len(painel)),
+        "n_total_saxonia": int(len(sx)),
+        "serie_painel": serie_painel,
+        "serie_so_rechecados": serie_rechecados,
+        "serie_todos_os_posts": serie_todos,
+        "artigo_tabela5_apendice_C": {"1_mes": 6.3, "3_meses": 17.4,
+                                      "4.5_meses": 20.5, "n_painel": 102953},
+        "nota": ("O artigo JA reporta o crescimento da delecao ao longo das datas "
+                 "(Apendice C, Tabela 5). O painel refeito reproduz 6,3 e 17,4 "
+                 "exatamente e difere em 0,4 p.p. no ultimo horizonte, diferenca "
+                 "atribuivel ao tratamento de UNKNOWN_ERROR, nao declarado. A serie "
+                 "de bases mistas 3,3 / 9,5 / 18,7 nao deve ser usada como curva."),
+    }
+
     # ---- PT4/PT5: autor x plataforma (so na coleta federal, que e a do artigo) ----
     d = fd[fd["availability_2026_06_11"] == "DELETED"]
     s = d["status_codes_2026_06_11"].astype(str)

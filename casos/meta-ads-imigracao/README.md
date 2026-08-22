@@ -1,5 +1,20 @@
 # Caso de replicação · Instagram/Facebook · Capozzi et al. (2020, 2021) — anúncios de imigração
 
+> ⛔ **FORA DO ESCOPO DA DISSERTAÇÃO desde 21/ago/2026.** Na 2ª rodada de revisão do
+> texto, a Mariana decidiu tratar a dissertação sem Instagram e Facebook. O
+> `corpo.tex` passou a apresentar as plataformas da Meta na §2.4 como **rota de coleta
+> fechada** (CrowdTangle desligado, Content Library paga e sem exportação, Ad Library
+> restrita a conteúdo publicitário), e não mais como caso pendente; o conjunto de casos
+> ficou em **6 casos / 4 redes**. As linhas 13 e 14 da
+> [tabela mestre](../RESULTADOS_tabela_mestre.md) estão marcadas como fora do escopo.
+>
+> **Nada aqui foi apagado, e nada aqui está errado.** Este caso permanece por inteiro
+> — Fase 0, gabaritos baixados e conferidos, α reproduzido, CB2 desambiguado — para
+> poder ser retomado sem refazer nada, caso uma rota de coleta compatível com o
+> protocolo volte a existir. Os “próximos passos” da dissertação preveem essa
+> reabertura explicitamente. **O que muda é só o escopo do texto**; o registro abaixo
+> continua válido como estado do trabalho.
+
 **Leia primeiro:** o plano em [REPLICACAO_CASO_META_ADS.md](REPLICACAO_CASO_META_ADS.md) e
 o alvo em [ARTIGO_CAPOZZI_alvo.md](ARTIGO_CAPOZZI_alvo.md).
 

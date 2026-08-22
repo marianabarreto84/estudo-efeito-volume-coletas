@@ -68,7 +68,30 @@ por anotação × 59,2% por post; a conclusão "maioria" sobrevive nas duas).
 
 ---
 
-## 3. ★ O achado novo: a conclusão depende de **quando** se coleta
+## 3. O eixo temporal — ⚠ **o alvo já o reporta**
+
+> ⚠ **Corrigido em 22/ago/2026, na rodada de revisão 4 → 5.** A primeira leitura
+> deste caso tratou o eixo temporal como achado próprio. **Não é.** O full text do
+> PoliTok-DE traz, no **Apêndice C, Tabela 5**, um **painel dos mesmos 102.953
+> posts** rechecados a 1, 3 e 4,5 meses — 6,3% / 17,4% / 20,5% — e a frase
+> explícita de que a fatia deletada cresce quanto mais se espera. O que é nosso:
+> (a) a **verificação independente** desse painel, que reproduz 6,3 e 17,4 exatos e
+> difere 0,4 p.p. no último ponto; (b) o diagnóstico da **base misturada** (abaixo);
+> (c) a **incorporação do eixo ao protocolo** da dissertação, com as duas perguntas
+> mudou?/convergiu? aplicadas a ele.
+
+> ⚠ **E a série mudou.** O painel estrito (estado válido nas três datas, n=100.926)
+> dá **6,3% → 17,4% → 20,9%**. A série 6,3 / 17,3 / 18,7 que este documento
+> reportava **mistura bases**: os dois primeiros pontos são dos rechecados naquela
+> data, o terceiro é da coleção inteira. Só o painel é curva. Bloco
+> `painel_temporal` em `fase2_politok.json`.
+
+> ⚠ **E “assenta” caiu.** A coleta federal do mesmo artigo, verificada aos 16
+> meses, marca 39,7% — quase o dobro dos 20,9% da estadual aos 4,5 meses. Ou as
+> duas não são comparáveis (o artigo avisa que não as compara diretamente), ou a
+> curva não havia assentado. **Convergência no eixo temporal: em aberto.**
+
+### 3.1 A série, como estava
 
 A Saxônia tem **três datas de checagem**, e a taxa de deleção muda assim:
 

@@ -4,12 +4,17 @@
 > **Nenhum número nasce aqui**: cada célula cita o documento canônico que a produziu.
 > Se um valor divergir da fonte, a fonte vence — corrija lá e propague para cá.
 >
-> ⚠ **Parcial de propósito.** Fecham as 9 linhas de `twitter-ituassu` (eixo mídia) e
-> `vacinas` (eixos A e B). Em ⏳: `heine-xande` (aguarda os dados,
-> ver [ESTADO.md](../ESTADO.md) §2), o eixo *stance* do Ituassu (aguarda gabarito humano),
-> `reddit-buntain` (Fase 0 feita; aguarda a coleta), `reddit-massachs` (Fase 0 parcial;
-> aguarda o full text) e `meta-ads-imigracao` (Fase 0 parcial; aguarda o full text do CHI
-> 2021 e a conta Meta verificada). As 7 linhas ausentes estão listadas em §4, não omitidas.
+> ⚠ **Parcial.** Atualizada em **21/ago/2026**. **13 linhas fechadas**: as 9 de
+> `twitter-ituassu` (eixo mídia) e `vacinas` (eixos A e B), mais `reddit-buntain` (11),
+> `reddit-massachs` (12, no que era viável), `youtube-agecovp` (15) e `tiktok-politok` (16).
+> Em ⏳ seguem **3**: `heine-xande` (8, 9 — aguarda os dados, ver [ESTADO.md](../ESTADO.md) §2)
+> e o eixo *stance* do Ituassu (10 — aguarda gabarito humano). As linhas ausentes estão
+> listadas em §4, não omitidas.
+>
+> ⛔ **As linhas 13 e 14 (`meta-ads-imigracao`) saíram do escopo da dissertação em
+> 21/ago/2026**, por decisão da Mariana na 2ª rodada de revisão do texto. Ficam aqui
+> porque o trabalho foi feito e pode voltar, mas **não contam** como pendência da Fase 4
+> nem aparecem no `corpo.tex`.
 
 ---
 
@@ -49,10 +54,10 @@ As duas combinadas dão quatro desfechos. Os observados até aqui são **NÃO/SI
 | 10 | ituassu · Twitter 2014 | Sentimento / stance (EA/ED) | **H3** — os públicos diferem | ⏳ | ⏳ | [STANCE](twitter-ituassu/STANCE_como_o_paper_fez_e_onde_estamos.md) |
 | 11 | reddit-buntain · Reddit 2013 | SNA / papéis sociais (rede) | **RB3** — só ~3% dos usuários (7/279) participam de >1 comunidade | ★ **SIM, por uma ordem de grandeza**: sob o **mesmo limiar de atividade** do artigo (≥20), o universo dá **57,6%** (3.450 de 5.991) — **19×** o publicado. Sem corte: 15,2% de 217.386 usuários | **SIM, em k≈10–20** (55,0% → 57,6% → 56,1%) — mas o valor do artigo não é recuperável em limiar nenhum: a limitação estava na **coleta** (top-100 × top-200), não no corte | [RESULTADOS_RB3](reddit-buntain/data/repl/buntain2013/RESULTADOS_RB3.md) |
 | 12 | reddit-massachs · Reddit 2012–16 | Homofilia | **MH1** — homofilia e feedback social preveem apoio a Trump; influência social não. ✅ **o ponto original replica** (18/ago/2026): F1 **34,6% × 34,8%** na homofilia e **26,8% × 26,7%** na influência, sobre o gabarito dos autores | ⏳ (falta a Fase 3) | ⏳ | [FASE2](reddit-massachs/data/repl/massachs2016/FASE2_ponto_original.md) · [FASE0](reddit-massachs/data/repl/massachs2016/FASE0_descoberta.md) |
-| 15 | youtube-agecovp · YouTube 2020–22 | Modelagem de tópicos / sentimento | **AG2** — os comentários são mais negativos que os vídeos (e AG4, categorias de canal; AG1, sentimento) | ⏳ (Fase 3 em coleta) | ⏳ | [FASE2](youtube-agecovp/data/repl/agecovp2020/FASE2_ponto_original.md) |
-| 16 | tiktok-politok · TikTok 2024–26 | Análise de conteúdo / persistência | **PT2/PT3** — 18,7% e 39,7% dos posts deletados; **PT5** — deleção pela plataforma em 13,0% de todos os posts | ★ **SIM, no eixo TEMPORAL**: 3,3% → 9,5% → 18,7% em três checagens do mesmo conjunto (fator **5,7×**) | *não se aplica ao volume* — o denominador é idêntico nas três datas | [FASE2](tiktok/FASE2_politok.md) |
-| 13 | meta-ads-imigracao · Instagram/Facebook 2019–20 | **Classificação** (pró/anti-imigração) | **CB2** — os anúncios anti capturam atenção acima do seu peso. Medido pela **razão de desproporção** R = fatia de impressões ÷ fatia de anúncios: **R = 1,72** entre os com posição (37,8% dos anúncios × 65,2% das impressões) · **1,46** entre todos. ⚠ o resumo do alvo contrasta populações diferentes | ⏳ | ⏳ | [DECISOES_CB2](meta-ads-imigracao/data/repl/metaads2019/DECISOES_CB2.md) · [ARTIGO §5.1](meta-ads-imigracao/ARTIGO_CAPOZZI_alvo.md) |
-| 14 | meta-ads-imigracao · Instagram/Facebook 2019–20 | Centralidade / concentração | **CA2** — impressões muito desiguais (Gini 0,465 por página, 0,800 por anúncio) | ⏳ | ⏳ | idem |
+| 15 | youtube-agecovp · YouTube 2020–22 | Análise de conteúdo (composição do corpus) | **P1** — o filtro de palavra-chave do artigo remove conteúdo de usuário, e por isso a predominância de imprensa que ele usa como explicação é parcialmente produzida por ele | **NÃO pelo filtro** — predição refutada: UGC 39,0% entre os aprovados × 32,7% entre os descartados, Δ **−6,4 p.p.** IC95% [−11,4; −1,4] (sinal robusto a 5 limiares; mediana de inscritos 28 mil × 61,5 mil). ★ **SIM pelo funil inteiro**: canais no corpus publicado 23,5% UGC × **61,7%** fora dele, Δ **+38,3 p.p.** IC95% [+33,5; +43,0]; mediana 199 mil × 1.070 inscritos | *não medido* — o passo do funil responsável **não foi isolado**; o maior suspeito (ramo dos sugeridos, 99% de descarte) é irreproduzível desde ago/2023 | [FASE3 §7](youtube-agecovp/data/repl/agecovp2020/FASE3_efeito_filtro.md) · [FASE2](youtube-agecovp/data/repl/agecovp2020/FASE2_ponto_original.md) |
+| 16 | tiktok-politok · TikTok 2024–26 | Análise de conteúdo / persistência | **PT2/PT3** — 18,7% e 39,7% dos posts deletados; **PT5** — deleção pela plataforma em 13,0% de todos os posts | ★ **SIM, no eixo TEMPORAL**: 6,3% → 17,4% → 20,9% no **painel** (n=100.926, mesmos posts nas três datas; fator **3,3×**). ⚠ **corrigido em 22/ago/2026** — a série 3,3 / 9,5 / 18,7 misturava bases e não é curva | ⏳ **em aberto** — o crescimento desacelera, mas a coleta federal aos 16 meses marca 39,7%, quase o dobro. ⚠ o eixo temporal **já está no alvo** (Apêndice C, Tab. 5): o que é nosso é a verificação e a incorporação ao protocolo | [FASE2](tiktok/FASE2_politok.md) |
+| 13 ⛔ | meta-ads-imigracao · Instagram/Facebook 2019–20 — **fora do escopo da dissertação desde 21/ago/2026** (decisão da Mariana na 2ª rodada de revisão; material preservado) | **Classificação** (pró/anti-imigração) | **CB2** — os anúncios anti capturam atenção acima do seu peso. Medido pela **razão de desproporção** R = fatia de impressões ÷ fatia de anúncios: **R = 1,72** entre os com posição (37,8% dos anúncios × 65,2% das impressões) · **1,46** entre todos. ⚠ o resumo do alvo contrasta populações diferentes | ⏳ | ⏳ | [DECISOES_CB2](meta-ads-imigracao/data/repl/metaads2019/DECISOES_CB2.md) · [ARTIGO §5.1](meta-ads-imigracao/ARTIGO_CAPOZZI_alvo.md) |
+| 14 ⛔ | meta-ads-imigracao · Instagram/Facebook 2019–20 — **fora do escopo** (idem) | Centralidade / concentração | **CA2** — impressões muito desiguais (Gini 0,465 por página, 0,800 por anúncio) | ⏳ | ⏳ | idem |
 
 ---
 
@@ -317,24 +322,33 @@ Fatia pró-vacina **entre os tweets a que se atribui lado**:
 | Linha | Falta | Destrava com |
 |---|---|---|
 | 8, 9 (heine-xande) | os dados: o Twitter 57,9 M não está em nada acessível | baixar os CSVs do SharePoint do BioBD **ou** decidir pivotar para Instagram/Reddit |
-| 10 (stance do Ituassu) | gabarito humano | ~200–300 tweets rotulados à mão (fluxo já validado no caso vacinas) |
-| 11 (reddit-buntain) | a coleta dos 13 subreddits de jul/2013 (todas as submissions + comentários, sem o corte de grau) | rodar a Fase 1 — rota **Arctic Shift** (2013 coberto), offline, sem VPN. RB3 não precisa de gabarito humano. Ver [FASE0](reddit-buntain/data/repl/buntain2013/FASE0_descoberta.md) |
-| 12 (reddit-massachs) | ~~ler o full text~~ ✅ · ~~o ponto original~~ ✅ **replicado em 18/ago/2026** · **resta** refazer o focus group com limiar de atividade menor (≥5, ≥3, ≥1) | baixar os dumps 2012/2016 (Arctic Shift/Academic Torrents), sem VPN. Ver [FASE2](reddit-massachs/data/repl/massachs2016/FASE2_ponto_original.md) |
+| 10 (stance do Ituassu) | o **gabarito humano do teste cego** — 210 tweets | ◐ **em curso.** O dev (110) fechou em 22/ago/2026 nas duas rodadas; falta rotular as 210 em `rotulagem_teste.html` (~5–6 h), e então: `valida_rotulador` → universo da janela (32.193) → curva. Já se sabe do dev, sem depender do teste: **NDA em 61% × 23,4%** do artigo e **zero divergência de polo**. Ver [DECISOES_ROTULADOR](twitter-ituassu/data/repl/compos2014/stance/DECISOES_ROTULADOR.md) |
+| 11 (reddit-buntain) | ✅ **nada — fechada em 19/ago/2026.** Coleta completa (43.479 submissões + 1.015.247 comentários) e RB3 medido: 3% → **57,6%** sob o mesmo limiar | — |
+| 12 (reddit-massachs) | ~~ler o full text~~ ✅ · ~~o ponto original~~ ✅ **replicado em 18/ago/2026** · a expansão está **declarada fora de escopo**, não pendente: o endpoint de agregação do Arctic Shift não a dimensiona (34/34 incompletos) | depois da defesa: dumps por subreddit no Academic Torrents. Ver [FASE2 §6](reddit-massachs/data/repl/massachs2016/FASE2_ponto_original.md) |
 | 13, 14 (meta-ads-imigracao) | só a **conta Meta verificada**, que destrava a Ad Library API **e** o teste de retenção | Só a Mariana (documento, 1-3 dias úteis). ✅ Já feitos em 7/ago/2026: full text do CHI 2021 lido, **α publicado reproduzido** (0,763 × 0,76) e **CB2 desambiguado** ([DECISOES_CB2](meta-ads-imigracao/data/repl/metaads2019/DECISOES_CB2.md)). ⚠ **Duas ressalvas já registradas:** as impressões do alvo **não reproduzem** (35 M × 49,8 M pela regra declarada), e anúncios políticos da UE pararam em out/2025 com retenção de 7 anos — o corpus de mar/2019 está no limite. Mitigação = braço Brasil |
+| 15 (youtube-agecovp) | ✅ **nada — fechada em 21/ago/2026.** Coleta completa (85/85 buscas, 3.446 vídeos) + os 2.165 canais pela API. P1 **refutada**; o efeito de seleção do funil é de **+38,3 p.p.** | — |
+| 16 (tiktok-politok) | ✅ **nada — fechada em 19/ago/2026** pelo eixo temporal, sobre o dataset publicado | — |
 | 1, 2 (curva do Ituassu) | ✅ **feita em 07/ago/2026** (300 réplicas/ponto) — e corrigiu o veredito da linha 2 | — |
 | 3 (H2 do Ituassu) | ✅ **feita em 07/ago/2026** — e mostrou que H2 não reproduz nem no recorte do próprio artigo | — |
 | 4a, 4b, 4c | ✅ nada — medidos em 07/ago/2026 | — |
 | *(eixo A do caso vacinas, fora da tabela)* | AV1 por fração de N (com NMI), curva de Lorenz do AV4, AV2 e E3 — nunca rodados | nada; dado local. Ver [auditoria](vacinas/REPLICACAO_CASO_VACINAS.md) §4.1 |
 
 Sem esses itens, **a coluna "fração mínima que estabiliza a conclusão"** — prevista
-no protocolo — não pode ser preenchida em nenhuma linha, e por isso não figura na
-tabela. O que existe hoje é o par mudou?/convergiu?.
+no protocolo — segue preenchida em poucas linhas (AV1 em f≈0,75; linha 1 em n=100;
+linha 2 em n≈200; linha 11 em k≈10–20), e por isso não figura como coluna própria na
+tabela. O que existe hoje é o par mudou?/convergiu? com a fração anotada na célula.
+
+⚠ **A linha 15 é o caso em que a resposta a "convergiu?" não é ⏳ nem um número, e sim
+*não medido por indeterminação de causa*:** o efeito de seleção existe e é grande, mas
+o passo do funil que o produz não pôde ser isolado, porque o maior suspeito saiu da API
+em ago/2023. Vale registrar como categoria de desfecho — ela não estava prevista no
+protocolo.
 
 ---
 
 ## 5. Leitura por tipo de análise (PP3, provisória)
 
-Com 10 linhas fechadas, o padrão que emerge é **um contraste dentro de cada caso**,
+Com as linhas fechadas, o padrão que emerge é **um contraste dentro de cada caso**,
 não entre casos — e, no caso vacinas, **dentro da mesma afirmação**:
 
 | Comportamento | Análises observadas |

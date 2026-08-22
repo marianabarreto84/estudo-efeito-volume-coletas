@@ -167,6 +167,22 @@ class YouTube:
             out += j.get("items", [])
         return out
 
+    def canais(self, ids):
+        """
+        Metadados dos canais (ate 50 ids por chamada, 1 unidade cada).
+
+        Existe porque a Fase 3 media UGC so nos canais presentes no gabarito dos
+        autores — e um canal so esta no gabarito se sobreviveu ao filtro DELES.
+        Medir "o filtro remove UGC" nessa base e circular. Com este metodo a
+        comparacao passa a cobrir os dois lados do filtro por igual.
+        """
+        out = []
+        for i in range(0, len(ids), 50):
+            j = self._get("channels", {"part": "snippet,statistics,topicDetails",
+                                       "id": ",".join(ids[i:i + 50])})
+            out += j.get("items", [])
+        return out
+
     def comentarios(self, video_id, max_paginas=5):
         """Comentarios de topo de um video. Silencioso quando estao desativados."""
         token = None

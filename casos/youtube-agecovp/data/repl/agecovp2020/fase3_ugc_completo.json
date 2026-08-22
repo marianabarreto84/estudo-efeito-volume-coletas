@@ -1,0 +1,128 @@
+{
+ "combinacoes": 85,
+ "n_videos": 3446,
+ "n_tema": 1615,
+ "limiar_inscritos": 10000,
+ "gabarito dos autores": {
+  "passa_pct": 27.0,
+  "n_passa": 721,
+  "descartado_pct": 23.8,
+  "n_descartado": 319,
+  "delta_pp": -3.2,
+  "ic95": [
+   -8.9,
+   2.5
+  ],
+  "significativo": false
+ },
+ "API (todos os canais)": {
+  "passa_pct": 39.0,
+  "n_passa": 1122,
+  "descartado_pct": 32.7,
+  "n_descartado": 493,
+  "delta_pp": -6.4,
+  "ic95": [
+   -11.4,
+   -1.4
+  ],
+  "significativo": true
+ },
+ "cobertura_gabarito": {
+  "passa": 64.3,
+  "descartado": 64.7
+ },
+ "sensibilidade_limiar": {
+  "1000": {
+   "delta_pp": -7.5,
+   "ic95": [
+    -11.9,
+    -3.1
+   ]
+  },
+  "5000": {
+   "delta_pp": -8.1,
+   "ic95": [
+    -12.9,
+    -3.2
+   ]
+  },
+  "10000": {
+   "delta_pp": -6.4,
+   "ic95": [
+    -11.4,
+    -1.4
+   ]
+  },
+  "50000": {
+   "delta_pp": -7.2,
+   "ic95": [
+    -12.4,
+    -2.0
+   ]
+  },
+  "100000": {
+   "delta_pp": -7.4,
+   "ic95": [
+    -12.7,
+    -2.2
+   ]
+  }
+ },
+ "inscritos_mediana": {
+  "passa": 28000,
+  "descartado": 61500
+ },
+ "corpus_x_nao_corpus": {
+  "no_corpus": {
+   "ugc_pct": 23.5,
+   "n": 1040,
+   "inscritos_mediana": 199000
+  },
+  "fora_corpus": {
+   "ugc_pct": 61.7,
+   "n": 575,
+   "inscritos_mediana": 1070
+  },
+  "delta_pp": 38.3,
+  "ic95": [
+   33.5,
+   43.0
+  ]
+ },
+ "filtro_por_estrato": {
+  "canal no corpus": {
+   "passa_pct": 24.5,
+   "descartado_pct": 21.0,
+   "delta_pp": -3.5
+  },
+  "canal fora do corpus": {
+   "passa_pct": 65.1,
+   "descartado_pct": 54.0,
+   "delta_pp": -11.1
+  }
+ },
+ "categorias_api": {
+  "passa": {
+   "Society": 33.2,
+   "Lifestyle_(sociology)": 22.4,
+   "Knowledge": 13.5,
+   "Politics": 12.4,
+   "Health": 4.3,
+   "Television_program": 3.2,
+   "Entertainment": 2.8,
+   "Film": 1.2
+  },
+  "descartado": {
+   "Society": 34.8,
+   "Lifestyle_(sociology)": 18.0,
+   "Politics": 17.8,
+   "Knowledge": 11.5,
+   "Health": 4.9,
+   "Television_program": 4.5,
+   "Entertainment": 2.3,
+   "Music": 0.8
+  },
+  "n_passa": 1114,
+  "n_descartado": 488
+ }
+}

@@ -14,8 +14,8 @@
 
 ## 1. O que é a dissertação
 
-**Título de trabalho:** *O Efeito da Estratégia de Coleta em Análises de Redes
-Sociais Digitais: um Desenho Experimental sobre Coletar Mais.*
+**Título (como está no `dissertacao.tex`):** *O Efeito do Volume de Coleta sobre os
+Resultados de Análises: Redes Sociais Digitais como Caso de Estudo.*
 
 Análises computacionais sobre Redes Sociais Digitais (RSD) — de SNA a modelagem
 de tópicos — dependem de uma etapa de **coleta de dados** raramente
@@ -28,10 +28,24 @@ problematizada. A dissertação:
   sub-coletada do seu tema, coleta um **superconjunto _on-theme_** (mais dados,
   mesmo assunto) e mede, por tipo de análise, se a conclusão **muda** e se já
   havia **convergido** no volume original;
-- fixa um **_lineup_ de 5 casos** (Reddit, YouTube, TikTok, Instagram/Facebook),
-  um por análise e por rede, com coleta ainda acessível hoje.
+- fixa um **conjunto de 6 casos em 4 redes** (Twitter ×2, Reddit ×2, YouTube,
+  TikTok), cobrindo seis tipos de análise, com coleta ainda acessível hoje. Todos
+  estão escritos (Caps. 3 a 7): cinco executados por inteiro e o de TikTok em
+  parte. ⚠ **Instagram/Facebook saiu do conjunto em 21/ago/2026**, por decisão da
+  Mariana na 2ª rodada de revisão — a §2.4 do `corpo.tex` explica por quê (Meta
+  sem rota de coleta compatível), e o material de trabalho segue documentado em
+  `casos/meta-ads-imigracao/` para poder voltar. **Modelagem de tópico** é hoje o
+  tipo de análise mais frequente do levantamento **sem caso executado**, e está
+  declarada como limitação de cobertura. Ver a `tab:casos` no `corpo.tex` e o
+  `ESTADO.md` da raiz.
 
 Perguntas de pesquisa e desenho completo estão em `dissertacao/dissertacao.tex`.
+
+⚠ **Desde a 4ª rodada de revisão (22/ago/2026)** o `corpo.tex` tem **nove**
+capítulos, e não oito: entrou um **Cap. 2 de Trabalhos Relacionados**, e os casos
+passaram a ser os Caps. 4 a 8. A **tabela mestre** (`tab:mestre`), que era anunciada
+e não existia, agora é a Tabela 9.1, na §9.1; e a §9.2 é a seção nova sobre o papel
+do banco de dados. O `.bib` foi de 27 para **43 entradas**.
 
 ## 2. Estrutura desta pasta
 
@@ -42,7 +56,10 @@ dissertacao-escrita/
 │   ├── corpo.tex         capítulos
 │   ├── referencias.bib
 │   ├── thesispuc.cls + .bst/.sty + puc.pdf   classe/estilos do template
-│   └── dissertacao.pdf   última compilação (20 p.)
+│   ├── figuras/          4 figuras + gerar_figuras.py (lê os JSON congelados dos casos)
+│   ├── revisoes/         ciclo de revisão da Mariana — ver revisoes/REVISOES.md
+│   │                     e a skill .claude/skills/revisao-dissertacao/
+│   └── dissertacao.pdf   última compilação (76 p., 22/ago/2026, rodada 5)
 ├── survey/             Artigo da survey (companion). Ver survey/CLAUDE.md e survey/STATUS.md
 │   ├── survey.tex, referencias.bib, survey.pdf
 │   ├── agg_results.py, fig_volume.py   scripts que reproduzem números/figuras a partir do research.db

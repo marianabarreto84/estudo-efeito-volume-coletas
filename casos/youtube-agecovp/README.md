@@ -14,7 +14,7 @@ espera conta com documento verificado e o TikTok teve a credencial do eTC revoga
 YouTube foi o único onde a rota estava viva — **chave de API em 5 minutos, grátis, sem
 verificação** — e onde o dado **persiste** (vídeos de 2020 seguem buscáveis hoje).
 
-## Estado (18/ago/2026)
+## Estado (21/ago/2026) — **caso fechado no eixo do filtro**
 
 - ✅ **Fase 0 fechada** — artigo lido, funil extraído, termos e lista de filtro transcritos,
   alvos-teste e predições pré-registrados.
@@ -23,9 +23,33 @@ verificação** — e onde o dado **persiste** (vídeos de 2020 seguem buscávei
   ageísmo (810 = 18,5% positivos). Tudo bate com o artigo. Vem com sentimento (VADER e
   TextBlob) e toxicidade já computados — as análises do artigo são reproduzíveis **sem
   gastar cota**.
-- ⏳ **Fase 1 em andamento** — recoleta das 85 combinações de busca, 2 páginas cada
-  (~17.000 unidades ≈ 1,7 dia de cota). Resumível: para sozinha quando a cota do dia
-  acaba e retoma depois.
+- ✅ **Fase 1 COMPLETA** (21/ago/2026) — **85/85 combinações, 3.446 vídeos**, dos quais
+  1.299 (37,7%) passam o filtro. Mais os **2.165 canais** do instantâneo buscados pela
+  própria API (`pipeline/coleta_canais.py`, 44 unidades, **cobertura de 100%**).
+- ✅ **Fase 2 fechada** — o ponto original reproduz; ver
+  [FASE2](data/repl/agecovp2020/FASE2_ponto_original.md).
+- ✅ **Fase 3 fechada** — ver [FASE3 §7](data/repl/agecovp2020/FASE3_efeito_filtro.md).
+  **A predição P1 foi refutada** e o achado do caso mudou de lugar (abaixo).
+- ⏳ **Só falta** o eixo dos comentários (AG1/AG2 sobre a nossa coleta): custa ~1 unidade
+  por 100 comentários, cabe numa cota diária. Não bloqueia a linha 15 da tabela mestre,
+  que já fechou pelo eixo do filtro.
+
+## ★ O resultado (21/ago/2026)
+
+**A predição falhou, e o achado real é maior.** Apostou-se que o filtro de palavra-chave
+removeria conteúdo de usuário comum, institucionalizando o corpus. Medido sobre a coleta
+completa e com cobertura total de canais, o filtro faz o **contrário**: UGC 39,0% entre os
+aprovados × 32,7% entre os descartados, Δ **−6,4 p.p.** (IC95% [−11,4; −1,4]), sinal
+robusto a cinco limiares e confirmado sem limiar nenhum pela mediana de inscritos
+(28 mil × 61,5 mil).
+
+**Mas o efeito de seleção existe e é enorme — só não é do filtro.** Entre os vídeos no
+tema que as mesmas buscas devolvem, os canais que terminaram no corpus publicado são
+23,5% UGC contra **61,7%** dos que ficaram de fora: Δ **+38,3 p.p.** (IC95%
+[+33,5; +43,0]), mediana de inscritos **199.000 × 1.070**. A conclusão do capítulo — a
+explicação do artigo é parcialmente circular — **sai reforçada**; o que cai é a
+atribuição do mecanismo. O passo do funil responsável **não foi isolado**, e o maior
+suspeito (o ramo dos sugeridos, 99% de descarte) é irreproduzível desde ago/2023.
 
 ## O caso em uma frase
 
@@ -65,12 +89,23 @@ comparativo robusto, descritivo frágil — numa **quarta rede**.
 youtube-agecovp/
 ├── README.md
 ├── core/youtube_api.py         <- cliente da Data API v3 com livro-caixa de cota
+├── core/regras.py              <- as 2 regras que o artigo não publica (`no_tema`, `eh_ugc`)
 ├── pipeline/coleta.py          <- Fase 1: coleta sem filtrar, marca `passa_filtro`
+├── pipeline/coleta_canais.py   <- Fase 1b: metadados de TODOS os canais (tira o viés de base)
+├── analise/fase2_ponto_original.py  <- Fase 2, sobre o gabarito (sem cota)
+├── analise/fase3_efeito_filtro.py   <- Fase 3: quanto o filtro descarta
+├── analise/fase3_no_tema.py         <- Fase 3 restrita ao tema (⚠ base do gabarito; superada)
+├── analise/fase3_ugc_completo.py    <- Fase 3 **definitiva**: P1 + o funil inteiro, com IC
+├── analise/fase3_comentarios.py     <- Fase 3, eixo dos comentários: AG1/AG2 e as predições P2/P3
+├── requirements.txt            <- `requests`, `textblob`, `vaderSentiment` (o resto é padrão)
 └── data/repl/agecovp2020/
     ├── FASE0_descoberta.md     <- alvo, funil, gabarito, alvos-teste, predições
+    ├── FASE2_ponto_original.md <- o que reproduz do artigo
+    ├── FASE3_efeito_filtro.md  <- o efeito do filtro; **§7 é o resultado canônico**
+    ├── DECISOES_regras.md      <- por que `no_tema` e `eh_ugc` são assim
     ├── termos_agecovp.json     <- os 85 pares de busca + as 88 palavras do filtro
     ├── gabarito_zenodo/        <- os 4 CSVs dos autores, conferidos
-    └── snapshot_agecovp.sqlite <- nossa coleta (em andamento)
+    └── snapshot_agecovp.sqlite <- nossa coleta: 3.446 vídeos + 2.165 canais
 ```
 
 ## Cota

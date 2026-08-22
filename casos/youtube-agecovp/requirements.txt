@@ -1,0 +1,22 @@
+# Caso YouTube / AGECovP — dependências externas.
+# Tudo o mais que os scripts usam é biblioteca padrão (sqlite3, json, csv,
+# argparse, unicodedata, random, re, math, io, os, sys, time, pathlib,
+# collections, datetime).
+
+# Fases 1 e 3 — coleta pela YouTube Data API v3 (search/videos/channels/
+# commentThreads). Chave em YOUTUBE_API_KEY no .env da raiz, nunca versionado.
+requests
+
+# Fase 3, eixo dos comentários (analise/fase3_comentarios.py) — os DOIS
+# instrumentos de sentimento do artigo replicado, fixados ao que ele declara
+# usar, para não confundir efeito de coleta com efeito de modelo.
+#
+# ⚠ O artigo não publica o limiar de neutralidade (ver DECISOES_regras.md D1),
+# então as convenções são as mesmas de analise/fase2_ponto_original.py:
+#   TextBlob  positivo se polarity > 0   | negativo se < 0    | neutro se == 0
+#   VADER     positivo se compound > .05 | negativo se < -.05 | neutro entre
+#
+# TextBlob: só se usa .sentiment.polarity, que roda no léxico embutido
+# (PatternAnalyzer) e NÃO exige baixar corpora do NLTK.
+textblob
+vaderSentiment

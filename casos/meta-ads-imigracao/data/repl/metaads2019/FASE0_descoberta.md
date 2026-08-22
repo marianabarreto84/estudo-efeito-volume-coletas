@@ -136,11 +136,24 @@ Levantado das páginas oficiais em 7/ago/2026. Quatro passos; só o primeiro tem
 | 3 | Criar o app (*Access the API*, ou My Apps → Create App). **Sem App Review, sem tier pago** | [facebook.com/ads/library/api](https://www.facebook.com/ads/library/api) | instantâneo |
 | 4 | Gerar *user access token* no Graph API Explorer e guardar como `META_ADLIB_TOKEN` no `.env` da raiz (**nunca versionado**, mesma convenção da `ANTHROPIC_VACINAS_API_KEY`) | Graph API Explorer | instantâneo; token **expira em 60 dias** |
 
-⚠ **Incerteza não resolvida:** algumas fontes descrevem, para *anunciantes* políticos, um
-passo extra de confirmação de endereço por **código enviado em carta física** (semanas).
-Para o **acesso à API** a exigência documentada é apenas documento + país. **Se a tela do
-passo 1 pedir endereço postal, o cronograma do caso muda** e o braço Brasil (§6) passa a
-principal — registrar aqui o que aparecer.
+✅ **Incerteza resolvida em 21/ago/2026 — não pediu endereço postal.** A Mariana
+iniciou o processo e mandou a tela. O passo 1 aparece como *"Etapa 1: confirme sua
+identidade e localização — Acesse Facebook.com/ID e siga o processo de confirmação
+necessário para veicular anúncios sobre temas sociais, eleições ou política. Pode levar
+alguns dias para confirmar as informações enviadas."* — **identidade e localização, sem
+carta física**, com as Etapas 2 e 3 exatamente como levantadas aqui (Meta for Developers
+→ criar app → *Acessar a API*). **O cronograma se mantém** e o braço Brasil (§6) segue
+como mitigação, e não como plano principal.
+
+> ⚠ A confirmação entrou em processo de **~48 h** em 21/ago/2026. Registre-se que a
+> exigência de endereço pode reaparecer mais adiante no fluxo; o que está verificado é
+> que **até a Etapa 1 ela não apareceu**.
+
+> ❗ **Confusão de nome que vale desfazer:** o que está sendo aberto é a **Ad Library
+> API**, e não a **Meta Content Library**. São produtos distintos: a Content Library é a
+> sucessora do CrowdTangle, virou paga em jan/2026 e **não deixa os dados saírem do seu
+> ambiente seguro**, o que é incompatível com a Fase 1 deste protocolo; a Ad Library API
+> é gratuita, exportável e é a rota que este caso usa (§3).
 
 ### 5.2 O primeiro comando (teste de retenção, não coleta)
 

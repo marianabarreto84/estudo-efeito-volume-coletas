@@ -12,37 +12,70 @@
 \section{Contexto: o levantamento realizado}
 \label{sec:contexto-survey}
 
-Para fundamentar empiricamente a motivação, conduziu-se um levantamento
+Uma palavra antes sobre o termo. \emph{Redes sociais digitais} (RSD) é empregado
+aqui no sentido que lhe dá \citeonline{salgueiro2023}, em trabalho desenvolvido no
+mesmo grupo de pesquisa: o de plataformas que, por baixo de interfaces e modelos de
+negócio distintos, compartilham uma estrutura conceitual comum --- atores, laços entre
+atores e conteúdo publicado --- a ponto de admitirem uma especificação única. É essa
+estrutura comum que autoriza tratar Twitter/X, Reddit, YouTube e TikTok como
+instâncias de um mesmo objeto ao longo desta dissertação, ainda que a unidade
+efetivamente coletada mude de uma para outra.
+
+Para fundamentar a motivação, este trabalho conduziu um levantamento
 sistemático da literatura que emprega coleta automatizada em RSD, reportado em
-artigo autônomo~\cite{barreto2026survey}. Em resumo, um fluxo reprodutível partiu
-do índice DBLP, deduplicou e enriqueceu os metadados, baixou os PDFs em acesso
-aberto e extraiu informações estruturadas sobre a coleta por meio de três modelos
-de linguagem independentes, com validação contra gabarito manual. Foram
-catalogados 13.395 artigos; 2.139 tiveram a coleta caracterizada por extração
-automática; e, após excluir 421 que, apesar de extraídos, não coletam dados de RSD
-(entrevistas e estudos qualitativos), restaram 1.718 artigos como base de análise
-da coleta.
+artigo autônomo~\cite{barreto2026survey}. Em resumo, o levantamento partiu do
+índice DBLP, deduplicou e enriqueceu os metadados, baixou os PDFs em acesso aberto
+e extraiu informações estruturadas sobre a coleta por meio de três modelos de
+linguagem independentes, com validação contra gabarito manual, em etapas
+documentadas e reexecutáveis. Foram catalogados 13.395 artigos; 2.139 tiveram a
+coleta caracterizada por extração estruturada; e, após excluir 421 que, apesar de
+extraídos, não coletam dados de RSD (entrevistas e estudos qualitativos), restaram
+1.718 artigos como base de análise da coleta.
+
+A queda de 13.395 para 2.139 merece explicação, porque não é um critério de
+inclusão, e sim uma restrição de acesso ao texto completo. A extração só pode ser
+feita sobre o PDF, e 10.230 dos artigos catalogados estão atrás de
+\textit{paywall}; a busca recuperou 2.106 PDFs em acesso aberto, mais a parcela do
+material fechado que o acesso institucional via \textit{proxy} alcançou. O
+subconjunto caracterizado é, portanto, enviesado por editora, e não uma amostra
+aleatória do catálogo. O próprio levantamento é, portanto, uma coleta parcial do
+seu tema, e a Seção~\ref{sec:limitacoes} o retoma nesses termos, como limitação
+declarada.
 
 Dois achados desse levantamento motivam diretamente esta dissertação. Primeiro, a
 distribuição dos tipos de análise entre os 2.139 artigos extraídos
 (Tabela~\ref{tab:analises-survey}), que orienta a escolha dos métodos a investigar.
 Segundo, e central para este trabalho, entre os 1.718 que efetivamente coletam RSD
-o volume coletado varia por mais de sete ordens de grandeza (mediana de
-$\approx$273 mil itens, mas 40\% dos artigos passam de 1 milhão e 22\% coletam ao
-menos 10 milhões), e coletar muito não implica amostrar. Entre os maiores
-coletores, quase nenhum amostra estatisticamente, e a fração de fato analisada
-pode ser ínfima; um estudo coletou $\approx$2,8 bilhões de tweets e analisou
-apenas $\approx$1\%. A literatura dimensiona o volume por conveniência e
-tipicamente não verifica se esse recorte preserva as conclusões, e é esse vão que
-o protocolo desta dissertação mede.
+o volume coletado varia por mais de sete ordens de grandeza. \emph{Item}, aqui,
+é a unidade que o próprio trabalho declara ter recolhido, seja ela
+publicação, comentário, vídeo, anúncio ou conta: a unidade muda de plataforma para
+plataforma, e o que se comparam são ordens de grandeza, não objetos idênticos. A
+maior parte do campo trabalha na faixa baixa dessa variação: metade dos artigos
+fica abaixo de $\approx$273 mil itens, e seis em cada dez não chegam a 1 milhão.
+É esse o fato que motiva a pergunta desta dissertação, porque coletar pouco só é um
+problema se a conclusão depender do volume, e é exatamente isso que a literatura
+não verifica. A fração de fato analisada pode, ainda, ser muito menor que a
+coletada, mesmo entre os maiores coletores: um estudo de vigilância em saúde
+pública coletou $\approx$2,8 bilhões de tweets e analisou apenas os
+$\approx$1\% que continham alguma entidade
+médica~\cite{jimeno2015surveillance}.
+
+Convém precisar o sentido em que o volume é dimensionado por conveniência, porque
+não é o de desleixo. Na maior parte dos casos ele é dimensionado pelo que a coleta
+\emph{alcançou}: o que a interface da plataforma devolveu, o que a cota permitiu no
+prazo, o que um acervo já preservado continha. Essa é a condição normal de quem
+coleta de RSD, e não um defeito de execução. A lacuna está em outro lugar: o
+volume assim obtido raramente é declarado, e mais raramente ainda é tratado como
+uma condição de que a conclusão possa depender. É essa lacuna que o protocolo
+desta dissertação mede.
 
 \begin{table}[t]
 \centering
-\caption{Tipos de análise no corpus do levantamento ($N=2.139$
+\caption[Tipos de análise no corpus do levantamento]{Tipos de análise no corpus do levantamento ($N=2.139$
 artigos)~\cite{barreto2026survey}. ``Análise de conteúdo'' (1.396 menções) é
 omitida por ser um guarda-chuva, não um método.}
 \label{tab:analises-survey}
-\begin{tabular}{lrr@{\hspace{2em}}lrr}
+\begin{tabular}{lrr@{\hspace{1.2em}}lrr}
 \toprule
 Tipo & Art. & \% & Tipo & Art. & \% \\ \midrule
 Estatística descritiva & 935 & 43,7 & Modelagem de tópico   & 408 & 19,1 \\
@@ -58,89 +91,305 @@ Análise de rede        & 527 & 24,6 & Clusterização        & 157 & 7,3 \\
 
 O objetivo central é propor e instrumentar um protocolo que meça, para os tipos de
 análise mais recorrentes em RSD, o efeito do volume de coleta sobre a conclusão.
-Cada artigo é tratado como uma amostra sub-coletada do seu tema; coleta-se um
-superconjunto temático e verifica-se se coletar mais muda a conclusão e se ela já
-havia convergido no volume original, caso em que coletar menos teria bastado. Mais
-do que caracterizar as RSD, busca-se produzir, no domínio em que o efeito é
-mensurável, evidência transferível sobre para quais tipos de análise o volume de
-coleta é decisivo, e não uma prescrição numérica única de quanto coletar. O
-levantamento (\S\ref{sec:contexto-survey}) é o objetivo instrumental que fundamenta
-este.
+Cada artigo é tratado como uma amostra sub-coletada do seu tema; o protocolo
+coleta um superconjunto temático e verifica se coletar mais muda a conclusão e se
+ela já havia convergido no volume original, caso em que coletar menos teria
+bastado. Mais do que caracterizar as RSD, o alvo é produzir, no domínio em que o
+efeito é mensurável, evidência transferível sobre para quais tipos de análise o
+volume de coleta é decisivo, e não uma prescrição numérica única de quanto
+coletar. O levantamento (\S\ref{sec:contexto-survey}) serve a esse objetivo: é
+ele que mostra que o volume varia por ordens de grandeza e que quase ninguém
+testa se ele importa, que é o que há para medir.
 
 \section{Perguntas de pesquisa}
 
 \begin{description}[leftmargin=2.2em,style=nextline]
   \item[PP1] Para cada tipo de análise, coletar mais do que o artigo coletou (um
-  superconjunto temático) muda a conclusão? Isto é, coletar mais era necessário?
-  \item[PP2] A conclusão já havia convergido no volume originalmente coletado, caso
-  em que esse volume bastava, ou até excedia o necessário, ou ainda se movia,
-  indicando coleta prematura?
-  \item[PP3] Para quais tipos de análise o volume de coleta é uma variável crítica,
-  com a conclusão dependendo de se coletar mais ou menos, e para quais é
-  praticamente inócuo?
+  superconjunto temático) muda a conclusão?
+  \item[PP2] E, mude ela ou não, o volume que o artigo coletou já bastava para
+  sustentar a conclusão a que ele chegou, ou ela ainda mudaria se ele tivesse
+  coletado um pouco mais?
+  \item[PP3] O efeito do volume é o mesmo para toda análise ou varia conforme o
+  tipo?
 \end{description}
+
+As duas primeiras perguntas parecem uma só, e não são. A PP1 compara dois
+resultados: o que o artigo obteve e o que a mesma análise obtém sobre o
+superconjunto. A PP2 não compara resultados; ela pergunta por uma propriedade do
+primeiro deles, a de ser ou não estável --- isto é, se acrescentar dados à coleta do
+artigo ainda deslocaria o resultado dele. A curva $A(\text{volume})$ é o instrumento
+que responde a PP2, e não a pergunta em si: ela mostra, para cada tamanho de coleta,
+que resultado a análise teria produzido, e a resposta está em se esse resultado ainda
+troca de valor à direita do ponto em que o artigo parou de coletar. Uma conclusão
+pode mudar sem nunca ter sido estável, e pode não mudar por já estar assentada muito
+antes do volume que o artigo coletou. É a segunda leitura que interessa a quem vai coletar amanhã:
+quando o volume original já bastava, coletar mais era dispensável, e pode até ter
+havido coleta em excesso; quando a conclusão ainda se movia, a coleta foi
+interrompida cedo demais.
 
 \section{Contribuições}
 
 \begin{itemize}
   \item um protocolo reprodutível para medir o efeito do volume de coleta, por tipo
-  de análise, com testes de mudança e de convergência da conclusão, isto é, se
-  coletar mais era necessário e se coletar menos teria bastado, acrescido de um
-  teste que separa falha de volume de falha de esquema de amostragem
+  de análise, com testes de mudança e de convergência da conclusão, isto é, para
+  saber se coletar mais era necessário e se coletar menos teria bastado, acrescido de um
+  teste que separa falha de volume de falha de esquema de amostragem. Este último
+  só se aplica aos alvos que de fato amostraram, e não àqueles que analisaram tudo
+  o que coletaram, de modo que ele é executado em parte dos casos, e não em todos
   (Seção~\ref{sec:curva-midia});
   \item um conjunto fixado de seis casos replicáveis
-  (Capítulo~\ref{cap:experimento}), um por rede social, com a expansão de coleta
-  especificada e ainda acessível hoje, dois deles já executados
-  (Capítulos~\ref{cap:caso-twitter} e~\ref{cap:caso-vacinas});
+  (Capítulo~\ref{cap:experimento}), relatados nos
+  Capítulos~\ref{cap:caso-twitter} a~\ref{cap:caso-tiktok} e distribuídos por quatro
+  redes sociais e por seis tipos de análise, com a expansão de coleta especificada e
+  ainda acessível hoje. Cinco são executados por inteiro; o sexto, o de TikTok, só
+  até onde a plataforma permitiu --- nele o ponto original do artigo é reproduzido,
+  mas a expansão de coleta não chega a acontecer, porque a credencial de pesquisa
+  que ela exigiria foi revogada;
   \item como contribuição instrumental, o levantamento sistemático e seu método de
   extração multi-modelo, reportados em artigo autônomo~\cite{barreto2026survey};
   \item enquanto caso de estudo, evidência concreta, num domínio em que o efeito é
   mensurável, de para quais análises o volume de coleta muda a conclusão,
-  informando um problema metodológico que extrapola as RSD.
+  informando um problema metodológico que extrapola as RSD;
+  \item uma consequência prática para a redação desses trabalhos: se a
+  sensibilidade ao volume é propriedade do tipo de análise, e não do trabalho, então
+  o volume coletado e o quanto a conclusão depende dele deveriam constar do relato
+  como ressalva explícita, do mesmo modo que hoje se relatam o modelo e o algoritmo
+  empregados. Esta dissertação fornece a base empírica para dizer \emph{quando} essa
+  ressalva é indispensável e quando é dispensável.
 \end{itemize}
+
+% =====================================================================
+\chapter{Trabalhos Relacionados}
+\label{cap:relacionados}
+% =====================================================================
+
+A pergunta desta dissertação --- coletar mais muda a conclusão? --- encosta em quatro
+linhas de trabalho que já existem e não se confundem com ela. A primeira mede o quanto
+uma amostra devolvida por um canal de coleta difere do todo. A segunda faz a crítica
+metodológica do dado social e prescreve o que declarar. A terceira replica achados
+publicados. A quarta estuda a sensibilidade de métodos específicos ao dado disponível.
+Este capítulo percorre as quatro e termina dizendo, com toda a clareza possível, o que
+resta por fazer e que este trabalho faz.
+
+\section{A amostra contra o todo: o que os canais de coleta devolvem}
+\label{sec:rel-amostra}
+
+A linha mais próxima em espírito compara o que uma interface de coleta entrega com o
+que existe do outro lado dela. O trabalho de referência é
+\citeonline{morstatter2013sample}, que confrontou a amostra da \emph{Streaming API} do
+Twitter com o \emph{Firehose} completo sobre o mesmo período, comparando métricas de
+tópicos, de rede e de localização. \citeonline{wu2020variation} refizeram a pergunta em
+várias escalas de amostragem e mostraram que nem todas as quantidades sobrevivem
+igualmente: o ranking de entidades é recuperável a partir do dado parcial, ao passo que
+a estrutura da rede e a distribuição dos tempos entre compartilhamentos se alteram.
+\citeonline{pfeffer2018tampering} radicalizaram o argumento ao mostrar que a amostra não
+apenas perde conteúdo como pode ser deliberadamente influenciada por quem conhece o
+mecanismo, e que artefatos técnicos a distorcem sem intenção nenhuma.
+
+Fora do eixo de uma única plataforma, \citeonline{gonzalezbailon2014bias} compararam
+três coletas do mesmo evento --- protestos de maio de 2012 --- obtidas por
+\emph{APIs} diferentes e com filtros diferentes, e reconstruíram as redes de menção e
+de retuíte de cada uma para medir o desacordo entre elas. Em Reddit,
+\citeonline{gaffney2018caveat} auditaram o corpus historicamente anunciado como
+contendo ``todo comentário publicamente disponível'' e encontraram falta de cerca de 36
+milhões de comentários e 28 milhões de submissões num intervalo de dois anos e meio ---
+um caso em que a sub-coleta está no próprio arquivo tido como completo.
+
+O que separa toda essa linha do que se faz aqui é o objeto medido. Esses trabalhos
+comparam uma amostra a uma referência que já têm em mãos, e medem propriedades
+\emph{do dado}: volume, ranking, métricas de rede, completude. Nenhum deles pergunta se
+a \emph{conclusão publicada} de um trabalho específico se sustenta. A diferença não é
+de grau: uma amostra pode distorcer bastante o dado e ainda assim preservar a
+afirmação que o artigo faz, e pode preservá-lo bem e ainda assim inverter a afirmação,
+conforme a forma dela. É o que os casos deste trabalho mostram nos dois sentidos
+(\S\ref{sec:metricas}).
+
+\section{A crítica metodológica ao dado social}
+\label{sec:rel-critica}
+
+Uma segunda linha, mais antiga e mais ampla, discute o que se pode e o que não se pode
+afirmar a partir de rastros de plataforma. \citeonline{boyd2012critical} formularam as
+provocações fundadoras, entre elas a de que dado grande não é automaticamente dado bom.
+\citeonline{tufekci2014bigquestions} nomeou os problemas que mais interessam aqui: a
+concentração da literatura numa única plataforma, o viés introduzido por selecionar
+conteúdo a partir de \emph{hashtags} e a vagueza com que se declara a população de onde
+se coletou. \citeonline{ruths2014socialmedia} argumentaram, em termos normativos, que
+estudos de comportamento em larga escala precisam ser submetidos a padrões
+metodológicos mais altos. \citeonline{olteanu2019socialdata} organizaram em catálogo os
+vieses do dado social, separando os que nascem na fonte dos que são introduzidos no
+processamento, e \citeonline{sen2021tedon} propuseram um arcabouço de erro total para
+rastros digitais, transposto do erro total de pesquisas amostrais. Do lado prático,
+\citeonline{mayr2017think} montaram vários conjuntos de dados sobre o mesmo evento --- as
+eleições alemãs de 2013 --- por métodos de coleta distintos, para mostrar que a
+estratégia de coleta determina que conclusões ficam ao alcance.
+
+Essa linha reconhece o problema desta dissertação e o formula bem. O que ela não faz é
+medi-lo: o efeito do volume aparece como advertência, e a recomendação de declarar a
+coleta é feita sem que se saiba \emph{para quais análises} a omissão custa caro. É
+exatamente essa medida que o protocolo do Capítulo~\ref{cap:experimento} instrumenta, e
+dela que sai o insumo empírico para dizer quando a ressalva é indispensável e quando é
+dispensável.
+
+\section{Replicação em ciência social computacional}
+\label{sec:rel-replicacao}
+
+O trabalho mais próximo que este levantamento encontrou é
+\citeonline{liang2015testing}. Os autores extraíram dez proposições de estudos
+publicados sobre Twitter, em três temas --- padrões de uso, estrutura de rede e difusão
+de informação --- e as testaram sobre uma amostra própria de 34.006 contas sorteadas.
+Seis das dez não se reproduziram, e a explicação que eles dão é a que interessa aqui:
+variações na coleta, nas estratégias analíticas e nas medidas empregadas.
+
+A diferença de desenho é o ponto. A replicação deles é \emph{independente}: uma amostra
+nova, de outra população de usuários, contra a qual a proposição publicada é testada.
+Quando ela falha, não há como separar o que se deve ao tamanho da coleta do que se deve
+a ela ser outra coleta, e os próprios autores atribuem o resultado a essa mistura. O
+desenho desta dissertação é \emph{pareado}: o mesmo tema, a mesma janela, o mesmo
+algoritmo, e uma coleta expandida da qual a coleta do artigo é --- na medida em que o
+acervo permite --- um subconjunto. É esse pareamento que autoriza atribuir a divergência
+ao volume, e não à população. Some-se a isso que Liang e Fu comparam dois pontos, e
+esta dissertação percorre o caminho entre eles, que é o que responde à PP2.
+
+\section{A sensibilidade dos métodos ao dado disponível}
+\label{sec:rel-metodos}
+
+Uma quarta linha, técnica, estuda como métodos particulares reagem a dado faltante. Em
+redes, \citeonline{kossinets2006missing} distingue três mecanismos de falta --- a
+especificação da fronteira da rede, a não-resposta de atores e a \emph{censura por
+grau}, isto é, o descarte de vértices com poucas conexões --- e mostra que eles
+enviesam coeficientes estruturais em direções diferentes. O terceiro mecanismo é,
+literalmente, o corte de vinte arestas do caso de papéis sociais no Reddit
+(Capítulo~\ref{cap:caso-reddit}), o que dá a esse resultado uma ancoragem teórica
+anterior a ele. Na mesma direção, \citeonline{leskovec2006sampling} investigam que
+esquemas de amostragem de grafos preservam quais propriedades do grafo original.
+
+Vizinho pelo raciocínio, e não pelo objeto, está
+\citeonline{steegen2016multiverse}: em vez de reportar um resultado, reportar o conjunto
+dos resultados que as escolhas defensáveis de processamento produziriam. A analogia é
+direta e a diferença também: o multiverso deles é de \emph{processamento} sobre um dado
+fixo; o desta dissertação é de \emph{coleta}, e o eixo que ele percorre é o volume.
+Por fim, \citeonline{elmas2023persistence} mede o efeito de coletar \emph{depois}:
+conteúdo removido antes da coleta não entra no estudo, e o que se perde não se perde ao
+acaso. Esse achado reaparece por conta própria no caso de TikTok
+(Capítulo~\ref{cap:caso-tiktok}).
+
+\section{O que fica por fazer, e que este trabalho faz}
+\label{sec:rel-lacuna}
+
+A Tabela~\ref{tab:relacionados} resume o posicionamento. Lendo-a por colunas, o que
+nenhuma das linhas anteriores reúne é a combinação de quatro coisas: partir de um
+artigo publicado e da afirmação que ele faz; reconstruir um superconjunto do
+\emph{mesmo} tema, do qual a coleta original seja um recorte; refazer a análise do
+alvo, com o algoritmo do alvo, ao longo de volumes crescentes; e reportar as duas
+respostas separadamente --- se a afirmação mudou e se ela já estava estável. É esse o
+espaço que esta dissertação ocupa.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption[Posicionamento perante os trabalhos relacionados]{Posicionamento perante os trabalhos relacionados.}
+\label{tab:relacionados}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3.9cm}>{\raggedright\arraybackslash}p{4.3cm}X@{}}
+\toprule
+Linha de trabalho & O que é comparado & O que se mede \\
+\midrule
+Amostra {\itshape versus} todo
+  (\S\ref{sec:rel-amostra})
+  & a amostra da interface contra um todo já disponível
+  & propriedades do dado: volume, ranking, métricas de rede, completude \\
+\addlinespace[2pt]
+Crítica metodológica
+  (\S\ref{sec:rel-critica})
+  & nada, em geral; o argumento é conceitual ou normativo
+  & o que se deveria declarar ao publicar \\
+\addlinespace[2pt]
+Replicação independente
+  (\S\ref{sec:rel-replicacao})
+  & a proposição publicada contra uma amostra nova e de outra população
+  & a proposição, em dois pontos, sem separar volume de população \\
+\addlinespace[2pt]
+Sensibilidade de método
+  (\S\ref{sec:rel-metodos})
+  & a rede ou o corpus completo contra versões censuradas dele
+  & métricas estruturais do método, não a conclusão de um estudo \\
+\addlinespace[2pt]
+\textbf{Esta dissertação}
+  & a coleta do artigo contra um superconjunto do \emph{mesmo} tema, do qual ela é um recorte
+  & a afirmação do artigo, ao longo de volumes crescentes: se mudou e se já estava estável \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Duas ressalvas honestas fecham o capítulo. A primeira é que a busca por trabalhos
+``extremamente parecidos'' não retornou nenhum, mas isso vale para o que este
+levantamento alcançou, e não é prova de inexistência --- a mesma restrição de acesso a
+texto completo que a Seção~\ref{sec:contexto-survey} declara sobre o levantamento
+sistemático se aplica aqui. A segunda é que a ausência de trabalho idêntico não é, por
+si, mérito: parte da explicação para ela está na dificuldade de montar o superconjunto,
+que a Seção~\ref{sec:coleta-plataforma} percorre plataforma a plataforma e que, em
+duas das seis células deste trabalho, só foi contornada por acervo preservado.
 
 % =====================================================================
 \chapter{Metodologia}
 \label{cap:experimento}
 % =====================================================================
 
-O levantamento estabelece o quê. A literatura quase sempre dimensiona a coleta
-por conveniência e raramente justifica que o volume coletado preserva as
-conclusões. Este capítulo trata de como medir o efeito do volume (se coletar mais
-era necessário e se coletar menos bastaria), por tipo de análise. Tanto encontrar
-que a conclusão muda quanto encontrar que ela é robusta ao volume são resultados
-úteis.
+O capítulo anterior estabeleceu o problema: a literatura quase sempre dimensiona a
+coleta por conveniência e raramente justifica que o volume coletado preserva as
+conclusões. Este capítulo trata de como medir esse efeito, por tipo de análise. Tanto
+encontrar que a conclusão muda quanto encontrar que ela é robusta ao volume são
+resultados úteis.
 
 \section{Lógica do protocolo}
 
-Para cada artigo-alvo, reproduz-se o fluxo de análise
-tal-como-publicado sobre a coleta original do artigo ($A_{\text{paper}}$);
-coleta-se um superconjunto temático, com mais dados sobre o mesmo tema, e roda-se
-a mesma análise sobre ele ($A_{\text{mais}}$); constrói-se a curva
-$A(\text{volume})$ entre os dois pontos. A decisão usa dois testes. No primeiro,
-verifica-se se $A_{\text{paper}}$ difere de $A_{\text{mais}}$, com divergência
-acima da banda bootstrap e inversão da afirmação do artigo. No segundo, se a curva
-ainda se movia em $N_{\text{paper}}$, a coleta do artigo era prematura. O critério
-de diferença material é fixado antes da execução, em duas camadas: a estatística,
-em que o resultado sai do intervalo de confiança bootstrap; e a substantiva, em
-que a afirmação do artigo se inverte (por exemplo, ``o usuário $X$ é o mais
-central''). A camada substantiva é a decisiva. A combinação dos dois testes evita
-declarar erro apenas por haver diferença: como a expansão é temática, ela aproxima
-a população do tema, e a não-convergência mostra que a conclusão não estava
-estabilizada.
+Para cada artigo-alvo, o fluxo de análise é reproduzido tal-como-publicado sobre a
+coleta original do artigo, cujo tamanho é denotado por $N_{\text{paper}}$ e cujo
+resultado é denotado por $A_{\text{paper}}$. Em seguida é coletado um superconjunto
+temático, com mais dados sobre o mesmo tema, de tamanho $N_{\text{máx}}$, e a mesma
+análise é rodada sobre ele, produzindo $A_{\text{mais}}$. Entre os dois pontos é
+construída a curva $A(\text{volume})$, refazendo a análise sobre subconjuntos
+sorteados de tamanho crescente.
+
+A decisão usa dois testes. O primeiro pergunta se $A_{\text{paper}}$ difere de
+$A_{\text{mais}}$. Como cada ponto da curva é estimado sobre um sorteio, ele vem
+com uma faixa de incerteza: repetir o sorteio muitas vezes no mesmo tamanho e
+tomar os percentis 2,5 e 97,5 dos resultados obtidos delimita a \emph{banda}
+daquele ponto, isto é, o intervalo de valores que o acaso do sorteio, sozinho, já
+explicaria. Só conta como diferença aquilo que cai fora dessa banda. O
+procedimento é o \emph{bootstrap} de \citeonline{efron1979bootstrap}, e a
+banda é o seu intervalo por percentis, na forma padrão descrita por
+\citeonline{efron1993bootstrap}. Não é uma convenção desta dissertação, e sim o
+teste usual para estimadores cuja distribuição amostral não tem forma fechada, que
+é o caso de quase tudo que se mede aqui: uma modularidade, uma similaridade entre
+partições, um $F_1$. A banda é sempre lida assim no restante do texto.
+
+O segundo teste pergunta se a curva já havia estabilizado em $N_{\text{paper}}$.
+Dizer que ela ``ainda se movia'' significa que o valor médio de $A$ continua a subir
+ou a descer à medida que o tamanho cresce, em vez de apenas ganhar precisão em torno
+de um mesmo valor; nesse caso, a coleta do artigo parou antes de o resultado
+assentar, e foi prematura. A distinção importa porque uma curva pode estreitar sem
+se deslocar, o que é convergência, ou deslocar-se de forma sistemática, o que não é.
+O critério de diferença material é fixado antes da execução, em duas camadas: a
+estatística, em que o resultado sai da banda; e a substantiva, em que a afirmação
+do artigo se inverte. A camada substantiva é a decisiva, e é ela que decide os
+casos relatados adiante: o que se registra como mudança são inversões de
+afirmação, como a de que o retuíte de mídia vertical supera metade do material
+(Capítulo~\ref{cap:caso-twitter}) ou a de que os papéis sociais no Reddit são
+locais (Capítulo~\ref{cap:caso-reddit}), e não deslocamentos numéricos pequenos que
+a banda já explicaria.
 
 \section{Eixos de expansão (mantendo o tema)}
 
 Cada artigo ocupa um ponto restrito em um ou mais eixos de coleta; a
 expansão percorre esses eixos sem sair do tema. O tema é definido pelo próprio
 escopo do artigo (subreddit, hashtags, termos eleitorais), e é esse filtro
-temático que se mantém ao coletar mais (Tabela~\ref{tab:eixos}). Constrói-se a curva $A(\text{volume})$ por frações
-crescentes, de $N_{\text{paper}}$ a $N_{\text{máx}}$, com ao menos 30 réplicas
-bootstrap por ponto quando a coleta permitir subconjuntos.
+temático que se mantém ao coletar mais (Tabela~\ref{tab:eixos}). A curva
+$A(\text{volume})$ percorre frações crescentes, de $N_{\text{paper}}$ a
+$N_{\text{máx}}$, com ao menos 30 réplicas por ponto quando a coleta permitir
+subconjuntos.
 
 \begin{table}[t]
 \centering
-\caption{Eixos de expansão da coleta, mantendo o tema do artigo.}
+\caption[Eixos de expansão da coleta]{Eixos de expansão da coleta, mantendo o tema do artigo.}
 \label{tab:eixos}
 \begin{tabular}{lp{4.0cm}p{4.0cm}}
 \toprule
@@ -155,46 +404,169 @@ Granularidade       & só publicações/vídeos                       & incluir 
 \end{tabular}
 \end{table}
 
-\section{Métricas de divergência por tipo de análise}
+\section{O que se compara, e por que isso muda com o tipo de análise}
+\label{sec:metricas}
 
-A escolha dos tipos a cobrir segue o levantamento (Tabela~\ref{tab:analises-survey}), decompondo ``análise de conteúdo'' em
-métodos concretos e privilegiando os de maior sensibilidade à coleta. Cobrem-se
-quatro métodos núcleo (com classificação como opcional):
+Decidir se a conclusão mudou exige comparar duas execuções da mesma análise, e a
+quantidade a comparar não é a mesma em todos os casos: ela é ditada pela forma da
+afirmação que o artigo-alvo faz. Um trabalho que conclui que ``a maior parte do
+material é de mídia vertical'' (Capítulo~\ref{cap:caso-twitter}) afirma algo
+sobre uma \emph{proporção}, e o que se compara é essa proporção contra a banda. Um
+que conclui que ``o debate se divide em dois polos de tamanho parecido''
+(Capítulo~\ref{cap:caso-vacinas}) afirma algo sobre uma \emph{partição} da rede,
+e o que se compara é a partição inteira, e não um número dela. Um que conclui que
+``a homofilia prediz melhor que a influência direta''
+(Capítulo~\ref{cap:caso-reddit}) afirma algo sobre uma \emph{ordenação}, e o que
+se compara é a ordem, não os valores que a produzem.
 
-\begin{description}[leftmargin=1.5em,style=nextline]
-  \item[Detecção de comunidades] Normalized Mutual Information
-  (NMI)~\cite{danon2005nmi} e Adjusted Rand Index (ARI) entre a
-  partição da coleta original e a da expandida; variação da modularidade e do
-  número de comunidades; sobrevivência das $k$ maiores. Algoritmos Louvain/Leiden
-  com a mesma resolução~\cite{blondel2008louvain,traag2019leiden}.
-  \item[Centralidade] correlação de ordenação (Spearman, Kendall-$\tau$)
-  entre os vetores de centralidade; sobreposição dos top-$k$ (Jaccard,
-  rank-biased overlap)~\cite{webber2010rbo}; permanência dos atores
-  que o artigo aponta como centrais.
-  \item[Modelagem de tópico] alinhamento de tópicos original$\leftrightarrow$
-  expandida por similaridade das distribuições palavra-tópico (atribuição
-  húngara); número de tópicos que sobrevivem; coerência. Parâmetros e
-  vocabulário fixados ao do artigo (LDA/BERTopic~\cite{grootendorst2022bertopic}).
-  \item[Análise de sentimento] divergência de Jensen--Shannon entre as
-  distribuições de polaridade; deslocamento da classe majoritária; correlação
-  das séries temporais de sentimento. Modelo idêntico ao do artigo
-  (p.ex.\ VADER~\cite{hutto2014vader}), para não confundir efeito de coleta com
-  efeito de modelo.
-\end{description}
+A Tabela~\ref{tab:metricas} reúne os tipos de análise efetivamente cobertos pelos
+casos executados, a forma da afirmação de cada alvo e a quantidade que se comparou.
+Em todos eles, o modelo e o algoritmo são fixados aos do artigo original, para não
+confundir efeito de coleta com efeito de método.
 
-\section{Coleta expandida por plataforma}
+\begin{table}[t]
+\centering\footnotesize
+\caption[O que foi comparado em cada tipo de análise]{O que foi comparado em cada tipo de análise, e sob que forma o alvo faz
+a sua afirmação.}
+\label{tab:metricas}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{4.1cm}X@{}}
+\toprule
+Tipo de análise (cap.) & Forma da afirmação do alvo & Quantidade comparada \\
+\midrule
+Classificação de mídia (\ref{cap:caso-twitter})
+  \newline \textit{no levantamento:} Classificação e Estatística descritiva
+  & uma proporção ultrapassa um limiar & a proporção, contra a banda de subamostras aleatórias do mesmo tamanho \\
+\addlinespace[2pt]
+Detecção de comunidades (\ref{cap:caso-vacinas})
+  \newline \textit{no levantamento:} Detecção de comunidades
+  & a rede se parte em dois polos de tamanho parecido & o tamanho relativo dos polos e a similaridade entre as duas partições \\
+\addlinespace[2pt]
+Análise de conteúdo (\ref{cap:caso-vacinas}, \ref{cap:caso-tiktok})
+  \newline \textit{no levantamento:} guarda-chuva; instanciada aqui como Classificação
+  & um \emph{ranking} de categorias e um balanço entre lados & a prevalência de cada categoria e a razão entre os lados \\
+\addlinespace[2pt]
+Rede e papéis sociais (\ref{cap:caso-reddit})
+  \newline \textit{no levantamento:} Análise de rede
+  & uma contagem estrutural: que fração atua em mais de uma comunidade & a fração, refeita ao longo do limiar de atividade \\
+\addlinespace[2pt]
+Homofilia e classificação (\ref{cap:caso-reddit})
+  \newline \textit{no levantamento:} Classificação e Análise de rede
+  & uma ordenação entre famílias de preditores & a ordem dos $F_1$, e não os seus valores \\
+\addlinespace[2pt]
+Composição do corpus (\ref{cap:caso-youtube})
+  \newline \textit{no levantamento:} Estatística descritiva
+  & que fatia do corpus é conteúdo de usuário & a fatia, medida dos dois lados do filtro sob a mesma regra \\
+\addlinespace[2pt]
+Sentimento (\ref{cap:caso-youtube})
+  \newline \textit{no levantamento:} Sentimento
+  & uma distribuição de polaridade, e a comparação entre dois níveis do corpus & o deslocamento da classe majoritária e o sinal da comparação \\
+\bottomrule
+\end{tabularx}
 
-Coletar mais do que o artigo depende da plataforma e dos acessos disponíveis. O
-Reddit é o caso ideal. Os arquivos históricos do
-Pushshift~\cite{baumgartner2020pushshift} (e sucessores), distribuídos via
-Academic Torrents, fornecem a população completa de um
-subreddit/janela, enquanto a API oficial (PRAW) entrega apenas
-$\sim$1000 itens por listagem; a própria API é, portanto, um esquema de
-amostragem a superar. O YouTube (Data API v3) tem amostragem forçada
-pelo teto de $\sim$500 resultados por consulta. A Meta Content Library
-(Instagram/Facebook/Threads) e a TikTok Research API, acessíveis
-institucionalmente, têm cotas (p.ex.\ 500k publicações por semana) que delimitam a
-coleta expandida.
+\vspace{2pt}
+{\footnotesize \textit{Notas.} A segunda linha de cada célula da primeira coluna dá o
+rótulo correspondente na taxonomia do levantamento (Tabela~\ref{tab:analises-survey}),
+que nem sempre é o nome pelo qual o artigo-alvo chama a sua própria análise. Os
+algoritmos são sempre os do artigo replicado em cada caso: Louvain para
+comunidades~\cite{blondel2008louvain,traag2019leiden}, NMI para comparar
+partições~\cite{danon2005nmi}, VADER e TextBlob para sentimento~\cite{hutto2014vader}.\par}
+\end{table}
+
+Duas consequências decorrem disso. A primeira é que não existe uma métrica única de
+divergência, e portanto o efeito do volume não cabe num número só: cada tipo de
+análise tem o seu, que é exatamente o que a pergunta PP3 formula. A segunda é que
+quantidades diferentes medidas sobre o \emph{mesmo} corpus podem convergir em
+ritmos diferentes, e aí está o interesse de comparar tipos: no caso do debate
+vacinal, por exemplo, dissecado no Capítulo~\ref{cap:caso-vacinas}, a razão entre os polos
+assenta a partir de três quartos da coleta, ao passo que a partição de comunidades
+de onde ela sai ainda não assentou nesse mesmo ponto
+(Figura~\ref{fig:curva-rede-vacinas}).
+
+Uma lacuna deve ser declarada desde já. A modelagem de tópico, que é o quarto tipo
+mais frequente do levantamento, \emph{não} é instanciada por nenhum caso executado:
+o caso mais próximo, o do YouTube, acabou entregando composição de corpus e
+sentimento. A Seção~\ref{sec:limitacoes} a registra como limitação de cobertura.
+
+\section{Coleta expandida, plataforma a plataforma}
+\label{sec:coleta-plataforma}
+
+Coletar mais do que o artigo coletou não é uma operação uniforme. Ela depende do
+que cada plataforma devolve, de quanto devolve por vez e de que credencial exige
+para devolver, e essas condições mudam de um ano para o outro. Vale insistir num
+ponto que a literatura levantada quase nunca registra: a rota de coleta disponível
+é, em boa medida, quem decide o volume que um trabalho publica. Ela é, por isso,
+parte do objeto desta dissertação, e não um detalhe operacional dela — duas
+coletas do mesmo tema, feitas por rotas diferentes, produzem corpora de tamanhos e
+composições incomparáveis, e nenhum dos dois trabalhos teria como saber disso
+olhando apenas o próprio dado. Esta seção percorre, uma a uma, as plataformas do
+conjunto de casos, e declara para cada uma o que estava disponível, o que não
+estava e o que se fez no lugar. As rotas fechadas são relatadas ao lado das
+abertas, porque a assimetria entre elas é ela própria um resultado.
+
+\paragraph{Reddit — a rota aberta.} É o ambiente mais favorável ao protocolo, e o
+único em que ``coletar mais'' é literal. Os arquivos históricos do
+Pushshift~\cite{baumgartner2020pushshift} e sucessores, distribuídos via Academic
+Torrents, contêm a população completa de um subreddit numa janela, ao passo que a
+interface oficial devolve cerca de mil itens por listagem. A própria interface é,
+portanto, um esquema de amostragem a superar, e superá-lo não depende de
+credencial, de acervo institucional nem de acordo com a plataforma. É por isso que
+os dois casos de Reddit (Capítulo~\ref{cap:caso-reddit}) são os únicos em que a
+expansão não precisa da permissão de ninguém.
+
+\paragraph{YouTube — aberta, mas com teto e com prazo.} A Data API v3 permanece
+gratuita e é obtida em minutos, sem verificação de identidade, o que a torna a rota
+mais acessível depois do Reddit. Ela impõe, em compensação, uma amostragem
+forçada: cada consulta devolve no máximo cerca de quinhentos resultados, de modo
+que toda coleta é um recorte de um universo que a plataforma não expõe. A
+interface, além disso, muda com o tempo. O parâmetro que devolvia vídeos relacionados foi
+removido em agosto de 2023, e com ele um ramo inteiro da coleta do artigo replicado
+deixou de ser reprodutível (Capítulo~\ref{cap:caso-youtube}).
+
+Há ainda um efeito que não depende da interface e sim do relógio: coletar hoje o
+corpus de ontem não devolve o corpus de ontem, porque parte dele já saiu da
+plataforma. \citeonline{kurdi2020video} acompanharam mais de 73 mil vídeos
+recém-publicados durante uma semana e encontraram 17,3\% deles já indisponíveis ao
+fim dela; \citeonline{elmas2023persistence} generaliza o ponto para outras
+plataformas e mostra que o que desaparece antes da coleta não desaparece ao acaso,
+recomendando coleta em tempo real sempre que o objeto for vulnerável a isso. Uma
+replicação por expansão feita anos depois herda necessariamente essa perda, e a
+herda de forma assimétrica: o superconjunto reconstruído hoje é o superconjunto
+\emph{do que sobreviveu}. O caso de TikTok (Capítulo~\ref{cap:caso-tiktok}) mede
+esse efeito diretamente, e é dele que sai o quarto eixo de coleta que este trabalho
+reconhece.
+
+\paragraph{Twitter/X — fechada, contornada por acervo.} Não há rota de coleta nova.
+A plataforma responde, ainda assim, por 54,5\% do levantamento, e deixá-la de fora
+seria deixar de fora a maior parte da literatura que se quer testar. Os dois casos
+de Twitter entram por exceção: o laboratório eTC preserva acervos históricos, de
+2014 e de 2021--22, e a expansão se faz dentro deles. É uma exceção que não se
+reproduz por coleta nova, e a dependência de acervo pré-existente está declarada
+entre as limitações.
+
+\paragraph{TikTok — fechada por credencial revogada.} A Research API existe, é
+gratuita para pesquisa e cobre o Brasil, mas depende de aprovação concedida por
+projeto e por prazo. A credencial disponível ao laboratório havia sido revogada em
+algum ponto entre junho de 2025 e agosto de 2026, sem aviso, e obter uma nova não
+foi possível dentro do tempo desta pesquisa. Sem coleta nova, o caso
+correspondente foi executado sobre o material
+publicado pelos próprios autores do alvo e entrega, em lugar do eixo de volume, o
+eixo temporal (Capítulo~\ref{cap:caso-tiktok}).
+
+\paragraph{Instagram e Facebook — fechadas, e por isso fora do conjunto.} Vale
+registrar por que as plataformas da Meta não ocupam uma linha do conjunto de casos,
+já que a restrição de acesso é parte do objeto deste trabalho. O CrowdTangle, que
+era a rota de pesquisa estabelecida, foi desligado em agosto de 2024, e não há
+acervo equivalente preservado. A Meta Content Library, que o substituiu, passou a
+ser paga em janeiro de 2026 e não permite que os dados deixem o seu ambiente
+seguro, o que é incompatível com o instantâneo congelado localmente de que este
+protocolo depende; a cota que ela oferece limita, ademais, o \emph{ritmo} e não o
+total, de modo que montar um superconjunto exigiria semanas consecutivas de coleta
+iniciadas bem antes da escolha do alvo. Sobra a Ad Library API, gratuita e
+exportável, mas ela alcança apenas conteúdo publicitário, que é um recorte estreito
+e de natureza distinta do conteúdo orgânico que os demais casos analisam. As
+plataformas da Meta ficam, por isso, fora
+do conjunto de casos, e a ausência é declarada entre as limitações em vez de
+contornada por um substituto que não seria comparável.
 
 \section{Conjunto de casos}
 \label{sec:casos}
@@ -203,60 +575,85 @@ Os artigos foram selecionados do corpus do levantamento para cobrir os tipos de
 análise mais recorrentes numa diversidade de redes sociais, priorizando casos
 que sub-coletaram de forma expansível e cuja coleta segue acessível hoje. A
 Tabela~\ref{tab:casos} resume o conjunto de casos; em todos, a expansão é temática
-(mantém o assunto do artigo). O caso de centralidade (Buntain e Golbeck, 2014) é
+(mantém o assunto do artigo). O caso de papéis sociais (Buntain e Golbeck, 2014) é
 exemplar: por limite da API, o artigo coletou apenas os cem posts mais votados do
 mês e cerca de duzentos comentários de cada, e ainda descartou usuários com menos
 de vinte conexões; como o tema são os treze subreddits analisados, coletar todas
 as publicações e comentários é expandir sem sair do tema.
 
-Um sexto caso cobre o Twitter/X, ausente dos demais por já não permitir coleta
-nova, mas responsável por 54,5\% do levantamento DBLP e, portanto, uma lacuna
-importante. Ele entra por exceção: o laboratório eTC preserva uma
-coleta histórica das eleições de 2014 (10,7 milhões de tweets),
-o que dispensa coleta nova. É também o primeiro caso levado à execução
-(Capítulo~\ref{cap:caso-twitter}). Pela mesma exceção entrou, e também já foi
-executado, um segundo caso em Twitter/X, o do debate vacinal de 2021--22
+Dois casos cobrem o Twitter/X, ausente das rotas de coleta nova, mas responsável
+por 54,5\% do levantamento DBLP e, portanto, uma lacuna importante. Ambos entram
+por exceção: o laboratório eTC preserva acervos históricos da plataforma, o que
+dispensa coleta nova.
+
+O primeiro é a coleta das eleições de 2014, com 10,7 milhões de tweets, e é também
+o primeiro caso levado à execução (Capítulo~\ref{cap:caso-twitter}). Nele a
+sub-coleta é do tipo mais direto: uma amostra de 700 tweets rotulados à mão dentro
+de um acervo que preservou dezenas de milhares sobre o mesmo tema.
+
+O segundo é o caso do debate vacinal de 2021--22
 (Capítulo~\ref{cap:caso-vacinas}), igualmente preservado pelo eTC. Ele não
 acrescenta uma rede ao conjunto, e sim dois tipos de análise ainda descobertos,
-detecção de comunidades e análise de conteúdo, sobre uma sub-coleta de natureza
-distinta: não um volume pequeno, mas um estrato recortado por limiar de
-engajamento dentro de uma coleta larga. O CrowdTangle, sem coleta nem acervo
-equivalente, fica de fora. O caso de Instagram/Facebook tem alvo definido
-(Capozzi et al., 2021), e nele a sub-coleta é declarada pelos próprios autores,
-que buscam anúncios exibidos apenas no Facebook, não no Instagram.
+detecção de comunidades e análise de conteúdo. Acrescenta também uma sub-coleta de
+outra natureza, e é esse o motivo de ele valer uma linha própria: não um volume
+pequeno, mas um estrato recortado por limiar de engajamento dentro de uma coleta
+larga, de um milhão de tweets, em que a análise de conteúdo alcançou somente os
+1.525 itens mais retuítados.
 
 \begin{table}[t]
-\centering\small
-\caption{Os seis casos do estudo, cobrindo os tipos de análise mais recorrentes.}
+\centering\footnotesize
+\caption[O conjunto de casos do estudo]{O conjunto de casos do estudo, cobrindo os tipos de análise mais
+recorrentes do levantamento em quatro redes sociais, na ordem em que são relatados
+(Capítulos~\ref{cap:caso-twitter} a~\ref{cap:caso-tiktok}). Cinco foram executados
+por inteiro; no último, o de TikTok, o ponto original do alvo é reproduzido mas a
+expansão de coleta não chega a ocorrer, por credencial revogada.}
 \label{tab:casos}
-\begin{tabular}{llp{3.2cm}p{3.9cm}}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{2.1cm}>{\raggedright\arraybackslash}p{2.4cm}XX@{}}
 \toprule
-Análise & Rede (\#) & O que coletou & Coletar mais (no tema) \\
+Análise & Rede (alvo) & O que coletou & Coletar mais (no tema) \\
 \midrule
-Centralidade   & Reddit (Buntain 2014)  & top-100 posts + $\sim$200 coment.\ (jul/2013); corte $\geq$20 arestas ($n{=}279$) & todas as submissões e comentários dos 13 subreddits, sem o corte \\
-Mod.\ de tópico & YouTube (AGECovP 2025) & 85 buscas; filtro exige a palavra no título ou na descrição (descarta 52\% da busca e 99\% dos sugeridos) & as mesmas buscas sem o filtro de palavra-chave \\
-Análise de conteúdo & TikTok (PoliTok-DE 2025) & 939 mil posts de duas eleições alemãs; disponibilidade checada em datas fixas & eixo temporal: rechecagem em datas sucessivas \\
-Classificação & Instagram/Facebook (Capozzi 2021) & anúncios exibidos só no Facebook, \emph{não} no Instagram (declarado pelos autores); 2.312 anúncios & incluir o Instagram; braço Brasil \\
-Polarização    & Reddit (Massachs 2020) & focus group de 44.924 usuários ($\geq$10 coment.\ em 2012 e 2016) & relaxar o limiar de atividade (usuários menos ativos) \\
 Mídia + stance & Twitter (\#Eleições2014) & 700 tweets (100/dia; 1 hashtag) & universo do acervo eTC (10,7M; + hashtags eleitorais) \\
+\addlinespace[2pt]
+Rede + análise de conteúdo & Twitter (debate vacinal 2021--22) & rede sobre 1M de tweets, mas conteúdo só nos 1.525 com $>$500 retuítes & descer o limiar de engajamento (29.978 tweets, $>$10 retuítes) \\
+\addlinespace[2pt]
+Rede / papéis sociais & Reddit (Buntain 2014) & top-100 posts + $\sim$200 coment.\ (jul/2013); corte $\geq$20 arestas ($n{=}279$) & todas as submissões e comentários dos 13 subreddits, sem o corte \\
+\addlinespace[2pt]
+Polarização & Reddit (Massachs 2020) & focus group de 44.924 usuários ($\geq$10 coment.\ em 2012 e 2016) & relaxar o limiar de atividade (usuários menos ativos) \\
+\addlinespace[2pt]
+Sentimento + composição do corpus & YouTube (AGECovP 2025) & 85 buscas; filtro exige a palavra no título ou na descrição (descarta 52\% da busca e 99\% dos sugeridos) & as mesmas buscas sem o filtro de palavra-chave \\
+\addlinespace[2pt]
+Análise de conteúdo & TikTok (PoliTok-DE 2025) & 939 mil posts de duas eleições alemãs; disponibilidade checada em datas fixas & eixo temporal: rechecagem em datas sucessivas \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 \section{Protocolo operacional}
+\label{sec:protocolo-operacional}
 
-O protocolo procede em cinco fases: (0) reprodução do artigo
-tal-como-publicado sobre a coleta original, com $A_{\text{paper}}$; (1) coleta de
-um superconjunto temático e seu congelamento em instantâneo
-versionado, com $A_{\text{mais}}$; (2) construção da curva $A(\text{volume})$ em
-frações crescentes de $N_{\text{paper}}$ a $N_{\text{máx}}$; (3) cálculo da
-divergência com banda bootstrap e os dois testes (a conclusão
-mudou? e já havia convergido em $N_{\text{paper}}$?); (4) síntese por
-caso. O entregável central é uma tabela mestre (por análise e rede: a coleta do artigo
-bastava?, a conclusão mudou?, fração mínima do tema que a estabiliza), acompanhada
-das curvas $A(\text{volume})$, e
-uma leitura, por tipo de análise, de quando o volume de coleta é decisivo
-para a conclusão.
+O protocolo procede em cinco fases:
+
+\begin{samepage}
+\begin{description}[leftmargin=3.2em,style=nextline,itemsep=2pt]
+  \item[Fase 0] reproduzir o artigo tal-como-publicado sobre a coleta original,
+  obtendo $A_{\text{paper}}$.
+  \item[Fase 1] coletar um superconjunto temático e congelá-lo em instantâneo
+  versionado, obtendo $A_{\text{mais}}$.
+  \item[Fase 2] construir a curva $A(\text{volume})$ em frações crescentes, de
+  $N_{\text{paper}}$ a $N_{\text{máx}}$.
+  \item[Fase 3] calcular a divergência contra a banda de reamostragem e aplicar os
+  dois testes: a conclusão mudou? e já havia convergido em $N_{\text{paper}}$?
+  \item[Fase 4] sintetizar o caso e levar o resultado à tabela mestre.
+\end{description}
+\end{samepage}
+
+O entregável central é uma \emph{tabela mestre}: uma linha por afirmação testada,
+dizendo, para cada tipo de análise e cada rede, se a conclusão mudou e se ela já
+estava estável no volume que o artigo coletou. Ela não cabe em nenhum capítulo de
+caso, porque a sua unidade é o conjunto: cada capítulo de caso fecha as suas
+próprias linhas, e a tabela é onde elas se encontram. Está, por isso, no capítulo de
+conclusão --- Tabela~\ref{tab:mestre}, Seção~\ref{sec:tabela-mestre} ---, acompanhada
+das curvas $A(\text{volume})$ dos capítulos que as produziram e de uma leitura, por
+tipo de análise, de quando o volume de coleta é decisivo para a conclusão.
 
 % =====================================================================
 \chapter{Primeiro Caso Executado: \#Eleições2014 no Twitter}
@@ -266,7 +663,8 @@ para a conclusão.
 Este capítulo relata o primeiro caso do conjunto de casos levado à execução: a
 replicação por expansão de \citeonline{ituassu2015temas}, que analisou o público
 da hashtag \#Eleições2014 no segundo turno das eleições presidenciais
-brasileiras de 2014. É o sexto caso (\S\ref{sec:casos}) e o único em Twitter/X. Embora a coleta nova nessa plataforma seja hoje inviável, o laboratório eTC
+brasileiras de 2014. É um dos dois casos em Twitter/X do conjunto
+(\S\ref{sec:casos}). Embora a coleta nova nessa plataforma seja hoje inviável, o laboratório eTC
 preserva uma coleta histórica de outubro de 2014, com 10,7 milhões de tweets, o
 que dispensa coleta nova e torna o caso executável. Os
 resultados abaixo cobrem o eixo de mídia (classificação vertical\slash
@@ -285,8 +683,13 @@ e dela derivou, no eixo de mídia, duas afirmações testáveis: H1, o
 retuíte de mídia vertical (RTMV) supera 50\% em quase toda a semana; e
 H2, a mídia horizontal (MH) chega a rivalizar com a vertical (MV) em ao
 menos um dia. A expansão reproduz a classificação de mídia, pelo domínio do primeiro link de
-cada tweet, sobre o universo do tema da mesma janela (32.193 tweets só com \#Eleições2014;
-140.909 na janela plena).
+cada tweet, sobre o universo do tema na mesma janela de sete dias. Esse universo
+tem dois tamanhos, conforme a largura do filtro temático. Mantida a hashtag-âncora
+do artigo, são 32.193 tweets, isto é, tudo o que o acervo preservou com
+\#Eleições2014 entre 19 e 25 de outubro, contra os 700 que o artigo rotulou, cerca
+de 46 vezes mais. Abertas também as demais hashtags eleitorais do período, são
+140.909 tweets na mesma janela. O primeiro número mede o efeito de coletar mais do
+mesmo; o segundo, o de coletar também o que estava ao lado.
 
 \paragraph{Ressalva metodológica.} A coleta preservada é vizinha, não idêntica,
 à do artigo, por ser mais larga no escopo temático. Ela não é, portanto, um
@@ -298,9 +701,12 @@ intra-janela (E1) e largura do filtro (E2).
 \section{O que se sustenta ao coletar mais (ponto positivo)}
 
 O resultado qualitativo central da tese se sustenta. Entre o conteúdo que aponta
-para mídia identificável, a vertical domina a horizontal em cerca de 5 para 1
-(83,4\% de MV contra 16,6\% de MH; IC95\% de Wilson 83,1--83,6; $n=79.603$; contra
-o acaso, $z=188{,}3$, $p\approx0$). Essa conclusão não depende do volume; já valia
+para mídia identificável, a vertical domina a horizontal em cerca de 5 para 1:
+83,4\% de mídia vertical contra 16,6\% de horizontal, sobre 79.603 tweets, com
+margem de erro inferior a meio ponto percentual.\footnote{IC95\% de
+Wilson~\cite{wilson1927interval}
+83,1--83,6; contra a hipótese de igualdade entre as duas mídias, $z=188{,}3$,
+$p\approx0$.} Essa conclusão não depende do volume; já valia
 na amostra de 700 e permanece no universo. Para ela, coletar mais não teria
 alterado o resultado, e a coleta original já bastava.
 
@@ -316,63 +722,118 @@ necessária para \emph{evitá-los}.
   reconstruída de 700, o RTMV agregado é 48,3\% (IC95\% 44,6--52,0), que não
   difere de 50\% ($p=0{,}36$). No universo da mesma janela, cai para
   36,1\% (IC95\% 35,6--36,6), decisivamente abaixo ($z=-49{,}9$,
-  $p\approx0$). Os intervalos são disjuntos, sinal de viés sistemático de
-  amostragem, não de flutuação. A amostra por horários de pico superestima a
-  mídia vertical; no volume cheio, o conteúdo sem link (NDA, 30,8\% da janela,
-  chegando a 48,8\% em 24/out) dilui a proporção. A conclusão do
-  artigo reflete o recorte amostral, não o debate como um todo.
+  $p\approx0$). Os dois intervalos não têm valor algum em comum --- de 44,6 a 52,0 de
+  um lado, de 35,6 a 36,6 do outro ---, e é isso que se quer dizer ao chamá-los de
+  \emph{disjuntos}: não existe um único número que sirva de resposta plausível para as
+  duas medições. Como cada intervalo já acomoda o acaso do sorteio, sobra viés
+  sistemático de amostragem para explicar a distância entre eles. Convém precisar de onde vem o erro, porque a
+  diferença tem consequência prática. O problema não é ter amostrado; é ter
+  amostrado \emph{por horários de pico}. Nos horários de maior tráfego circula
+  sobretudo retuíte de conteúdo de veículos de imprensa, que a classificação conta
+  como mídia vertical; fora deles, cresce a proporção de conteúdo sem link (NDA,
+  30,8\% da janela, chegando a 48,8\% em 24/out), que dilui a medida. Uma amostra
+  \emph{aleatória} do mesmo tamanho teria chegado ao valor do universo, como a
+  Seção~\ref{sec:curva-midia} demonstra ao construir a curva. A conclusão do artigo
+  reflete, portanto, o horário em que se olhou, e não o volume que se olhou nem o
+  debate como um todo.
   \item[H2 (MH rivaliza com MV) não reproduz.] Em nenhum dia a MH se
   aproxima da MV; o dia que o artigo aponta como exceção (23/out) é, no universo,
   o mais vertical (MV 59\% contra MH 10,1\%). Refeita a comparação dia a dia com
   trezentas subamostras aleatórias por ponto, a mídia horizontal não alcança a
   vertical em nenhuma réplica de nenhum dia a partir de cinquenta tweets, e em
-  23/out não a alcança nem com vinte e cinco. Note-se que aqui não se trata de
-  volume nem de esquema: a reconstrução da própria amostra do artigo tampouco
+  23/out não a alcança nem com vinte e cinco. Aqui não está em jogo nem o volume
+  nem o esquema: a reconstrução da própria amostra do artigo tampouco
   mostra rivalidade nesse dia (MV 62\% contra MH 13\%), e mesmo sob a leitura mais
   branda, a de que a horizontal atinge seu máximo semanal, o dia seria 21 ou
   20/out, não 23. A divergência quanto a H2 fica, portanto, sem causa atribuída.
   \item[A amostra não representa o próprio universo.] A queda de 48,3\% para
-  36,1\% ($-12{,}2$ p.p., com ICs disjuntos) mostra que a subamostra do artigo
-  não reconstrói nem as proporções do universo de onde saiu.
+  36,1\% é de 12,2 pontos percentuais, e se dá entre os intervalos disjuntos de que
+  se falou acima. A subamostra do artigo não reconstrói, portanto, nem as
+  proporções do universo de onde saiu.
 \end{description}
 
 Num eixo adicional, o da largura do filtro (E2), abrir o escopo de \#Eleições2014
 para todas as hashtags eleitorais faz a MV cair de 43,3\% para 24,9\% e o conteúdo
 sem link subir para 47,1\%. A dominância medida da mídia vertical decorre, em boa
 parte, de olhar apenas a hashtag-âncora. Esse deslocamento é função da hashtag,
-não da composição de autores. A prova está no nível intra-autor. Os 1.752 autores
-presentes nos dois recortes vão de 25,9\% para 53,3\% de conteúdo sem link (razão
-de chances pareada por autor $=2{,}91$; IC95\% 2,63--3,23; Wilcoxon
-$p=3{,}0\times10^{-18}$), servindo cada autor como seu próprio controle.
+não da composição de autores. A prova está em comparar cada autor consigo mesmo,
+em vez de comparar os dois conjuntos de autores entre si: se o deslocamento viesse
+apenas de o recorte mais largo trazer gente diferente, ele desapareceria ao se
+olhar somente quem aparece nos dois recortes. Não é o que acontece. Os 1.752
+autores presentes tanto em \#Eleições2014 quanto no conjunto ampliado vão, eles
+próprios, de 25,9\% para 53,3\% de conteúdo sem link, servindo cada autor como seu
+próprio controle.\footnote{Em números: a razão de chances pareada por autor é
+$2{,}91$ (IC95\% 2,63--3,23), o que se lê assim --- para um \emph{mesmo} autor, a
+chance de publicar conteúdo sem link é cerca de três vezes maior no recorte largo do
+que na hashtag-âncora. O teste de postos sinalizados de Wilcoxon, que compara os dois
+valores de cada autor em vez de comparar os dois grupos, rejeita a hipótese de que
+esse deslocamento seja obra do acaso ($p=3{,}0\times10^{-18}$).}
 
-\paragraph{Predição refutada.} A predição registrada antes da execução supunha
-que H1, por ser um efeito agregado, provavelmente não mudaria. Os dados a
-refutaram. Registrar as predições antes da análise serve exatamente para expor
-expectativas equivocadas como essa.
+\paragraph{Uma aposta registrada antes, e perdida.} O protocolo exige anotar, antes
+de rodar a análise sobre a coleta expandida, o resultado que se espera encontrar.
+A aposta feita aqui foi a de que H1 não mudaria: por ser uma proporção agregada
+sobre a semana inteira, ela deveria ser pouco sensível a quanto se coleta. Os dados
+mostraram o contrário, com uma queda de doze pontos percentuais, e a aposta se
+perdeu. Registrá-la de antemão serve exatamente para isto: impedir que a
+expectativa seja reescrita depois de conhecido o resultado, e deixar visível quando
+ela estava errada.
 
 \section{A curva de volume, e por que ela corrige o diagnóstico}
 \label{sec:curva-midia}
 
 Construir a curva $A(\text{volume})$ desfaz uma atribuição de causa que os
-resultados acima sugeriam. Tomando subamostras aleatórias de tamanho crescente do
-universo, com trezentas réplicas por ponto, o RTMV médio é 36,1\% em \emph{todos} os
-tamanhos, de cem tweets ao universo inteiro. O estimador não deriva com o volume; o
-que muda é apenas a precisão, com a banda de 95\% encolhendo de dezessete pontos
-percentuais, em $n=100$, para menos de um ponto em $n=22.400$.
+resultados acima sugeriam. Tomando subamostras aleatórias de tamanho crescente do universo, com trezentas
+réplicas por ponto, o RTMV médio fica entre 35,7\% e 36,1\% ao longo de toda a
+faixa, de cem tweets ao universo inteiro. É uma variação de menos de meio ponto
+percentual, e convém dizer que ela não é um achado empírico surpreendente, para que
+não seja lida como tal: subconjuntos sorteados ao acaso de um mesmo conjunto
+estimam, por construção, a mesma proporção, e o que o volume altera é a precisão
+dessa estimativa, não o seu valor. A banda de 95\% encolhe, de fato, de dezessete
+pontos percentuais em $n=100$ para menos de um ponto em $n=22.400$. O interesse da
+curva está justamente em ser previsível: ela funciona como régua, mostrando o que
+uma amostra \emph{aleatória} de cada tamanho teria produzido, e é contra essa régua
+que a estimativa publicada pode ser confrontada. A Figura~\ref{fig:curva-rtmv}
+mostra o quadro.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{curva_rtmv}
+\caption[Curva $A(\text{volume})$ do retuíte de mídia vertical]{Curva $A(\text{volume})$ do retuíte de mídia vertical no universo da janela
+de 19--25/out/2014, com 300 subamostras aleatórias por ponto. A linha não sobe nem
+desce: o que muda com o volume é apenas a largura da banda. O losango marca a
+estimativa publicada pelo artigo, que cai fora da banda que uma amostra aleatória
+do mesmo tamanho produziria --- sinal de viés de esquema, e não de falta de dados.
+Dados em \texttt{curva\_midia.json}; figura gerada por
+\texttt{figuras/gerar\_figuras.py}.}
+\label{fig:curva-rtmv}
+\end{figure}
 
 Disso decorrem duas constatações que mudam a leitura do caso. A primeira é que os
 48,3\% do artigo \emph{não cabem} na banda que uma amostra aleatória do mesmo
 tamanho produz, de 32,6\% a 39,9\%: a distância não é atribuível a erro amostral, e
-sim ao esquema de amostragem por horários de pico. A segunda é que bastariam
-duzentos tweets sorteados ao acaso para refutar H1 com 99,7\% de poder, contra os
-setecentos que o artigo de fato coletou. A conclusão correta estava, portanto, ao
-alcance de uma coleta três vezes e meia \emph{menor} que a realizada.
+sim ao esquema de amostragem por horários de pico. A segunda é que duzentos tweets
+sorteados ao acaso bastariam para refutar H1 com 99,7\% de poder, contra os
+setecentos que o artigo de fato rotulou.
 
-Segue-se que dizer que ``coletar mais era necessário para chegar à conclusão
+Convém precisar o que essa segunda constatação significa, porque ela não é uma
+afirmação sobre a coleta. Nenhuma API de rede social atende ao pedido ``devolva
+duzentos tweets sorteados ao acaso entre os que têm esta hashtag''. O que se pede é
+uma janela e um termo, e a plataforma devolve o que devolve; o sorteio aleatório só
+existe \emph{depois}, de dentro do que já se coletou. O que os duzentos economizam,
+portanto, não é coleta, e sim a etapa cara deste caso em particular, que é a
+rotulagem manual. O artigo leu setecentos tweets à mão e chegou ao número errado;
+duzentos lidos à mão, sorteados do mesmo material, teriam bastado para chegar ao
+certo.
+
+Disso decorre que dizer que ``coletar mais era necessário para chegar à conclusão
 correta'' seria falso neste caso. Coletar mais revelou o erro, mas o que teria
-evitado o erro era coletar de outro modo. A distinção não é escolástica: se o
-diagnóstico for de volume, a recomendação prática é ampliar a coleta, que é cara; se
-for de esquema, a recomendação é sortear, que é barato e frequentemente mais eficaz.
+evitado o erro era escolher de outro modo o que rotular. A distinção tem
+consequência prática direta, ainda que ela não seja a de trocar uma coleta cara por
+um sorteio barato: se o diagnóstico for de volume, a recomendação é ampliar a
+coleta; se for de esquema, a recomendação é sortear de dentro do que já se tem, em
+vez de recortar por um critério de conveniência como o horário. Como a última
+seção deste capítulo desenvolve, o sorteio pressupõe ter coletado amplamente antes,
+de modo que as duas recomendações são complementares, e não alternativas.
 
 \paragraph{Uma terceira pergunta para o protocolo.} O par ``mudou?\ / convergiu?'',
 como formulado no Capítulo~\ref{cap:experimento}, não distingue esses dois casos, e
@@ -380,9 +841,13 @@ aqui chegaria a atribuir ao volume uma falha de desenho amostral. Propõe-se
 acrescentar, para todo artigo-alvo que amostrou em vez de analisar o universo, a
 pergunta: \emph{o esquema de amostragem é não-viesado para a quantidade de
 interesse?} A operacionalização é a que se usou acima, comparar a estimativa
-publicada com a banda de subamostras aleatórias do mesmo tamanho. A pergunta não se
-aplica quando o alvo já analisou a população, como no eixo de rede do caso do
-Capítulo~\ref{cap:caso-vacinas}, mas aplica-se a todos os demais.
+publicada com a banda de subamostras aleatórias do mesmo tamanho. Essa terceira
+pergunta só faz sentido quando o artigo-alvo de fato amostrou, isto é, quando
+analisou um recorte de um conjunto maior que ele próprio tinha em mãos. Quando o
+alvo rodou a análise sobre tudo o que coletou, sem sortear nem recortar --- é o que
+ocorre no eixo de rede do Capítulo~\ref{cap:caso-vacinas}, em que a rede foi
+construída sobre o corpus inteiro ---, não há esquema de amostragem a avaliar e a
+pergunta se cala. Para todos os demais, ela passa a integrar o protocolo.
 
 \section{Leitura em termos de volume}
 
@@ -399,6 +864,22 @@ sim o modo de sorteá-los. Para este caso, portanto, a pergunta ``coletar mais m
 conclusão?'' recebe um sim que precisa ser qualificado, porque a causa não é o
 tamanho da coleta.
 
+Cabe, porém, uma ressalva contra a leitura fácil dessa conclusão. Dizer que o erro
+foi de esquema, e não de volume, não equivale a oferecer ``amostre melhor'' como
+alternativa barata a ``colete mais''. Saber qual esquema é não-viesado exige saber
+de antemão a quê a quantidade de interesse é sensível, e é precisamente isso que não
+se sabe antes de coletar: só depois de ver o universo é que o horário se revelou
+correlacionado com o tipo de mídia. Sortear ao acaso, ademais, raramente é uma
+operação disponível em RSD. As APIs entregam listagens ordenadas por recência, por
+popularidade ou por relevância, e quem coleta escolhe janela e termo de busca, não
+sorteia itens de um quadro amostral que ninguém lhe oferece. A recomendação prática
+que sobrevive é, por isso, a mais conservadora: na dúvida sobre o que enviesa,
+coletar o mais amplamente possível e sortear \emph{depois}, de dentro do coletado,
+que é a única etapa em que o sorteio aleatório está de fato ao alcance. É também a
+razão pela qual o protocolo mede o efeito do volume mesmo quando a falha acaba
+sendo de esquema: sem o universo em mãos, o diagnóstico de esquema não teria como
+ser feito.
+
 Falta ainda o eixo de stance (a tese H3, de que os públicos diferem),
 dependente de rotulagem manual. É onde o artigo faz sua afirmação mais forte e
 onde o teste de volume será mais informativo. A solução para os pontos negativos,
@@ -413,24 +894,21 @@ formulá-la.
 % =====================================================================
 
 Este capítulo relata o segundo caso levado à execução: a replicação por expansão
-de \citeonline{verjovsky2023quarrel}, que analisou o debate sobre vacinação no
-Twitter brasileiro entre dezembro de 2021 e março de 2022. Ele entra pela mesma
+de \citeonline{verjovsky2023quarrel},\footnote{A autora desta dissertação é coautora
+do artigo replicado e foi quem extraiu os dados originais; a lente ``coletar mais''
+é aplicada aqui, portanto, a trabalho próprio.} que analisou o debate sobre
+vacinação no Twitter brasileiro entre dezembro de 2021 e março de 2022. Ele entra pela mesma
 exceção do caso anterior, o acervo histórico do eTC, e difere dele em dois
 aspectos que o tornam complementar. Primeiro, cobre outros dois tipos de análise,
 detecção de comunidades e análise de conteúdo, ausentes do eixo de mídia. Segundo,
 e mais importante, aqui a sub-coleta não está na coleta, que foi larga, e sim no
 \emph{estrato analisado}: a análise substantiva do artigo foi feita apenas sobre
 os tweets que ultrapassaram 500 retuítes. É o exemplar mais nítido do achado do
-levantamento, o de que a filtragem por critério é a norma.
-
-Registre-se ainda que a autora desta dissertação é coautora do artigo replicado e
-foi quem extraiu os dados originais. A lente ``coletar mais'' é aplicada aqui a
-trabalho próprio, o que faz deste caso uma autocrítica, e não uma crítica
-externa.\footnote{Números e testes deste capítulo provêm do projeto companion do
-caso (scripts \texttt{analise/rede\_modularidade.py} e
-\texttt{analise/curvas\_por\_limiar.py}), sobre um instantâneo congelado da coleta
-preservada no eTC. São, portanto, reprodutíveis a partir do instantâneo
-versionado.}
+levantamento, o de que a filtragem por critério é a norma.\footnote{Números e testes
+deste capítulo provêm do projeto companion do caso (scripts
+\texttt{analise/rede\_modularidade.py} e \texttt{analise/curvas\_por\_limiar.py}),
+sobre um instantâneo congelado da coleta preservada no eTC. São, portanto,
+reprodutíveis a partir do instantâneo versionado.}
 
 \section{O que o artigo afirmou e o que se sub-coletou}
 
@@ -474,49 +952,90 @@ idioma.
   lado oposto, enquanto o lado pró se espalha por sete comunidades. A tese do
   artigo, a de um polo anti articulado contra um polo pró desarticulado, aparece
   assim na própria topologia da rede, e não apenas na leitura do conteúdo.
-  \item[A composição temática convergiu.] Das 14 categorias de enquadramento, o
-  maior deslocamento entre o estrato viral e o corpus 19 vezes maior é de 8,4
-  pontos percentuais, e a maioria fica dentro de $\pm2$ pontos. Descer o limiar
-  não reordena os temas: a tabela de prevalência temática do artigo teria sido
-  essencialmente a mesma com muito mais dados.
+  \item[A composição temática convergiu.] Das 14 categorias de enquadramento, as
+  três mais frequentes são as mesmas, e na mesma ordem, no estrato viral e no
+  corpus 19 vezes maior: política, com 39,6\% contra 38,2\%; crianças, com 31,8\%
+  contra 30,6\%; e políticas restritivas, com 31,8\% contra 23,4\%. Esta última é o
+  maior deslocamento do conjunto, de 8,4 pontos percentuais, e a maioria das demais
+  categorias fica dentro de $\pm2$ pontos. Há trocas de posição mais abaixo, entre
+  a quarta e a sexta colocadas, mas separadas por cerca de um ponto percentual:
+  ``desvantagens das vacinas'' cai de 16,2\% para 12,5\% e passa atrás de ``pessoas
+  anti-vacina'' e ``riscos da COVID''. A leitura substantiva não muda. A tabela de
+  prevalência temática do artigo teria sido essencialmente a mesma com muito mais
+  dados.
   \item[A vantagem dos tweets pró em retuítes se mantém.] O artigo afirma que os
   tweets pró mais populares receberam o dobro de retuítes dos anti mais populares.
   Na réplica, o tweet pró mais retuitado recebe 2,33 vezes o do lado oposto, e a
   razão é a mesma em todos os limiares. Convém notar, porém, que essa estabilidade
-  é estrutural, não empírica: uma afirmação sobre a cauda extrema é imune à
-  sub-coleta, porque a cauda é justamente o que qualquer coleta captura primeiro.
+  não é bem um achado: ela era inevitável. A afirmação compara os \emph{dois tweets
+  mais retuitados} de cada lado, e os itens mais retuitados de um corpus são os
+  primeiros que qualquer coleta encontra, por mais estreita que seja. Descer o
+  limiar acrescenta material embaixo, não em cima, e por isso não tem como mexer no
+  topo. Dizer que essa conclusão ``resiste a coletar mais'' é, portanto, dizer
+  pouco: ela resistiria a qualquer coleta, e o teste de volume não teria como
+  reprová-la.
 \end{description}
 
-\paragraph{Predição refutada.} A predição registrada antes da execução era
-exatamente a inversa nesse ponto. Apostou-se que os agregados de baixa dimensão
-(comunidades e concentração) se manteriam, o que ocorreu apenas em parte, e também
-que o ranking de enquadramentos se recomporia abaixo do limiar, enfraquecendo a
-conclusão-título por essa via. Foi a aposta interessante, e os dados a refutaram: o
-que se moveu não foi o enquadramento, e sim o equilíbrio de forças, que não estava
-na aposta.
+\paragraph{As apostas registradas antes, e o que elas erraram.} O protocolo exige
+anotar, antes de rodar a análise sobre o material expandido, o resultado que se
+espera encontrar. Duas apostas foram registradas neste caso, e as duas erraram. A
+primeira era a de que os números agregados sobre a rede, o tamanho relativo dos
+polos e a concentração de retuítes, resistiriam a descer o limiar, por serem médias
+sobre muita gente; ela acertou quanto à concentração e errou quanto ao tamanho dos
+polos, que é justamente o número de que a conclusão do artigo depende. A segunda
+era a de que o \emph{ranking} de enquadramentos se recomporia abaixo do limiar, e
+que seria por aí que a conclusão-título se enfraqueceria; ela errou por inteiro,
+porque o ranking praticamente não se mexeu. O que se moveu foi o equilíbrio entre
+os dois lados do debate, que não estava previsto em aposta nenhuma. Registrar a
+expectativa de antemão serve exatamente para isto: deixar visível que o achado do
+caso não foi o que se tinha ido procurar.
 
 \section{O que o volume maior revela (pontos negativos)}
 
-\paragraph{O equilíbrio entre os polos não replica na rede.} A afirmação de que os
-dois lados têm volumes semelhantes, cada um perto de dois quintos, é a única parte
-do artigo que a expansão contradiz já no eixo de rede. Atribuído o lado a todas as
+\paragraph{O equilíbrio entre os polos não replica na rede.} O artigo sustenta que
+os dois lados do debate têm tamanhos parecidos, cada um em torno de dois quintos do
+material, e é sobre esse pano de fundo de simetria que a sua conclusão-título ganha
+força: se os polos são do mesmo tamanho e ainda assim um deles impõe o
+enquadramento, o mérito é da articulação, e não do número. A réplica não encontra
+essa simetria, e este é o único ponto do artigo que a expansão contradiz já no eixo
+de rede. Atribuído o lado a todas as
 11.664 comunidades da partição pela regra do artigo, isto é, pela maioria dos autores
-influentes que ele mesmo publica, a razão entre os polos fica entre 1,50 e 1,56 para
-um, a favor do lado pró, contra a razão de 1,02 que a tabela do artigo reporta. O
+influentes que ele mesmo publica, o lado pró reúne entre 1,50 e 1,56 post para cada
+post do lado anti. A tabela do artigo reporta 1,02 post por post, isto é, um
+empate. O
 intervalo cobre oito cenários, combinando duas bases de contagem com quatro
 exigências de evidência mínima por comunidade, e a razão praticamente não se move
 entre eles. O contraste fica mais nítido
 em valores absolutos: o lado anti passa de 1,98 para 2,01 milhões de posts,
-praticamente inalterado, enquanto o pró vai de 2,02 para 3,13 milhões.
+praticamente inalterado, enquanto o pró vai de 2,02 para 3,13 milhões. Em outras
+palavras, o lado pró é cerca de uma vez e meia maior que o anti, e não do mesmo
+tamanho; a premissa de simetria sobre a qual a conclusão-título se apoia não se
+sustenta na rede.
 
 \paragraph{A divergência, porém, não é efeito de volume.} Construída a curva
 $A(\text{volume})$ da rede, sorteando frações crescentes da coleta e refazendo
-partição e atribuição a cada ponto, a razão entre os polos sobe de forma monotônica
-de 1,31, com 1\% dos dados, a 1,55 no corpus inteiro, e só entra na banda do valor
+partição e atribuição a cada ponto, a razão entre os polos sobe sem recuar em
+nenhum ponto, de 1,31 com 1\% dos dados a 1,55 no corpus inteiro, e só entra na banda do valor
 final a partir de três quartos da coleta. Duas leituras se seguem. A primeira é que
 a conclusão \emph{não havia convergido}: com metade da coleta, o número ainda estava
 em movimento, e a estrutura de comunidades converge mais devagar ainda, permanecendo
-a 0,12 do teto de similaridade em três quartos do material. A segunda é uma correção
+a 0,12 do teto de similaridade em três quartos do material
+(Figura~\ref{fig:curva-rede-vacinas}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{curva_rede_vacinas}
+\caption[Curva $A(\text{volume})$ do eixo de rede do debate vacinal]{Curva $A(\text{volume})$ do eixo de rede do debate vacinal, por frações
+sorteadas da coleta. Em (a), a razão entre os polos ainda sobe em três quartos da
+coleta, e em nenhuma fração se aproxima do 1,02 relatado pelo artigo, o que exclui o
+volume como explicação da divergência. Em (b), a partição de comunidades converge
+mais devagar ainda, permanecendo a 0,12 do teto de similaridade em três quartos do
+material. As bandas são mín.--máx.\ entre réplicas (5 até $f=0{,}25$; 3 em
+0,50 e 0,75), abaixo das 30 do protocolo por custo de Louvain. Reprodutível por
+\texttt{escrita/dissertacao/figuras/gerar\_figuras.py} sobre
+\texttt{curva\_rede.json}.}
+\label{fig:curva-rede-vacinas}
+\end{figure} A segunda é uma correção
 de rota: em nenhuma fração a réplica se aproxima do 1,02 relatado, de modo que a
 distância para o artigo \emph{não} se explica pelo tamanho da coleta. Se explicasse,
 coletar menos aproximaria os dois números, e não aproxima. O que a separa é a
@@ -528,45 +1047,62 @@ material se recusa a classificar, mais o resultado tende ao equilíbrio.
 valida.} O artigo reporta ainda que, entre os 602 autores influentes, 58,6\% são
 pró e 40,9\% anti. Reconstruindo esse conjunto pelo mesmo limiar de 500 retuítes e
 atribuindo o lado \emph{pela topologia}, sem ler o texto, obtêm-se 58,9\% e 41,1\%,
-uma diferença de 0,3 ponto percentual. A coincidência importa por dois motivos. O
-primeiro é que valida a regra de atribuição de lado: o artigo rotulou esses autores
-lendo o que escreveram, a réplica os rotulou pela comunidade de retuítes a que
-pertencem, e os dois caminhos chegam ao mesmo lugar. O segundo é que, validada a
-regra no ponto original, o que ela mostra fora dele passa a ter peso. E o que ela
-mostra é que baixar o limiar que define ``influente'' dobra a assimetria: a razão
+uma diferença de 0,3 ponto percentual. A coincidência importa, mas convém não
+cobrar dela mais do que ela pode pagar. A réplica atribui o lado \emph{pela
+topologia}, isto é, pela comunidade de retuítes a que cada autor pertence, sem ler
+uma linha de texto. O artigo, por sua vez, não documenta por inteiro como atribuiu
+o lado a cada um dos 602, e há boa razão para supor que a estrutura de comunidades
+tenha participado também da atribuição dele, uma vez que foi dela que os dois polos
+emergiram. Os dois caminhos não são, portanto, seguramente independentes, e a
+diferença de 0,3 ponto não se deve ler como validação externa da regra. O que ela
+estabelece é mais modesto, e ainda assim suficiente para o que se segue: a regra
+usada aqui reproduz, no ponto original, o número que o artigo publicou, de modo que
+o que ela mostrar fora desse ponto não será artefato de uma convenção divergente. A
+confirmação por instrumento realmente independente vem adiante, do eixo de
+conteúdo, que mede a mesma coisa lendo texto e sem olhar a rede. E o que a regra
+mostra fora do ponto original é que baixar o limiar que define ``influente'' dobra
+a assimetria: a razão
 entre autores pró e anti vai de 1,43 acima de 500 retuítes para 2,34 acima de 25, e
 não há sinal de estabilização dentro da faixa observada.
 
 \paragraph{A cobertura agregada, em contrapartida, não serve de teste.} A outra
 metade da mesma afirmação, a de que os dois polos somam 78\% dos posts, varia de
 76,7\% a 90,6\% conforme a base de contagem adotada, e fica portanto sem veredito. O
-contraste entre as duas metades é instrutivo: a soma dos polos depende de quantos
-usuários se deixa fora, decisão de convenção que os dois trabalhos tomam de modo
-diferente e nenhum dos dois documenta por inteiro; a razão entre os polos é imune a
-essa escolha, porque a convenção afeta os dois lados da fração. Ao replicar por
-expansão, convém identificar antes quais quantidades são invariantes à convenção,
-porque só essas suportam comparação entre trabalhos.
+contraste entre as duas metades é instrutivo. A soma dos polos depende de quantos
+autores se deixa de fora, decisão de convenção que o artigo replicado e esta
+réplica tomam de modo diferente — o artigo deixa 22,3\% dos posts sem lado e a
+réplica, sob a convenção dele, deixa 9,4\% — e que nenhum dos dois publica por
+inteiro. Já a razão entre os polos é imune a essa escolha, porque a convenção
+afeta os dois lados da fração. Ao replicar por expansão, convém identificar antes
+quais quantidades são invariantes à convenção, porque só essas suportam comparação
+entre trabalhos.
 
-\paragraph{O balanço entre os polos também não sobrevive no conteúdo.} Entre os tweets a
-que se atribui um lado, a fatia pró-vacina cresce de forma monotônica à medida que
-o limiar cai: de 48,4\% em mais de 500 retuítes para 62,6\% em mais de 10, no
-esquema binário do artigo, e de 50,0\% para 61,7\% num esquema que admite classe
-neutra. A direção e a magnitude do deslocamento, portanto, não dependem da escolha
-de anotação. No estrato viral, o instrumento reproduz o gabarito humano publicado
-com exatidão, dando os mesmos 48,4\%, o que descarta atribuir a diferença ao
-classificador.
+\paragraph{O balanço entre os polos também não sobrevive no conteúdo.} O achado
+desta seção pode ser dito numa frase: no material que viralizou os dois lados
+aparecem empatados, e no debate de onde ele saiu não aparecem. Entre os tweets a
+que se atribui um lado, a fatia pró-vacina cresce a cada passo em que o limiar cai:
+de 48,4\% acima de 500 retuítes para 62,6\% acima de 10, no esquema binário do
+artigo, e de 50,0\% para 61,7\% num esquema que admite classe neutra. Nos dois
+esquemas de anotação, portanto, o deslocamento tem a mesma direção e ordem de
+grandeza, o que mostra que ele não é efeito da convenção adotada. E no estrato
+viral o instrumento reproduz o gabarito humano publicado com exatidão, dando os
+mesmos 48,4\%, o que também descarta atribuí-lo ao classificador.
 
 A leitura de que o polo anti-vacina tem presença equivalente ou superior vale,
-assim, para o material que viralizou, não para o debate. A conclusão-título se
+assim, para o material que viralizou, e não para o debate. A conclusão-título se
 apoia num estrato em que ela é verdadeira e que não representa o corpus de onde
 saiu.
 
-O mecanismo aparece quando se admite uma classe neutra: a fatia de tweets
-topicamente relevantes que não emitem juízo cresce de 24,6\% no estrato viral para
-33,4\% no corpus amplo. A viralidade seleciona conteúdo que toma partido. É um
-achado próprio do caso, invisível sob o esquema de anotação do artigo, e explica
-por que um recorte por engajamento superestima sistematicamente a polarização do
-debate que pretende descrever.
+O mecanismo que produz esse deslocamento aparece quando se admite uma classe
+neutra. A fatia de tweets que falam de vacina sem tomar partido — um relato de
+quem foi se vacinar, um aviso de posto de saúde, uma pergunta sobre a segunda dose
+— cresce de 24,6\% no estrato viral para 33,4\% no corpus amplo. Dito de outro
+modo: um em cada quatro tweets virais não toma partido, contra um em cada três no
+debate inteiro. A viralidade seleciona conteúdo que toma partido, e o material
+neutro fica embaixo do limiar. É um achado próprio do caso, invisível sob o esquema
+de anotação do artigo, que não tem onde pôr esses tweets, e explica por que um
+recorte por engajamento superestima sistematicamente a polarização do debate que
+pretende descrever.
 
 Convém sublinhar que os achados acima são medições independentes, em três unidades
 distintas: posts, autores influentes e tweets rotulados. As duas primeiras derivam da
@@ -610,6 +1146,19 @@ podem inverter-se um em relação ao outro. O enquadramento é robusto ao volume
 frágil ao filtro; o balanço entre polos é o contrário. Reportar apenas um dos dois
 eixos, como é praxe, dá uma segurança que os dados não sustentam.
 
+\paragraph{Nota de atualidade.} Enquanto esta dissertação era escrita, um
+levantamento de plataforma comercial divulgado pela imprensa~\cite{bbc2026vacinas}
+mediu o mesmo balanço no mesmo debate: 93.755 publicações em quatro redes,
+recolhidas por um único termo, ``vacina'', em oito dias, das quais 65,8\% pró
+contra 34,2\% anti entre as posicionadas, razão de 1,92. As duas decisões que este
+capítulo mostrou serem decisivas estão ali, não declaradas: a largura do filtro é
+de um termo, e o genérico, faixa em que a razão medida aqui é 1,41; e os 9,4\% de
+publicações sem classificação são descartados para produzir a razão que dá a
+manchete, a mesma operação de esquema binário forçado que, neste corpus, desloca
+a descrição em cerca de 18 pontos percentuais. Não se trata de contestar o sinal,
+que é o achado robusto ao filtro, mas de observar que o valor divulgado é
+exatamente a quantidade que este capítulo mostrou depender do recorte.
+
 \section{Um efeito de sub-coleta sobre o instrumento}
 
 O caso produziu um resultado que não estava previsto e que diz respeito ao
@@ -621,33 +1170,48 @@ em que um terço do material não toma partido. São cerca de 18 pontos vindos d
 escolha de anotação, e não do dado.
 
 A origem da divergência é rastreável e não é erro de codificação. A terceira classe
-do artigo, descrita como \emph{non-relevant/ambiguous}, operou como marcador de
-irrelevância tópica, e não de ausência de posição: os três casos assim
-classificados no gabarito são usos da palavra ``vacina'' fora do tema. Trata-se,
+do artigo, que ele nomeia em inglês como \emph{non-relevant/ambiguous}, operou como
+marcador de irrelevância tópica, e não de ausência de posição. Os três únicos casos
+assim classificados no gabarito publicado, em 1.525, são usos da palavra ``vacina''
+fora do tema: um meme, um trocadilho com nomes de influenciadores e uma menção a
+vacinação veterinária. Trata-se,
 portanto, de um esquema binário forçado, desenho comum na literatura de análise de
 conteúdo, em que o tweet relevante mas não avaliativo é resolvido em um dos polos.
 
-Duas consequências. A primeira é uma qualificação do artigo replicado: parte do que
-suas proporções registram como adesão a um polo é conteúdo sem posição alocado por
-necessidade do esquema, o que limita a generalização dessas proporções ao debate
-como um todo. A segunda é metodológica e mais geral. Um classificador calibrado
-contra um gabarito aprende a convenção de codificação daquele gabarito, e não a
-tarefa: o classificador aqui reproduz a codificação publicada melhor
-($\kappa=0{,}759$) do que uma coautora do próprio artigo recodificando o mesmo
-material ($\kappa=0{,}350$), porque ela aplica um critério de neutralidade que a
-convenção original não tinha. Como o gabarito só existe no estrato sub-coletado, o
-instrumento importa as propriedades desse estrato ao ser aplicado ao corpus amplo.
-Em rotulagem manual cega no estrato baixo, os casos neutros que o esquema binário
-força para um lado se dividiram de forma aproximadamente simétrica entre os polos,
-o que atenua as estimativas em direção a 50\%: os percentuais acima devem ser
-lidos como limite inferior do deslocamento, e não como seu valor.
+Disso decorrem duas consequências, uma sobre o artigo replicado e outra sobre o
+método em geral.
+
+A primeira é uma qualificação do artigo: parte do que suas proporções registram
+como adesão a um polo é conteúdo sem posição, alocado a um lado por necessidade do
+esquema e não por leitura do texto. Isso limita a generalização dessas proporções
+ao debate como um todo, sem invalidá-las dentro do estrato em que foram medidas.
+
+A segunda é metodológica, e o caso a exibe de forma incomumente nítida. Um
+classificador calibrado contra um gabarito aprende a \emph{convenção de
+codificação} daquele gabarito, e não a tarefa que o gabarito pretende representar.
+A evidência é a seguinte: medido contra o gabarito publicado, o classificador
+concorda com ele em $\kappa=0{,}759$, ao passo que uma coautora do próprio artigo,
+recodificando o mesmo material do zero, concorda em $\kappa=0{,}350$. O
+classificador imita a codificação publicada melhor do que quem a produziu, e a
+razão é que a coautora, ao recodificar, aplica um critério de neutralidade que a
+convenção original não tinha, enquanto o classificador, treinado por exemplos dessa
+convenção, nunca viu um tweet neutro e por isso não reconhece nenhum. O problema
+para o protocolo é que o gabarito, por construção, só existe no estrato
+sub-coletado: ao aplicar o instrumento ao corpus amplo, importam-se junto com ele
+as propriedades do estrato pequeno de onde ele veio.
+
+Resta saber para que lado isso empurra os números. Em rotulagem manual cega no
+estrato baixo, os tweets neutros que o esquema binário obriga a alocar dividiram-se
+de forma aproximadamente simétrica entre os dois polos, o que aproxima as
+estimativas de 50\% em vez de afastá-las. Os percentuais acima devem ser lidos,
+portanto, como limite inferior do deslocamento, e não como o seu valor.
 
 \paragraph{Confiabilidade e seu teto.} O classificador de três classes atinge
 $\kappa=0{,}697$ contra codificação humana, num teto de tarefa medido em
 $\kappa=0{,}746$ por reteste intracodificador. As comparações \emph{entre} estratos
 são mais robustas que os valores absolutos, porque o erro do instrumento incide
-igualmente nos dois lados da comparação. Registre-se que o artigo original não
-reporta concordância entre codificadores, o que impede estimar quanto dessa
+igualmente nos dois lados da comparação. O artigo original não reporta
+concordância entre codificadores, o que impede estimar quanto dessa
 variação já existia na codificação publicada.
 
 \section{Leitura em termos de volume}
@@ -675,44 +1239,325 @@ manteve fixa. Uma divergência grande demais para ser real costuma ser sintoma d
 unidades trocadas; e uma concordância boa demais, obtida numa única convenção, pede
 ser testada em outra antes de virar resultado.
 
-Registre-se, por fim, o que não se sabe. A regra de atribuição, fiel à do artigo, faz
-uma comunidade difusa de 349 mil autores herdar um lado por inteiro; é uma
-generosidade que os dois trabalhos compartilham. A coleta preservada tem 12\% mais
-retuítes que a do artigo dentro da mesma janela, resíduo da re-extração que segue sem
-explicação. E o artigo não publica a distribuição por grupo, apenas o agregado, o que
-impede conferir a decomposição dele contra a nossa. O que se afirma aqui, portanto, é
-que o equilíbrio relatado não se reproduz, não que se conheça a razão completa disso.
+Resta delimitar o alcance exato da afirmação. O resultado deste capítulo
+é que o equilíbrio entre os polos relatado pelo artigo não se reproduz; ele não é o
+de saber por que o artigo chegou a 1,02. Três coisas impedem fechar essa segunda
+pergunta, e todas são do lado do material disponível, e não da medição: o artigo
+publica o agregado e não a distribuição por grupo, de modo que a decomposição dele
+não pode ser conferida contra a desta réplica; a coleta preservada tem 12\% mais
+retuítes que a do artigo dentro da mesma janela, resíduo da re-extração de 2022 que
+segue sem explicação; e a regra de atribuição, fiel à do artigo, faz uma comunidade
+difusa de 349 mil autores herdar um lado por inteiro, generosidade que os dois
+trabalhos compartilham e que nenhum dos dois consegue auditar.
 
 % =====================================================================
-\chapter{Terceiro Caso Executado: Idosos e Pandemia no YouTube}
+\chapter{Terceiro e Quarto Casos Executados: Papéis Sociais e Homofilia no Reddit}
+\label{cap:caso-reddit}
+% =====================================================================
+
+Este capítulo reúne dois casos porque eles compartilham a rede, o eixo e o desfecho
+metodológico, e se completam quanto ao que cada um consegue mostrar. Ambos replicam
+trabalhos sobre o Reddit; ambos atacam o eixo de \emph{volume}, e não o de largura de
+filtro ou o de forma do critério; e ambos partem de um alvo cuja sub-coleta é um
+estrato de atividade, isto é, um recorte que retém apenas os participantes mais ativos.
+São também os primeiros casos executados fora do Twitter/X, o que importa porque os
+dois primeiros dependeram de uma exceção, a de um acervo histórico preservado, que não
+se reproduz por coleta nova.
+
+O Reddit é, dos ambientes examinados, o mais favorável ao protocolo, e a
+Seção~\ref{sec:casos} já o registrava como caso ideal. Os arquivos históricos
+distribuídos via Academic Torrents contêm a população completa de um subreddit numa
+janela, ao passo que a interface oficial devolve cerca de mil itens por listagem. A
+própria interface é, portanto, um esquema de amostragem a superar, e superá-lo não
+depende de credencial, de acervo institucional nem de acordo com plataforma. É a
+situação em que o ``coletar mais'' é literal.
+
+O primeiro caso entrega o maior efeito de sub-coleta medido nesta dissertação. O
+segundo entrega o oposto, uma reprodução quase exata, e um achado lateral sobre
+decisões não declaradas que converge com o que os capítulos anteriores vinham
+encontrando em outras redes.
+
+\section{Papéis sociais: uma conclusão que se desfaz por uma ordem de grandeza}
+
+\citeonline{buntain2014socialroles} identificam papéis sociais no Reddit pela estrutura
+da rede de interação, e não pelo conteúdo do que se escreve. O trabalho reconstrói,
+para cada subreddit, quem responde a quem, e procura nessa topologia a assinatura do
+papel de \emph{answer-person}, o participante que responde a muitos e é respondido por
+poucos. É o caso de análise de rede do conjunto, e o mais citado de todos os alvos
+replicados, com cento e trinta e três citações.\footnote{Números deste caso provêm do
+script \texttt{analise/rb3.py} do projeto companion, sobre um instantâneo próprio de
+43.479 submissões e 1.015.247 comentários.}
+
+\subsection{Uma sub-coleta em quatro camadas}
+
+A coleta do artigo é explicitamente limitada pela interface da plataforma, e os autores
+o declaram: o Reddit impunha duas requisições por segundo e um teto de objetos por
+listagem. O recorte que daí resulta tem quatro camadas sobrepostas. De cada um dos treze
+subreddits, o artigo tomou as cem submissões mais votadas, e não todas; de cada
+submissão, cerca de duzentos comentários, e não todos; de um único mês, julho de
+2013, e não da história das comunidades; e, por fim, descartou os participantes com
+menos de vinte arestas na rede, para garantir significância estatística. Restaram \textbf{279
+participantes}, distribuídos por dez subreddits, pois três não retiveram ninguém acima
+do limiar.
+
+A expansão temática é imediata e não exige decisão de escopo: como o tema declarado são
+os treze subreddits naquele mês, coletar todas as submissões e todos os comentários da
+mesma janela é expandir sem sair do tema. Foi o que se fez. O instantâneo recolhe
+\textbf{43.479 submissões e 1.015.247 comentários}, dos quais se extraem
+\textbf{217.386 participantes} não automatizados. O conjunto analisado pelo artigo
+corresponde a pouco mais de um milésimo desse universo.
+
+Vale situar o caso na notação do Capítulo~\ref{cap:experimento}, porque ele instancia
+o protocolo de uma forma que os dois primeiros não instanciavam.
+$N_{\text{paper}}$ são os 279 participantes que restaram ao artigo, e
+$A_{\text{paper}}$ é a fração deles que atua em mais de uma comunidade, 3\%. O
+instantâneo congelado é o universo dos treze subreddits no mês, com
+$N_{\text{máx}}=217.386$ participantes, e $A_{\text{mais}}$ é a mesma fração medida
+sobre ele. A curva $A(\text{volume})$, porém, não pode ser construída aqui sorteando
+frações crescentes da coleta, como nos casos anteriores, porque a quantidade de
+interesse não é uma média sobre itens e sim uma contagem que depende de quem
+sobrevive a um corte. Ela é construída, em seu lugar, ao longo do \emph{corte de
+atividade}, que é a decisão de recorte que o próprio artigo tomou. É a variante
+prevista na Seção~\ref{sec:metricas} para afirmações de forma estrutural, e a
+Seção~\ref{sec:rb3-curva} a percorre.
+
+\subsection{O alvo-teste e o que a expansão encontra}
+
+A afirmação escolhida como alvo-teste é a de que apenas cerca de 3\% dos participantes,
+sete dos 279, atuam em mais de uma das comunidades analisadas. A leitura substantiva que
+o artigo extrai dela é a de que os papéis sociais no Reddit são \emph{locais}: quem
+responde perguntas numa comunidade raramente é o mesmo que responde em outra.
+
+A comparação que decide a questão não é com o universo bruto, e sim com o universo sob
+o mesmo corte de atividade que o artigo aplicou. A Tabela~\ref{tab:reddit-rb3} apresenta
+as três medições.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption[Participação em mais de uma comunidade, por recorte de coleta]{Participação em mais de uma comunidade, por recorte de coleta. A
+comparação que decide a questão é a da última linha, por ser a que aplica ao
+universo o mesmo corte de atividade do artigo.}
+\label{tab:reddit-rb3}
+\begin{tabularx}{\textwidth}{@{}Xrrr@{}}
+\toprule
+Recorte da coleta & Particip. & Em $>1$ com. & \% \\
+\midrule
+Artigo: top-100 submissões $\times$ $\sim$200 comentários, com corte de $\geq$20 arestas & 279 & 7 & 3\% \\
+\addlinespace[2pt]
+Universo, sem corte algum & 217.386 & 33.115 & 15,2\% \\
+\addlinespace[2pt]
+\textbf{Universo, sob o mesmo corte de atividade} ($\geq$20 mensagens) & 5.991 & 3.450 & \textbf{57,6\%} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Sob o mesmo corte de atividade, a participação em múltiplas comunidades não é de três
+por cento, e sim de \textbf{57,6\%}, \textbf{dezenove vezes} o valor publicado. A
+maioria dos participantes ativos circula por mais de uma comunidade, e não a minoria.
+A conclusão substantiva do artigo, a de que os papéis são locais, não sobrevive à
+expansão: ela se inverte.
+
+O mecanismo é transparente, e é o que torna este caso instrutivo. Ao restringir a
+coleta às cem submissões mais votadas de cada comunidade, a probabilidade de reencontrar
+o mesmo participante em dois topos distintos torna-se pequena \emph{por construção}. O
+número publicado mede o desenho da coleta, não o comportamento da população. Nada há de
+errado na execução do artigo, e o limiar de vinte que ele aplica é defensável; o que o
+recorte fez foi remover a evidência de que a quantidade de interesse é grande.
+
+\subsection{A curva por limiar, e o que ela isola}
+\label{sec:rb3-curva}
+
+Como o corte de atividade é ele próprio uma decisão, a medida foi refeita ao longo dele,
+o que separa o efeito do limiar do efeito da coleta. A fração de participantes em mais
+de uma comunidade é de 15,2\% sem corte, 32,7\% a partir de duas mensagens, 48,8\% a
+partir de cinco, 55,0\% a partir de dez, 57,6\% a partir de vinte e 56,1\% a partir de
+cinquenta. A Figura~\ref{fig:curva-rb3} mostra o percurso.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{curva_rb3_limiar}
+\caption[Participação em mais de uma comunidade, por limiar]{Participação em mais de uma comunidade no universo dos treze subreddits,
+medida sob cada limiar de atividade. A curva sobe depressa e assenta entre dez e
+cinquenta mensagens, faixa em que se move menos de três pontos percentuais. A linha
+tracejada marca os 3\% publicados pelo artigo: nenhum limiar aplicado ao universo o
+devolve, o que localiza a limitação na coleta e não no corte. Dados em
+\texttt{curva\_rb3.json}; figura gerada por \texttt{figuras/gerar\_figuras.py}.}
+\label{fig:curva-rb3}
+\end{figure}
+
+A medida sobe e assenta: entre dez e cinquenta mensagens ela se move menos de três
+pontos percentuais. Isso responde às duas perguntas do protocolo de modo assimétrico.
+A conclusão \emph{mudou}, drasticamente. E ela \emph{convergiu}, mas a convergência é da
+nossa curva, e o valor do artigo não é recuperável em limiar algum: não há corte de
+atividade que, aplicado ao universo, devolva três por cento. A limitação estava na
+coleta, e não no corte.
+
+Vale o contraste com o primeiro caso executado. Lá, no limiar RTMV do
+Capítulo~\ref{cap:caso-twitter}, o esquema de amostragem enviesava uma estimativa que já
+havia convergido, e coletar mais teria sido dispensável se o esquema fosse não-viesado.
+Aqui o diagnóstico tem o sinal invertido: o esquema não desloca uma estimativa, ele
+\emph{suprime} o fenômeno, e nenhuma correção estatística sobre os 279 participantes
+recuperaria os 57,6\%. São dois modos distintos pelos quais uma decisão de coleta
+governa a conclusão, e a terceira pergunta proposta na Seção~\ref{sec:curva-midia}, a
+de saber se o esquema é não-viesado para a quantidade de interesse, alcança os dois.
+
+\subsection{Ressalvas}
+
+São três as ressalvas, e a primeira é a que mais pesa. O artigo corta por arestas na
+rede de interação,
+com vinte como limiar, ao passo que a réplica corta por mensagens publicadas, com o
+mesmo número. São grandezas próximas mas não idênticas, pois um participante com vinte
+mensagens pode ter menos de vinte arestas. A direção do achado não depende da
+equivalência, uma vez que já em dez mensagens o valor é de 55,0\%, mas a correspondência
+exata entre os dois limiares não está estabelecida. Em segundo lugar, contas
+automatizadas e autoria removida foram excluídas dos dois lados da comparação.
+
+A terceira ressalva é sobre o que este caso testa e o que ele não testa. O artigo
+identifica papéis sociais, mas não publica a lista de quem recebeu cada papel, de
+modo que não há como conferir de fora se a réplica atribuiria os mesmos papéis às
+mesmas pessoas. O que se testou aqui não foi, portanto, a atribuição de papéis, e
+sim a afirmação estrutural de que cada participante atua numa comunidade só. A
+escolha não é um recuo: essa afirmação é a base sobre a qual o artigo conclui que
+os papéis são locais, e, ao contrário dos papéis, ela se conta diretamente a partir
+do que se coletou.
+
+\section{Homofilia: uma reprodução quase exata, e uma decisão invisível}
+
+\citeonline{massachs2020trumpism} perguntam o que prediz, em 2012, que um participante
+do Reddit venha a apoiar Donald Trump em 2016, e comparam três famílias de explicação:
+a homofilia, medida pela participação nas mesmas comunidades; o feedback social, medido
+pela pontuação recebida; e a influência direta, medida pela interação com apoiadores.
+A conclusão é uma \emph{ordenação}: homofilia e feedback social predizem bem, influência
+direta prediz mal.\footnote{Números deste caso provêm do script
+\texttt{analise/mh1\_ponto\_original.py} do projeto companion, sobre o conjunto de dados
+publicado pelos próprios autores.}
+
+O estrato sub-coletado, aqui, não é um topo de popularidade, e sim um grupo focal
+computacional: os 44.924 participantes com ao menos dez comentários em 2012 \emph{e}
+dez em 2016 nos cinquenta e um subreddits políticos considerados. É um recorte de
+persistência, e ele descarta precisamente quem participa pouco, que é a maioria da
+população. A expansão prevista é relaxar esse limiar.
+
+\subsection{O ponto original reproduz}
+
+Diferentemente dos demais alvos deste conjunto, este publica o conjunto de dados
+completo, com a definição operacional de cada família de atributos e do rótulo. Não há
+nada a hidratar, e o ponto de partida é verificável inteiramente fora de linha. A
+verificação confere: 44.924 participantes, dos quais 7.083, ou 15,77\%, recebem o rótulo
+de apoiador, contra os 7.083 e 15,8\% declarados.
+
+A ordenação reproduz com precisão incomum. Nas duas pontas que sustentam a conclusão do
+artigo, a réplica mede 34,6\% de $F_1$ para a homofilia contra os 34,8\% publicados, e
+26,8\% para a influência direta contra 26,7\%, ambas a menos de um quarto de ponto
+percentual. O feedback social fica em 32,4\% contra 33,7\%, e a linha de base aleatória
+em 15,6\% contra 15,2\%. Precisão e revocação do melhor modelo também se aproximam, em
+0,25 e 0,54 contra 0,27 e 0,56.
+
+Duas diferenças pequenas merecem registro. No artigo o melhor modelo combina participação
+e pontuação, ao passo que na réplica a participação sozinha fica marginalmente à frente,
+com 34,6\% contra 34,1\%; e a área sob a curva fica em 0,671 contra 0,70. As duas
+apontam para o mesmo lugar, a seleção de atributos: o artigo declara filtrar por
+correlação e por fator de inflação de variância, mas não publica o limiar do segundo, de
+modo que a réplica seleciona menos e retém atributos redundantes.
+
+Fixado o ponto de partida, qualquer mudança que a expansão viesse a medir seria
+atribuível ao estrato, e não a erro de reimplementação. É o pré-requisito do protocolo,
+e neste caso ele foi cumprido de forma limpa.
+
+\subsection{Uma decisão que não é declarada e domina o resultado}
+
+O achado lateral deste caso é de outra ordem, e converge com o que os demais casos
+deste trabalho encontraram em três outras redes. O artigo não explicita como trata o
+desequilíbrio entre classes, e a classe positiva é de 15,8\%. Reponderando as classes,
+a família de participação rende $F_1$ de 34,6\%; sem reponderar, a mesma família sobre
+os mesmos dados rende \textbf{8,2\%}, porque o modelo passa a quase nunca prever a
+classe positiva.
+
+Não se trata de crítica ao alvo, e a réplica não descobriu um erro: o perfil de precisão
+e revocação que o próprio artigo publica denuncia que houve reponderação, e foi
+justamente por reproduzi-lo que a réplica escolheu essa opção. Trata-se de um exemplo
+particularmente nítido de decisão invisível. O número publicado difere por um fator de
+quatro conforme uma escolha que o texto não menciona, e que só é recuperável por
+engenharia reversa a partir de outra estatística reportada. É o mesmo fenômeno que a
+convenção de contagem de categorias no caso do YouTube, que a numeração das
+categorias de enquadramento no do debate vacinal e que a atribuição dos códigos de
+remoção no do TikTok. Em quatro redes e quatro tipos de análise, a mesma
+constatação.
+
+\subsection{O que este caso não entrega, e por quê}
+
+A expansão não foi executada, e a razão é operacional, não conceitual. Para dimensioná-la
+antes de baixar dados, consultou-se o serviço de agregação que devolve contagens exatas
+sem transferir itens. Numa primeira tentativa, com uma consulta por subreddit e ano,
+vinte das trinta e quatro consultas falharam por esgotamento de tempo, e justamente nas
+comunidades grandes. Numa segunda, mês a mês, todas as trinta e quatro ficaram
+incompletas. O caminho realista é o dos arquivos por subreddit distribuídos via
+Academic Torrents, que é transferência pesada e não coube no prazo desta versão. A
+expansão fica declarada como não executada, com a razão registrada, e não como pendência
+que a próxima sessão de trabalho resolve.
+
+Um incidente de método ocorreu nesse diagnóstico, e vale relatá-lo por ser do tipo
+que esta dissertação se propõe a tornar visível. A primeira versão do script de sondagem somava
+as consultas que respondiam e imprimia o total como se fosse o universo, sem sinalizar
+as que haviam falhado. O número produzido era falso, e falso na direção otimista.
+Corrigido, o script passou a recusar-se a totalizar quando há qualquer falha, e a
+registrar explicitamente que a contagem está incompleta. A segunda tentativa falhou
+honestamente, que é o desfecho correto.
+
+A predição para a expansão fica pré-registrada, como manda o protocolo: espera-se que a
+ordenação se inverta \emph{parcialmente}, com a homofilia caindo mais que a influência
+direta ao incluir os participantes periféricos, porque a participação é atributo denso
+em quem publica muito e se torna esparso na cauda, ao passo que a interação direta já é
+esparsa nos dois regimes. A aposta concreta é que a distância de 7,8 pontos percentuais
+entre as duas pontas encolha para menos de quatro no limiar mínimo.
+
+\section{O que os dois casos acrescentam ao conjunto}
+
+Os dois alvos partilham a rede, o eixo e a natureza da sub-coleta, e chegam a desfechos
+opostos. No primeiro, a conclusão publicada se inverte por uma ordem de grandeza; no
+segundo, o ponto original reproduz a menos de um quarto de ponto percentual. A diferença
+entre eles não está no cuidado dos autores, e sim no que cada recorte remove. O recorte
+de Buntain e Golbeck retém o topo de popularidade de cada comunidade, e a quantidade que
+o artigo mede, a de participar de várias comunidades, é justamente a que o topo torna
+improvável. O recorte de Massachs e colegas retém os participantes persistentes, e a
+quantidade que o artigo mede, a ordenação relativa entre três famílias de preditores, não
+tem razão evidente para depender da persistência.
+
+Formulada assim, a lição é a mesma que o eixo de mídia do primeiro caso executado já
+sugeria e que o debate vacinal confirmou: o que decide não é o tamanho da coleta, e sim
+a relação entre o critério que a recorta e a quantidade que se quer medir. Uma coleta
+pequena pode bastar, e uma coleta grande pode não bastar; o que não se pode é deixar
+essa relação por examinar, que é o que a literatura levantada faz de regra.
+
+Este par de casos é, ainda, o único do conjunto em que a expansão não depende da
+permissão de ninguém. No segundo caso ela ficou por fazer, mas por uma
+razão de outra ordem: os arquivos históricos existem, são públicos e estão ao
+alcance, e o que faltou foi tempo de \emph{download} — são arquivos volumosos,
+distribuídos por torrent, e o prazo desta versão não os comportou. Não é o que
+ocorre no TikTok, onde a porta está fechada por credencial revogada, nem nas
+plataformas da Meta, onde ela está fechada por decisão comercial
+(Seção~\ref{sec:coleta-plataforma}). A diferença é de natureza: uma pendência de
+tempo se resolve esperando; uma pendência de acesso, não. É também por isso que o
+Reddit é o ambiente recomendado a quem queira dar continuidade a este protocolo
+depois desta dissertação.
+% =====================================================================
+\chapter{Quinto Caso Executado: Idosos e Pandemia no YouTube}
 \label{cap:caso-youtube}
 % =====================================================================
 
-Este capítulo relata o terceiro caso levado à execução, e o primeiro fora do
-Twitter/X: a replicação por expansão de~\citeonline{ghenai2025agecovp}, que analisou
+Este capítulo relata o quinto caso levado à execução: a replicação por expansão de~\citeonline{ghenai2025agecovp}, que analisou
 o discurso sobre pessoas idosas durante a pandemia de COVID-19 no YouTube. Ele
-acrescenta ao conjunto uma rede nova e um tipo de análise que ainda não havia sido
-coberto por caso executado, a modelagem de tópicos.
+acrescenta ao conjunto uma rede nova e uma sub-coleta de natureza também nova, que
+não é de volume nem de estrato de engajamento, e sim da \emph{forma} do critério que
+decide o que entra no corpus.
 
-A escolha do alvo foi determinada pela \emph{rota de coleta}, não pela citação, e o
-critério merece registro porque é, ele mesmo, um achado. Das três redes ainda
-pendentes no conjunto de casos, duas se mostraram inviáveis por motivos externos ao
-mérito científico: o acesso à Ad Library da Meta exige conta com documento
-verificado, e a credencial de pesquisa do TikTok disponível ao grupo havia sido
-revogada silenciosamente entre junho de 2025 e agosto de 2026. A API de dados do
-YouTube, ao contrário, permanece gratuita, é obtida em minutos e não exige
-verificação. Além disso, o objeto persiste: vídeos e comentários publicados em 2020
-continuam recuperáveis em 2026, o que distingue este caso de estudos sobre
-\emph{recomendação}, cujo instrumento é o próprio algoritmo e não sobrevive à
-passagem do tempo.
-
-\paragraph{Ressalva de tração.} O artigo replicado foi publicado em agosto de 2025 e
-ainda não acumulou citações. Não se trata de escolha descuidada: entre os dezoito
-trabalhos de YouTube do levantamento que declaram amostragem, todos são de 2025 ou
-2026, e o mais citado reúne três citações. Análise computacional de YouTube com
-sub-coleta declarada e tração bibliométrica não coexistem hoje. O critério que
-restou foi o veículo, e a \emph{EPJ Data Science} é periódico revisado por
-pares.\footnote{Números deste capítulo provêm dos scripts
+A escolha do alvo foi determinada pela \emph{rota de coleta}, e não pela citação. A
+API de dados do YouTube permanece gratuita, é obtida em minutos e não exige
+verificação de identidade, o que a coloca entre as poucas rotas ainda abertas
+(Seção~\ref{sec:coleta-plataforma}). Além disso, o objeto persiste: vídeos e
+comentários publicados em 2020 continuam recuperáveis em 2026, o que distingue este
+caso de estudos sobre \emph{recomendação}, cujo instrumento é o próprio algoritmo e
+não sobrevive à passagem do tempo.\footnote{Números deste capítulo provêm dos scripts
 \texttt{analise/fase2\_ponto\_original.py}, \texttt{analise/fase3\_efeito\_filtro.py}
 e \texttt{analise/fase3\_no\_tema.py} do projeto companion do caso, sobre o conjunto
 de dados publicado pelos autores e sobre um instantâneo próprio de coleta.}
@@ -721,17 +1566,29 @@ de dados publicado pelos autores e sobre um instantâneo próprio de coleta.}
 
 Os autores cruzaram dezessete termos relativos a pessoas idosas com cinco relativos à
 pandemia, totalizando oitenta e cinco buscas, e recolheram até seiscentos resultados
-de cada uma. Desse ponto em diante, a coleta é sucessivamente filtrada:
+de cada uma. Desse ponto em diante, a coleta é sucessivamente filtrada, e a
+Tabela~\ref{tab:youtube-funil} mostra quanto cada etapa descarta.
 
-\begin{itemize}
-  \item das 6.997 respostas iniciais, mantêm-se as 3.353 em que a palavra buscada
-  \emph{reaparece no título ou na descrição} do vídeo, descartando 52\%;
-  \item para cada vídeo mantido, coletam-se os vídeos sugeridos pela plataforma,
-  104.172 ao todo, dos quais o mesmo critério de palavra-chave preserva 1.025,
-  descartando 99\%;
-  \item a união passa por um filtro de idioma e resulta nos 3.782 vídeos finais, com
-  2.243 canais e 69.425 comentários.
-\end{itemize}
+\begin{table}[htbp]
+\centering\footnotesize
+\caption[O funil de coleta do artigo replicado]{O funil de coleta do artigo replicado. As duas etapas de descarte usam o
+mesmo critério, o de que a palavra buscada reapareça no título ou na descrição do
+vídeo. É esse critério, de \emph{forma} e não de assunto, que o caso põe à prova.}
+\label{tab:youtube-funil}
+\begin{tabularx}{\textwidth}{@{}Xrrr@{}}
+\toprule
+Etapa & Entram & Ficam & Descarte \\
+\midrule
+Respostas das 85 buscas, filtradas por palavra-chave & 6.997 & 3.353 & 52\% \\
+\addlinespace[2pt]
+Vídeos sugeridos pela plataforma a partir dos mantidos, sob o mesmo filtro & 104.172 & 1.025 & 99\% \\
+\addlinespace[2pt]
+União dos dois ramos, após o filtro de idioma & 4.378 & 3.782 & 14\% \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent Os 3.782 vídeos finais reúnem 2.243 canais e 69.425 comentários.
 
 O critério que governa as duas etapas é de \emph{forma}, não de assunto: exige que o
 texto do vídeo repita a palavra da busca. É filtragem por critério no sentido exato
@@ -739,7 +1596,7 @@ do levantamento, e a hipótese que organiza este caso é que ela não seleciona 
 acaso. Quem redige título repetindo a palavra-chave é, tipicamente, veículo de
 imprensa; quem publica um relato pessoal sobre a avó doente não escreve assim.
 
-A expansão, aqui, é soltar esse filtro. Recolheram-se as mesmas buscas guardando
+A expansão, aqui, é soltar esse filtro. A réplica refez as mesmas buscas guardando
 \emph{todos} os resultados e registrando a aprovação no filtro como atributo, e não
 como critério de exclusão, de modo que o mesmo instantâneo sirva aos dois lados da
 comparação.
@@ -748,20 +1605,29 @@ comparação.
 
 Antes de expandir, é preciso saber reproduzir. Os autores publicaram o conjunto
 completo, o que permitiu verificar o ponto original sem consumir coleta nova. Das
-afirmações verificáveis, duas se reproduzem e uma se reproduz pela metade.
+afirmações verificáveis, duas se reproduzem e uma se reproduz pela metade, como
+resume a Tabela~\ref{tab:youtube-ponto}.
 
-A composição por categoria de canal reproduz a menos de dois pontos percentuais,
-mas somente sob uma convenção que o artigo não declara: contar apenas a primeira
-categoria de cada canal. As demais convenções plausíveis, contar cada canal em todas
-as suas categorias ou contar atribuições, erram entre vinte e sete e setenta e cinco
-pontos percentuais. A afirmação comparativa central, a de que os comentários são mais
-negativos que os vídeos, reproduz com folga larga: a toxicidade média dos comentários
-é setenta e quatro vezes a dos vídeos. Já a distribuição de sentimento reproduz em
-uma das duas bibliotecas empregadas e não na outra, e a distância na segunda depende
-de um limiar de neutralidade que o artigo também não publica.
-
-O padrão que emerge das três verificações é uniforme e vale registrar: onde houve
-divergência, a causa foi sempre a mesma, um parâmetro de convenção deixado implícito.
+\begin{table}[htbp]
+\centering\footnotesize
+\caption[Reprodução do ponto original sobre os dados publicados pelos autores]{Reprodução do ponto original sobre o conjunto de dados publicado pelos
+próprios autores. Onde houve divergência, a causa foi sempre a mesma: um parâmetro
+de convenção deixado implícito no artigo.}
+\label{tab:youtube-ponto}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{2.2cm}X@{}}
+\toprule
+Afirmação do artigo & Reproduz? & Sob que condição \\
+\midrule
+Composição do corpus por categoria de canal & sim, a $<$2 p.p. & apenas contando somente a primeira categoria de cada canal; as outras duas convenções plausíveis erram de 27 a 75 p.p. \\
+\addlinespace[2pt]
+Os comentários são mais negativos que os vídeos & sim, com folga & a toxicidade média dos comentários é 74 vezes a dos vídeos; nenhuma convenção testada inverte o sinal \\
+\addlinespace[2pt]
+Distribuição de sentimento dos vídeos & pela metade & reproduz numa das duas bibliotecas e não na outra, e a distância na segunda depende de um limiar de neutralidade não publicado \\
+\addlinespace[2pt]
+O corpus é dominado por veículos de imprensa & sem veredito & o artigo afirma as duas coisas opostas (próxima seção) e não publica os rótulos que decidiriam \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \section{Uma afirmação sem valor de verdade determinado}
 
@@ -771,32 +1637,34 @@ de usuário comum, e usa essa leitura para explicar dois resultados distintos, o
 sentimento positivo dos vídeos e sua baixa toxicidade. Ao procurar a regra que
 separa as duas categorias, encontrou-se não a regra, mas uma contradição interna.
 
-Ao relatar a rotulagem manual, o artigo afirma que \emph{menos de 7\% dos vídeos
-eram conteúdo copiado, e não conteúdo de usuário}, o que implica que mais de 93\%
-seriam de usuário. A frase imediatamente seguinte afirma o contrário, que o conjunto
-é dominado por vídeos originalmente veiculados na televisão e que pouquíssimos foram
-criados por usuários. Adiante, na seção de sentimento, o mesmo número reaparece
-invertido, agora atribuindo aos usuários a fatia inferior a 7\%. As estatísticas de
-canal, que registram predomínio de canais pequenos, apoiam a primeira leitura; a
-seção de toxicidade, que atribui a moderação da linguagem aos veículos, apoia a
-segunda.
+Ao relatar a rotulagem manual, o artigo escreve que \emph{menos de 7\% dos vídeos
+eram conteúdo copiado, e não conteúdo de usuário}, o que implica mais de 93\% de
+conteúdo de usuário. Tomada isoladamente, a frase se leria como um lapso de redação,
+e não valeria registro. O que impede lê-la assim é que as duas leituras opostas
+aparecem duas vezes cada uma, e que cada uma delas sustenta uma parte distinta do
+argumento. A frase imediatamente seguinte diz o contrário, que o conjunto é dominado
+por vídeos originalmente veiculados na televisão e que pouquíssimos foram criados por
+usuários; adiante, na seção de sentimento, o mesmo número reaparece invertido, agora
+atribuindo aos usuários a fatia inferior a 7\%. Do outro lado, as estatísticas de
+canal, que registram predomínio de canais pequenos, apoiam a primeira leitura,
+enquanto a seção de toxicidade, que atribui a moderação da linguagem aos veículos,
+apoia a segunda. Não há, portanto, uma versão principal e um erro de digitação: há
+duas descrições do corpus, cada uma amparada por outra parte do texto.
 
-Os rótulos que decidiriam a questão foram produzidos manualmente, vídeo a vídeo, e
-não integram o conjunto publicado. A afirmação, portanto, não é adjudicável de fora.
-Uma medição independente, conduzida aqui com regra declarada, situa o conteúdo de
-usuário em 32\% do corpus, valor incompatível com qualquer das duas versões
-publicadas.
-
-O caso não é isolado. No debate vacinal, o corpo do artigo descreve onze categorias
-de enquadramento enquanto o material suplementar numera catorze. Nos anúncios de
-imigração, o total de impressões relatado não se recompõe a partir da planilha que o
-próprio artigo publica. Em três redes e três tipos de análise, o mesmo fenômeno: o
-número publicado depende de uma decisão que não foi publicada. É um achado sobre
-reprodutibilidade que não depende de coletar nada, e que a lente ``coletar mais''
-tornou visível por acidente, ao exigir que cada afirmação fosse operacionalizada
-antes de ser testada.
+O que faz isso importar não é o deslize de redação, e sim o uso que o artigo dá à
+afirmação. Ela aparece como \emph{explicação} de dois resultados, o sentimento
+positivo dos vídeos e a toxicidade baixa, e essas explicações só funcionam sob uma
+das duas leituras. Os rótulos que decidiriam a questão foram produzidos manualmente,
+vídeo a vídeo, e não integram o conjunto publicado, de modo que a afirmação não é
+adjudicável de fora. Uma medição independente, conduzida aqui com regra declarada,
+situa o conteúdo de usuário em 32\% do corpus, valor incompatível com qualquer das
+duas versões publicadas. A consequência prática para este capítulo é que a
+composição do corpus teve de ser medida do zero, com regra própria e declarada, e é
+essa medição que a seção seguinte usa.
 
 \section{O efeito do filtro}
+
+\subsection{Por que a comparação óbvia não serve}
 
 A comparação ingênua entre o que o filtro aprova e o que ele descarta é enganosa, e
 a primeira rodada deste caso caiu nessa armadilha. Entre os vídeos descartados
@@ -809,20 +1677,37 @@ motivo espúrio.
 A comparação foi então refeita apenas entre vídeos que passam por um teste de tema
 independente, exigindo menção a pessoas idosas \emph{e} à pandemia. O teste foi
 validado sobre o próprio corpus do artigo, que ele aprova em 99,9\%. Restrita ao
-tema, a medição separa dois efeitos que estavam sobrepostos:
+tema, a medição separa dois efeitos que estavam sobrepostos.
+
+\subsection{O que o filtro de palavra-chave faz, e o que ele não faz}
+
+Restrito ao tema, o filtro se comporta assim:
 
 \begin{description}[leftmargin=1.5em,style=nextline]
-  \item[O filtro é, em boa medida, limpeza legítima.] Ele descarta 91,4\% dos vídeos
-  fora do tema e apenas 25,0\% dos que estão no tema. A objeção genérica de que
+  \item[O filtro é, em boa medida, limpeza legítima.] Ele descarta 90,3\% dos vídeos
+  fora do tema e apenas 30,5\% dos que estão no tema. A objeção genérica de que
   descarta demais não se sustenta.
-  \item[Mas o resíduo é substantivo.] Dos vídeos descartados, 19,5\% estão no tema.
-  Um em cada cinco descartes é perda de conteúdo pertinente.
-  \item[E o descarte é enviesado na direção prevista.] Entre os vídeos no tema, e sob
-  uma mesma regra aplicada aos dois lados, o conteúdo de usuário responde por 30,9\%
-  do que o filtro aprova e por 38,8\% do que ele descarta, diferença de 7,9 pontos
-  percentuais. O filtro remove sistematicamente mais conteúdo de usuário comum do que
-  preserva.
+  \item[Mas o resíduo é substantivo.] Dos vídeos descartados, 23,0\% estão no tema.
+  Quase um em cada quatro descartes é perda de conteúdo pertinente.
+  \item[E o descarte não é enviesado na direção prevista.] Entre os vídeos no tema, e
+  sob uma mesma regra aplicada aos dois lados, o conteúdo de usuário responde por
+  39,0\% do que o filtro aprova e por 32,7\% do que ele descarta. A diferença é de
+  $-6{,}4$ pontos percentuais, com intervalo de confiança de 95\% entre $-11{,}4$ e
+  $-1{,}4$: o filtro remove \emph{menos} conteúdo de usuário do que preserva, e não
+  mais. O sinal se mantém sob cinco limiares distintos da regra e é confirmado sem
+  limiar algum, pela mediana de inscritos do canal, de 28 mil entre os aprovados
+  contra 61,5 mil entre os descartados.
 \end{description}
+
+Este resultado corrige a versão anterior desta medição, feita sobre metade das buscas
+e sobre a caracterização de canais que o conjunto publicado permitia, e que apontava
+na direção oposta, de 7,9 pontos percentuais. A correção veio de duas providências: a
+coleta se completou, e os 2.165 canais do instantâneo passaram a ser caracterizados
+pela própria interface de dados da plataforma, o que elevou a cobertura de dois terços
+para a totalidade. A predição registrada antes da medição, de que o filtro removeria
+conteúdo de usuário, portanto \emph{falha}.
+
+\subsection{O funil inteiro, que é onde o efeito está}
 
 A consequência substantiva desse último ponto merece desenvolvimento, por ser a
 afirmação mais forte que este capítulo faz sobre o trabalho replicado.
@@ -839,42 +1724,80 @@ neutra''. Em ambos os casos, portanto, a composição do corpus opera como causa
 explicativa, e é tratada como propriedade do que se encontra na plataforma quando se
 observa esse assunto.
 
-Ocorre que essa composição é, em parte, produto da regra de seleção do próprio estudo.
-Exigir que a palavra buscada reapareça no título ou na descrição privilegia uma
-prática de redação editorial: um veículo intitula ``Coronavirus: elderly care homes
-face crisis'', ao passo que quem publica o relato de uma avó adoecida intitula ``my
-grandma's story''. O critério, sem que essa fosse a intenção, tem mais chance de
-aprovar o primeiro. A medição da seção anterior quantifica esse efeito: restrita aos
-vídeos que tratam do assunto, e portanto livre do ruído que contaminaria a comparação,
-a fatia de conteúdo de usuário é de 30,9\% entre os vídeos que o filtro aprova e de
-38,8\% entre os que ele descarta. O material descartado é sistematicamente mais
-autoral.
+Ocorre que essa composição é, em larga medida, produto do procedimento de coleta do
+próprio estudo. A evidência disso não está no filtro de palavra-chave, como esta
+dissertação supôs e testou, e sim no funil tomado como um todo. Entre os 1.615 vídeos
+que tratam do assunto e que as mesmas oitenta e cinco buscas devolvem, aqueles cujo
+canal terminou no corpus publicado são conteúdo de usuário em 23,5\% dos casos;
+aqueles cujo canal não terminou, em 61,7\%. A diferença é de 38,3 pontos percentuais,
+com intervalo de confiança de 95\% entre 33,5 e 43,0, e reaparece sem depender de
+regra alguma de classificação: o canal mediano do corpus publicado tem 199 mil
+inscritos, e o canal mediano do que ficou de fora tem 1.070, duas ordens de grandeza
+de distância. A Figura~\ref{fig:youtube-filtro} põe as duas comparações lado a lado,
+e é a leitura mais curta deste capítulo: o filtro que se foi testar quase não
+seleciona, e o funil de que ele faz parte seleciona muito.
 
-Segue-se que atribuir a moderação da linguagem à natureza do corpus é atribuí-la, em
-alguma medida, à própria decisão de coleta. Não se trata de erro de execução, e sim de
-um efeito que os autores não tinham como observar, uma vez que o material descartado
-não foi caracterizado. Mantém-se, porém, a qualificação: a circularidade é
-\emph{parcial}, e por três razões. O filtro não é a única causa da predominância
-institucional, pois o próprio ordenamento de busca do YouTube favorece canais
-estabelecidos e veículos de imprensa efetivamente produziram grande volume de conteúdo
-sobre pandemia e envelhecimento; a diferença medida, de 7,9 pontos percentuais, indica
-direção com segurança mas não sustenta a afirmação de que o corpus se inverteria sem o
-filtro; e a caracterização de canais alcançou 165 canais do lado descartado contra 531
-do lado aprovado, o que torna a magnitude imprecisa. O que a evidência sustenta é que
-parte da propriedade usada como explicação foi produzida pelo procedimento que a
-mediu.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{youtube_filtro_funil}
+\caption[Fatia de conteúdo de usuário dos dois lados do filtro]{Fatia de conteúdo de usuário, medida sob a mesma regra e apenas entre os
+1.615 vídeos que passam por um teste de tema independente. Em (a), o filtro de
+palavra-chave, que era a hipótese deste capítulo: ele descarta \emph{menos} conteúdo
+de usuário do que preserva, e a predição registrada antes falha. Em (b), o funil de
+coleta tomado como um todo, comparando os vídeos cujo canal terminou no corpus
+publicado com os vídeos cujo canal não terminou: aí a distância é de 38,3 pontos
+percentuais. Dados em \texttt{fase3\_ugc\_completo.json}; figura gerada por
+\texttt{figuras/gerar\_figuras.py}.}
+\label{fig:youtube-filtro}
+\end{figure}
 
-Registre-se que a segunda predição, sobre a composição por categoria de canal,
-falhou também no recorte temático, e permanece sem causa atribuída.
+O corpus analisado é, portanto, drasticamente mais institucional que a população que
+as buscas do próprio artigo alcançam. Atribuir a moderação da linguagem à natureza do
+corpus é atribuí-la, em alguma medida, à decisão de coleta. Não se trata de erro de
+execução, e sim de um efeito que os autores não tinham como observar, uma vez que o
+material descartado não foi caracterizado.
+
+\subsection{O mecanismo, que não se isolou}
+
+O que a medição \emph{não} sustenta é a identificação do mecanismo. A hipótese natural,
+e a que este capítulo perseguiu, era a de que exigir a repetição da palavra buscada no
+título privilegiasse a redação editorial: um veículo intitula ``Coronavirus: elderly
+care homes face crisis'', ao passo que quem publica o relato de uma avó adoecida
+intitula ``my grandma's story''. A hipótese é plausível e foi testada; ela não se
+confirma. Dentro de cada um dos dois estratos o filtro quase não altera a composição, e
+a altera na direção contrária, em $-3{,}5$ e $-11{,}1$ pontos percentuais. Restam como
+candidatos, sem que a evidência disponível permita decidir entre eles, o ramo dos
+vídeos sugeridos, que é o maior funil do estudo e descarta 99\%, a profundidade da
+busca, e o filtro de idioma aplicado à união. O primeiro é justamente o ramo
+irreproduzível, pelas razões da última seção deste capítulo.
+
+Mantém-se, com isso, a qualificação de que a circularidade é \emph{parcial}, mas por
+razão diferente da que se supunha. Ela não é parcial por pequenez do efeito, que é
+grande, e sim por indeterminação de causa: o ordenamento de busca da plataforma
+favorece canais estabelecidos por conta própria, e veículos de imprensa efetivamente
+produziram grande volume de conteúdo sobre pandemia e envelhecimento. Uma parte da
+distância medida é seleção do estudo e outra é propriedade da plataforma, e o material
+publicado não permite separá-las. O que a evidência sustenta com segurança é que parte
+da propriedade usada como explicação foi produzida pelo procedimento que a mediu.
+
+As duas predições registradas antes da medição falharam: a da
+composição por categoria de canal, que permanece sem causa atribuída, e a do filtro
+como mecanismo de institucionalização do corpus, refutada acima. O achado que
+substitui a segunda é maior do que ela previa e está localizado em outro lugar do
+funil.
 
 \section{Limites deste caso}
 
 Três limites devem acompanhar qualquer leitura dos números acima. O primeiro é de
-completude: a coleta própria cobre cinquenta das oitenta e cinco buscas e duas das
-doze páginas por busca, o que torna as proporções mais confiáveis que as contagens
-absolutas. O segundo é de precisão: do lado descartado, apenas 165 canais puderam ser
-caracterizados, contra 531 do lado aprovado, de modo que a diferença de 7,9 pontos é
-direcionalmente confiável e numericamente imprecisa.
+completude: a coleta própria cobre as oitenta e cinco buscas, mas apenas duas das doze
+páginas de cada uma, o que torna as proporções mais confiáveis que as contagens
+absolutas e faz com que o instantâneo alcance 14,6\% do corpus publicado. O segundo é
+de comparabilidade: a caracterização de canais é agora completa, com os 2.165 canais
+do instantâneo obtidos diretamente da plataforma, mas os valores de inscritos são de
+2026 e os do conjunto publicado são de 2020, de modo que comparações entre as duas
+fontes medem também o crescimento dos canais no intervalo. Todas as comparações
+relatadas acima usam uma fonte única para os dois lados, o que neutraliza esse ponto
+sem eliminá-lo como ressalva.
 
 O terceiro é de natureza diferente e merece ênfase. O ramo mais espetacular do funil,
 o dos vídeos sugeridos, com seus 99\% de descarte, \emph{não é reproduzível}: o
@@ -884,15 +1807,17 @@ ser refeita. A janela de replicabilidade de um estudo de rede social não é ape
 estreita; ela se fecha, e às vezes antes mesmo da publicação.
 
 % =====================================================================
-\chapter{Um Quarto Caso, Parcial: Deleção de Conteúdo Político no TikTok}
+\chapter{Um Sexto Caso, Parcial: Deleção de Conteúdo Político no TikTok}
 \label{cap:caso-tiktok}
 % =====================================================================
 
-Este capítulo relata um caso de natureza diferente dos três anteriores. Ele não
+Este capítulo relata um caso de natureza diferente dos cinco anteriores. Ele não
 executa o eixo ``coletar mais'', porque a coleta em TikTok não estava disponível, e
 ainda assim produz dois resultados: a reprodução do ponto original de um trabalho
-publicado e a identificação de um eixo de variação que o protocolo desta dissertação
-não previa. Entra no conjunto por isso, e com o rótulo de parcial.
+publicado e a incorporação, ao protocolo desta dissertação, de um eixo de variação
+que ele não previa --- e que, como a Seção~\ref{sec:tiktok-eixo} faz questão de
+registrar, o próprio artigo-alvo já documenta. Entra no conjunto por isso, e com o
+rótulo de parcial.
 
 \section{Como a célula foi preenchida sem coleta}
 
@@ -900,7 +1825,7 @@ A rota de coleta do TikTok estava fechada. A API de pesquisa da plataforma exige
 credencial concedida por projeto e prazo determinado; a credencial disponível ao
 laboratório havia sido revogada em algum ponto entre junho de 2025 e agosto de 2026,
 sem aviso, e o coletor institucional seguia em execução sem coletar nada. Pedir
-credencial nova leva semanas.
+credencial nova, e obtê-la, não foi possível dentro do tempo desta pesquisa.
 
 O impasse foi contornado invertendo a pergunta. Em vez de perguntar como coletar do
 TikTok, perguntou-se que trabalho sobre TikTok publica dados suficientes para ser
@@ -913,7 +1838,27 @@ humanas de um subconjunto. Os autores não liberam mídia nem texto, mas o que l
 basta para verificar as afirmações centrais, todas relativas a quanto do corpus
 desapareceu da plataforma.
 
+Convém dizer o que o alvo se propõe a fazer, porque disso depende o que uma réplica
+pode acrescentar. \citeonline{ruiz2025politok} é um artigo de conjunto de dados: ele
+monta, documenta e publica um corpus de publicações políticas de TikTok em duas
+eleições alemãs, e o resultado que oferece é a caracterização desse corpus. A sua
+afirmação de maior peso é a de que uma fatia grande do material político desaparece
+da plataforma nos meses seguintes à eleição --- 18,7\% na coleta estadual e 39,7\% na
+federal ---, e de que cerca de dois terços dessas remoções são retirada pelo próprio
+autor, e não moderação da plataforma. Para sustentá-la, os autores reverificaram os
+mesmos posts em datas sucessivas e publicaram o estado de cada post em cada data.
+É esse artefato, e não o texto dos vídeos, que torna o alvo replicável sem coleta.
+
+Convém dizer com todas as letras o que isso significa e o que não significa. Não
+houve expansão: nada foi coletado além do que os próprios autores publicaram, e
+este caso \emph{não} responde à pergunta ``coletar mais muda a conclusão?''. O que
+ele faz é reproduzir o ponto original a partir de material de terceiros e, com base
+num artefato que esse material oferece, medir uma outra coisa, de que trata a
+Seção~\ref{sec:tiktok-eixo}. O que fica por fazer, e por que não se contornou a
+porta fechada de outro modo, está na Seção~\ref{sec:tiktok-nao-entrega}.
+
 \section{O que se reproduz}
+\label{sec:tiktok-reproduz}
 
 Das sete afirmações quantitativas do artigo, seis se reproduzem, quatro delas de
 forma exata. Reproduzem-se o volume total, as taxas de deleção das duas coletas
@@ -935,68 +1880,121 @@ Como 300 dos 360 posts anotados receberam mais de uma anotação, contar por pos
 voto majoritário desloca a intolerância de 20,5\% para 16,1\%. A conclusão qualitativa
 sobrevive nas duas convenções; o número, não.
 
-\section{O eixo que o protocolo não previa}
+\section{O eixo temporal: o que o alvo mostra, e o que o protocolo não previa}
+\label{sec:tiktok-eixo}
 
-O achado próprio deste caso vem de um artefato que o conjunto de dados oferece e que
-nenhum dos casos anteriores possuía: a coleta da Saxônia foi verificada em três datas
-distintas, sobre exatamente as mesmas publicações.
+O resultado desta seção precisa ser atribuído com cuidado, porque metade dele é do
+artigo-alvo. A coleta da Saxônia foi verificada em três datas distintas sobre exatamente
+as mesmas publicações, e os autores não apenas publicam esses estados como os analisam:
+um apêndice do artigo traz o painel dos 102.953 posts reverificados em todos os
+horizontes e conclui, com todas as letras, que a fatia deletada cresce quanto mais se
+espera. Não há, portanto, descoberta a reivindicar quanto ao \emph{fato}. O que se
+reivindica aqui é outra coisa, e vem depois da tabela.
+
+A primeira contribuição é de verificação: o painel refeito sobre os dados publicados
+reproduz o do artigo (Tabela~\ref{tab:tiktok-temporal}), exatamente nos dois primeiros
+horizontes e a 0,4 ponto percentual no terceiro --- diferença atribuível ao tratamento
+dos poucos posts cujo estado retornou erro, que o artigo não declara, no mesmo padrão de
+convenção não publicada que a Seção~\ref{sec:tiktok-reproduz} já encontrou duas vezes.
 
 \begin{table}[htbp]
 \centering
-\caption{Taxa de deleção do mesmo conjunto de publicações, por data de verificação}
+\caption[Taxa de deleção, por data de verificação]{Taxa de deleção do mesmo conjunto de publicações da Saxônia, por data de
+verificação.}
 \label{tab:tiktok-temporal}
-\begin{tabular}{lrr}
+\begin{tabular}{llrr}
 \toprule
-Data da verificação & Dias após a eleição & Deletados \\
+Verificação & Após a eleição & Painel refeito & Painel do artigo \\
 \midrule
-02/out/2024 & 31  & 6,3\% \\
-10/dez/2024 & 100 & 17,3\% \\
-13/jan/2025 & 134 & 18,7\% \\
+02/out/2024 & 1 mês      & 6,3\%  & 6,3\%  \\
+10/dez/2024 & 3 meses    & 17,4\% & 17,4\% \\
+13/jan/2025 & 4,5 meses  & 20,9\% & 20,5\% \\
 \bottomrule
 \end{tabular}
+
+\vspace{2pt}
+{\footnotesize \textit{Notas.} Painel é o conjunto de posts com estado válido nas
+\emph{três} datas: 100.926 posts aqui, 102.953 no artigo. Dados em
+\texttt{fase2\_politok.json}.\par}
 \end{table}
 
-Os valores da Tabela~\ref{tab:tiktok-temporal} são calculados sobre as publicações
-efetivamente reverificadas em cada data. A ressalva importa: nas duas primeiras
-verificações, cerca de 46\% do conjunto não foi reverificado, e tomar o total como
-denominador subestimaria a taxa, produzindo a série 3,3\%, 9,5\% e 18,7\%.
+A escolha da base não é detalhe. Cerca de 46\% da coleta não foi reverificada nas duas
+primeiras datas, de modo que há três séries possíveis sobre o mesmo dado: a do painel,
+acima; a dos posts efetivamente reverificados em cada data, que dá 6,3\%, 17,3\% e
+18,9\%; e a que toma a coleta inteira como denominador, que dá 3,3\%, 9,5\% e 18,7\%.
+Só a primeira é uma curva, porque só nela o denominador não muda de um ponto para o
+outro. As outras duas misturam bases, e a terceira faz o crescimento parecer bem maior
+do que ele é --- um lembrete de que o problema de escolher a base de comparação, que
+atravessa todos os casos deste trabalho, também se aplica a ele próprio.
 
-A leitura é direta e não depende da escolha de denominador. O denominador é o mesmo
-nas três datas, e nenhuma publicação foi acrescentada entre elas; ainda assim a
-quantidade medida triplica em pouco mais de três meses. Não se trata de coletar mais,
-mas de \emph{coletar depois}. Dois trabalhos que aplicassem o mesmo procedimento ao
-mesmo corpus, um em outubro e outro em janeiro, publicariam 6,3\% e 18,7\%, e ambos
-estariam corretos.
+O que este caso acrescenta, então, não é o fato, e sim a consequência dele para o
+protocolo. As três datas formam uma curva, e uma curva admite as duas perguntas que
+este trabalho vinha fazendo apenas ao volume. A primeira responde-se de imediato: entre
+a primeira e a última verificação a taxa mais que triplica sem que uma única publicação
+tenha sido acrescentada ao corpus. Dois trabalhos que aplicassem o mesmo procedimento ao
+mesmo corpus, um em outubro e outro em janeiro, publicariam 6,3\% e 20,9\%, e ambos
+estariam corretos. Não se trata de coletar mais, mas de \emph{coletar depois}.
 
-Mais interessante que a magnitude é a forma. O salto ocorre entre a primeira e a
-segunda verificação; entre a segunda e a terceira o movimento é de 1,4 ponto. A
-medida sobe rápido e assenta, que é exatamente o comportamento das curvas de volume
-construídas nos casos anteriores. O eixo temporal tem, portanto, sua própria curva de
-convergência, e admite a mesma pergunta que o protocolo já faz ao volume: a partir de
-quando a medida estabiliza.
+A segunda pergunta não se responde, e é instrutivo que não se responda. O crescimento
+desacelera --- 11,1 pontos percentuais entre a primeira e a segunda verificação, 3,5
+entre a segunda e a terceira ---, o que sugere a mesma forma das curvas de volume dos
+capítulos anteriores. Mas a coleta federal do mesmo artigo, verificada uma única vez
+dezesseis meses depois da eleição, marca 39,7\%, quase o dobro do que a estadual marca
+aos quatro meses e meio. Ou as duas eleições não são comparáveis --- e o próprio artigo
+adverte que não as compara diretamente, justamente por terem horizontes distintos ---,
+ou a curva temporal não havia assentado em lugar nenhum aos quatro meses e meio. Não há
+como decidir entre as duas leituras com o que está publicado, e a resposta honesta é que
+a convergência no eixo temporal fica em aberto. Vale registrar a assimetria: a pergunta
+``mudou?'' se responde com uma única coleta reverificada, ao passo que a pergunta ``já
+havia assentado?'' exigiria reverificações que se estendessem até a medida parar de
+subir --- e ninguém sabe de antemão quando isso é.
 
 Isso amplia o quadro que os casos anteriores vinham desenhando. O debate vacinal
 mostrou que volume e largura de filtro são eixos independentes, que podem responder em
 direções opostas. O caso do YouTube acrescentou a forma do critério de seleção. Este
-acrescenta o momento. São quatro decisões de coleta que governam o resultado
-publicado, e apenas a primeira é rotineiramente reportada. Para conclusões sobre
-conteúdo que a plataforma modera, a data da coleta não é detalhe de procedimento: é
-parte da definição da quantidade medida.
+acrescenta o momento. São quatro decisões de coleta que governam o resultado publicado,
+e apenas a primeira é rotineiramente reportada. Para conclusões sobre conteúdo que a
+plataforma modera, a data da coleta não é detalhe de procedimento: é parte da definição
+da quantidade medida.
 
-\section{O que este caso não entrega}
+\section{O que este caso não entrega, e por que ainda assim entra}
+\label{sec:tiktok-nao-entrega}
 
-Não entrega o eixo central do protocolo. Sem acesso de coleta, não há expansão a
-executar, e as colunas ``mudou?'' e ``convergiu?'' da tabela consolidada permanecem
-vazias no que diz respeito ao volume. O que o caso oferece no lugar é a reprodução do
-ponto original e o eixo temporal, ambos obtidos exclusivamente a partir de material
-publicado.
+O que falta vem primeiro. Este caso não executa o eixo central do protocolo. Sem
+acesso de coleta não há expansão a realizar, e as colunas ``mudou?'' e
+``convergiu?'' da tabela consolidada permanecem vazias no que diz respeito ao
+volume. O que o caso oferece no lugar é a reprodução do ponto original e o eixo
+temporal, ambos obtidos exclusivamente a partir de material publicado.
 
-Aplica-se aqui a mesma ressalva de tração já declarada para o caso do YouTube: o
-trabalho replicado é de 2025 e ainda não acumulou citações. Vale, ademais, o registro
-de que a viabilidade deste caso decorreu inteiramente de uma decisão dos autores
-originais, a de publicar identificadores e estados de disponibilidade sob licença
-aberta. Sem essa decisão, a célula permaneceria vazia, e não por falta de mérito do
-alvo.
+Cabe perguntar por que a porta fechada não foi contornada por outra via, já que
+raspar páginas públicas é tecnicamente possível e o próprio laboratório chegou a
+manter um coletor desse tipo antes de migrar para a API oficial. São três as
+razões, e a terceira é a decisiva. A primeira é que a raspagem contraria os termos
+de uso da plataforma, o que descaracterizaria a coleta como procedimento que
+terceiros possam repetir e declarar, que é o que o protocolo exige da sua primeira
+fase. A segunda é que uma coleta feita agora não seria comparável à dos autores: o
+corpus deles é de 2024 e 2025, e tanto a base de publicações quanto o mecanismo de
+busca da plataforma mudaram desde então. A terceira é que a quantidade que este
+caso mede é justamente \emph{o que desapareceu}. Um raspador de 2026 alcança apenas
+o que sobreviveu à moderação e à retirada pelos próprios autores, de modo que
+coletar mais agora não acrescentaria material ao que se quer medir: removeria dele
+exatamente a parte em questão. Neste caso, coletar depois é coletar menos, e é o
+que a própria Tabela~\ref{tab:tiktok-temporal} demonstra.
+
+O caso permanece no conjunto por três razões. A primeira é que a reprodução do
+ponto original é, ela mesma, resultado, e foi feita: seis das sete afirmações
+quantitativas do artigo se reproduzem, quatro delas de forma exata. A segunda é que
+ele acrescenta ao protocolo um eixo que nenhum dos demais casos expôs, o do momento
+da verificação, e esse eixo admite as mesmas duas perguntas que o protocolo faz ao
+volume --- ainda que, aqui, apenas a primeira delas se deixe responder. A terceira é que uma célula que fica vazia
+por porta fechada também é um resultado desta dissertação, cujo objeto inclui as
+condições de coleta; declará-la é preferível a substituí-la por um alvo escolhido
+apenas por ser coletável.
+
+A viabilidade deste caso decorreu, por fim, inteiramente de uma decisão dos autores
+do alvo, a de publicar identificadores e estados de
+disponibilidade sob licença aberta. Sem essa decisão, a célula permaneceria vazia,
+e não por falta de mérito do alvo.
 
 % =====================================================================
 \chapter{Conclusão Parcial e Próximos Passos}
@@ -1010,7 +2008,10 @@ O levantamento mostra que a literatura de RSD dimensiona sua coleta por
 conveniência e quase nunca verifica que o volume coletado bastava; o protocolo
 propõe medir, diretamente, se coletar mais muda a conclusão e se coletar menos
 teria bastado, por tipo de análise e por rede social, com um conjunto fixado de
-seis casos replicáveis. Três deles já foram executados. A replicação de
+casos replicáveis, distribuídos por quatro redes sociais
+(Tabela~\ref{tab:casos}). Cinco deles foram executados por inteiro; no sexto, o de
+TikTok, só o ponto original do alvo pôde ser reproduzido, porque a rota de coleta
+estava fechada. A replicação de
 \#Eleições2014 no Twitter (Capítulo~\ref{cap:caso-twitter}) mostra, no eixo de
 mídia, os dois lados esperados. De um lado, uma conclusão robusta ao volume, a de
 que a mídia vertical domina a horizontal, que a coleta original já bastava para
@@ -1032,39 +2033,65 @@ propriedade do tipo de análise, não do trabalho. A resposta obtida nas
 RSD, por serem um domínio em que o efeito é mensurável, informa a questão para
 além delas.
 
-O terceiro caso executado, sobre o discurso a respeito de pessoas idosas no
+Os dois casos executados no Reddit (Capítulo~\ref{cap:caso-reddit}) levam essa mesma
+leitura ao seu extremo e ao seu contrário, sobre uma rede em que a expansão não depende
+de permissão alguma. Num deles, a conclusão publicada de que os papéis sociais são
+locais, apoiada na observação de que apenas 3\% dos participantes atuam em mais de uma
+comunidade, se inverte ao ser medida no universo sob o mesmo corte de atividade, onde a
+fração é de 57,6\%: é o maior efeito de sub-coleta registrado nesta dissertação, e ele
+não decorre do volume em si, mas de um recorte, o dos cem posts mais votados de cada
+comunidade, que torna improvável por construção justamente aquilo que o artigo se propõe
+a contar. No outro, o ponto original reproduz a menos de um quarto de ponto percentual.
+A diferença entre os dois desfechos não está no cuidado dos autores, e sim na relação
+entre o critério que recorta a coleta e a quantidade que se quer medir, que é a
+formulação mais precisa a que este trabalho chegou do fenômeno que investiga.
+
+O quinto caso executado, sobre o discurso a respeito de pessoas idosas no
 YouTube (Capítulo~\ref{cap:caso-youtube}), acrescenta a essa leitura um eixo que os
 dois primeiros não isolavam. Ali a sub-coleta não é de volume nem de estrato de
 engajamento, mas de \emph{forma}: um filtro que exige a repetição da palavra buscada
 no título ou na descrição do vídeo. Medido apenas entre os vídeos que tratam do
-assunto, o filtro se revela em parte limpeza legítima, pois descarta 91,4\% do que
-está fora do tema contra 25,0\% do que está dentro, e em parte viés sistemático, pois
-o material que descarta é 7,9 pontos percentuais mais rico em conteúdo de usuário
-comum do que o material que preserva. Como o artigo replicado atribui à predominância
-de veículos de imprensa a explicação de dois de seus resultados, e como parte dessa
-predominância é produzida pelo próprio filtro, a explicação é parcialmente circular.
+assunto, o filtro se revela em boa medida limpeza legítima, pois descarta 90,3\% do
+que está fora do tema contra 30,5\% do que está dentro, e a predição de que removeria
+conteúdo de usuário comum foi refutada: ele remove 6,4 pontos percentuais \emph{menos}
+desse conteúdo do que preserva. O efeito de seleção, contudo, existe e é grande, apenas
+não está onde se supunha. Comparando os vídeos no tema que as mesmas buscas devolvem,
+os canais que terminaram no corpus publicado são conteúdo de usuário em 23,5\% dos
+casos contra 61,7\% dos que ficaram de fora, distância de 38,3 pontos percentuais.
+Como o artigo replicado atribui à predominância de veículos de imprensa a explicação de
+dois de seus resultados, e como parte dessa predominância é produzida pelo funil de
+coleta, a explicação é parcialmente circular. O passo do funil responsável não pôde ser
+isolado, e o principal suspeito, o ramo dos vídeos sugeridos, é justamente o que a
+plataforma tornou irreproduzível.
 
-Esse caso trouxe ainda um achado de natureza distinta, que atravessa os três e não
-depende de coletar coisa alguma. Em cada um dos alvos replicados, ao menos um número
+Esse caso trouxe ainda um achado de natureza distinta, que atravessa todos os demais e
+não depende de coletar coisa alguma. Em cada um dos alvos replicados, ao menos um número
 publicado revelou-se dependente de uma decisão que não foi publicada: a convenção de
-contagem de categorias e o limiar de neutralidade no caso do YouTube, a numeração das
-categorias de enquadramento no do debate vacinal, a regra de agregação de impressões
-no dos anúncios de imigração. No limite, uma afirmação chegou a receber, no mesmo
-artigo, dois valores mutuamente exclusivos. A lente ``coletar mais'' tornou isso
-visível por um efeito colateral do método: para testar se uma conclusão muda, é
-preciso primeiro operacionalizá-la, e é nesse momento que a decisão ausente aparece.
-Trata-se de um resultado sobre reprodutibilidade que o protocolo produz de graça, ao
-lado do resultado sobre volume que ele busca deliberadamente.
+contagem de categorias e o limiar de neutralidade no caso do YouTube, a numeração
+das categorias de enquadramento no do debate vacinal, a reponderação de classes no
+do apoio a Trump no Reddit e a atribuição dos códigos de remoção no do TikTok. No
+limite, uma afirmação chegou a receber, no mesmo artigo, dois valores mutuamente
+exclusivos. Nada disso é acusação aos autores, e em nenhum dos casos a réplica
+encontrou erro de execução: o que se encontrou foi uma prática de relato em que
+decisões de operação não são consideradas parte do que se publica. A lente
+``coletar mais'' tornou isso visível por um efeito colateral do método: para testar
+se uma conclusão muda, é preciso primeiro operacionalizá-la, e é nesse momento que
+a decisão ausente aparece. Trata-se de um resultado sobre reprodutibilidade que o
+protocolo produz de graça, ao lado do resultado sobre volume que ele busca
+deliberadamente.
 
-Um quarto caso, deliberadamente parcial, fecha o quadro por outro lado
+Um sexto caso, deliberadamente parcial, fecha o quadro por outro lado
 (Capítulo~\ref{cap:caso-tiktok}). Sem acesso de coleta ao TikTok, ele não executa a
 expansão; reproduz o ponto original de um trabalho sobre deleção de conteúdo político
-e, ao fazê-lo, expõe um eixo que este protocolo não previa. Verificado três vezes ao
-longo de três meses, o mesmo conjunto de publicações apresenta taxas de deleção de
-6,3\%, 17,3\% e 18,7\%: a quantidade medida triplica sem que uma única publicação
-tenha sido acrescentada ao corpus. O movimento tem, ademais, a forma já familiar das
-curvas de volume, subindo rápido e assentando, o que sugere que também o momento da
-coleta admite a pergunta sobre convergência.
+e, ao fazê-lo, traz para dentro do protocolo um eixo que ele não previa. Verificado
+três vezes ao longo de quatro meses e meio, o mesmo painel de publicações apresenta
+taxas de deleção de 6,3\%, 17,4\% e 20,9\%: a quantidade medida mais que triplica sem
+que uma única publicação tenha sido acrescentada ao corpus. O eixo não é descoberta
+desta dissertação --- os próprios autores do alvo o documentam ---, e o que se
+acrescenta é tratá-lo como curva e submetê-lo às duas perguntas do protocolo. A
+primeira se responde; a segunda, não: o crescimento desacelera, mas a outra coleta do
+mesmo artigo, verificada aos dezesseis meses, marca 39,7\%, e não há como saber, com
+o que está publicado, se a curva havia assentado ou apenas parecia assentar.
 
 Somados, os casos executados identificam quatro decisões de coleta capazes de governar
 a conclusão publicada: o \emph{volume} recolhido, a \emph{largura} do filtro temático,
@@ -1076,32 +2103,218 @@ reunida aqui sugere que a extensão não é ornamental: nos casos em que dois ei
 puderam ser medidos sobre o mesmo corpus, eles responderam de modo independente, e por
 vezes em direções opostas.
 
+\section{A tabela mestre}
+\label{sec:tabela-mestre}
+
+A Tabela~\ref{tab:mestre} é o entregável anunciado na Seção~\ref{sec:protocolo-operacional}:
+uma linha por afirmação testada, com as duas respostas lado a lado. Ela reúne quinze
+linhas fechadas, distribuídas pelos seis casos, e é lida em pares: a coluna
+\emph{mudou?} responde à PP1 e a coluna \emph{convergiu?}, à PP2. Cada célula tem
+origem no capítulo do caso correspondente, e nenhum número nasce aqui.
+
+Três observações sobre como ler a tabela. A primeira é que ``mudou?'' se decide pela
+camada substantiva, isto é, pela inversão da afirmação, e não por sair da banda: há
+linhas em que o \emph{valor} se desloca bastante e a afirmação sobrevive, e elas estão
+marcadas como ``não''. A segunda é que ``convergiu?'' não se aplica quando o alvo não
+amostrou, quando a afirmação não se reproduz em recorte nenhum ou quando a expansão não
+pôde ser feita; nesses casos a célula diz por quê, em vez de ficar vazia. A terceira é
+que a fração mínima que estabiliza a conclusão, prevista no protocolo, só está anotada
+onde a curva foi de fato construída --- quatro das quinze linhas ---, e por isso viaja
+dentro da célula de convergência em vez de ocupar coluna própria.
+
+O que a tabela mostra quando lida por inteiro é o que a Seção~\ref{sec:limitacoes}
+qualifica e os parágrafos acima narram: os dois desfechos convivem \emph{dentro} de
+quase todo caso, e não entre casos. Nenhum artigo-alvo é integralmente robusto ou
+integralmente frágil ao volume; o que separa uma linha da outra é a relação entre o
+critério que recortou a coleta e a quantidade que a afirmação mede. É a resposta
+provisória à PP3, e ela desloca a unidade de análise do trabalho para o tipo de
+afirmação.
+
+\begin{table}[p]
+\centering\scriptsize
+\caption[A tabela mestre: mudou? e convergiu?]{A tabela mestre: por caso, rede e tipo de análise, se a conclusão mudou ao
+coletar mais e se ela já estava estável no volume original.}
+\label{tab:mestre}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{1.75cm}>{\raggedright\arraybackslash}p{2.15cm}X>{\raggedright\arraybackslash}p{2.7cm}>{\raggedright\arraybackslash}p{2.7cm}@{}}
+\toprule
+Caso (rede) & Tipo de análise & Afirmação testada & Mudou? & Convergiu? \\
+\midrule
+\#Eleições\-2014 (Twitter)
+ & Classificação de mídia
+ & entre o conteúdo com mídia identificável, a vertical domina a horizontal
+ & \textbf{não} (83,4\% no universo)
+ & \textbf{sim}, já em $n=100$ \\
+\addlinespace[2pt]
+ & Estatística descritiva
+ & H1: o retuíte de mídia vertical supera 50\%
+ & \textbf{sim}, inverte (48,3\% $\to$ 36,1\%)
+ & \textbf{sim}, em $n\approx200$; a falha do alvo é de esquema, não de volume \\
+\addlinespace[2pt]
+ & Estatística descritiva
+ & H2: a mídia horizontal rivaliza com a vertical em algum dia
+ & \textbf{sim}, não reproduz
+ & não se aplica: não reproduz em recorte nenhum, nem no do próprio artigo \\
+\addlinespace[2pt]
+ & Classificação de mídia
+ & alvo de 2018: entre quem compartilha mídia, 59\% de mídia profissional
+ & \textbf{não} ao volume; o \emph{valor} publicado, porém, não se recupera
+ & \textbf{sim} \\
+\midrule
+Debate vacinal (Twitter)
+ & Detecção de comunidades
+ & os dois polos somam 78\% das publicações
+ & inconclusivo (76,7--90,6\% conforme a base)
+ & não se aplica: o alvo já rodou no corpus completo \\
+\addlinespace[2pt]
+ & Detecção de comunidades
+ & os dois polos têm tamanhos semelhantes
+ & \textbf{sim} (razão 1,02 $\to$ 1,50--1,56)
+ & \textbf{não}: estabiliza só em $f\approx0{,}75$ da coleta \\
+\addlinespace[2pt]
+ & Comunidades e influência
+ & entre os autores influentes, 58,6\% pró contra 40,9\% anti
+ & \textbf{sim} (razão 1,43 $\to$ 2,34)
+ & \textbf{não}: ainda subia no limiar mais baixo \\
+\addlinespace[2pt]
+ & Centralidade
+ & os dez maiores autores concentram 15,7\% dos retuítes
+ & \textbf{não} na conclusão; o valor cai a 9,7\%
+ & \textbf{sim} \\
+\addlinespace[2pt]
+ & Centralidade
+ & os posts pró mais populares receberam o dobro de retuítes
+ & \textbf{não} (2,33$\times$ em todos os limiares)
+ & \textbf{sim}, mas por construção: o topo está em todo estrato \\
+\addlinespace[2pt]
+ & Análise de conteúdo
+ & o \emph{ranking} das categorias de enquadramento
+ & \textbf{não} ao volume; \textbf{sim} à largura do filtro
+ & \textbf{sim} (no volume) \\
+\addlinespace[2pt]
+ & Análise de conteúdo
+ & os anti-vacina impõem o enquadramento; os polos se equivalem
+ & \textbf{sim}, inverte
+ & \textbf{não} \\
+\midrule
+Papéis sociais (Reddit)
+ & Análise de rede
+ & só 3\% dos participantes atuam em mais de uma comunidade
+ & \textbf{sim}, por uma ordem de grandeza: 57,6\% sob o mesmo limiar
+ & \textbf{sim}, em $k\approx10$--20; o valor do artigo não é recuperável em limiar nenhum \\
+\midrule
+Apoio a Trump (Reddit)
+ & Homofilia e classificação
+ & a homofilia prediz melhor que a influência direta
+ & não testado: o ponto original replica a $<0{,}25$ p.p., mas a expansão ficou fora de escopo
+ & não testado (idem) \\
+\midrule
+Idosos e pandemia (YouTube)
+ & Composição do corpus
+ & o filtro de forma remove conteúdo de usuário comum
+ & \textbf{não} pelo filtro ($-6{,}4$ p.p., predição refutada); \textbf{sim} pelo funil inteiro ($+38{,}3$ p.p.)
+ & não medido: o passo do funil responsável não pôde ser isolado \\
+\midrule
+Deleção política (TikTok)
+ & Análise de conteúdo
+ & 18,7\% e 39,7\% das publicações foram deletadas
+ & \textbf{sim}, no eixo temporal: 6,3\% $\to$ 20,9\% no mesmo painel
+ & em aberto: o crescimento desacelera, mas aos 16 meses a taxa é quase o dobro \\
+\bottomrule
+\end{tabularx}
+
+\vspace{2pt}
+{\footnotesize \textit{Notas.} ``Mudou?'' decide-se pela inversão da afirmação, e não
+por sair da banda de reamostragem. Linhas em branco na primeira coluna continuam o caso
+da linha anterior. As três linhas ainda em aberto do conjunto --- os dois eixos do caso
+de tópicos em Twitter, que aguarda dados, e o eixo de \emph{stance} do caso de 2014, que
+aguarda rotulagem humana --- não figuram aqui.\par}
+\end{table}
+
+\section{Coletar mais tem um custo de armazenamento}
+\label{sec:banco-de-dados}
+
+Uma consequência deste trabalho merece seção própria, por ser a que mais diretamente
+liga o objeto ao programa em que ele foi desenvolvido. A pergunta ingênua, mas
+legítima, é se análises sobre RSD precisam mesmo de um sistema de gerenciamento de banco
+de dados, ou se bastaria coletar pouco e trabalhar em planilha. O levantamento
+(\S\ref{sec:contexto-survey}) dá uma primeira resposta desconfortável: metade dos
+artigos fica abaixo de $\approx$273 mil itens e seis em cada dez não chegam a 1 milhão,
+o que é dizer que boa parte da literatura opera num volume que uma máquina comum
+segura em memória, sem SGBD nenhum. É, provavelmente, parte da explicação para o
+armazenamento quase nunca aparecer como problema nesses trabalhos.
+
+Os casos executados aqui sugerem que essa resposta se inverte exatamente onde a
+conclusão depende do volume. Quando ``coletar mais'' era necessário, o superconjunto
+temático saiu três ordens de grandeza acima do recorte do alvo: o caso de papéis sociais
+substituiu 279 usuários por 43.479 submissões e 1.015.247 comentários; o de 2014 trocou
+700 tweets rotulados à mão por uma janela extraída de um acervo de 10,7 milhões; o do
+debate vacinal desceu o limiar de engajamento dentro de uma coleta de 1 milhão; o de
+TikTok acompanha 938.961 publicações e o estado de cada uma em várias datas. Não é só
+o tamanho. O protocolo não faz uma consulta e sim centenas: cada ponto da curva
+$A(\text{volume})$ refaz a mesma agregação sobre um subconjunto sorteado, com de trinta a
+trezentas réplicas por ponto, e a curva inteira é percorrida uma vez por afirmação
+testada. Essa é uma carga de trabalho de seleção, junção e agregação repetida sobre o
+mesmo corpo de dados --- precisamente o que um SGBD faz bem e o que uma planilha não
+chega a expressar.
+
+A infraestrutura efetivamente usada reflete isso, e distingue dois papéis que costumam
+ser confundidos. O primeiro é o do banco que \emph{preserva}: os dois casos de Twitter
+só existem porque o laboratório mantém acervos históricos em PostgreSQL e MongoDB, e
+porque esses acervos podem ser consultados por hashtag e por janela --- sem isso, a
+plataforma estar fechada seria o fim do caso, e não um contorno. É o banco que torna a
+expansão possível depois que a rota de coleta morreu. O segundo é o do banco que
+\emph{congela}: cada caso reduz a sua coleta a um instantâneo local versionado, em
+SQLite ou CSV, sobre o qual todas as análises rodam sem rede. Esse segundo papel é o que
+torna o resultado reproduzível por terceiros, e ele não exige servidor --- um arquivo
+único basta. A escolha de modelo de dados adequada a análises de rede social, que este
+trabalho tomou como dada, é ela própria objeto de estudo no
+grupo~\cite{salgueiro2022dbmodels}.
+
+A mensagem prática, então, não é que todo estudo de RSD precise de um SGBD. É que a
+sensibilidade ao volume, quando existe, tem um corolário de infraestrutura: um trabalho
+cuja conclusão ainda se movia no volume que ele coletou não poderia ter sido corrigido
+com mais cuidado de análise, e sim com capacidade de guardar e consultar mais dado do
+que coube na coleta original. Declarar o volume é prática de relato; poder alcançá-lo é
+prática de infraestrutura. As duas se sustentam, e a segunda é a que decide se a
+primeira terá algo de interessante para declarar.
+
 \section{Limitações conhecidas}
 \label{sec:limitacoes}
 
 \begin{enumerate}
-  \item Acessibilidade das plataformas: o protocolo depende de coleta
-  ainda viável hoje. O Twitter/X, central na literatura, só entra no
-  conjunto de casos porque o eTC preserva um acervo histórico de 2014
-  (Capítulo~\ref{cap:caso-twitter}); é uma exceção que não se reproduz por coleta
-  nova, e o CrowdTangle, sem acervo equivalente, fica de fora. A dependência
-  de acervos pré-existentes é, ela mesma, uma limitação de generalização.
+  \item Acessibilidade das plataformas: o protocolo depende de coleta ainda viável
+  hoje. O Twitter/X, central na literatura, só entra no conjunto de casos porque o
+  eTC preserva acervos históricos (Capítulos~\ref{cap:caso-twitter}
+  e~\ref{cap:caso-vacinas}); é uma exceção que não se reproduz por coleta nova. As
+  plataformas da Meta ficam inteiramente de fora do conjunto, pelas razões
+  registradas na Seção~\ref{sec:coleta-plataforma}, e o TikTok entra apenas em
+  parte. O conjunto de casos é, portanto, um retrato de quais plataformas se
+  deixavam coletar em 2026, e não uma amostra equilibrada das RSD. A dependência de
+  acervos pré-existentes é, ela mesma, uma limitação de generalização.
+
+  \item Cobertura por tipo de análise: os casos executados cobrem seis tipos, mas
+  não instanciam a \emph{modelagem de tópico}, que é o quarto tipo mais frequente do
+  levantamento (Tabela~\ref{tab:analises-survey}). O caso mais próximo, o do
+  YouTube, acabou entregando composição de corpus e sentimento. Nada do que se
+  afirma aqui, portanto, se estende a esse tipo por evidência própria.
   \item Superconjunto aproximado: no caso do Twitter, o acervo disponível
   é uma coleta vizinha, não um superconjunto estrito da amostra do artigo;
   o efeito de volume é, por isso, separado do efeito de escopo de coleta em vez de
   confundido com ele (Capítulo~\ref{cap:caso-twitter}).
-  \item Custo da expansão: coletar superconjuntos (especialmente sob a
-  cota semanal da Meta Content Library) impõe um teto prático ao $N_{\text{máx}}$
-  por caso.
+  \item Custo da expansão: coletar superconjuntos impõe um teto prático ao
+  $N_{\text{máx}}$ por caso. Uma expansão ficou por fazer mesmo com a porta aberta,
+  a do caso de homofilia no Reddit, por tempo de transferência dos arquivos
+  históricos (Capítulo~\ref{cap:caso-reddit}); as demais pendências são de acesso,
+  e não de custo (Seção~\ref{sec:coleta-plataforma}).
   \item Confusão coleta versus método: mitigada fixando o modelo/
   algoritmo de cada análise ao do artigo original, isolando o efeito da coleta.
   O segundo caso executado mostra que essa fixação não basta na análise de
   conteúdo: o esquema de anotação é ele próprio uma escolha de método, e dois
   esquemas aplicados ao mesmo corpus pelo mesmo modelo produzem descrições que
   diferem em cerca de 18 pontos percentuais, ainda que a comparação entre estratos
-  permaneça robusta a essa escolha (Capítulo~\ref{cap:caso-vacinas}). Some-se que
-  um classificador calibrado contra gabarito aprende a convenção de codificação
-  nele registrada, e o gabarito, por construção, só existe no estrato sub-coletado.
+  permaneça robusta a essa escolha (Capítulo~\ref{cap:caso-vacinas}). Um
+  classificador calibrado contra gabarito aprende, além disso, a convenção de
+  codificação nele registrada, e o gabarito, por construção, só existe no estrato sub-coletado.
   \item Explicação (o ``porquê'') fora do escopo: reporta-se se e
   para quais tipos de análise o volume de coleta muda a conclusão, não
   por que uma análise é sensível ou robusta ao volume. O mecanismo (por exemplo, por que a análise de sentimento reagiria a um conjunto
@@ -1124,13 +2337,33 @@ vezes em direções opostas.
   validação do classificador fora do estrato viral, onde o gabarito publicado não
   alcança, e investigar se o crescimento do corpus concentrado no polo pró decorre
   da janela de re-coleta ou do próprio fenômeno;
-  \item executar os demais casos do conjunto de casos (Reddit, YouTube, TikTok e
-  Instagram/Facebook), começando pelos de centralidade e detecção de comunidades;
-  \item consolidar a tabela mestre e as curvas $A(\text{volume})$ por caso;
-  \item com dois casos em mãos, e mais tipos de análise à medida que os demais
-  forem executados, propor uma solução genérica para os pontos negativos (o que
-  fazer diante de uma conclusão dependente do volume), comum a todos os casos, em
-  vez de uma correção caso a caso.
+  \item instanciar a modelagem de tópico, hoje o principal tipo de análise sem caso
+  executado. O Reddit é a rota natural, por ser a única em que coletar mais não
+  depende de credencial nem de acervo preservado
+  (Seção~\ref{sec:coleta-plataforma}), e a infraestrutura de coleta já está montada
+  pelos dois casos executados nessa plataforma
+  (Capítulo~\ref{cap:caso-reddit}); falta escolher um alvo publicado que modele
+  tópicos sobre um subreddit ou conjunto de subreddits delimitado;
+  \item retomar a expansão do caso de homofilia no Reddit, hoje declarada fora de
+  escopo por custo de transferência e não por falta de acesso: baixar os arquivos
+  históricos de 2012 e 2016 e refazer o grupo focal com limiares de atividade
+  menores, o que põe à prova a predição já registrada no
+  Capítulo~\ref{cap:caso-reddit};
+  \item isolar o passo do funil responsável pela composição institucional do corpus
+  no caso do YouTube, que a medição atual estabelece sem atribuir; como o candidato
+  principal, o ramo dos vídeos sugeridos, é irreproduzível, o teste possível é
+  aprofundar a busca e variar o filtro de idioma;
+  \item completar as curvas $A(\text{volume})$ e a fração mínima que estabiliza cada
+  conclusão, hoje anotada em quatro das quinze linhas fechadas da tabela mestre
+  (Tabela~\ref{tab:mestre});
+  \item com seis casos em mãos e seis tipos de análise cobertos, propor uma solução
+  genérica para os pontos negativos (o que fazer diante de uma conclusão dependente
+  do volume), comum a todos os casos, em vez de uma correção caso a caso;
+  \item reabrir a célula de Instagram e Facebook se e quando uma rota de coleta
+  compatível com o protocolo voltar a existir. O alvo, a sub-coleta declarada pelos
+  próprios autores e a verificação dos gabaritos publicados estão levantados e
+  documentados no material de trabalho deste projeto, de modo que o caso pode ser
+  retomado sem refazer a Fase~0.
 \end{itemize}
 
 % =====================================================================
