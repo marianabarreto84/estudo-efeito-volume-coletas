@@ -1,0 +1,449 @@
+{
+  "stance": {
+    "todos": {
+      "n": 210,
+      "kappa": 0.6041379310344828,
+      "acuracia": 0.8047619047619048
+    },
+    "sem duplicatas": {
+      "n": 179,
+      "kappa": 0.6077091659146577,
+      "acuracia": 0.8100558659217877
+    },
+    "confianca >= 2": {
+      "n": 144,
+      "kappa": 0.700587084148728,
+      "acuracia": 0.8819444444444444
+    },
+    "confianca >= 2, sem dup.": {
+      "n": 120,
+      "kappa": 0.718004338394794,
+      "acuracia": 0.8916666666666667
+    }
+  },
+  "portao": {
+    "n": 210,
+    "acuracia": 0.780952380952381,
+    "ic95": [
+      0.7202411064469502,
+      0.8315695696366906
+    ],
+    "kappa": 0.3543643897874616,
+    "acuracia_sem_interrogacao": 0.8677248677248677,
+    "n_sem_interrogacao": 189
+  },
+  "matriz": {
+    "EA": {
+      "EA": 36,
+      "ED": 1,
+      "NDA": 3
+    },
+    "ED": {
+      "EA": 3,
+      "ED": 11,
+      "NDA": 6
+    },
+    "NDA": {
+      "EA": 17,
+      "ED": 11,
+      "NDA": 122
+    }
+  },
+  "n_divergencias": 41,
+  "divergencias": [
+    {
+      "n": "6",
+      "id": "12779447",
+      "ouro": "NDA",
+      "llm": "EA",
+      "conf": "2",
+      "nda_tipo": "ambiguo",
+      "texto": "RT @UOLNoticias: Governo segura divulgação de dados que podem afetar campanha de #Dilma http://t.co/luP7ZvIBj4 #Eleições2014"
+    },
+    {
+      "n": "41",
+      "id": "14524509",
+      "ouro": "NDA",
+      "llm": "EA",
+      "conf": "2",
+      "nda_tipo": "ambiguo",
+      "texto": "RT @UOLNoticias: Governo segura divulgação de dados que podem afetar campanha de #Dilma http://t.co/luP7ZvIBj4  #Eleições2014"
+    },
+    {
+      "n": "229",
+      "id": "12771672",
+      "ouro": "NDA",
+      "llm": "EA",
+      "conf": "2",
+      "nda_tipo": "ambiguo",
+      "texto": "RT @UOLNoticias: Governo segura divulgação de dados que podem afetar campanha de #Dilma http://t.co/luP7ZvIBj4  #Eleições2014"
+    },
+    {
+      "n": "252",
+      "id": "14531852",
+      "ouro": "NDA",
+      "llm": "EA",
+      "conf": "2",
+      "nda_tipo": "ambiguo",
+      "texto": "RT @UOLNoticias: Governo segura divulgação de dados que podem afetar campanha de #Dilma http://t.co/luP7ZvIBj4  #Eleições2014"
+    },
+    {
+      "n": "25",
+      "id": "11765346",
+      "ouro": "ED",
+      "llm": "NDA",
+      "conf": "1",
+      "nda_tipo": "",
+      "texto": "RT @g1: 'Eu era excessivamente generosa', diz Dilma sobre elogios a Aécio http://t.co/yrSS7Fh1Hf #Eleições2014 #G1 http://t.co/nq1qY2BoKm"
+    },
+    {
+      "n": "125",
+      "id": "11778008",
+      "ouro": "ED",
+      "llm": "NDA",
+      "conf": "1",
+      "nda_tipo": "",
+      "texto": "RT @g1: 'Eu era excessivamente generosa', diz Dilma sobre elogios a Aécio http://t.co/aW8IEbbfIt #Eleições2014 #G1 http://t.co/nq1qY2BoKm"
+    },
+    {
+      "n": "256",
+      "id": "11761271",
+      "ouro": "ED",
+      "llm": "NDA",
+      "conf": "1",
+      "nda_tipo": "",
+      "texto": "RT @g1: 'Eu era excessivamente generosa', diz Dilma sobre elogios a Aécio http://t.co/yrSS7Fh1Hf #Eleições2014 #G1 http://t.co/nq1qY2BoKm"
+    },
+    {
+      "n": "302",
+      "id": "11775935",
+      "ouro": "ED",
+      "llm": "NDA",
+      "conf": "1",
+      "nda_tipo": "",
+      "texto": "RT @g1: 'Eu era excessivamente generosa', diz Dilma sobre elogios a Aécio http://t.co/aW8IEbbfIt #Eleições2014 #G1 http://t.co/nq1qY2BoKm"
+    },
+    {
+      "n": "33",
+      "id": "10515154",
+      "ouro": "NDA",
+      "llm": "EA",
+      "conf": "1",
+      "nda_tipo": "indeciso",
+      "texto": "\"PT quer ser dono do Nordeste\", afirma ACM Neto http://t.co/oIVV6pT3py #Eleições2014"
+    },
+    {
+      "n": "35",
+      "id": "12445423",
+      "ouro": "NDA",
+      "llm": "EA",
+      "conf": "1",
+      "nda_tipo": "indeciso",
+      "texto": "RT @ruisaldanha: @ruisaldanha Floresta Amazônica e as #Eleições2014 #Amazônia #Florestas #MeioAmbiente http://t.co/pacbYwkv75 …  #AecioNeves"
+    },
+    {
+      "n": "54",
+      "id": "15041238",
+      "ouro": "NDA",
+      "llm": "ED",
+      "conf": "2",
+      "nda_tipo": "ambiguo",
+      "texto": "RT @UOLNoticias: Praça em São Paulo recebe cordão carnavalesco pró-Dilma http://t.co/oYmc7sAnwf #eleições2014 #Fotos"
+    },
+    {
+      "n": "56",
+      "id": "12217051",
+      "ouro": "NDA",
+      "llm": "EA",
+      "conf": "2",
+      "nda_tipo": "ambiguo",
+      "texto": "RT @Portal_HD: Tucanos acreditam na consolidação da candidatura do PSDB http://t.co/l6PMWIBEjb #Eleições2014 #PSDB #Campanha http://t.co/cp…"
+    },
+    {
+      "n": "64",
+      "id": "12560814",
+      "ouro": "NDA",
+      "llm": "EA",
+      "conf": "2",
+      "nda_tipo": "ambiguo",
+      "texto": "RT @UOLNoticias: \"Eu acredito!\" vira grito de guerra de tucanos em #MG http://t.co/hcvFFW11iQ #Minas #MinasGerais #Eleições2014"
+    },
+    {
+      "n": "142",
+      "id": "12584737",
+      "ouro": "NDA",
+      "llm": "EA",
+      "conf": "2",
+      "nda_tipo": "ambiguo",
+      "texto": "RT @UOLNoticias: \"Eu acredito!\" vira grito de guerra de tucanos em #MG http://t.co/hcvFFW11iQ #Minas #MinasGerais #Eleições2014"
+    },
+    {
+      "n": "68",
+      "id": "11615213",
+      "ouro": "ED",
+      "llm": "EA",
+      "conf": "2",
+      "nda_tipo": "",
+      "texto": "Será que o Aécio e a Lindsay se conheceram em algum rehab? #Eleicoes2014"
+    },
+    {
+      "n": "75",
+      "id": "11580071",
+      "ouro": "NDA",
+      "llm": "EA",
+      "conf": "2",
+      "nda_tipo": "ambiguo",
+      "texto": "RT @elianalima: A declaração da modelo e ativista Naomi Campbell e da atriz Lindsay Lohan de apoio a #Aecio entram nos TTs #Eleicoes2014"
+    },
+    {
+      "n": "81",
+      "id": "10525814",
+      "ouro": "ED",
+      "llm": "NDA",
+      "conf": "1",
+      "nda_tipo": "",
+      "texto": "RT @agenciabrasil: #Eleicoes2014 Dilma diz que até 2018 universalizará a banda larga no país http://t.co/vvhI6G4wKj"
+    },
+    {
+      "n": "87",
+      "id": "10203101",
+      "ouro": "ED",
+      "llm": "EA",
+      "conf": "1",
+      "nda_tipo": "",
+      "texto": "RT @g1: TRE apreende material de campanha de Aécio em evento religioso no Ceará http://t.co/b1mqad7Mwf #Eleições2014 #G1 http://t.co/xje3fC…"
+    },
+    {
+      "n": "90",
+      "id": "11861441",
+      "ouro": "NDA",
+      "llm": "EA",
+      "conf": "2",
+      "nda_tipo": "ambiguo",
+      "texto": "RT @LIABSSA: Para Aécio, campanha de Dilma ficará para a história pelo ‘mais baixo nível' #eleições2014 http://t.co/k9fHOFBDcd via @Jornald…"
+    },
+    {
+      "n": "91",
+      "id": "12750702",
+      "ouro": "EA",
+      "llm": "ED",
+      "conf": "1",
+      "nda_tipo": "",
+      "texto": "#AecioNeves   / “Ou ficar a Pátria livre ou morrer pelo  Brasil!” /  http://t.co/Px4lZOJuvS   / #Eleições2014 http://t.co/FmrSjmHuQE"
+    },
+    {
+      "n": "103",
+      "id": "10899751",
+      "ouro": "EA",
+      "llm": "NDA",
+      "conf": "1",
+      "nda_tipo": "",
+      "texto": "RT @g1: TSE determina que PT tire do ar trechos de acusações a Aécio http://t.co/Ma9Sky6SQ9 #Eleições2014 #G1"
+    },
+    {
+      "n": "105",
+      "id": "11954163",
+      "ouro": "NDA",
+      "llm": "ED",
+      "conf": "1",
+      "nda_tipo": "indeciso",
+      "texto": "RT @UOLNoticias: #Lula cita William Bonner e Miriam Leitão em crítica à imprensa durante comício http://t.co/37yBSytcsC #Eleições2014"
+    },
+    {
+      "n": "107",
+      "id": "14226053",
+      "ouro": "NDA",
+      "llm": "EA",
+      "conf": "1",
+      "nda_tipo": "indeciso",
+      "texto": "Joga banana pra macacada do auditório #Eleicoes2014"
+    },
+    {
+      "n": "136",
+      "id": "10624573",
+      "ouro": "EA",
+      "llm": "NDA",
+      "conf": "1",
+      "nda_tipo": "",
+      "texto": "Ê Brasil.. RT @g1: Dilma tem 52%, e Aécio, 48% dos votos válidos, aponta Datafolha http://t.co/Mkh0hWLLjT #G1 #Eleicoes2014"
+    },
+    {
+      "n": "153",
+      "id": "14859598",
+      "ouro": "NDA",
+      "llm": "EA",
+      "conf": "1",
+      "nda_tipo": "indeciso",
+      "texto": "FLAMENGO É O PSDB E O BOTAFOGO SAI PETRALHANDO TUDO /  / PEITA AS #ELEICOES2014"
+    },
+    {
+      "n": "157",
+      "id": "10010210",
+      "ouro": "ED",
+      "llm": "EA",
+      "conf": "1",
+      "nda_tipo": "",
+      "texto": "RT @jos_cosmo: #Eleicoes2014 #DebateNaRecord ESTOU VENDO O #Aecio45 UM Collor! #Igualzinho ao Discurso do Collor quando era #candidatopresi…"
+    },
+    {
+      "n": "175",
+      "id": "13787487",
+      "ouro": "ED",
+      "llm": "NDA",
+      "conf": "1",
+      "nda_tipo": "",
+      "texto": "RT @elianalima: O combate às drogas não é problema de polícia, mas sim de educação, ações sociais e cidadania #eleicoes2014"
+    },
+    {
+      "n": "180",
+      "id": "14152028",
+      "ouro": "NDA",
+      "llm": "ED",
+      "conf": "1",
+      "nda_tipo": "indeciso",
+      "texto": "A Dilma caprichou na base e no óleo de peroba #Eleicoes2014"
+    },
+    {
+      "n": "188",
+      "id": "11801956",
+      "ouro": "NDA",
+      "llm": "EA",
+      "conf": "1",
+      "nda_tipo": "indeciso",
+      "texto": "@infomoney Só lembro da política dos gov. PT http://t.co/2oWKlyGAdB #Eleicoes2014"
+    },
+    {
+      "n": "205",
+      "id": "13774827",
+      "ouro": "NDA",
+      "llm": "EA",
+      "conf": "1",
+      "nda_tipo": "indeciso",
+      "texto": "RT @marcogomes: Jardim Paulista, bairro nobre de SP. Muitos gritos de Fora Dilma nas janelas dos condomínios chiques. #eleicoes2014 #tv"
+    },
+    {
+      "n": "218",
+      "id": "12759316",
+      "ouro": "EA",
+      "llm": "NDA",
+      "conf": "3",
+      "nda_tipo": "",
+      "texto": "O \"Doctor\" sabe tudo: Vai de Aécio Neves! #LOL #Eleicoes2014 / . / . http://t.co/EnbQO4rQWt"
+    },
+    {
+      "n": "219",
+      "id": "11830397",
+      "ouro": "NDA",
+      "llm": "ED",
+      "conf": "2",
+      "nda_tipo": "ambiguo",
+      "texto": "RT @OdeCarvalho: Só mesmo a Bolha de S. Paulo para chamar isto de \"empate técnico\": / https://t.co/LB6NmpK4yV #Eleicoes2014"
+    },
+    {
+      "n": "243",
+      "id": "10425980",
+      "ouro": "NDA",
+      "llm": "ED",
+      "conf": "1",
+      "nda_tipo": "indeciso",
+      "texto": "RT @sibelefausto: Elio Gaspari: Todos soltos, todos soltos, até hoje http://t.co/9LbjtGtLXe via @Be_neviani #eleicoes2014 (todos soltos do …"
+    },
+    {
+      "n": "264",
+      "id": "14964612",
+      "ouro": "NDA",
+      "llm": "ED",
+      "conf": "3",
+      "nda_tipo": "sem_lado",
+      "texto": "RT @Ca_Moredi: Ibope mostra Dilma reeleita; Datafolha aponta empate técnico- E O SACI PERERE EXISTE. http://t.co/lAP35yLaie  #Eleições2014"
+    },
+    {
+      "n": "269",
+      "id": "14917534",
+      "ouro": "NDA",
+      "llm": "ED",
+      "conf": "1",
+      "nda_tipo": "indeciso",
+      "texto": "Estão querendo mandar Alberto Youssef para o mesmo lugar que mandaram Celso Daniel. #Eleições2014"
+    },
+    {
+      "n": "278",
+      "id": "10161043",
+      "ouro": "NDA",
+      "llm": "ED",
+      "conf": "1",
+      "nda_tipo": "indeciso",
+      "texto": "RT @M_Pichonelli: Dilma diz ter quadruplicado investimentos em segurança em relação a FHC. E cita criminalidade em Minas #Eleicoes2014"
+    },
+    {
+      "n": "284",
+      "id": "10138015",
+      "ouro": "NDA",
+      "llm": "EA",
+      "conf": "1",
+      "nda_tipo": "indeciso",
+      "texto": "#DebateNaRecord bota fogo nisso aí @AecioNeves esta morno demais... #BBCnasEleições #Eleições2014"
+    },
+    {
+      "n": "286",
+      "id": "12593933",
+      "ouro": "NDA",
+      "llm": "ED",
+      "conf": "1",
+      "nda_tipo": "indeciso",
+      "texto": "Cara de pau “@UOLNoticias: Alckmin ataca ONU por crítica sobre falta de água em São Paulo http://t.co/daUHDNZH3n #Eleições2014”"
+    },
+    {
+      "n": "294",
+      "id": "10922018",
+      "ouro": "NDA",
+      "llm": "ED",
+      "conf": "3",
+      "nda_tipo": "sem_lado",
+      "texto": "Denunciem: Cidadãos flagram fascistas ameaçando e agredindo eleitores nas ruas de Niterói: https://t.co/PGOcmbZDFM #Eleicoes2014"
+    },
+    {
+      "n": "311",
+      "id": "14413424",
+      "ouro": "NDA",
+      "llm": "EA",
+      "conf": "3",
+      "nda_tipo": "sem_lado",
+      "texto": "Oposição vai à PGR pedir investigação contra Dilma http://t.co/lrj0pCj1dA #eleições2014"
+    },
+    {
+      "n": "317",
+      "id": "11738814",
+      "ouro": "NDA",
+      "llm": "ED",
+      "conf": "2",
+      "nda_tipo": "ambiguo",
+      "texto": "Alô, @geraldoalckmin_! Você é um homem ou um rato? Responda o governo federal com firmeza! #Eleições2014"
+    }
+  ],
+  "divergencias_de_polo": 4,
+  "distribuicoes": {
+    "ouro": {
+      "NDA": 150,
+      "EA": 40,
+      "ED": 20
+    },
+    "llm": {
+      "NDA": 131,
+      "EA": 56,
+      "ED": 23
+    }
+  },
+  "aceite": {
+    "kappa_stance": {
+      "medido": 0.6041379310344828,
+      "minimo": 0.7,
+      "passa": false
+    },
+    "acuracia_portao": {
+      "medido": 0.780952380952381,
+      "minimo": 0.9,
+      "passa": false
+    }
+  }
+}

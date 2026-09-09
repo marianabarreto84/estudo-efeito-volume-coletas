@@ -2,7 +2,7 @@
 
 > **Documento canônico de estado.** Responde a uma pergunta só: *sentando agora,
 > o que dá para fazer sem depender de ninguém e sem esperar nada?*
-> Última revisão: **22/ago/2026**.
+> Última revisão: **9/set/2026** (2ª sessão do dia).
 >
 > Regra: **toda sessão nesta pasta termina atualizando este arquivo** — ver
 > [.claude/skills/docs-em-dia/SKILL.md](.claude/skills/docs-em-dia/SKILL.md).
@@ -18,10 +18,10 @@ em disco** — é o próprio desenho do protocolo (Fase 1 → análise offline).
 
 | # | O que fazer | Onde | Por que agora |
 |---|---|---|---|
-| **3** | ◐ **Stance: dev FECHADO e codebook atualizado (22/ago/2026). Falta o TESTE CEGO — 210 tweets, e é o que produz o número.** → abrir [`rotulagem_teste.html`](casos/twitter-ituassu/data/repl/compos2014/stance/rotulagem_teste.html) (~5–6 h; **sem pré-anotação**, sem revelação por lote). O dev fechou em duas rodadas: `v1` cego (κ 0,699 contra a pré-anotação) e `v2` revisto (**κ 0,916**) — ★ **a diferença, +0,22, é a ancoragem medida dentro do próprio caso**, e é o motivo de o teste ser cego. Achado que vai ao capítulo: **zero divergência de polo** em 110 itens (nunca um leu EA onde o outro leu ED — toda a discordância é sobre *haver* lado), e NDA em 61% do dev contra 23,4% do artigo. As **3 decisões da autora** entraram no [CODEBOOK](casos/twitter-ituassu/CODEBOOK_stance.md): consulta ao perfil vivo **permitida** (⚠ portão passa a ser reportado em duas bases — todos os itens e só os decidíveis pelo congelado), caso-limite **13** (manchete: lado se é fato de terceiro forte, NDA se é fala do candidato ou criticazinha) e **14** (nome do perfil não é sinal de lado). Diário em [DECISOES_ROTULADOR](casos/twitter-ituassu/data/repl/compos2014/stance/DECISOES_ROTULADOR.md). Depois do teste: `valida_rotulador` (a escrever) → universo da janela (32.193) → curva → **linha 10 da tabela mestre**. ⚠ segue faltando a **aposta dela** no [PRE_REGISTRO](casos/twitter-ituassu/data/repl/compos2014/stance/PRE_REGISTRO_stance.md) §3, e o `RETESTE` (40 itens, ≥7 dias depois do dev) |
-| **4** | **Survey**: fechar as 2 decisões em aberto e reler o `.tex` | [escrita/survey/STATUS.md](escrita/survey/STATUS.md) §Decisões em aberto | Redação pura; nenhuma pendência de dado. ◐ **a decisão nº 1 está virando medição** — ver item 12 |
-| **12** | ◐ **Expansão do corpus da survey — recuperação RODANDO (retomada em 22/ago/2026, 17:02).** É o protocolo da dissertação aplicado à própria survey: recuperar em acesso aberto o que estava atrás de *paywall* e medir se os achados mudam. **443 PDFs** recuperados até aqui, dos quais **307 estavam órfãos no disco** e entraram no banco hoje pelo `reconcilia_pdfs`. Taxa do estrato pago: **12,4%** (412/3.321, IC95% 11,3–13,6) — acima do piso de 11%. Faltam **~7.350** artigos nunca tentados; projeção **+833** (IC95% +761 a +912). 💰 **a extração está autorizada pela Mariana e encadeada** (22/ago): um **piloto de 5 artigos** (≈R$0,27) confirmou que a chave do Gemini ainda funciona, que o esquema de saída é idêntico ao de maio (29 chaves) e que os PDFs de repositório extraem sem quebrar — 5/5, zero falhas. O `scripts/extrai_apos_varredura.sh` espera a varredura acabar, aplica o sorteio pré-registrado (n=800, semente 20260929) e extrai **no máximo 800** (≈R$43). ⚠ **Não se sorteia antes de a fila acabar**: com a recuperação a 34%, a população ainda cresce, e sortear ali não seria o sorteio pré-registrado | [expansao/README.md](escrita/survey/expansao/README.md) · [PRE_REGISTRO](escrita/survey/expansao/PRE_REGISTRO_expansao.md) · [EXPANSAO_recuperacao.md](escrita/survey/EXPANSAO_recuperacao.md) | Roda sozinho, em blocos, sem VPN e sem credencial. **Nenhum número da survey ou da dissertação mudou até aqui.** ⚠ duas medidas falsas do medidor foram corrigidas hoje — §4.21 |
-| **5** | ⚠ **RODADA 6 INTERROMPIDA NO MEIO (22/ago/2026, 20h) — retomar por [`revisoes/rodada-6/RETOMAR.md`](escrita/dissertacao/revisoes/rodada-6/RETOMAR.md).** A Mariana comentou o [`revisao-5.pdf`](escrita/dissertacao/revisoes/revisao-5.pdf): **23 anotações** (pp. 12–72), todas planejadas. O `dissertacao.tex` (legendas + colocação de floats) e o `referencias.bib` (entrada nova do **Heine 2025**) **já estão gravados**; o **`corpo.tex` está intocado** — o script de aplicação abortou num `assert` antes de gravar, e a gravação é atômica, então nada se perdeu. Retomar é rodar `python revisoes/rodada-6/aplica6.py`, recompilar e publicar o `revisao-6.pdf`. Falta ainda a seção da rodada no `REVISOES.md`. Três pedidos estruturais desta leitura: (a) **a legenda de tabela pela terceira vez** — tratada de vez, no preâmbulo e tabela a tabela; (b) a **dissertação do Alexandre Heine** entra nos trabalhos relacionados, na linha de amostragem (ela acertou o enquadramento); (c) o **capítulo do TikTok** é técnico demais e precisa fechar pelo argumento. O registro anterior: ◐ **Revisão da dissertação — rodada 4 aplicada em 22/ago/2026.** A Mariana comentou o [`revisao-4.pdf`](escrita/dissertacao/revisoes/revisao-4.pdf) até a **p. 56**: **17 anotações**, 15 com comentário, **todas tratadas**. O [`revisao-5.pdf`](escrita/dissertacao/revisoes/revisao-5.pdf) (**76 p.**, zero erros, zero indefinidas, zero `Overfull`) espera a leitura dela — e o que mais rende agora são os **Caps. 5 a 7** (vacinal, Reddit, YouTube), sem comentário desde o `revisao-2.pdf`. Três mudanças estruturais: (a) **capítulo novo de Trabalhos Relacionados** (Cap. 2), com **16 referências novas** — o trabalho mais próximo é **Liang e Fu (2015)**, e a diferença de desenho (independente × pareado) está escrita; (b) a **tabela mestre passou a existir no texto** (Tab. 9.1, §9.1) — era anunciada como entregável central e só morava no `casos/RESULTADOS_tabela_mestre.md`; (c) **§9.2 nova, sobre banco de dados**, a pedido dela. ★ E o comentário 17 achou um **erro real** no Cap. do TikTok — ver §4.22. O registro anterior: ◐ **rodada 3 aplicada em 21/ago/2026.** A Mariana comentou o [`revisao-3.pdf`](escrita/dissertacao/revisoes/revisao-3.pdf) até a **p. 21** (front-matter → meio do Cap. 2): **20 anotações, todas com comentário**, e **todas foram tratadas**. O [`revisao-4.pdf`](escrita/dissertacao/revisoes/revisao-4.pdf) (**65 p.**, zero erros, zero referências indefinidas, zero `Overfull`) espera a leitura dela, e o que interessa agora é **do Cap. 3 em diante** — esses capítulos não são lidos desde o `revisao-2.pdf`. Duas coisas da rodada valem registro fora do mapa comentário→mudança: (a) a **passiva sintética** caiu de 46 para 21 ocorrências no `corpo.tex`, a pedido explícito dela; (b) ⚠ **o `thesispuc.cls` foi corrigido** — falta um `\fi` na classe oficial da PUC-Rio, e sem ele desligar a epígrafe **quebra a compilação** (§4.20). Saiu também uma decisão nova para ela (§3, item 9: caso de modelagem de tópico). O registro anterior: ◐ **rodada 2 aplicada em 21/ago/2026.** A Mariana comentou o [`revisao-2.pdf`](escrita/dissertacao/revisoes/revisao-2.pdf) **por inteiro** (56 anotações, front-matter → Cap. 7), e **todas foram tratadas**; mapa comentário→mudança em [REVISOES.md](escrita/dissertacao/revisoes/REVISOES.md). O [`revisao-3.pdf`](escrita/dissertacao/revisoes/revisao-3.pdf) (**64 p.**, zero erros, zero referências indefinidas, zero `Overfull`) espera a leitura dela. O **fluxo virou skill**: [`revisao-dissertacao`](.claude/skills/revisao-dissertacao/SKILL.md), com o extrator de comentários versionado em `revisoes/extrai_comentarios.py`. ⚠ **Três decisões estruturais** saíram da rodada — ver §4.18 | [revisoes/](escrita/dissertacao/revisoes/) | O que resta é dela: ler o `revisao-3.pdf` |
+| ~~3~~ | ✅✅ **STANCE FECHADO em 9/set/2026 — é a 16ª linha da tabela mestre e está no `corpo.tex` (§4.5, `sec:stance`).** A Mariana rotulou os **210** do teste cego à mão, em três fases (portão → stance por texto, com propagação → desambiguação do NDA). Gabarito: **NDA 71,4% · EA 19,0% · ED 9,5%** — P1 e P2 do pré-registro confirmadas. ⚠ **O rotulador automático REPROVOU** o critério (κ 0,604 < 0,70; portão 0,781 < 0,90), e **o critério não foi revisto** — a Mariana havia apostado a reprovação, e acertou. ★ **O teto da tarefa explica a reprovação**: as duplicatas do dev dão κ **0,625** entre a anotadora e ela mesma (0,198 com a manchete ambígua da irmã de Lula, que gerou o caso-limite 13) — o rotulador está **no teto**, a dois centésimos. ★ **Estimativa corrigida** pela inversão da matriz de confusão sobre **5.000** tweets do universo: fatia sem lado **23,4% → 65,8%** (muda, converge em n≈2.000, plana desde n=100), mas a razão EA/ED fica **indecidível** (1,01; IC95% [0,36; 2,35], que contém o 0,80 do artigo). É **indeterminação de instrumento**, categoria nova no conjunto. ⚠ **O reteste de 40 não foi feito e não será**: 26 dos 40 vinham do teste rotulado no mesmo dia, e os ≥7 dias cairiam em 16/set, depois da entrega. Custo total US$ 1,47; livro-caixa em US$ 16,89 de US$ 25 | [VALIDACAO](casos/twitter-ituassu/data/repl/compos2014/stance/RESULTADOS_stance_validacao.md) · [UNIVERSO](casos/twitter-ituassu/data/repl/compos2014/stance/RESULTADOS_stance_universo.md) | Nada a fazer aqui. O que resta do caso é o **eixo de temas**, sem rotulagem |
+| **4** | ◐ **Survey: existe um PDF de rodada, [`revisoes/survey-1.pdf`](escrita/survey/revisoes/survey-1.pdf) (9/set/2026, 11 p.), escrito como artigo fechado.** O que falta é a **leitura dela** — o ciclo é o mesmo da dissertação (comenta o PDF → a rodada seguinte aplica). Nesta rodada o artigo ganhou **6 figuras** (funil, série anual com a queda do Twitter/X, κ por campo, amostragem × filtragem, volume, persistência corpus × grandes coletores) e **5 tabelas**, todas geradas por `figuras.py`/`validacao.py` a partir do `research.db` — nenhum número digitado à mão, e o dump fica em `numeros.json`. Três coisas que a leitura precisa decidir: (a) a **base subiu para 1.723** e o `corpo.tex` segue em 1.718 (§4.24); (b) a decisão em aberto nº 1 **deixou de ser "como reportar"** e virou ameaça à validade **medida** (12,4%, IC95% 11,3–13,6, ~830 artigos recuperáveis); (c) a recomendação nº 1 do diagnóstico de tipos de análise segue **declarada e não aplicada** | [survey-1.pdf](escrita/survey/revisoes/survey-1.pdf) · [STATUS.md](escrita/survey/STATUS.md) §Decisões em aberto | Redação pura; nenhuma pendência de dado. ◐ **a decisão nº 1 virou medição** — ver item 12 |
+| **12** | ⭐ **Expansão do corpus da survey — a varredura ACABOU (23/ago/2026, 05:17) e ninguém tinha lido o desfecho até 9/set.** Fila **100% tentada**: 11.093 de 11.093. Recuperados **811 PDFs** sem credencial nenhuma — a base de PDFs foi de 2.298 para **3.109**. ⚠ **A taxa final é 7,7% no estrato pago** (772/10.039, IC95% 7,2–8,2), **não os 12,4%** da medição intermediária — os ICs **não se sobrepõem**, e a explicação provável é que aquele numerador incluía os 307 órfãos de disco de execuções em outra ordem (§4.25). ⛔ **A condição de parada pré-registrada DISPAROU** (piso de 11%; o IC inteiro está abaixo): pelo [PRE_REGISTRO](escrita/survey/expansao/PRE_REGISTRO_expansao.md) §8, a extrapolação não vale e o trabalho "vira uma nota de método". ⛔ **E a extração dos 800 NUNCA RODOU** — bug de shell (caminho do Windows interpolado dentro de `$(...)` do bash), com o laço reportando `codigo 0` por cima do erro; por isso passou 17 dias despercebido. **Nada foi gasto**, os **800 seguem sorteados** pela semente `20260929` e os PDFs estão em disco. **O que dá para avançar aqui é decisão dela, não trabalho** — ver §3, item 12 | [EXPANSAO_recuperacao.md §3c e §7](escrita/survey/EXPANSAO_recuperacao.md) · [expansao/README.md](escrita/survey/expansao/README.md) | A varredura não pede mais nada: acabou. O que resta é (a) decidir se a extração dos 800 acontece apesar do `PARAR`, e (b) conferir a hipótese dos 307 órfãos antes de o 7,7% virar número final em outro lugar |
+| **5** | ✅ **DISSERTAÇÃO PRONTA PARA A ENTREGA (9/set/2026). ⚠ A entrega é **14/set** e é a **VERSÃO FINAL PARA A BANCA**, não um depósito prévio; a defesa segue em 29/set.** **80 páginas**, zero erros, zero indefinidas, zero `Overfull`. O que mudou hoje: (a) **um capítulo por caso** — o Cap. 6 cobria dois casos de Reddit e virou **6 (Papéis Sociais)** e **7 (Homofilia)**; a numeração dos seguintes já os contava como dois (“Quinto Caso”, “Sexto”), então nada precisou de renome, e as 10 referências externas foram reapontadas uma a uma. Cada um ganhou conclusão própria, sem duplicar, com o contraste só no quarto caso (decisão dela); (b) o **Cap. 8 perdeu o “Parcial”** — nenhum capítulo quebra mais no sumário; (c) o **eixo de stance entrou** (§4.5) e a tabela mestre foi de 15 para **16 linhas**; (d) o **front-matter fechou**: dedicatória (texto dela, com uma correção de aposto), agradecimentos (+ banca, + família) e bio (2023/2024). ✅ **Nenhuma pendência bloqueia a entrega.** | [revisao-6.pdf](escrita/dissertacao/revisoes/revisao-6.pdf) · [REVISOES.md](escrita/dissertacao/revisoes/REVISOES.md) | O que resta é leitura dela. Os **Caps. 5 a 8** seguem sem comentário desde o `revisao-2.pdf` |
 | ~~5 (rodada 1)~~ | ✅ **Rodada 1 aplicada em 21/ago/2026.** A Mariana comentou **pp. 6–27** do [`revisao-1.pdf`](escrita/dissertacao/revisoes/revisao-1.pdf) (Resumo → início do Cap. 4) e os **32 comentários foram todos aplicados**; mapa comentário→mudança em [REVISOES.md](escrita/dissertacao/revisoes/REVISOES.md). O [`revisao-2.pdf`](escrita/dissertacao/revisoes/revisao-2.pdf) espera a leitura dela | [revisoes/](escrita/dissertacao/revisoes/) | Fluxo fixado: ela comenta o último `revisao-N.pdf` → a rodada seguinte aplica e salva `revisao-N+1.pdf`. Corrigiu **3 erros factuais** que ela apontou: "o **único** em Twitter/X" (são dois), "seis casos, **um por rede**" (sete em cinco) e a linha *Centralidade* da `tab:casos` (é **papéis sociais**) |
 | ~~5b~~ | ✅ **Resolvido em 21/ago/2026:** os quatro capítulos novos foram lidos e comentados pela Mariana na rodada 2, e os comentários foram aplicados (item 5). O registro original: 📌 **Revisar os capítulos novos no `corpo.tex`** — são **quatro**: caso **vacinas** (07/ago), caso **Reddit** (21/ago, cobre Buntain + Massachs), caso **YouTube** (19/ago, **reescrito em 21/ago**) e caso **TikTok/PoliTok** (19/ago), mais os trechos novos da conclusão (o **quarto eixo** — volume, largura, forma e momento — os **números que dependem de decisões não publicadas**, e o parágrafo novo sobre os dois casos de Reddit) | [corpo.tex](escrita/dissertacao/corpo.tex) | Nenhum foi lido pela Mariana. **É trabalho dela.** Compila limpo em **54 páginas** (eram 45 em 19/ago), zero referências indefinidas. ⚠ **A afirmação de circularidade do cap. do YouTube foi corrigida em 21/ago** — a conclusão ficou, o mecanismo mudou (§4.16). Os capítulos foram **renumerados**: Reddit é o 3º/4º, YouTube passou a 5º, TikTok a 6º |
 | **6** | ✅✅ **`reddit-buntain` FECHADO (19/ago) e ESCRITO (21/ago).** Coleta completa (**43.479 submissions + 1.015.247 comentários**, 13 subreddits, sem corte) e **RB3 medido**: o artigo diz que **~3%** dos usuários participam de >1 comunidade; no universo, **sob o mesmo limiar de atividade**, são **57,6%** — **19×**. A localidade dos papéis sociais que o artigo relata é **artefato do recorte top-100 × top-200** | [RESULTADOS_RB3](casos/reddit-buntain/data/repl/buntain2013/RESULTADOS_RB3.md) · [corpo.tex §cap:caso-reddit](escrita/dissertacao/corpo.tex) | É o maior efeito de sub-coleta medido na dissertação. **Nada a fazer aqui** — o capítulo foi escrito em 21/ago, junto com o do Massachs, num capítulo só de Reddit |
@@ -245,6 +245,72 @@ Nenhuma delas bloqueia os itens do §1, mas todas mudam trabalho futuro.
    crawler que roda em loop na vm031. Combinar com quem opera (o `execute_tiktok.sh` cita
    o Tomaz) ou pedir credencial própria — esta última é o que torna a Fase 1
    **reproduzível por terceiros**.
+11. ⭐ **DUAS DECISÕES NOVAS, saídas da rodada 1 da survey (9/set/2026).** Nenhuma
+   bloqueia a defesa; as duas mexem em número já impresso, e por isso não foram
+   aplicadas sozinhas.
+   **(a) Propagar a base 1.723 para o `corpo.tex`?** A survey recompilou com o banco
+   atual (2.147 extraídos, 1.723 na base); o `corpo.tex` segue em 2.139/1.718. Nenhum
+   achado muda — são casas decimais —, mas os dois documentos são lidos juntos e a
+   `tab:analises-survey` cita a survey nominalmente. É uma passada de `grep` mais
+   `audita_numeros.py`/`audita_contas.py` antes e depois. Ver §4.24.
+   **(b) Trocar a base da tabela de tipos de análise da união para só-Gemini?** É a
+   recomendação nº 1 do
+   [DIAGNOSTICO_tipos_de_analise.md](escrita/survey/expansao/DIAGNOSTICO_tipos_de_analise.md),
+   nunca aplicada. Hoje o `survey-1.pdf` **declara** o defeito (ameaça nº 6, com o
+   +87% medido e a tabela recomputada dentro da própria ameaça) e o `corpo.tex` não
+   diz nada. Aplicar alinha os dois achados ao mesmo critério, mas mexe nas duas
+   tabelas de uma vez e a 20 dias da defesa. ⛔ o mesmo diagnóstico proíbe mexer no
+   `vocabulary` antes de a expansão extrair — isso **não** está em jogo aqui.
+12. ⭐⛔ **A expansão do corpus: extrai os 800 ou não?** — apurado em 9/set/2026, e é
+   a decisão mais consequente em aberto. Os fatos, todos conferidos:
+   - a varredura **acabou** em 23/ago e recuperou **811 PDFs**; eles estão em disco;
+   - os **800 sorteados** pela semente pré-registrada `20260929` **nunca foram
+     extraídos** — bug de shell, não de método (§4.25). **Nada foi gasto**;
+   - extrair custa **~R$43** e algumas horas, e levaria a base de **1.723 para
+     ~2.360** (800 × os ~80% que de fato coletam RSD) — um **+37%**;
+   - ⛔ **mas a condição de parada pré-registrada disparou**: o estrato pago fechou
+     em **7,7%**, com o IC95% inteiro abaixo do piso de 11%. O
+     [PRE_REGISTRO](escrita/survey/expansao/PRE_REGISTRO_expansao.md) §8 manda
+     **parar** e transformar o trabalho numa nota de método.
+
+   **A tensão é real e não se resolve sozinha:** a parada foi escrita contra a
+   *extrapolação* (``vale a pena varrer 11 mil artigos?''), e a varredura já
+   aconteceu — os 811 existem independentemente de a taxa ter frustrado. Extrair
+   agora não viola a aposta sobre a taxa; viola a **letra** da condição de parada.
+   Só a Mariana decide se o pré-registro se aplica a este passo, e a decisão precisa
+   ficar **escrita** — um pré-registro contornado em silêncio vale menos que nenhum.
+   ⚠ Seja qual for a decisão, ela **não** muda o `survey-1.pdf`, que já reporta a
+   taxa final medida como ameaça à validade.
+   ✅ **Decidido em 9/set/2026: a Mariana mandou levar os 800 adiante.** Adendo de
+   decisão escrito **antes** da execução no
+   [PRE_REGISTRO §11](escrita/survey/expansao/PRE_REGISTRO_expansao.md). Extração
+   rodando desde 08:47.
+13. ~~**Rodar o proxy institucional na Springer?**~~ — ❌ **RESPONDIDA E FECHADA em
+   9/set/2026, e a resposta é não porque não dá.** A Mariana autorizou a rota lenta
+   ("está OK expandir mais se for feito com cuidado"). O cuidado foi construído
+   primeiro — [`proxy_springer.py`](escrita/survey/expansao/proxy_springer.py), com
+   parada dura em bloqueio, sequencial, sem tocar no banco — e **foi ele que achou o
+   problema no piloto de 10**: a Springer devolve **HTTP 200 com 3 KB de "Client
+   Challenge"** no endpoint do PDF. Confirmado em 4 DOIs diversos (periódico e
+   capítulo, 2015–2022), resposta byte a byte idêntica.
+   **A rota do proxy está fechada por inteiro:** ACM, Elsevier, SAGE, T&F, Emerald e
+   Wiley já bloqueavam; IEEE fechou entre mai e ago/2026; Springer, até set/2026. Os
+   ~2.000 artigos que pareciam folga **não são alcançáveis**. Detalhe em
+   [EXPANSAO_recuperacao.md §4b](escrita/survey/EXPANSAO_recuperacao.md).
+   ⛔ O `curl_cffi`/Playwright previsto no `PROXIMAS_ETAPAS.md` do repo da survey
+   **não foi implementado, por decisão**: forjar *fingerprint* de navegador é
+   contornar um controle anti-automação, não usar uma assinatura — e a conta cairia
+   sobre o acesso da PUC-Rio inteira.
+   ✅ **O saldo é positivo mesmo assim:** virou achado do artigo. A ameaça à validade
+   nº 2 passou a dizer que o estrato comercial é um **limite estrutural** para
+   levantamentos em escala, e não um custo que uma instituição possa pagar.
+   ⭐ **E abriu uma sonda que a Mariana executou no mesmo dia.** Com o PAC da DBD
+   ativo no navegador — acesso por **IP**, não por login —, ela baixou **199 de 200**
+   periódicos Springer à mão (~1 h), contra **7,7%** das rotas abertas. ⛔ Mas **0
+   de 5 anais LNCS**: a PUC-Rio assina os periódicos e não os anais, o que deixa
+   **1.492 artigos** do corpus inalcançáveis *mesmo pagando*. Ferramenta em
+   [`sonda_springer.py`](escrita/survey/expansao/sonda_springer.py); retomada em
+   [`expansao/RETOMAR.md`](escrita/survey/expansao/RETOMAR.md).
 
 ---
 
@@ -861,6 +927,112 @@ mesma contagem de `Vaccines` custou 4 chamadas numa rodada e **16** na seguinte.
 conserto é recuar-e-repetir quando a mensagem for de taxa, e só dividir quando o
 intervalo grande falhar **depois** de um recuo longo.
 
+### 4.24 ⚠ A survey recompilou na base **1.723**; o `corpo.tex` segue em **1.718** (9/set/2026)
+
+O `survey.tex` foi recomputado contra o `research.db` atual e todos os seus números
+subiram um degrau, porque o **piloto de 5 artigos** da expansão (§item 12 da §1)
+entrou no banco: **2.139 → 2.147** extraídos, **421 → 424** descartados,
+**1.718 → 1.723** na base de caracterização. Os deslocamentos são de casas decimais
+(Twitter 1.095 → 1.097; API 1.198 → 1.200; volume legível 1.518 → 1.522; ``análise de
+conteúdo'' 1.040 → 1.045), e **nenhum achado se move**: amostragem 18,7%, filtragem
+80,3% e os 339 grandes coletores são idênticos.
+
+O `corpo.tex` **não** foi tocado e continua citando 2.139/1.718, inclusive na
+`tab:analises-survey`. Como os dois documentos são hoje lidos juntos, a divergência
+fica registrada aqui. **Corrigir é uma passada de `grep`**, mas mexe em números de
+abertura da dissertação a 20 dias da defesa — é decisão da Mariana (§3).
+
+⚠ Uma segunda divergência, mais antiga, **continua de pé nos dois documentos**: a
+recomendação nº 1 do
+[DIAGNOSTICO_tipos_de_analise.md](escrita/survey/expansao/DIAGNOSTICO_tipos_de_analise.md)
+— reportar tipos de análise só pelo Gemini — **não foi aplicada em lugar nenhum**. O
+`survey-1.pdf` passou a **declarar** o problema como ameaça à validade, com a medida
+(+87% de rótulos por artigo entre os 732 duplamente lidos) e com a tabela recomputada
+só pelo Gemini dentro da própria ameaça; o `corpo.tex` ainda não diz nada. Aplicar a
+recomendação mudaria as duas tabelas de uma vez.
+
+### 4.25 ⚠ A taxa de recuperação da expansão caiu de 12,4% para **7,7%** no censo completo (9/set/2026)
+
+Terceiro artefato de medição da mesma frente, e o primeiro que empurra o número
+**para cima** — o que é pior, porque otimismo não dispara desconfiança.
+
+A varredura fechou em 23/ago com a fila **100% tentada** (11.093). O resultado
+final, por `taxa_recuperacao.py` sobre o `estratos.json`: **7,7%** no estrato pago
+(772/10.039, IC95% 7,2–8,2) e 7,3% no total (811/11.093). A medição intermediária,
+feita a 34% da fila, dizia **12,4%** (IC95% 11,3–13,6). **Os dois intervalos não se
+sobrepõem**, então não é flutuação amostral — e, com `--shuffle`, qualquer prefixo
+da fila deveria ser amostra não enviesada dela.
+
+**Hipótese**, ainda por conferir: a contagem intermediária foi feita logo depois de
+o `reconcilia_pdfs` trazer **307 PDFs órfãos do disco**, recuperados por execuções
+anteriores em **outra ordem** — inclusive a primeira, em `order_by(id)`. Eles
+entraram no numerador sem que seus denominadores estivessem no conjunto tentado
+daquela medição. ⚠ **Confirmar antes de o 7,7% virar número final em outro lugar.**
+
+**Onde o número velho já estava impresso, e o que foi feito:** o
+`revisoes/survey-1.pdf` foi publicado horas antes, na mesma sessão, citando os
+12,4% e uma projeção de ~830 artigos. **Corrigido e republicado no mesmo dia** — a
+ameaça à validade nº 3 do artigo passou a ser um **censo** (11.093 tentados, 811
+recuperados) em vez de uma projeção, o que a deixa mais forte, e a medição
+intermediária virou nota de rodapé. Fora do `survey.tex`, o número velho ainda
+aparece em `EXPANSAO_recuperacao.md` §3b e no `expansao/README.md`, **de propósito**:
+lá ele é o registro histórico da execução, e §3c o supera explicitamente.
+
+### 4.26 ⛔ A extração da expansão falhou em silêncio por 17 dias (9/set/2026)
+
+O `extrai_apos_varredura.sh` esperou a varredura, sorteou os 800 e **não extraiu
+nenhum**: o script interpola o caminho da amostra em formato Windows
+(`C:\Users\...`) dentro de um `$(python -c ...)` executado pelo **bash**, que o
+entrega como `/c/Users/...`; o Python do Windows não abre, `--ids` fica vazio e o
+`analyze_pdfs` aborta.
+
+⚠ **O laço registrou `codigo 0`** — sucesso — porque leu o `$?` do último comando
+do bloco, e não o do `analyze_pdfs`. O log termina com uma linha de sucesso sobre
+um fracasso, que é a razão de ninguém ter percebido.
+
+**Consequência:** nada foi gasto, os 800 seguem sorteados e válidos, e **962 PDFs
+estão em disco sem extração**. O conserto do comando está em
+[EXPANSAO_recuperacao.md §7](escrita/survey/EXPANSAO_recuperacao.md); rodar ou não
+é decisão da Mariana (§3, item 12).
+
+### 4.27 ⭐ O proxy institucional NUNCA foi usado em escala — e os "43%" são capacidade, não coleta (9/set/2026)
+
+Apurado a pedido da Mariana, que lembrava de o proxy ter sido usado. **A memória
+está meio certa: a capacidade foi construída, a coleta não aconteceu.**
+
+O que de fato existe, por `documentacao/METODOLOGIA.md` §5.6 e
+`PROXIMAS_ETAPAS.md`: em **26/mai/2026** foram implementados
+`fetch_pdf_via_proxy()`, a flag `--via-proxy` e o `--doi-prefix`, mais um **teste
+de fumaça em 10 DOIs** (1 por editora). O item aparece como **"Concluído"** — e é,
+mas o que concluiu foi a *implementação*.
+
+⚠ **Os "≈43% do paywall" são o conjunto endereçável, não o recuperado**: Springer
+2.245 + IEEE 2.117 = 4.362 dos 10.229 pagos são as editoras que o proxy consegue
+tecnicamente alcançar. Nenhuma varredura em massa foi rodada sobre elas.
+
+**Medido no banco em 9/set/2026**, sobre os 4.356 artigos pagos dessas duas
+editoras: apenas **157 (3,6%)** tinham PDF antes da expansão — e mesmo esses são
+compatíveis com rota aberta (preprint em arXiv de artigo Springer, etc.), não com
+colheita via proxy. Se a varredura tivesse rodado, o número estaria perto de 4.356.
+
+**Onde o número errado estava impresso, e o que foi feito:** o `survey.tex` dizia
+que *"um acesso institucional via proxy recupera adicionalmente parte de Springer e
+IEEE (≈43% do paywall alcançável), totalizando 2.298 PDFs obtidos"* — o que dá a
+entender uma contribuição que não houve. **Corrigido e republicado no mesmo dia**
+(3ª republicação do `survey-1.pdf`): a Metodologia passou a dizer que **todos os
+3.109 PDFs vêm de rotas abertas e gratuitas** e que o proxy foi implementado,
+testado e **deliberadamente não usado em escala**; a ameaça à validade nº 2 passou a
+descrever o viés por **política de depósito da editora** (Emerald, T&F e Wiley
+abaixo de 5%; ACM 8,9%) em vez de por catálogo de assinaturas. O artigo fica mais
+forte: o viés de cobertura é nítido, e não misturado a licença comercial.
+
+⚠ **A folga que isso parecia abrir NÃO existe** — apurado horas depois, no mesmo dia
+(§3, item 13). Os ~2.000 artigos da Springer não são alcançáveis: ela devolve HTTP
+**200 com 3 KB de "Client Challenge"** no endpoint do PDF, e a linha "Springer 200"
+do diagnóstico de agosto media a *landing page*, não o PDF. Com IEEE (202 vazio
+desde ago) e as demais já bloqueadas, **não sobrou editora colhível por automação**.
+O proxy nunca foi usado em escala e agora não pode mais ser.
+
 ---
 
 ## 5. Estado por frente (uma linha cada)
@@ -879,4 +1051,4 @@ intervalo grande falhar **depois** de um recuo longo.
 | **casos/reddit-topicos** | ⏳ **NOVO em 22/ago/2026, e PARADO no Portão 1 esperando decisão da Mariana.** Sétimo caso; existe para fechar a única lacuna de **tipo de análise** (modelagem de tópico). Alvo **Melton et al. 2021** (*J. Infection and Public Health* 14(10), **178 cit.**), LDA + sentimento sobre 13 subreddits, dez/2020–mai/2021. **Fase 0 ✅**: full text lido e afirmações numeradas em [ARTIGO_MELTON_alvo.md](casos/reddit-topicos/ARTIGO_MELTON_alvo.md). ⭐ o corpus analisado é **11.641** (1.401 submissões + 10.240 comentários), **não os ~18.000** do resumo — **dois** filtros empilhados. ⭐ os autores **publicaram o modelo LDA ajustado** (7 pyLDAvis), congelado como gabarito e auto-conferido contra a Fig. 4 deles. ★ **T1 não é ranking, é ausência**, e já está sob tensão no gabarito deles (janeiro, k=15, tem `autism` e `microchip`): a ausência depende da **resolução**, não só da coleta. ◐ dimensionamento **6/13** — só os menores dão **215.394 × 11.641** (18,5×, teto do fator); os 7 restantes travaram no **rate limit**. ⭐ `NoNewNormal` **banido em 1º/set/2021**. ⭐ **e a rota de coleta está aberta**: paginar funciona no maior subreddit (5.050 comentários, 51 páginas, zero falhas) onde agregar falha — 0,29 kB/item, ~3,35 M comentários de `conspiracy` na janela, ~1 GB. **Nada foi ao `corpo.tex`.** 🔖 [RETOMAR.md](casos/reddit-topicos/RETOMAR.md) |
 | **casos/ (Fase 4)** | [Tabela mestre](casos/RESULTADOS_tabela_mestre.md) ✅ **13 linhas fechadas**, **3 ⏳** (Heine ×2, stance) e **2 ⛔ fora do escopo** (Meta Ads ×2, §4.18) · *fração mínima* anotada em **4** células (AV1 f≈0,75; linha 1 n=100; linha 2 n≈200; linha 11 k≈10–20) · ⚠ **duas leituras novas**: PP3 pode confundir viés de esquema com falta de volume (§4.9), e a linha 15 inaugura um desfecho **não previsto** — efeito grande, mas *causa indeterminada* porque o passo do funil não é isolável (§4.16) |
 | **escrita/dissertacao** | Compila limpo (**76 p.**), **zero referências indefinidas** e **zero `Overfull`** · ✅ **4ª rodada de revisão aplicada em 22/ago/2026** (17 anotações, pp. 9–56) → [`revisoes/revisao-5.pdf`](escrita/dissertacao/revisoes/revisao-5.pdf) · **capítulo novo de Trabalhos Relacionados** (Cap. 2) e **`.bib` de 27 → 43 entradas** · a **tabela mestre** entrou no texto (Tab. 9.1, §9.1, quinze linhas) e a **§9.2** passou a tratar do papel do banco de dados · ★ o Cap. do TikTok foi corrigido: o eixo temporal **já está no artigo-alvo** e a série publicada misturava bases (§4.22) · ✅ **3ª rodada de revisão aplicada em 21/ago/2026** (20 comentários, pp. 1–21) → [`revisoes/revisao-4.pdf`](escrita/dissertacao/revisoes/revisao-4.pdf), esperando a leitura da Mariana **do Cap. 3 em diante** · **passiva sintética 46 → 21** ocorrências no `corpo.tex` · **legendas curtas** nas 4 figuras e nas 8 tabelas, o que reduziu a Lista de figuras de duas páginas de texto corrido para 4 linhas · **4 entradas novas** no `.bib`: Jimeno-Yepes 2015 (o estudo dos 2,8 bi, que estava sem referência), Efron 1979, Efron e Tibshirani 1993 e Wilson 1927 · as 5 fases do protocolo viraram lista, e PP1/PP2 foram reescritas para deixarem de parecer a mesma pergunta · **epígrafe removida** (era uma página em branco com `, .`), o que destravou o bug do `thesispuc.cls` (§4.20) · ✳ **Nota de atualidade acrescentada ao Cap. 4** em 21/ago/2026 (fora do ciclo de revisão): o levantamento Torabit/BBC de ago/2026 (93.755 posts, termo único “vacina”, 65,8% × 34,2%) entra como ilustração pública dos dois eixos que o capítulo mediu — largura do filtro e esquema binário forçado. Entrada `bbc2026vacinas` no `.bib`, apontando para o original da BBC News Brasil. ✅ o **`revisao-3.pdf` foi republicado** com a nota (o PDF ainda estava com **0 anotações**, então nada comentado foi sobrescrito) · ✅ **2ª rodada de revisão aplicada em 21/ago/2026** (56 comentários, documento inteiro, primeira vez que os Caps. 5–7 foram lidos) → [`revisoes/revisao-3.pdf`](escrita/dissertacao/revisoes/revisao-3.pdf), esperando a leitura da Mariana · conjunto reduzido a **6 casos / 4 redes** e `tab:casos` corrigida em duas linhas (§4.18) · §2.3 (métricas) e §2.4 (coleta por plataforma) **reescritas** · **4 figuras** e **5 tabelas**: novas nesta rodada a `tab:metricas`, a `tab:youtube-funil`, a `tab:youtube-ponto`, a **Fig. 5.1** (curva por limiar do Buntain, de `curva_rb3.json`) e a **Fig. 6.1** (filtro × funil do YouTube) · front-matter ◐ — banca, data da defesa e bio preenchidas; faltam dedicatória e epígrafe · fluxo de revisão virou [skill](.claude/skills/revisao-dissertacao/SKILL.md), com o extrator em `revisoes/extrai_comentarios.py` · ⚠ histórico que segue valendo: os capítulos foram renumerados em 21/ago (Reddit 3º/4º, YouTube 5º, TikTok 6º) e o cap. do YouTube teve o **mecanismo** da circularidade corrigido (§4.16) |
-| **escrita/survey** | Todas as seções em rascunho revisado · 2 decisões em aberto · sem pendência de dado · ◐ **expansão do corpus rodando** (22/ago/2026): **443** PDFs recuperados sem credencial nenhuma (307 deles reconciliados hoje, do disco para o banco), estrato pago em **12,4%**, ~7.350 artigos ainda por tentar, extração **autorizada e encadeada** (piloto de 5 artigos validou chave, esquema e pipeline; o resto dispara sozinho quando a fila acabar, teto de 800 chamadas ≈ R$43). O medidor foi corrigido duas vezes hoje (§4.21). A decisão em aberto nº 1 — como reportar a fração inacessível — está deixando de ser redação e virando medida |
+| **escrita/survey** | ✅ **1ª rodada de revisão publicada em 9/set/2026** — [`revisoes/survey-1.pdf`](escrita/survey/revisoes/survey-1.pdf), **11 p.**, zero erros, zero referências indefinidas, zero `Overfull`, escrito como artigo **fechado**. Base recomputada em **1.723** (§4.24). **6 figuras + 5 tabelas**, todas reprodutíveis por [`figuras.py`](escrita/survey/figuras.py) e [`validacao.py`](escrita/survey/validacao.py) sobre o `research.db`, com dump em `numeros.json` · seções novas: **§4.1** (a dependência do Twitter/X e sua data de vencimento — a fatia cai de 95% em 2014 para 14% em 2026, com inflexão em 2023), **§3.4** (κ por campo: coleta e plataforma 0,64–0,99, tipos de análise mediana 0,40) e a **tabela de famílias de API** · a §Ameaças à validade passou de 4 para **6 itens**, com o viés de acesso agora **medido** e a cobertura desigual dos modelos declarada · `.bib` de 11 → **13** entradas (Cohen 1960, Landis e Koch 1977) · Todas as seções em rascunho revisado · 2 decisões em aberto · sem pendência de dado · ⭐ **expansão: a varredura ACABOU** (23/ago, fila 100% tentada) e o desfecho só foi lido em **9/set**: **811 PDFs** recuperados sem credencial nenhuma (2.298 → **3.109**), taxa final **7,7%** no estrato pago (IC95% 7,2–8,2) — **não** os 12,4% intermediários, cujos ICs nem se sobrepõem (§4.25). ⛔ **condição de parada pré-registrada disparada** (piso 11%) e ⛔ **extração dos 800 nunca rodou** (bug de shell com `codigo 0` por cima do erro, §4.26). **Nada gasto**; 962 PDFs em disco sem extração; os 800 seguem sorteados. Extrair levaria a base de 1.723 a **~2.360** — decisão dela (§3, item 12). A decisão em aberto nº 1 (como reportar a fração inacessível) **fechou**: virou censo, e está no artigo como ameaça à validade medida |

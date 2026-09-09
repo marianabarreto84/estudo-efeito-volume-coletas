@@ -324,3 +324,72 @@ stance caíam justamente nas lacunas. Regerar agora só produziria concordância
 construção. A pré-anotação do dev fica como está, datada e sob as regras antigas; o que
 passa a valer o codebook novo é **o prompt do rotulador automático**, que ainda vai ser
 escrito.
+
+---
+
+## 9/set/2026 — **teste cego em duas fases** e a propagação por texto repetido
+
+A Mariana rotulou **30 dos 210** na interface antiga e pediu duas mudanças:
+lançar o portão `cidadao` **de uma vez só**, separado do stance, e **propagar o
+stance** quando o mesmo texto reaparece em outra conta. As duas foram aplicadas em
+[`rotulagem_teste.html`](rotulagem_teste.html) (gerador em
+`analise/gera_pagina_rotulagem_v2.py`; a interface anterior ficou preservada em
+`rotulagem_teste_v1.html`). Os 30 já feitos foram semeados na página nova.
+
+### Por que as duas fases são justificadas, e não só mais cômodas
+
+Os dois rótulos têm **portadores diferentes**, e isso não tinha sido explicitado:
+
+- o portão `cidadao` é propriedade da **conta que publicou** — dois RTs do mesmo
+  original, vindos de uma pessoa e de um veículo, têm portões **diferentes**;
+- o `stance` de um RT sem comentário é, pelo próprio codebook (*“vale o conteúdo
+  retuitado, RT é endosso”*), propriedade do **texto** — e portanto **idêntico**
+  em todas as contas que o repetem.
+
+Rotular o mesmo texto três vezes não era, então, uma medição independente: era a
+mesma decisão tomada três vezes, com chance de sair diferente por cansaço.
+
+Na amostra de teste: **179 grupos de texto para 210 itens** — 18 grupos com mais de
+um membro (9 pares, 5 trios, 4 quádruplos), 49 itens no total. A propagação poupa
+**31 decisões de stance**, ~15% do trabalho restante. A chave de grupo é exatamente a
+`norm_texto` do sorteio congelado (minúsculas, sem `RT @x:`, sem URL, sem acento,
+espaços colapsados) — **não se inventou critério novo**.
+
+### ⚠ O que a mudança custa, declarado
+
+O codebook mandava *“texto repetido: rotule de novo, sem procurar o anterior”*, e era
+**isso** que fazia das duplicatas uma medida de consistência intra-codificador dentro
+do próprio teste. Com a propagação essa medida **deixa de existir aqui** — ela passa a
+viver só no **reteste de 40 itens** (≥ 7 dias depois), que é onde foi desenhada para
+viver. Consequência direta no relato: o κ **“com duplicatas” fica inflado por
+construção** (o gabarito humano tem duplicatas forçadamente coerentes, e o rotulador
+automático rotula cada item por conta própria), de modo que o **número primário passa
+a ser o κ sem duplicatas**. O critério de aceite do
+[PRE_REGISTRO](PRE_REGISTRO_stance.md) §4 já mandava reportar os dois; o que muda é
+qual deles é o principal. O CSV exportado ganhou as colunas **`origem`**
+(`manual` / `propagado`), **`grupo_texto`** e **`tam_grupo`**, de modo que qualquer
+análise pode refazer as duas leituras.
+
+### ★ O que os 30 primeiros itens já mostraram, antes de propagar
+
+Vale registrar porque a propagação apaga a evidência daqui em diante. Entre os 30
+itens, **6 grupos repetidos** foram tocados; em **5** deles só um membro tinha sido
+rotulado, e em **1** havia dois membros rotulados — e eles **divergiram**:
+
+> `RT @UOLNoticias: Governo segura divulgação de dados que podem afetar campanha de #Dilma`
+> — item **6** (@gnasce) marcado **NDA**, item **41** (@pacepeba) marcado **EA**.
+
+Ou seja: na única oportunidade que houve de a mesma pessoa reencontrar o mesmo texto,
+o rótulo saiu diferente. É n=1 e não sustenta número nenhum, mas é exatamente o tipo
+de inconsistência que o reteste vai medir com n=40, e **reforça** a decisão de propagar:
+a variação era ruiído de repetição, não julgamento novo. O caso cai, aliás, bem em cima
+da regra graduada de manchete decidida em 22/ago (é manchete de terceiro com valência
+contra o governo → lado; ou notícia sem valência → NDA). A página **não resolve
+sozinha**: ela mostra um aviso vermelho no grupo e pede que a Mariana decida qual vale.
+
+### O que não mudou
+
+Amostra, semente e split seguem congelados (`dc8ee39ff69b`). A página continua
+**cega** — nenhum campo de rótulo automático viaja para dentro dela, o que foi
+verificado no arquivo gerado. O critério de aceite (κ ≥ 0,70 em 3 classes, portão
+≥ 0,90) segue como escrito **antes** de medir.

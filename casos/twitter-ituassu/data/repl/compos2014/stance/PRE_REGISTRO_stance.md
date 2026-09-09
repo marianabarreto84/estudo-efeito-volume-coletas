@@ -66,7 +66,28 @@ antes da primeira rodada** — divergir da aposta é dado, não é problema.
 | **P3** | A composição EA/ED **converge tarde** — fração ≥ 0,5 — bem depois do eixo mídia (que fechou em n≈200) | é razão entre duas classes **próximas**; separar 51% de 49% exige muito mais n do que separar 36% de 50% |
 | **P4** | O κ humano×humano (ou humano×ele mesmo, no reteste) fica **abaixo** do κ do caso vacinas (0,759) | lá o rótulo era de **conteúdo declarado**; aqui é **inferência de intenção** a partir de ironia e link morto — tarefa mais frouxa |
 
-> **Aposta da Mariana:** _(a preencher antes da 1ª rodada)_
+> **Aposta da Mariana** — registrada em **9/set/2026**, com o gabarito humano dos 210
+> fechado e **antes** de o rotulador automático ser executado (nenhuma chamada de LLM
+> havia sido feita sobre o teste; o `--dry-run` só contou tokens):
+>
+> **“Acho que ele não vai passar no critério de aceite. Mas não tenho muita certeza.”**
+>
+> Leitura operacional: aposta em **κ < 0,70** no stance dos 210 — ou seja, em
+> **reprovar** o critério 1 do §4. A aposta é **declaradamente incerta**, e isso fica
+> registrado: uma previsão hesitante que falha custa menos ao argumento do que uma
+> previsão confiante que falha, e a diferença só é auditável se estiver escrita antes.
+>
+> Vale dizer que ela aponta na direção **oposta** à do kit em um ponto: P4 apostava que
+> o κ ficaria abaixo dos 0,759 do caso vacinas, o que é compatível com passar em 0,70;
+> a Mariana aposta que nem o piso se sustenta. Se ela acertar, o §4 manda **iterar o
+> prompt só no dev** e, após três versões sem passar, **reportar o fracasso** — que é
+> resultado publicável: um teto baixo significa que o rótulo de *stance* do artigo de
+> 2015 é frágil, e isso é matéria da tese.
+>
+> ⚠ As apostas **P1 e P2 já estavam resolvidas** quando esta foi registrada, pelo
+> próprio gabarito humano (NDA 71,4% — P1 confirma; EA 66,7% entre os com lado — P2
+> confirma). Esta aposta não as alcança. **P3 segue aberta** e ainda admite aposta,
+> até a curva rodar sobre os 32.193.
 
 ---
 
@@ -113,3 +134,76 @@ reportar κ de uma rodada e não de outra.
 4. Terceira pergunta (§4.9 do `ESTADO.md`): *o esquema 100/dia às 21h é não-viesado para
    a composição?* — operacionalizada como "o 42,6% ED do artigo cabe na banda de
    subamostras aleatórias de n=666?".
+
+---
+
+## 6. Estimativa corrigida sobre o universo (registrada em 9/set/2026)
+
+> Registrada **antes** de sortear a amostra do universo e **antes** de qualquer
+> chamada de LLM sobre ela. O que ja se sabia neste momento: o rotulador
+> **reprovou** o criterio do §4 (κ 0,604 < 0,70; portão 0,781 < 0,90) e o teto
+> estimado pelas duplicatas do dev é de κ ≈ 0,625 (15 pares; 0,198 com o texto
+> da irmã de Lula, 0,625 sem ele).
+
+### 6.1 Por que seguir com um rotulador reprovado
+
+O κ nunca foi o objetivo: era o portão para decidir se dava para soltar o
+rotulador sobre os 32.193 e construir a curva. Reprovado como instrumento de
+**rótulo individual**, ele ainda pode servir como instrumento de **estimativa
+agregada**, desde que o viés seja corrigido em vez de ignorado. A matriz de
+confusão foi medida nos 210 e diz exatamente o tamanho e a direção do erro (a
+máquina marca EA em 56 onde a humana marcou 40).
+
+⚠ **O critério do §4 NAO e alterado.** Ele continua reportado como **reprovado**.
+Esta seção acrescenta uma segunda medida, declaradamente *post hoc*, e a
+distinção entre as duas tem de aparecer no capítulo. Baixar o 0,70 depois de ver
+0,604 seria exatamente a prática que esta dissertação documenta nos seis casos.
+
+### 6.2 Amostra do universo
+
+| item | valor |
+|---|---|
+| população | **32.193** tweets (janela 19–25/out/2014, `snapshot_hashtag.sqlite`) |
+| amostra | **5.000**, aleatória, estratificada por dia (proporcional, maior resto) |
+| semente | `20260909` |
+| congelamento | `amostra_universo_stance.json`, com `sha256(ids)[:12]` |
+| modelo | `claude-haiku-4-5-20251001`, o **mesmo** prompt congelado dos 210 |
+
+Por que 5.000 e não os 32.193: o saldo do livro-caixa é de US$ 9,42 e o universo
+inteiro custaria ~US$ 15,8. 5.000 custa ~US$ 2,4 e já sustenta a curva e os
+intervalos. A amostra **inclui** os 320 do gabarito, por serem parte da
+população; a sobreposição será reportada.
+
+### 6.3 Correção (declarada antes de medir)
+
+Seja `M[i][j] = P(rótulo automático = j | rótulo humano = i)`, estimada na matriz
+de confusão dos 210. Se `q` é o vetor de proporções que o rotulador produz na
+amostra do universo, a estimativa corrigida é `p = (Mᵀ)⁻¹ q`, projetada no
+simplex quando a inversão cair fora dele.
+
+Incerteza por **bootstrap** (2.000 reamostragens), propagando as **duas** fontes:
+a da matriz (reamostra os 210) e a da amostra do universo. O intervalo sai mais
+largo que o ingênuo — e é esse o ponto: o preço de usar um rotulador ruidoso
+aparece no intervalo, e não é escondido.
+
+Reporta-se **sempre em conjunto**: a proporção bruta do rotulador e a corrigida.
+
+### 6.4 Curva e critério de convergência
+
+A curva `A(volume)` refaz a estimativa corrigida em subamostras de tamanho
+crescente (100, 200, 500, 1.000, 2.000, 5.000), 200 sorteios por ponto.
+
+**Convergiu** = a partir daquele volume, o IC95% da estimativa corrigida está
+inteiro dentro de ± 3 pontos percentuais do valor em n = 5.000. Escrito agora,
+antes de ver qualquer curva.
+
+### 6.5 Predições (antes de rodar)
+
+| # | predição | por quê |
+|---|---|---|
+| **P5** | A correção **derruba EA** em relação ao bruto do rotulador | a matriz mostra que a máquina inventa lado onde a humana viu NDA: 17 NDA→EA e 11 NDA→ED |
+| **P6** | A conclusão do artigo (**ED > EA**) **não se sustenta** no universo, mesmo corrigida | o gabarito de 210 já dá EA 66,7% entre os com lado, e ele é amostra aleatória da mesma população |
+| **P7** | O NDA corrigido fica **acima de 60%**, contra os 23,4% do artigo | o gabarito dá 71,4%, e a correção empurra NDA para cima, não para baixo |
+
+> **Aposta da Mariana sobre a §6:** _(em aberto — pode ser registrada até o
+> sorteio ser feito)_

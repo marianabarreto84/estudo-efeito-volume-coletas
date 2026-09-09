@@ -4,12 +4,12 @@
 > **Nenhum número nasce aqui**: cada célula cita o documento canônico que a produziu.
 > Se um valor divergir da fonte, a fonte vence — corrija lá e propague para cá.
 >
-> ⚠ **Parcial.** Atualizada em **21/ago/2026**. **13 linhas fechadas**: as 9 de
+> ⚠ **Parcial.** Atualizada em **9/set/2026**. **14 linhas fechadas**: as 9 de
 > `twitter-ituassu` (eixo mídia) e `vacinas` (eixos A e B), mais `reddit-buntain` (11),
-> `reddit-massachs` (12, no que era viável), `youtube-agecovp` (15) e `tiktok-politok` (16).
-> Em ⏳ seguem **3**: `heine-xande` (8, 9 — aguarda os dados, ver [ESTADO.md](../ESTADO.md) §2)
-> e o eixo *stance* do Ituassu (10 — aguarda gabarito humano). As linhas ausentes estão
-> listadas em §4, não omitidas.
+> `reddit-massachs` (12, no que era viável), `youtube-agecovp` (15), `tiktok-politok` (16)
+> e o eixo *stance* do Ituassu (10, fechado em **9/set/2026**).
+> Em ⏳ seguem **2**: `heine-xande` (8, 9 — aguarda os dados, ver [ESTADO.md](../ESTADO.md) §2).
+> As linhas ausentes estão listadas em §4, não omitidas.
 >
 > ⛔ **As linhas 13 e 14 (`meta-ads-imigracao`) saíram do escopo da dissertação em
 > 21/ago/2026**, por decisão da Mariana na 2ª rodada de revisão do texto. Ficam aqui
@@ -51,7 +51,7 @@ As duas combinadas dão quatro desfechos. Os observados até aqui são **NÃO/SI
 | 7 | vacinas · Twitter 2021–22 | Análise de conteúdo (stance) | **AV6** — os anti-vacina impuseram o enquadramento; os polos se equivalem | **SIM** (inverte) | **NÃO** | [FASE3 §1, §3](vacinas/data/repl/vacinas2022/FASE3_curvas.md) |
 | 8 | heine-xande · Twitter 2022 | Modelagem de tópicos (BERTopic) | ⏳ | ⏳ | ⏳ | [FASE0](heine-xande/data/repl/heine2022/FASE0_descoberta.md) |
 | 9 | heine-xande · Twitter 2022 | Estatística quantitativa (SGBD) | ⏳ | ⏳ | ⏳ | idem |
-| 10 | ituassu · Twitter 2014 | Sentimento / stance (EA/ED) | **H3** — os públicos diferem | ⏳ | ⏳ | [STANCE](twitter-ituassu/STANCE_como_o_paper_fez_e_onde_estamos.md) |
+| 10 | ituassu · Twitter 2014 | Sentimento / stance (EA/ED) | **H3** — os públicos diferem. Testado pela composição EA/ED/NDA da janela, contra os 666 cidadãos do artigo (ED 42,6% × EA 33,9% × NDA 23,4%) | **SIM** na fatia sem lado: **23,4% → 65,8%** (IC95% [52,5; 75,1]), estimativa corrigida pela matriz de confusão sobre 5.000 tweets do universo · ⚠ **INDECIDÍVEL** na razão entre os lados: **1,01** (IC95% [0,36; 2,35]) contra 0,80 do artigo — o intervalo contém os dois valores | **SIM**, em **n≈2.000**; a curva é plana desde n=100. ★ O que impede a conclusão **não é o volume**, e sim o **teto da tarefa** (κ 0,625 entre a anotadora e ela mesma) | [VALIDACAO](twitter-ituassu/data/repl/compos2014/stance/RESULTADOS_stance_validacao.md) · [UNIVERSO](twitter-ituassu/data/repl/compos2014/stance/RESULTADOS_stance_universo.md) |
 | 11 | reddit-buntain · Reddit 2013 | SNA / papéis sociais (rede) | **RB3** — só ~3% dos usuários (7/279) participam de >1 comunidade | ★ **SIM, por uma ordem de grandeza**: sob o **mesmo limiar de atividade** do artigo (≥20), o universo dá **57,6%** (3.450 de 5.991) — **19×** o publicado. Sem corte: 15,2% de 217.386 usuários | **SIM, em k≈10–20** (55,0% → 57,6% → 56,1%) — mas o valor do artigo não é recuperável em limiar nenhum: a limitação estava na **coleta** (top-100 × top-200), não no corte | [RESULTADOS_RB3](reddit-buntain/data/repl/buntain2013/RESULTADOS_RB3.md) |
 | 12 | reddit-massachs · Reddit 2012–16 | Homofilia | **MH1** — homofilia e feedback social preveem apoio a Trump; influência social não. ✅ **o ponto original replica** (18/ago/2026): F1 **34,6% × 34,8%** na homofilia e **26,8% × 26,7%** na influência, sobre o gabarito dos autores | ⏳ (falta a Fase 3) | ⏳ | [FASE2](reddit-massachs/data/repl/massachs2016/FASE2_ponto_original.md) · [FASE0](reddit-massachs/data/repl/massachs2016/FASE0_descoberta.md) |
 | 15 | youtube-agecovp · YouTube 2020–22 | Análise de conteúdo (composição do corpus) | **P1** — o filtro de palavra-chave do artigo remove conteúdo de usuário, e por isso a predominância de imprensa que ele usa como explicação é parcialmente produzida por ele | **NÃO pelo filtro** — predição refutada: UGC 39,0% entre os aprovados × 32,7% entre os descartados, Δ **−6,4 p.p.** IC95% [−11,4; −1,4] (sinal robusto a 5 limiares; mediana de inscritos 28 mil × 61,5 mil). ★ **SIM pelo funil inteiro**: canais no corpus publicado 23,5% UGC × **61,7%** fora dele, Δ **+38,3 p.p.** IC95% [+33,5; +43,0]; mediana 199 mil × 1.070 inscritos | *não medido* — o passo do funil responsável **não foi isolado**; o maior suspeito (ramo dos sugeridos, 99% de descarte) é irreproduzível desde ago/2023 | [FASE3 §7](youtube-agecovp/data/repl/agecovp2020/FASE3_efeito_filtro.md) · [FASE2](youtube-agecovp/data/repl/agecovp2020/FASE2_ponto_original.md) |
@@ -317,12 +317,70 @@ Fatia pró-vacina **entre os tweets a que se atribui lado**:
 
 ---
 
+
+### 10 · H3 / *stance* — **muda na fatia sem lado, indecidível na razão entre os lados**
+
+Fechada em **9/set/2026**. É a primeira linha do conjunto cujo desfecho **não é
+governado pelo volume**, e por isso ela merece leitura separada.
+
+**O gabarito humano.** 210 tweets do teste cego, sorteados da janela 19–25/out
+(população 32.193), congelados em 18/ago com `sha dc8ee39ff69b` e rotulados à mão pela
+Mariana em 9/set, sem pré-anotação. Distribuição: **NDA 150 (71,4%) · EA 40 (19,0%) ·
+ED 20 (9,5%)**. As duas apostas do pré-registro sobre a composição se confirmam:
+P1 (NDA ≥ 35%) e P2 (EA > ED entre os com lado, 66,7%).
+
+**★ A rotulagem em três fases, e o que a terceira revelou.** A regra de ouro do
+codebook (*“na dúvida, NDA com confiança 1”*) colapsou a confiança de **todo** NDA numa
+constante — 150 de 150 em conf. 1 —, o que tornava o recorte `confiança ≥ 2` do
+pré-registro §4 não interpretável: ele selecionava “itens com lado” (26 itens, zero
+NDA), e não itens fáceis. Uma fase extra separou os dois NDA que o codebook fundia:
+**96 “não há lado” (64%) · 20 “provavelmente não” · 34 “não deu para decidir” (23%)**.
+Com isso o recorte passou a ter 144 itens e as três classes. **Achado substantivo:**
+mesmo descartando todo NDA duvidoso, restam **45,7% dos 210** sem preferência
+inequívoca — quase o dobro do NDA *total* do artigo.
+
+**O rotulador automático REPROVOU.** Medido uma vez só, prompt congelado, Haiku 4.5:
+**κ 0,604** contra o mínimo de 0,70, e acurácia **0,781** no portão contra 0,90. O
+critério **não foi revisto** depois de conhecido o resultado. Os quatro recortes, como
+o §4 exige: todos 0,604 · sem duplicatas 0,608 · conf≥2 **0,701** · conf≥2 sem dup.
+**0,718**. Das 41 divergências, **28 são NDA lido como lado**; de **polo** (EA↔ED) são
+apenas **4 em 210**.
+
+**★ O teto da tarefa, sem esperar os 7 dias do reteste.** O codebook §5 mandava
+rotular texto repetido de novo, sem consultar o anterior, e o **dev de 22/ago**
+respeitou isso: há ali **15 pares** em que a mesma pessoa decidiu duas vezes o mesmo
+texto, às cegas. Concordância **8/15**, **κ 0,198**. Um único texto — a manchete da
+irmã de Lula pedindo votos para Aécio, que aparece 6 vezes — carrega quase toda a
+inconsistência (1/6); **excluindo-o, κ 0,625** sobre 9 pares. Foi justamente esse caso
+que gerou a regra de manchete (caso-limite 13) em 22/ago. Sob qualquer leitura, o
+rotulador (0,604) está **no teto**, não abaixo dele. ⚠ O reteste formal de 40 itens
+**não foi feito**: 26 dos 40 vinham do teste rotulado no mesmo dia, e os ≥7 dias
+cairiam depois do prazo de entrega.
+
+**A estimativa corrigida (§6 do pré-registro, declaradamente *post hoc*).** Amostra de
+**5.000** do universo (`sha 9cde554b9b6e`), rotulada pelo mesmo prompt — 2.762 textos
+distintos, com propagação. Invertendo a matriz de confusão e propagando incerteza por
+bootstrap nas duas fontes: **EA 17,2% · ED 17,0% · NDA 65,8%**, contra o bruto
+25,5 / 14,6 / 59,9. **P5 confirmada** (a correção derruba EA). **P7 confirmada no
+ponto** (NDA > 60%), não no intervalo. **P6 inconclusiva**: a razão EA/ED corrigida é
+1,01 contra 0,80 do artigo, mas o IC [0,36; 2,35] contém os dois.
+
+**Por que o intervalo é largo, e por que isso importa.** Não é falta de volume: a
+curva é plana desde n=100 e converge em n=2.000 pelo critério pré-registrado. A largura
+vem da matriz, estimada sobre **20 itens** da classe ED; a inversão amplifica essa
+imprecião. ★ **É uma categoria de desfecho nova no conjunto**: a linha 15 (YouTube)
+trouxe *indeterminação de causa*; esta traz **indeterminação de instrumento**. A
+pergunta do volume tem resposta limpa; a afirmação do artigo não é confirmada nem
+refutada, e **não se resolve coletando mais**.
+
+**Custo:** US$ 1,47 no total (210 + 5.000), livro-caixa em US$ 16,89 de US$ 25.
+
 ## 4. O que falta para a tabela fechar
 
 | Linha | Falta | Destrava com |
 |---|---|---|
 | 8, 9 (heine-xande) | os dados: o Twitter 57,9 M não está em nada acessível | baixar os CSVs do SharePoint do BioBD **ou** decidir pivotar para Instagram/Reddit |
-| 10 (stance do Ituassu) | o **gabarito humano do teste cego** — 210 tweets | ◐ **em curso.** O dev (110) fechou em 22/ago/2026 nas duas rodadas; falta rotular as 210 em `rotulagem_teste.html` (~5–6 h), e então: `valida_rotulador` → universo da janela (32.193) → curva. Já se sabe do dev, sem depender do teste: **NDA em 61% × 23,4%** do artigo e **zero divergência de polo**. Ver [DECISOES_ROTULADOR](twitter-ituassu/data/repl/compos2014/stance/DECISOES_ROTULADOR.md) |
+| ~~10 (stance do Ituassu)~~ ✅ **FECHADA em 9/set/2026** | — | ◐ **em curso.** O dev (110) fechou em 22/ago/2026 nas duas rodadas; falta rotular as 210 em `rotulagem_teste.html` (~5–6 h), e então: `valida_rotulador` → universo da janela (32.193) → curva. Já se sabe do dev, sem depender do teste: **NDA em 61% × 23,4%** do artigo e **zero divergência de polo**. Ver [DECISOES_ROTULADOR](twitter-ituassu/data/repl/compos2014/stance/DECISOES_ROTULADOR.md) |
 | 11 (reddit-buntain) | ✅ **nada — fechada em 19/ago/2026.** Coleta completa (43.479 submissões + 1.015.247 comentários) e RB3 medido: 3% → **57,6%** sob o mesmo limiar | — |
 | 12 (reddit-massachs) | ~~ler o full text~~ ✅ · ~~o ponto original~~ ✅ **replicado em 18/ago/2026** · a expansão está **declarada fora de escopo**, não pendente: o endpoint de agregação do Arctic Shift não a dimensiona (34/34 incompletos) | depois da defesa: dumps por subreddit no Academic Torrents. Ver [FASE2 §6](reddit-massachs/data/repl/massachs2016/FASE2_ponto_original.md) |
 | 13, 14 (meta-ads-imigracao) | só a **conta Meta verificada**, que destrava a Ad Library API **e** o teste de retenção | Só a Mariana (documento, 1-3 dias úteis). ✅ Já feitos em 7/ago/2026: full text do CHI 2021 lido, **α publicado reproduzido** (0,763 × 0,76) e **CB2 desambiguado** ([DECISOES_CB2](meta-ads-imigracao/data/repl/metaads2019/DECISOES_CB2.md)). ⚠ **Duas ressalvas já registradas:** as impressões do alvo **não reproduzem** (35 M × 49,8 M pela regra declarada), e anúncios políticos da UE pararam em out/2025 com retenção de 7 anos — o corpus de mar/2019 está no limite. Mitigação = braço Brasil |

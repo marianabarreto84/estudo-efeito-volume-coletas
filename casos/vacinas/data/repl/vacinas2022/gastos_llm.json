@@ -1,8 +1,8 @@
 {
   "teto_usd": 25.0,
-  "gasto_usd": 15.418456,
+  "gasto_usd": 16.893024,
   "reservado_usd": 0,
-  "saldo_usd": 9.581544,
+  "saldo_usd": 8.106976,
   "lancamentos": [
     {
       "id": "r0000",
@@ -786,6 +786,109 @@
         "tokens_cache_escrita": 0
       },
       "quando": "2026-07-27T21:22:52"
+    },
+    {
+      "id": "r0054",
+      "tipo": "reserva_liberada",
+      "usd": 0.0,
+      "descricao": "stance ituassu: teste cego 210",
+      "detalhe": {
+        "tweets": 210,
+        "lotes": 14,
+        "modelo": "claude-haiku-4-5-20251001"
+      },
+      "quando": "2026-09-09T09:36:52",
+      "motivo": "falhou: ValueError"
+    },
+    {
+      "id": "r0055",
+      "tipo": "reserva_baixada",
+      "usd": 0.0,
+      "descricao": "stance ituassu: consumo ORFAO da rodada que falhou (estimativa)",
+      "detalhe": {
+        "motivo": "except soltava a reserva sem lancar o ja consumido",
+        "lotes_executados": 7,
+        "de": 14,
+        "base_entrada": "count_tokens do dry-run, 7/14 dos lotes",
+        "base_saida": "6 lotes ~900 tok + 1 truncado no teto 1050",
+        "exato": false,
+        "corrigido_em": "analise/rotula_stance.py"
+      },
+      "quando": "2026-09-09T09:40:07"
+    },
+    {
+      "id": "g0056",
+      "tipo": "gasto",
+      "usd": 0.055497,
+      "descricao": "stance ituassu: consumo ORFAO da rodada que falhou (estimativa)",
+      "detalhe": {
+        "modelo": "claude-haiku-4-5-20251001",
+        "batch": false,
+        "reserva": "r0055",
+        "tokens_entrada": 23247,
+        "tokens_saida": 6450,
+        "tokens_cache_leitura": 0,
+        "tokens_cache_escrita": 0
+      },
+      "quando": "2026-09-09T09:40:07"
+    },
+    {
+      "id": "r0057",
+      "tipo": "reserva_baixada",
+      "usd": 0.0,
+      "descricao": "stance ituassu: teste cego 210",
+      "detalhe": {
+        "tweets": 210,
+        "lotes": 14,
+        "modelo": "claude-haiku-4-5-20251001"
+      },
+      "quando": "2026-09-09T09:40:52"
+    },
+    {
+      "id": "g0058",
+      "tipo": "gasto",
+      "usd": 0.102635,
+      "descricao": "stance ituassu: teste cego 210",
+      "detalhe": {
+        "modelo": "claude-haiku-4-5-20251001",
+        "batch": false,
+        "reserva": "r0057",
+        "tokens_entrada": 47575,
+        "tokens_saida": 11012,
+        "tokens_cache_leitura": 0,
+        "tokens_cache_escrita": 0
+      },
+      "quando": "2026-09-09T09:43:59"
+    },
+    {
+      "id": "r0059",
+      "tipo": "reserva_baixada",
+      "usd": 0.0,
+      "descricao": "stance ituassu: universo 5k (2.762 textos)",
+      "detalhe": {
+        "textos": 2762,
+        "itens": 5000,
+        "lotes": 185,
+        "modelo": "claude-haiku-4-5-20251001",
+        "sha_amostra": "9cde554b9b6e"
+      },
+      "quando": "2026-09-09T10:33:29"
+    },
+    {
+      "id": "g0060",
+      "tipo": "gasto",
+      "usd": 1.316436,
+      "descricao": "stance ituassu: universo 5k (2.762 textos)",
+      "detalhe": {
+        "modelo": "claude-haiku-4-5-20251001",
+        "batch": false,
+        "reserva": "r0059",
+        "tokens_entrada": 611436,
+        "tokens_saida": 141000,
+        "tokens_cache_leitura": 0,
+        "tokens_cache_escrita": 0
+      },
+      "quando": "2026-09-09T11:05:48"
     }
   ]
 }

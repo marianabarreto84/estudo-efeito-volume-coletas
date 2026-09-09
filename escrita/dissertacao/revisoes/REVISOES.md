@@ -459,3 +459,260 @@ incorporação do eixo ao protocolo, que é o que de fato é novo. O
    documentado; **abrir ou não o sétimo caso é decisão sua**, e o prazo é apertado.
 3. **Front-matter:** falta a dedicatória (hoje genérica).
 4. **A classe segue com o `\fi` acrescentado** (ver a rodada 3 → 4).
+
+---
+
+## revisao-5.pdf → revisao-6.pdf (24/ago/2026)
+
+- **Entrada:** `revisao-5.pdf`, 76 p., **23 anotações**, pp. 12–72. A leitura
+  alcançou o fim do documento pela primeira vez desde o `revisao-2.pdf` — os
+  comentários das pp. 62–72 são os primeiros sobre o Cap. 8 (TikTok) e a conclusão.
+- **Saída:** `revisao-6.pdf`, **77 p.**, zero erros, zero referências indefinidas,
+  zero `Overfull`.
+- **Fonte alterado:** `corpo.tex` (~30 edições), `dissertacao.tex` (preâmbulo:
+  legendas + colocação de floats) e `referencias.bib` (entrada nova
+  `heine2025amostragem`).
+- ⚠ **A rodada foi executada em duas sessões.** A primeira (22/ago) gravou o
+  preâmbulo e o `.bib` e abortou num `assert` antes de tocar no `corpo.tex`; a
+  gravação é atômica, então nada se perdeu. A retomada (24/ago) está descrita em
+  [`rodada-6/RETOMAR.md`](rodada-6/RETOMAR.md), que fica como registro do
+  incidente e do procedimento.
+
+### O que atravessou o documento inteiro
+
+**1. A legenda de tabela — a terceira vez que você pede (comentários 2 e 14).**
+Desta vez foi tratada na raiz, e não tabela a tabela. No preâmbulo:
+`\captionsetup{font=footnotesize, labelfont=bf, labelsep=endash,
+justification=raggedright, margin=14pt, skip=6pt}` — a legenda passa a ser
+**menor que o corpo do texto**, com o rótulo em **negrito** e separado por
+travessão (`Tabela 1.1 – …`, que é o padrão ABNT), recuada das margens. Nenhuma
+legenda pode mais ser confundida com parágrafo. Além disso, cada legenda foi
+reduzida a **uma frase**, e a explicação desceu para uma *nota sob a tabela* em
+corpo menor — padrão que a `tab:tiktok-temporal` e a `tab:mestre` já usavam, agora
+estendido a `tab:analises-survey`, `tab:casos`, `tab:reddit-rb3`,
+`tab:youtube-funil` e `tab:youtube-ponto`.
+
+**2. A colocação das tabelas (comentário 14).** A queixa de que as tabelas caem em
+páginas desconexas do texto que as discute era de posicionamento, e não de
+legenda. As tabelas passaram de `[t]` para `[htbp]`, e o preâmbulo afrouxou
+`\topfraction`, `\textfraction` e `\floatpagefraction`, que eram o que empurrava
+tabela grande para página própria.
+
+**3. O capítulo do TikTok (comentário 18).** *“Esse caso parece forçação, e o
+desenrolar é muito técnico.”* A ideia e o capítulo ficam — o problema era a
+execução. A §8.3 foi reescrita para (i) mandar as três séries de denominador para
+a **nota da tabela**, deixando no corpo uma frase só; (ii) encurtar o parágrafo da
+“assimetria” entre as duas perguntas, que era o trecho mais técnico de todo o
+capítulo; e (iii) **fechar pelo argumento**, e não pela mecânica — dizer quanto se
+coletou sem dizer quando se verificou é publicar um número sem sentido definido.
+
+**4. A dissertação do Alexandre Heine entra (comentário 12).** Você acertou o
+enquadramento: ela vai na linha de **amostragem** (§2.1), e não na de replicação.
+É o **antecedente mais direto** que este trabalho tem — mesmo orientador, e ele já
+mediu amostra contra completo: extraiu amostras de 57,9 M de tweets já coletados e
+os tópicos não reproduziram. A diferença de desenho está escrita (ele amostra
+*para baixo* a partir de um acervo; esta dissertação coleta *para cima* a partir do
+recorte publicado), e o parágrafo amarra na linha em aberto da tabela mestre.
+
+### Mapa comentário → mudança
+
+| # | p. | O que você pediu | O que foi feito |
+|---|----|------------------|-----------------|
+| 1 | 12 | o parágrafo do Salgueiro é estranho para abrir; virar parêntese no de baixo | Parágrafo removido; o crédito virou **parêntese** dentro da 1ª frase do levantamento, preservando a justificativa de tratar as quatro redes como um objeto só |
+| 2 | 13 | legenda × texto corrido, “já não é a primeira vez que eu peço” | Tratada na raiz — ver item 1 acima |
+| 3 | 14 | o que é “evidência transferível” | Termo **eliminado** e explicado por extenso: a evidência descreve o *tipo de análise*, não a plataforma, e por isso vale onde essas análises forem feitas |
+| 4 | 16 | a abertura do Cap. 2 soa defensiva | “encosta em quatro linhas … e não se confundem com ela” → “apoia-se em quatro linhas já estabelecidas”. O fecho agora **localiza** o trabalho, em vez de defendê-lo |
+| 5 | 16 | cada subcapítulo do Cap. 2 devia ter o autor no título; Morstatter é o “original” | Os **4 títulos** ganharam o autor de referência (Morstatter / boyd e Crawford / Liang e Fu / Kossinets), com título curto para o sumário. E o texto passou a dizer que a linha **começa** em Morstatter |
+| 6 | 17 | “boyd” com minúscula? | **Nota de rodapé** na 1ª ocorrência: é a grafia que a própria autora adota e registra nas suas publicações, não é erro tipográfico |
+| 7 | 17 | o trecho do erro total está artificial | Reescrito **sem o jargão**: decompõem o percurso do dado — quem está na plataforma → o que ela registra → o que a interface devolve → o que o pesquisador filtra — e localizam o erro de cada etapa |
+| 8 | 17 | Ruths e Pfeffer ficaram genéricos; falam de rede social? | **Sim.** Trocado pelos três pontos concretos deles: cada plataforma tem população própria; filtro por palavra-chave ou API não é amostra de nada bem definido; contas automatizadas. Mais a recomendação de relato |
+| 9 | 17 | o que é “dado social”? | Definido **na primeira menção** (gloss na abertura do capítulo) e por extenso na abertura da §2.2: é a tradução de *social data*, e o traço que importa é que **ninguém o produziu para pesquisar** |
+| 10 | 17 | “conclusões ficam ao alcance” não se entende | Reescrito: os conjuntos diferem em tamanho, composição e contas centrais, e por isso a escolha do método de coleta **já delimita que perguntas** o material poderá responder |
+| 11 | 17 | “insumo empírico” é rebuscado | → “a evidência” |
+| 12 | 17 | a dissertação do Heine tem que entrar; provavelmente em amostragem | Parágrafo novo na §2.1 + entrada `heine2025amostragem` no `.bib` — ver item 4 acima |
+| 13 | 19 | as duas ressalvas finais do Cap. 2 não são necessárias | A **primeira** (a busca não achar não prova inexistência) foi **cortada**; a segunda ficou, encurtada. E o parágrafo anterior virou fechamento de verdade |
+| 14 | 25 | tabelas em páginas desconexas; a crítica é a **legenda** | Ver itens 1 e 2 acima |
+| 15 | 62 | dois “Convém dizer” seguidos; cuidado com repetição no resto | Varredura do texto inteiro: de **11** ocorrências de “convém” sobraram **5**, e as 6 trocadas ganharam formas distintas (*Vale localizar / é preciso dizer / Cabe precisar / é preciso identificar / Note-se / Vale dizer*) |
+| 16 | 62 | “códigos de estado”? não se entende | Explicado: o que os autores publicam não é o **motivo** do sumiço, é o **rótulo que a interface devolveu** (`status_deleted`, `status_reviewing`, `status_audit_not_pass`, `author_secret`…) — e o artigo não diz quais deles conta como remoção da plataforma |
+| 17 | 62 | isso não é detalhe técnico demais? | Comprimido de 4 frases para **2**, liderando **pelo ponto** (é a mesma classe de achado dos outros alvos) em vez de pela mecânica do voto majoritário |
+| 18 | 64 | o caso do TikTok parece forçação e é técnico demais | Ver item 3 acima |
+| 19 | 66 | “companion” em inglês; parágrafo longo demais | As **6** ocorrências de *companion* viraram “projeto de replicação” / “reportado em … como parte do mesmo projeto” (hoje **zero** no texto); a abertura do Cap. 9 foi quebrada em **4 parágrafos** |
+| 20 | 71 | me perdi nas duas últimas frases da §9.2 | Reescritas em linguagem direta: declarar quanto se coletou é **como se escreve o artigo**; poder coletar mais para verificar é **que infraestrutura se tem** — e sem a segunda o número não é verificável nem pelo próprio autor |
+| 21 | 72 | “modelo/ algoritmo” → “modelo e/ou algoritmo” | Adotado literalmente |
+| 22 | 72 | limitação do “porquê”: não entendi | Reescrita com **exemplo concreto dos próprios casos** (a partição do debate vacinal ainda se movia; a proporção de mídia de 2014 já estava assentada em 100 tweets), e dizendo que explicar isso exigiria estudar **o método**, e não a coleta |
+| 23 | 72 | a limitação de teoria de amostragem pode subir | Movida de **7ª para 2ª** na lista, com “sampling” traduzido e uma frase nova: o trabalho não diz **quanto se deveria coletar**, diz **se o que se coletou bastou** |
+
+### Correção que a rodada fez de passagem
+
+⚠ **O título corrente estourava o cabeçalho em dois capítulos.** Ao conferir as
+páginas de tabela — que era o objeto desta rodada — apareceu um defeito que
+nenhum comentário tinha apontado e que o `Overfull` não acusa: no **Cap. 8** o
+título corrente **encavalava no número da página** (“…Político no TikTok**62**”) e
+no **Cap. 6** ele quebrava em duas linhas. Os cinco capítulos de caso ganharam um
+`\chaptermark` com título curto (“Sexto Caso, Parcial: o TikTok”, “Terceiro e
+Quarto Casos: o Reddit” etc.). O `\chaptermark` mexe **só no cabeçalho** — o
+sumário e a abertura de cada capítulo seguem com o título por extenso. Script em
+[`rodada-6/ajusta_cabecalho.py`](rodada-6/ajusta_cabecalho.py).
+
+### Pendências que esta rodada **não** resolveu
+
+Herdadas e ainda de pé:
+
+1. **Caps. 4 a 7 seguem quase sem leitura.** A revisão 5 saltou da p. 26 para a
+   p. 56; a revisão 6 acrescentou comentários nas pp. 62–72, mas os capítulos do
+   debate vacinal, do Reddit e do YouTube continuam sem comentário desde o
+   `revisao-2.pdf`. **É o que mais rende na próxima leitura.**
+2. **Modelagem de tópico continua sem caso executado.** O sétimo caso
+   (`casos/reddit-topicos`, Melton et al. 2021) está **parado no Portão 1**
+   esperando decisão sua — ver
+   [`PORTAO1_relatorio.md`](../../../casos/reddit-topicos/data/repl/melton2021/PORTAO1_relatorio.md).
+3. **Front-matter:** falta a dedicatória (hoje genérica).
+4. **A classe segue com o `\fi` acrescentado** (ver a rodada 3 → 4).
+
+Novas desta rodada:
+
+5. **A entrada `heine2025amostragem` usa as iniciais `A. A. P.`**, que é o que o
+   material do caso registra. Se você tiver o nome por extenso, vale completar
+   antes da versão final.
+6. **`labelsep=endash`** mudou o rótulo de `Tabela 1.1:` para `Tabela 1.1 –` em
+   **todas** as legendas do documento. É o padrão ABNT e ajuda a separar legenda de
+   texto, mas é uma mudança visível em todo o documento — se você não gostar, é
+   uma linha só no preâmbulo.
+
+---
+
+## Fora do ciclo: acabamento de entrega (9/set/2026)
+
+Pedido da Mariana: *“quero entregar por agora, e gostaria que ela tivesse com a
+maior cara de finalizada possível”*. Auditoria do documento inteiro, mais duas
+mudanças de acabamento. **Não é rodada de revisão** — nenhum comentário novo dela
+foi consumido, e o `revisao-6.pdf` foi **republicado** no mesmo arquivo (ele ainda
+estava com zero anotações, então nada comentado foi sobrescrito).
+
+**[A] O capítulo final deixou de se chamar “Conclusão Parcial e Próximos Passos”
+e passou a “Conclusão”.** Era o único lugar do sumário em que o documento
+anunciava-se incompleto, e o corpo do capítulo **não se diz parcial em lugar
+nenhum**: ele apresenta a tabela mestre com 15 linhas fechadas, a seção de banco de
+dados, sete limitações e oito próximos passos — que é exatamente o conteúdo
+esperado de uma conclusão. “Próximos passos” continua sendo a §9.4, como é padrão.
+O rótulo “Parcial” era autoavaliação de uma fase com menos casos fechados.
+
+**[B] Títulos curtos de sumário nas §2.2 e §2.4.** As duas quebravam em duas linhas
+no sumário. A forma curta preserva o autor de referência — que foi o pedido dela no
+comentário [5] desta mesma rodada, e que na aplicação tinha ficado com a forma curta
+idêntica à longa, sem efeito. O título por extenso segue na abertura da seção.
+
+Script: [`rodada-6/acabamento.py`](rodada-6/acabamento.py). Compila limpo em
+**77 p.**, zero erros, zero indefinidas, zero `Overfull`.
+
+### O que a auditoria encontrou de pendente
+
+Não há nada quebrado: bibliografia íntegra (45 entradas, **nenhuma citação órfã**,
+nenhuma chave citada e ausente), front-matter com banca, data, ficha catalográfica,
+resumo e *abstract* nos dois idiomas, 4 figuras e 10 tabelas. O que falta é:
+
+1. **Dedicatória** — hoje `A todos que apoiaram este trabalho.`, que imprime uma
+   página inteira e lê-se como texto de preenchimento. **Só a Mariana pode escrever.**
+2. **Agradecimentos** — duas frases (orientador + CAPES). Marcado `TODO` no fonte.
+   **Só ela pode escrever.**
+3. **Bio (`\resume`)** — uma linha; costuma trazer também o ano de formação.
+4. **Cap. 8 ainda se chama “Um Sexto Caso, Parcial”** — é o último “parcial” do
+   sumário, e quebra em duas linhas nele. Tirar “Um” e “, Parcial” resolve as duas
+   coisas, e a ressalva **não se perde**: a §8.4 (“O que este caso não entrega, e por
+   que ainda assim entra”) e a lista de contribuições já a fazem por extenso.
+   **Decisão dela** — é moldura científica, não acabamento.
+5. **Cap. 6** tem 72 caracteres e também quebra no sumário.
+6. **`barreto2026survey` é `@unpublished` / “Manuscrito”**, e é a fonte dos números
+   de abertura (Tab. 1.1, o “menos da metade passa de 1 milhão”). Se for submetido
+   antes da defesa, trocar a `note` por “submetido a …” fortalece a base do Cap. 1.
+
+---
+
+## Fora do ciclo: mudanças estruturais e fechamento do *stance* (9/set/2026)
+
+Sessão longa, com três frentes. **Não é rodada de revisão** — nenhum comentário novo
+foi consumido; o `revisao-6.pdf` foi republicado no mesmo arquivo (segue com zero
+anotações). ⚠ **A entrega mudou de data e de natureza:** é **14/set/2026**, e é a
+**versão final para a banca** — não um depósito prévio. A defesa segue em 29/set.
+
+### 1. Um capítulo por caso
+
+O Cap. 6 cobria **dois** casos (papéis sociais e homofilia, ambos no Reddit), e era o
+único assim. Foi dividido em **6 · Terceiro Caso: Papéis Sociais no Reddit** e
+**7 · Quarto Caso: Homofilia no Reddit**.
+
+O argumento que decidiu não foi estético: **os títulos dos capítulos seguintes já
+contavam os dois como casos separados** — o YouTube era “Quinto Caso” e o TikTok o
+sexto, o que só fecha se o Reddit for o terceiro *e* o quarto. A numeração estava
+certa; a estrutura é que não acompanhava. Por isso a divisão **não exigiu renomear**
+nenhum capítulo posterior.
+
+Decisão da Mariana sobre a antiga §6.3 (“O que os dois casos acrescentam ao
+conjunto”): ela deixa de existir como seção conjunta. **Cada capítulo ganhou a sua
+própria conclusão**, sem duplicar, seguindo o padrão “Leitura em termos de volume”
+dos Caps. 4 e 5; o **contraste entre os dois** aparece só no quarto caso.
+
+As **10 referências externas** ao antigo `cap:caso-reddit` foram reapontadas uma a
+uma — 3 para `cap:caso-papeis`, 4 para `cap:caso-homofilia` e 3 que falavam dos dois
+viraram “Capítulos 6 e 7”. Script em [`rodada-6/divide_reddit.py`](rodada-6/divide_reddit.py).
+
+### 2. Cap. 8 perde o “Parcial”
+
+“Um Sexto Caso, Parcial: Deleção…” → **“Sexto Caso: Deleção de Conteúdo Político no
+TikTok”**. Era o último “parcial” do sumário e quebrava em duas linhas nele. A
+ressalva não se perde: a §8.4 (“O que este caso não entrega…”) e a lista de
+contribuições continuam dizendo por extenso que a expansão não ocorreu. **Nenhum
+capítulo quebra mais em duas linhas no sumário.**
+
+### 3. O eixo de *stance* fechou, e entrou no texto
+
+Era uma das três linhas em aberto da tabela mestre e estava declarado como pendente em
+**quatro** lugares do `corpo.tex`. Agora é a **Seção 4.5** (`sec:stance`), e a tabela
+mestre passou de **15 para 16 linhas**.
+
+O desfecho é de dois sinais, e está escrito assim: a fatia sem lado vai de **23,4%
+para 65,8%** (muda, e converge em n≈2.000), mas a razão entre os lados fica
+**indecidível** (1,01; IC95% [0,36; 2,35], que contém o 0,80 do artigo). ★ O que impede
+a conclusão **não é o volume** — a curva é plana desde n=100 — e sim o **teto da
+tarefa de rotulagem**. É uma *indeterminação de instrumento*, categoria distinta da
+*indeterminação de causa* que o caso do YouTube trouxe.
+
+⚠ **O rotulador automático reprovou o critério pré-registrado** (κ 0,604 < 0,70), e o
+texto diz isso com essas palavras. O critério **não foi revisto** depois de conhecido o
+resultado — mover a trave depois de ver o número é exatamente a prática que esta
+dissertação documenta nos seis casos. A estimativa corrigida entra como leitura
+declaradamente *post hoc*, e assim está rotulada em nota de rodapé.
+
+Detalhe completo em
+[`RESULTADOS_tabela_mestre.md`](../../../casos/RESULTADOS_tabela_mestre.md) §10.
+
+### 4. Front-matter fechado
+
+As três pendências que só a Mariana podia resolver saíram:
+
+- **Dedicatória** — “Aos meus pais, Mauro e Regina, e ao meu irmão Marcelo, que
+  estiveram do meu lado em todas as minhas jornadas.” Texto dela, com **uma correção
+  gramatical**: vírgula após “Regina”, para fechar o aposto — sem ela, “Regina e ao
+  meu irmão” se lê como um par, e não como pai, mãe e irmão;
+- **Agradecimentos** — acrescentados a **banca** (nominalmente) e a **família**, na
+  ordem convencional: orientador → banca → família → CAPES;
+- **Bio** — graduação em **2023**, ingresso no mestrado em **2024**, mais a área de
+  pesquisa.
+
+Os dois `TODO` que restavam no `dissertacao.tex` foram removidos.
+
+### Estado do documento
+
+**80 páginas**, zero erros, zero referências indefinidas, zero `Overfull`.
+**10 capítulos, um caso por capítulo.** Nada mais bloqueia a entrega.
+
+### Pendências que esta sessão **não** resolveu
+
+1. **Modelagem de tópico** segue sem caso executado — declarada como limitação (§9.3)
+   e próximo passo (§9.4). Com 5 dias, fica assim.
+2. **O reteste intracodificador de 40 itens não foi feito**, e não será: 26 dos 40
+   vinham do teste rotulado no mesmo dia, e os ≥7 dias exigidos cairiam em 16/set,
+   depois da entrega. O teto foi estimado pelas **duplicatas do dev** — medida mais
+   frágil (15 pares), e o texto a reporta como tal.
+3. **A classe segue com o `\fi` acrescentado** (ver a rodada 3 → 4).
+4. `barreto2026survey` segue `@unpublished`/“Manuscrito”.

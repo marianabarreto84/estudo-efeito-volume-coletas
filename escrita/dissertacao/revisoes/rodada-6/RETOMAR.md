@@ -1,7 +1,27 @@
-# Rodada `revisao-5.pdf` → `revisao-6.pdf` — **INTERROMPIDA NO MEIO**
+# Rodada `revisao-5.pdf` → `revisao-6.pdf` — ✅ **CONCLUÍDA**
 
-> Sessão de 22/ago/2026, suspensa por pedido da Mariana antes de a rodada fechar.
-> Este arquivo é o ponto de retomada. Leia-o inteiro antes de tocar em qualquer coisa.
+> ✅ **A rodada foi retomada e fechada em 24/ago/2026.** O `aplica6.py` rodou sem
+> erro, o `revisao-6.pdf` (77 p., zero erros, zero indefinidas, zero `Overfull`)
+> está publicado, e o mapa comentário→mudança está em
+> [`REVISOES.md`](../REVISOES.md). **Nada aqui pede ação.**
+>
+> O texto abaixo é o registro de como a sessão de 22/ago foi interrompida e
+> retomada — histórico, e não estado. Vale como procedimento para a próxima vez
+> que um script de aplicação abortar no meio.
+>
+> ⚠ **Não rode o `aplica6.py` de novo.** Ele é idempotente nas substituições, mas
+> não há razão para reexecutá-lo, e a rodada 7 terá o seu próprio script.
+>
+> **De passagem, a rodada fez uma correção que não estava no plano:** o título
+> corrente encavalava no número da página no Cap. 8 e quebrava em duas linhas no
+> Cap. 6. Corrigido com `\chaptermark` curto nos cinco capítulos de caso —
+> [`ajusta_cabecalho.py`](ajusta_cabecalho.py).
+
+---
+
+## Registro da interrupção (22/ago/2026)
+
+> Sessão suspensa por pedido da Mariana antes de a rodada fechar.
 
 ---
 

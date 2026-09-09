@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Rotulagem stance — teste (210, duas fases)</title>
+<style>
+:root{
+  --bg:#f6f5f2; --card:#fff; --ink:#1b1a17; --mut:#6b6862; --line:#dedbd4;
+  --ea:#1f6feb; --ed:#c2410c; --nda:#6b6862; --ok:#15803d; --bad:#b91c1c;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#16151a; --card:#201f26; --ink:#eceaf2; --mut:#9d99a8; --line:#332f3c;
+         --ea:#6aa4ff; --ed:#f97316; --nda:#9d99a8; --ok:#4ade80; --bad:#f87171; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+header{position:sticky;top:0;z-index:9;background:var(--bg);border-bottom:1px solid var(--line);
+  padding:10px 20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.bar{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden;min-width:120px}
+.bar>i{display:block;height:100%;background:var(--ink);width:0;transition:width .2s}
+.small{font-size:13px;color:var(--mut)}
+button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);border-radius:8px;padding:7px 12px}
+button:hover{border-color:var(--ink)}
+.fase{border-radius:8px;padding:6px 13px;font-size:14px}
+.fase.on{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600}
+.fase.done{border-color:var(--ok);color:var(--ok)}
+main{max-width:1180px;margin:0 auto;padding:22px 20px 80px;display:grid;
+  grid-template-columns:minmax(0,1fr) 310px;gap:26px;align-items:start}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.meta{display:flex;gap:10px;flex-wrap:wrap;align-items:baseline;margin-bottom:14px}
+.handle{font-weight:600}
+.tag{font-size:12px;color:var(--mut);border:1px solid var(--line);border-radius:20px;padding:1px 9px}
+.tag.hot{color:var(--ed);border-color:var(--ed)}
+.txt{font-size:21px;line-height:1.45;white-space:pre-wrap;word-break:break-word;margin:6px 0 16px}
+.host{font-size:13px;color:var(--mut);margin-bottom:4px}
+.host b{color:var(--ink);font-weight:600}
+fieldset{border:0;padding:0;margin:16px 0 0}
+legend{font-size:13px;color:var(--mut);margin-bottom:7px}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opt{border:1px solid var(--line);border-radius:9px;padding:9px 15px;background:var(--card);
+  display:flex;gap:8px;align-items:center;color:var(--ink)}
+.opt kbd{font:600 11px ui-monospace,Menlo,Consolas,monospace;color:var(--mut);
+  border:1px solid var(--line);border-radius:4px;padding:0 4px}
+.opt.sel{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.opt.sel[data-v=EA]{border-color:var(--ea);box-shadow:inset 0 0 0 1px var(--ea);color:var(--ea)}
+.opt.sel[data-v=ED]{border-color:var(--ed);box-shadow:inset 0 0 0 1px var(--ed);color:var(--ed)}
+input[type=text]{width:100%;font:inherit;padding:9px 11px;border:1px solid var(--line);
+  border-radius:9px;background:var(--bg);color:var(--ink)}
+.nav{display:flex;gap:10px;margin-top:20px;align-items:center}
+.nav .go{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600}
+.nav .go[disabled]{opacity:.35;cursor:not-allowed}
+aside{position:sticky;top:64px}
+aside h3{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);margin:0 0 8px}
+aside .card{padding:14px 16px;font-size:13.5px}
+aside table{width:100%;border-collapse:collapse}
+aside td{padding:4px 0;vertical-align:top;border-top:1px solid var(--line)}
+aside td:first-child{padding-right:10px;color:var(--mut)}
+aside tr:first-child td{border-top:0}
+.rule{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--ink);
+  border-radius:8px;padding:10px 13px;font-size:13.5px;margin-top:12px}
+.grp{border:1px solid var(--line);border-left:3px solid var(--ea);border-radius:8px;
+  padding:9px 13px;font-size:13.5px;margin:0 0 14px;background:var(--bg)}
+.grp b{color:var(--ea)}
+.warn{border:1px solid var(--bad);border-left:3px solid var(--bad);border-radius:8px;
+  padding:10px 13px;font-size:13.5px;margin:0 0 14px;
+  background:color-mix(in srgb,var(--bad) 9%,transparent)}
+.warn b{color:var(--bad)}
+.done{text-align:center;padding:40px 20px}
+</style>
+</head>
+<body>
+<header>
+  <strong>stance · teste</strong>
+  <button class="fase" id="f1">1 · cidadão</button>
+  <button class="fase" id="f2">2 · stance</button>
+  <button class="fase" id="f3">3 · por que NDA</button>
+  <span class="bar"><i id="prog"></i></span>
+  <span class="small" id="pos"></span>
+  <button id="exp">Exportar CSV</button>
+  <span class="small">amostra __HASH__</span>
+</header>
+
+<main>
+<section id="pane"></section>
+<aside>
+  <h3>Consulta rápida</h3>
+  <div class="card">
+    <table id="ref"></table>
+    <div class="rule"><b>Regra de ouro:</b> na dúvida entre um lado e NDA, é <b>NDA</b> com confiança 1.</div>
+    <div class="rule">Dilma ≡ PT ≡ Lula ≡ governo · atacar ⇒ <b>EA</b><br>
+      Aécio ≡ PSDB ≡ FHC ≡ tucanos · atacar ⇒ <b>ED</b></div>
+    <div class="rule">Hashtag temática (#G1, #Ibope, #DebateNaGlobo) <b>não</b> é sinal de lado.</div>
+  </div>
+</aside>
+</main>
+
+<script>
+const ITENS     = /*__ITENS__*/;
+const SEMENTE   = /*__SEMENTE__*/;
+const CONFLITOS = /*__CONFLITOS__*/;
+const GRUPOS    = /*__GRUPOS__*/;
+const CHAVE = 'stance_teste_' + '__HASH__';
+
+/* ---- estado: o localStorage manda; o CSV exportado semeia o que faltar ---- */
+let R = JSON.parse(localStorage.getItem(CHAVE) || '{}');
+for (const id in SEMENTE) {
+  const s = SEMENTE[id];
+  R[id] = Object.assign({cidadao:'',stance:'',confianca:'',notas:''}, s, R[id] || {});
+  for (const k of ['cidadao','stance','confianca','notas'])
+    if (!R[id][k] && s[k]) R[id][k] = s[k];
+}
+const salva = () => localStorage.setItem(CHAVE, JSON.stringify(R));
+salva();
+
+const esc = s => (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const rec = id => R[id] || {};
+
+/* membros de cada grupo, na ordem do arquivo */
+const MEMBROS = {};
+for (const t of ITENS) (MEMBROS[t.gid] = MEMBROS[t.gid] || []).push(t);
+
+/* ---- referencia rapida (codebook) ---- */
+const REF = [
+  ['RT sem comentário','vale o conteúdo retuitado (RT é endosso)'],
+  ['RT com comentário','vale o comentário · <code>rt_ironico</code>'],
+  ['Pesquisa / notícia sem valência','<b>NDA</b>'],
+  ['…com comentário valorado','vale o comentário'],
+  ['Marina / nulo / branco','<b>NDA</b> · <code>terceiro</code>'],
+  ['Ironia','pelo alvo; senão NDA conf. 1'],
+  ['Link morto e texto não decide','<b>NDA</b> · <code>link_morto</code>'],
+  ['Institucional com lado óbvio','<code>cidadao=N</code> + o stance real'],
+  ['Ataque à Veja/Globo','<b>ED</b> · conf. ≤2'],
+  ['Ataque à mídia chapa-branca','<b>EA</b> · conf. ≤2'],
+  ['Hashtags dos dois lados','<b>NDA</b> · <code>spam_tag</code>'],
+  ['Manchete de <b>terceiro</b>, valência forte','vale o <b>lado</b>'],
+  ['Manchete que é <b>fala do candidato</b>, ou criticazinha','<b>NDA</b> · <code>manchete</code>'],
+  ['Nome do perfil declara lado, tweet não','<b>NDA</b> — o nome só serve ao portão'],
+  ['Volume alto de tweets','não decide o portão sozinho'],
+  ['Handle e nome não decidem','pode abrir o perfil · <code>perfil_2026</code> se contradisser 2014']
+];
+document.getElementById('ref').innerHTML =
+  REF.map(r => '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td></tr>').join('');
+
+/* ---- navegacao ---- */
+let fase = 1, i = 0, g = 0, g3 = 0;
+const feito1 = () => ITENS.filter(t => rec(t.id_tweet).cidadao).length;
+const prontoG = gid => MEMBROS[gid].every(m => rec(m.id_tweet).stance);
+const feito2 = () => GRUPOS.filter(prontoG).length;
+/* fase 3: so os grupos cujo stance ficou NDA. Dinamica de proposito -- a lista
+   cresce conforme a fase 2 fecha os grupos que ainda faltam. */
+const gruposNDA = () => GRUPOS.filter(gid => rec(MEMBROS[gid][0].id_tweet).stance === 'NDA');
+const feito3 = () => gruposNDA().filter(gid => rec(MEMBROS[gid][0].id_tweet).nda_tipo).length;
+const okFase1 = () => feito1() === ITENS.length;
+
+function primeiroAberto() {
+  if (fase === 1) { const k = ITENS.findIndex(t => !rec(t.id_tweet).cidadao);
+                    i = k < 0 ? ITENS.length - 1 : k; }
+  else if (fase === 2) { const k = GRUPOS.findIndex(gid => !prontoG(gid));
+         g = k < 0 ? GRUPOS.length - 1 : k; }
+  else { const L = gruposNDA();
+         const k = L.findIndex(gid => !rec(MEMBROS[gid][0].id_tweet).nda_tipo);
+         g3 = k < 0 ? Math.max(0, L.length - 1) : k; }
+}
+
+function pinta() {
+  const nNDA = gruposNDA().length;
+  const f = fase === 1 ? feito1() : (fase === 2 ? feito2() : feito3());
+  const tot = fase === 1 ? ITENS.length : (fase === 2 ? GRUPOS.length : nNDA);
+  document.getElementById('prog').style.width = (tot ? 100 * f / tot : 0) + '%';
+  document.getElementById('pos').textContent =
+    f + ' / ' + tot + (fase === 1 ? ' contas' : (fase === 2 ? ' textos' : ' NDA'));
+  const b1 = document.getElementById('f1'), b2 = document.getElementById('f2'),
+        b3 = document.getElementById('f3');
+  b1.className = 'fase' + (fase === 1 ? ' on' : (okFase1() ? ' done' : ''));
+  b2.className = 'fase' + (fase === 2 ? ' on' : (feito2() === GRUPOS.length ? ' done' : ''));
+  b3.className = 'fase' + (fase === 3 ? ' on' : ((nNDA && feito3() === nNDA) ? ' done' : ''));
+}
+
+/* ---- FASE 1: portao cidadao, item a item ---- */
+function tela1() {
+  const t = ITENS[i], r = rec(t.id_tweet);
+  const tags = [];
+  if (t.eh_retweet === '1') tags.push('<span class="tag">retweet</span>');
+  if (t.verificado === '1') tags.push('<span class="tag hot">verificado</span>');
+  if (t.idioma && t.idioma !== 'pt') tags.push('<span class="tag hot">idioma: ' + esc(t.idioma) + '</span>');
+  tags.push('<span class="tag">' + Number(t.seguidores).toLocaleString('pt-BR') + ' seguidores</span>');
+  tags.push('<span class="tag">' + Number(t.tweets_do_autor).toLocaleString('pt-BR') + ' tweets</span>');
+  const bt = (v, k, lb) => '<button class="opt' + (r.cidadao === v ? ' sel' : '') +
+      '" data-g="cidadao" data-v="' + v + '"><kbd>' + k + '</kbd>' + lb + '</button>';
+  document.getElementById('pane').innerHTML =
+  '<div class="card">' +
+    '<div class="meta"><span class="handle">' + esc(t.autor) + '</span>' +
+      '<span class="small">' + esc(t.nome_autor) + '</span>' +
+      '<span class="small">· ' + esc(t.data_brt).replace('T',' ').slice(0,16) + '</span> ' + tags.join(' ') + '</div>' +
+    '<div class="txt">' + esc(t.texto) + '</div>' +
+    '<fieldset><legend>a conta é de cidadão comum?</legend><div class="opts">' +
+      bt('S','q','Sim') + bt('N','w','Não') + bt('?','e','Não dá pra saber') + '</div></fieldset>' +
+    '<div class="nav"><button id="ant">← anterior</button>' +
+      '<button class="go" id="prox">próximo →</button>' +
+      '<span class="small">Enter avança · item ' + (i+1) + ' de ' + ITENS.length + '</span></div>' +
+  '</div>';
+  liga(() => { if (i > 0) { i--; tela(); } }, avanca1, !!r.cidadao);
+}
+
+function avanca1() {
+  if (!rec(ITENS[i].id_tweet).cidadao) return;
+  if (i < ITENS.length - 1) { i++; tela(); }
+  else { fase = 2; primeiroAberto(); tela(); }
+}
+
+/* ---- FASE 2: stance por grupo de texto ---- */
+function tela2() {
+  const gid = GRUPOS[g], ms = MEMBROS[gid], t = ms[0], r = rec(t.id_tweet);
+  const bt = (campo, v, k, lb) => '<button class="opt' + (r[campo] === v ? ' sel' : '') +
+      '" data-g="' + campo + '" data-v="' + v + '"><kbd>' + k + '</kbd>' + lb + '</button>';
+  let aviso = '';
+  if (ms.length > 1) {
+    aviso += '<div class="grp">Este texto aparece <b>' + ms.length + ' vezes</b> na amostra — ' +
+      ms.map(m => esc(m.autor)).join(', ') +
+      '. O que você marcar aqui vale para os ' + ms.length + '.</div>';
+  }
+  if (CONFLITOS[gid]) {
+    const c = CONFLITOS[gid];
+    aviso += '<div class="warn"><b>Atenção:</b> antes da propagação você marcou este mesmo texto de ' +
+      Object.keys(c).length + ' jeitos — ' +
+      Object.keys(c).map(k => '<b>' + k + '</b> no item ' + c[k].join(' e ')).join(', ') +
+      '. Decida um; ele vale para o grupo.</div>';
+  }
+  document.getElementById('pane').innerHTML =
+  '<div class="card">' + aviso +
+    '<div class="meta"><span class="handle">' + esc(t.autor) + '</span>' +
+      '<span class="small">' + esc(t.nome_autor) + '</span>' +
+      '<span class="small">· ' + esc(t.data_brt).replace('T',' ').slice(0,16) + '</span></div>' +
+    '<div class="txt">' + esc(t.texto) + '</div>' +
+    (t.host1 ? '<div class="host">link resolve em <b>' + esc(t.host1) + '</b></div>' : '') +
+    (t.hashtags && t.hashtags !== '[]' ? '<div class="host">' + esc(t.hashtags) + '</div>' : '') +
+    '<fieldset><legend>preferência expressa neste tweet</legend><div class="opts">' +
+      bt('stance','EA','a','EA — Aécio') + bt('stance','ED','s','ED — Dilma') +
+      bt('stance','NDA','d','NDA') + '</div></fieldset>' +
+    '<fieldset><legend>confiança</legend><div class="opts">' +
+      bt('confianca','3','3','3 óbvio') + bt('confianca','2','2','2 inferência') +
+      bt('confianca','1','1','1 chute') + '</div></fieldset>' +
+    '<fieldset><legend>notas <span class="small">(/ para focar)</span></legend>' +
+      '<input type="text" id="nt" value="' + esc(r.notas) + '" placeholder="rt_ironico · terceiro · idioma · link_morto · spam_tag"></fieldset>' +
+    '<div class="nav"><button id="ant">← anterior</button>' +
+      '<button class="go" id="prox">próximo →</button>' +
+      '<span class="small">Enter avança · texto ' + (g+1) + ' de ' + GRUPOS.length + '</span></div>' +
+  '</div>';
+  const nt = document.getElementById('nt');
+  nt.oninput = e => marcaGrupo('notas', e.target.value, true);
+  liga(() => { if (g > 0) { g--; tela(); } }, avanca2, !!(r.stance && r.confianca));
+}
+
+function avanca2() {
+  const ms = MEMBROS[GRUPOS[g]], r = rec(ms[0].id_tweet);
+  if (!(r.stance && r.confianca)) return;
+  /* idempotente: cobre grupos cujo representante foi rotulado na interface antiga,
+     quando ainda nao havia propagacao, e cujos demais membros ficaram vazios */
+  for (const m of ms) {
+    R[m.id_tweet] = Object.assign({cidadao:'',stance:'',confianca:'',notas:''}, R[m.id_tweet],
+                                  {stance:r.stance, confianca:r.confianca, notas:r.notas});
+  }
+  delete CONFLITOS[GRUPOS[g]];
+  salva();
+  if (g < GRUPOS.length - 1) { g++; tela(); } else fim();
+}
+
+function liga(ant, prox, habil) {
+  document.querySelectorAll('.opt').forEach(b => b.onclick = () => {
+    if (fase === 1) marcaItem('cidadao', b.dataset.v);
+    else marcaGrupo(b.dataset.g, b.dataset.v);
+  });
+  document.getElementById('ant').onclick = ant;
+  document.getElementById('prox').onclick = prox;
+  document.getElementById('prox').disabled = !habil;
+  pinta();
+}
+
+function marcaItem(campo, v) {
+  const id = ITENS[i].id_tweet;
+  R[id] = Object.assign({cidadao:'',stance:'',confianca:'',notas:''}, R[id]);
+  R[id][campo] = v; salva(); tela();
+}
+
+/* propaga para todos os membros do grupo */
+function marcaGrupo(campo, v, quieto) {
+  for (const m of MEMBROS[GRUPOS[g]]) {
+    R[m.id_tweet] = Object.assign({cidadao:'',stance:'',confianca:'',notas:''}, R[m.id_tweet]);
+    R[m.id_tweet][campo] = v;
+  }
+  delete CONFLITOS[GRUPOS[g]];
+  salva();
+  if (!quieto) tela(); else pinta();
+}
+
+function fim() {
+  document.getElementById('pane').innerHTML =
+    '<div class="card done"><h2>210 de 210 — teste fechado</h2>' +
+    '<p class="small">Exporte o CSV e me avise. É contra este conjunto que o rotulador ' +
+    'automático é medido, uma vez só.</p>' +
+    '<div class="nav" style="justify-content:center"><button class="go" id="ex2">Exportar CSV</button>' +
+    '<button id="rev0">rever do início</button></div></div>';
+  document.getElementById('ex2').onclick = exporta;
+  document.getElementById('rev0').onclick = () => { g = 0; tela(); };
+  pinta();
+}
+
+/* ---- FASE 3: por que NDA? (a confianca do NDA vinha constante do codebook) ---- */
+const NDA_OPC = [
+  ['sem_lado', '3', '3 · Não há lado',
+   'o tweet não expressa preferência: pesquisa, placar, notícia sem valência'],
+  ['ambiguo',  '2', '2 · Provavelmente não há',
+   'inclina para NDA, mas não é óbvio'],
+  ['indeciso', '1', '1 · Não deu para decidir',
+   'pode ter lado e não consegui determinar: ironia ambígua, link morto, texto truncado']
+];
+
+function tela3() {
+  const L = gruposNDA();
+  if (!L.length) {
+    document.getElementById('pane').innerHTML =
+      '<div class="card done"><h2>Nenhum NDA ainda</h2>' +
+      '<p class="small">Feche a fase 2 primeiro.</p></div>';
+    pinta(); return;
+  }
+  if (g3 >= L.length) g3 = L.length - 1;
+  const gid = L[g3], ms = MEMBROS[gid], t = ms[0], r = rec(t.id_tweet);
+  const bt = o => '<button class="opt' + (r.nda_tipo === o[0] ? ' sel' : '') +
+      '" data-nda="' + o[0] + '"><kbd>' + o[1] + '</kbd>' + o[2] + '</button>';
+  document.getElementById('pane').innerHTML =
+  '<div class="card">' +
+    (ms.length > 1 ? '<div class="grp">Este texto aparece <b>' + ms.length +
+      ' vezes</b>. Vale para os ' + ms.length + '.</div>' : '') +
+    '<div class="meta"><span class="handle">' + esc(t.autor) + '</span>' +
+      '<span class="small">· ' + esc(t.data_brt).replace('T',' ').slice(0,16) + '</span></div>' +
+    '<div class="txt">' + esc(t.texto) + '</div>' +
+    (t.host1 ? '<div class="host">link resolve em <b>' + esc(t.host1) + '</b></div>' : '') +
+    '<fieldset><legend>você marcou NDA — por quê?</legend>' +
+      '<div class="opts" style="flex-direction:column;align-items:stretch">' +
+      NDA_OPC.map(bt).join('') + '</div>' +
+      '<div class="small" style="margin-top:8px">' +
+      NDA_OPC.map(o => '<b>' + o[1] + '</b> ' + o[3]).join(' · ') + '</div></fieldset>' +
+    '<div class="nav"><button id="ant">← anterior</button>' +
+      '<button class="go" id="prox">próximo →</button>' +
+      '<span class="small">Enter avança · NDA ' + (g3+1) + ' de ' + L.length + '</span></div>' +
+  '</div>';
+  document.querySelectorAll('.opt').forEach(b =>
+    b.onclick = () => marcaNDA(b.dataset.nda));
+  document.getElementById('ant').onclick = () => { if (g3 > 0) { g3--; tela(); } };
+  document.getElementById('prox').onclick = avanca3;
+  document.getElementById('prox').disabled = !r.nda_tipo;
+  pinta();
+}
+
+/* o tipo de NDA determina a confianca -- e o que destrava o teste de robustez */
+function marcaNDA(tipo) {
+  const conf = {sem_lado:'3', ambiguo:'2', indeciso:'1'}[tipo];
+  for (const m of MEMBROS[gruposNDA()[g3]]) {
+    R[m.id_tweet] = Object.assign({cidadao:'',stance:'',confianca:'',notas:''}, R[m.id_tweet],
+                                  {nda_tipo: tipo, confianca: conf});
+  }
+  salva(); tela();
+}
+
+function avanca3() {
+  const L = gruposNDA();
+  if (!rec(MEMBROS[L[g3]][0].id_tweet).nda_tipo) return;
+  if (g3 < L.length - 1) { g3++; tela(); } else fim();
+}
+
+function tela() { window.scrollTo(0,0);
+  if (fase === 1) tela1(); else if (fase === 2) tela2(); else tela3(); }
+
+document.getElementById('f1').onclick = () => { fase = 1; primeiroAberto(); tela(); };
+document.getElementById('f2').onclick = () => { fase = 2; primeiroAberto(); tela(); };
+document.getElementById('f3').onclick = () => { fase = 3; primeiroAberto(); tela(); };
+
+/* ---- exportacao: 210 linhas, com a origem de cada stance ---- */
+function exporta() {
+  const cab = ["n","id_tweet","data_brt","autor","nome_autor","verificado","seguidores",
+    "tweets_do_autor","eh_retweet","autor_original","idioma","texto","link1","host1",
+    "hashtags","cidadao","stance","confianca","notas","nda_tipo","origem","grupo_texto","tam_grupo"];
+  const marcadas = ['cidadao','stance','confianca','notas','nda_tipo'];
+  const q = v => '"' + String(v == null ? '' : v).replace(/"/g,'""') + '"';
+  const linhas = [cab.map(q).join(',')];
+  for (const t of ITENS) {
+    const r = rec(t.id_tweet);
+    const ehRep = MEMBROS[t.gid][0].id_tweet === t.id_tweet;
+    const origem = !r.stance ? '' : (t.gsize === 1 || ehRep ? 'manual' : 'propagado');
+    linhas.push(cab.map(c => {
+      if (c === 'origem') return q(origem);
+      if (c === 'grupo_texto') return q(t.gid);
+      if (c === 'tam_grupo') return q(t.gsize);
+      return q(marcadas.indexOf(c) >= 0 ? (r[c] || '') : t[c]);
+    }).join(','));
+  }
+  const blob = new Blob(['﻿' + linhas.join('\r\n')], {type:'text/csv;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'gold_stance_teste_MARIANA.csv'; a.click();
+}
+document.getElementById('exp').onclick = exporta;
+
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') { if (e.key === 'Escape') e.target.blur(); return; }
+  if (e.key === '/') { e.preventDefault(); const n = document.getElementById('nt'); if (n) n.focus(); return; }
+  const k = e.key.toLowerCase();
+  if (fase === 1) {
+    const m = {q:'S', w:'N', e:'?'}[k];
+    if (m) { e.preventDefault(); marcaItem('cidadao', m); return; }
+    if (e.key === 'Enter') { e.preventDefault(); avanca1(); }
+    if (e.key === 'ArrowLeft' && i > 0) { i--; tela(); }
+  } else if (fase === 2) {
+    const m = {a:['stance','EA'], s:['stance','ED'], d:['stance','NDA'],
+               '1':['confianca','1'], '2':['confianca','2'], '3':['confianca','3']}[k];
+    if (m) { e.preventDefault(); marcaGrupo(m[0], m[1]); return; }
+    if (e.key === 'Enter') { e.preventDefault(); avanca2(); }
+    if (e.key === 'ArrowLeft' && g > 0) { g--; tela(); }
+  } else {
+    const m = {'3':'sem_lado', '2':'ambiguo', '1':'indeciso'}[k];
+    if (m) { e.preventDefault(); marcaNDA(m); return; }
+    if (e.key === 'Enter') { e.preventDefault(); avanca3(); }
+    if (e.key === 'ArrowLeft' && g3 > 0) { g3--; tela(); }
+  }
+});
+
+fase = okFase1() ? 2 : 1;
+primeiroAberto();
+tela();
+</script>
+</body>
+</html>

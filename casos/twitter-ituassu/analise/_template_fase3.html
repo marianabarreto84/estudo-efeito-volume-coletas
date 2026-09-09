@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-store">
+<title>Fase 3 — por que NDA?</title>
+<style>
+:root{
+  --bg:#f6f5f2; --card:#fff; --ink:#1b1a17; --mut:#6b6862; --line:#dedbd4;
+  --a:#15803d; --b:#b45309; --c:#b91c1c;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#16151a; --card:#201f26; --ink:#eceaf2; --mut:#9d99a8; --line:#332f3c;
+         --a:#4ade80; --b:#fbbf24; --c:#f87171; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+header{position:sticky;top:0;z-index:9;background:var(--bg);border-bottom:1px solid var(--line);
+  padding:10px 20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.bar{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden;min-width:140px}
+.bar>i{display:block;height:100%;background:var(--ink);width:0;transition:width .2s}
+.small{font-size:13px;color:var(--mut)}
+button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);border-radius:8px;padding:7px 12px}
+button:hover{border-color:var(--ink)}
+main{max-width:900px;margin:0 auto;padding:22px 20px 80px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.meta{display:flex;gap:10px;flex-wrap:wrap;align-items:baseline;margin-bottom:12px}
+.handle{font-weight:600}
+.txt{font-size:21px;line-height:1.45;white-space:pre-wrap;word-break:break-word;margin:6px 0 14px}
+.host{font-size:13px;color:var(--mut);margin-bottom:4px}
+.host b{color:var(--ink);font-weight:600}
+.grp{border:1px solid var(--line);border-left:3px solid var(--mut);border-radius:8px;
+  padding:9px 13px;font-size:13.5px;margin:0 0 14px;background:var(--bg)}
+fieldset{border:0;padding:0;margin:16px 0 0}
+legend{font-size:13px;color:var(--mut);margin-bottom:9px}
+.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;
+  border:1px solid var(--line);border-radius:10px;padding:12px 15px;margin-bottom:8px;
+  background:var(--card);color:var(--ink)}
+.opt kbd{font:600 13px ui-monospace,Menlo,Consolas,monospace;color:var(--mut);
+  border:1px solid var(--line);border-radius:5px;padding:2px 8px;flex:none}
+.opt .lb{font-weight:600}
+.opt .ex{display:block;font-weight:400;font-size:13.5px;color:var(--mut);margin-top:2px}
+.opt[data-v=sem_lado].sel{border-color:var(--a);box-shadow:inset 0 0 0 1px var(--a)}
+.opt[data-v=ambiguo].sel{border-color:var(--b);box-shadow:inset 0 0 0 1px var(--b)}
+.opt[data-v=indeciso].sel{border-color:var(--c);box-shadow:inset 0 0 0 1px var(--c)}
+.nav{display:flex;gap:10px;margin-top:18px;align-items:center}
+.nav .go{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600}
+.nav .go[disabled]{opacity:.35;cursor:not-allowed}
+.done{text-align:center;padding:46px 20px}
+.stat{display:flex;gap:26px;flex-wrap:wrap;justify-content:center;margin:18px 0 6px}
+.stat div{font-size:13px;color:var(--mut)} .stat b{display:block;font-size:28px;color:var(--ink)}
+</style>
+</head>
+<body>
+<header>
+  <strong>fase 3 · por que NDA</strong>
+  <span class="bar"><i id="prog"></i></span>
+  <span class="small" id="pos"></span>
+  <button id="exp">Exportar CSV</button>
+  <span class="small">amostra __HASH__ · build 9set</span>
+</header>
+<main><section id="pane"></section></main>
+
+<script>
+const GRUPOS = /*__GRUPOS__*/;
+const TODOS  = /*__TODOS__*/;
+const CHAVE  = 'stance_fase3_' + '__HASH__';
+
+let R = JSON.parse(localStorage.getItem(CHAVE) || '{}');
+const salva = () => localStorage.setItem(CHAVE, JSON.stringify(R));
+const esc = s => (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+const OPC = [
+  ['sem_lado','3','Não há lado',
+   'o tweet não expressa preferência: pesquisa, placar, notícia sem valência'],
+  ['ambiguo','2','Provavelmente não há',
+   'inclina para NDA, mas não é óbvio'],
+  ['indeciso','1','Não deu para decidir',
+   'pode ter lado e não consegui determinar: ironia ambígua, link morto, texto truncado']
+];
+const CONF = {sem_lado:'3', ambiguo:'2', indeciso:'1'};
+
+let g = GRUPOS.findIndex(x => !R[x.gid]);
+if (g < 0) g = GRUPOS.length - 1;
+
+const feito = () => GRUPOS.filter(x => R[x.gid]).length;
+
+function pinta() {
+  document.getElementById('prog').style.width = (100 * feito() / GRUPOS.length) + '%';
+  document.getElementById('pos').textContent = feito() + ' / ' + GRUPOS.length + ' textos';
+}
+
+function tela() {
+  window.scrollTo(0, 0);
+  const x = GRUPOS[g], sel = R[x.gid];
+  const bt = o => '<button class="opt' + (sel === o[0] ? ' sel' : '') + '" data-v="' + o[0] + '">' +
+    '<kbd>' + o[1] + '</kbd><span><span class="lb">' + o[2] + '</span>' +
+    '<span class="ex">' + o[3] + '</span></span></button>';
+  document.getElementById('pane').innerHTML =
+  '<div class="card">' +
+    (x.n_membros > 1
+      ? '<div class="grp">Este texto aparece <b>' + x.n_membros + ' vezes</b> (' +
+        x.autores.map(esc).join(', ') + '). Vale para os ' + x.n_membros + '.</div>'
+      : '') +
+    '<div class="meta"><span class="handle">' + esc(x.autor) + '</span>' +
+      '<span class="small">' + esc(x.nome_autor) + '</span>' +
+      '<span class="small">· ' + esc(x.data_brt).replace('T',' ').slice(0,16) + '</span></div>' +
+    '<div class="txt">' + esc(x.texto) + '</div>' +
+    (x.host1 ? '<div class="host">link resolve em <b>' + esc(x.host1) + '</b></div>' : '') +
+    (x.hashtags && x.hashtags !== '[]' ? '<div class="host">' + esc(x.hashtags) + '</div>' : '') +
+    '<fieldset><legend>você marcou <b>NDA</b> — por quê?</legend>' +
+      OPC.map(bt).join('') + '</fieldset>' +
+    '<div class="nav"><button id="ant">← anterior</button>' +
+      '<button class="go" id="prox">próximo →</button>' +
+      '<span class="small">Enter avança · texto ' + (g+1) + ' de ' + GRUPOS.length + '</span></div>' +
+  '</div>';
+  document.querySelectorAll('.opt').forEach(b => b.onclick = () => marca(b.dataset.v));
+  document.getElementById('ant').onclick = () => { if (g > 0) { g--; tela(); } };
+  document.getElementById('prox').onclick = avanca;
+  document.getElementById('prox').disabled = !sel;
+  pinta();
+}
+
+function marca(v) { R[GRUPOS[g].gid] = v; salva(); tela(); }
+
+function avanca() {
+  if (!R[GRUPOS[g].gid]) return;
+  if (g < GRUPOS.length - 1) { g++; tela(); } else fim();
+}
+
+function fim() {
+  const c = {sem_lado:0, ambiguo:0, indeciso:0};
+  for (const x of GRUPOS) if (R[x.gid]) c[R[x.gid]] += x.n_membros;
+  document.getElementById('pane').innerHTML =
+    '<div class="card done"><h2>Fase 3 fechada</h2>' +
+    '<p class="small">A confiança do NDA deixou de ser constante. Exporte e me avise.</p>' +
+    '<div class="stat">' +
+      '<div><b>' + c.sem_lado + '</b>não há lado (conf 3)</div>' +
+      '<div><b>' + c.ambiguo + '</b>provavelmente não (conf 2)</div>' +
+      '<div><b>' + c.indeciso + '</b>não deu para decidir (conf 1)</div>' +
+    '</div>' +
+    '<div class="nav" style="justify-content:center">' +
+    '<button class="go" id="ex2">Exportar CSV</button>' +
+    '<button id="rev0">rever do início</button></div></div>';
+  document.getElementById('ex2').onclick = exporta;
+  document.getElementById('rev0').onclick = () => { g = 0; tela(); };
+  pinta();
+}
+
+/* exporta as 210 linhas: stance intacto, confianca do NDA vinda da fase 3 */
+function exporta() {
+  const tipoPorId = {};
+  for (const x of GRUPOS) if (R[x.gid]) for (const id of x.ids) tipoPorId[id] = R[x.gid];
+  const cab = ["n","id_tweet","data_brt","autor","nome_autor","verificado","seguidores",
+    "tweets_do_autor","eh_retweet","autor_original","idioma","texto","link1","host1",
+    "hashtags","cidadao","stance","confianca","notas","nda_tipo"];
+  const q = v => '"' + String(v == null ? '' : v).replace(/"/g,'""') + '"';
+  const linhas = [cab.map(q).join(',')];
+  for (const r of TODOS) {
+    const tipo = tipoPorId[r.id_tweet] || '';
+    const conf = tipo ? CONF[tipo] : r.confianca;
+    linhas.push(cab.map(c =>
+      c === 'nda_tipo' ? q(tipo) : c === 'confianca' ? q(conf) : q(r[c])).join(','));
+  }
+  const blob = new Blob(['﻿' + linhas.join('\r\n')], {type:'text/csv;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'gold_stance_teste_FASE3.csv'; a.click();
+}
+document.getElementById('exp').onclick = exporta;
+
+document.addEventListener('keydown', e => {
+  const m = {'3':'sem_lado','2':'ambiguo','1':'indeciso'}[e.key];
+  if (m) { e.preventDefault(); marca(m); return; }
+  if (e.key === 'Enter') { e.preventDefault(); avanca(); }
+  if (e.key === 'ArrowLeft' && g > 0) { g--; tela(); }
+});
+
+tela();
+</script>
+</body>
+</html>
