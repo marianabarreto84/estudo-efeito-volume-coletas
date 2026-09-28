@@ -1293,6 +1293,18 @@ marcados como conta fora do texto foram **reconferidos contra os arquivos dos ca
 resposta só afirmava o resultado agora traz a derivação (a razão de 1,07 sem a comunidade difusa; a
 concordância esperada por acaso de 0,77 na validação da survey).
 
+⛔ **BLOQUEIO para abrir o repositório, descoberto em 28/set/2026.** Os seis
+`casos/twitter-ituassu/data/repl/compos2014/stance/gold_stance_*.csv` **estão versionados**, e
+somam **1.005 linhas com texto de tweet, identificador de autor e contagem de seguidores** de
+pessoas reais. Entraram no commit `1243bc8` (9/set), de modo que estão também no histórico.
+Consequências: (a) **não torne o repositório público como ele está**; (b) `git rm --cached` resolve
+a árvore e **não** resolve o histórico; (c) reescrever histórico na véspera da defesa é risco alto,
+e o GitHub pode manter objetos alcançáveis por um tempo depois. Rotas, em ordem de segurança:
+**(1)** manter privado e usar a resposta honesta de 2.10.1, com um **depósito curado** no Zenodo
+contendo só scripts e agregados, que dá o DOI sem expor nada; **(2)** publicar um repositório
+**novo**, sem histórico, com a árvore atual menos esses arquivos; **(3)** reescrever o histórico.
+O pacote da rota 1 já está montado em `deposito/` (fora do git). A decisão é da Mariana.
+
 ⚠ **Nada disso alterou os PDFs entregues nem os fontes de `escrita/dissertacao`.** O `.gitignore`
 passou a excluir `PERGUNTAS.md`, `ROTEIRO.md`, `errata/`, o rascunho de fala e o gabarito humano de
 stance (traz texto de tweet e perfil de autor), para que abrir o repositório não publique nem a

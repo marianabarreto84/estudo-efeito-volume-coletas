@@ -44,9 +44,14 @@ antes da medição.
    e é dado pessoal de terceiros. O que se publica são os agregados: as curvas, as contagens por
    dia, as tabelas de resultado. Os acervos originais estão preservados no laboratório eTC da
    PUC-Rio e o acesso é institucional.
-2. **Gabarito humano de stance.** São 210 itens rotulados à mão que incluem o texto do tweet e o
-   perfil do autor. Não é redistribuído, pela mesma razão. O pré-registro, o codebook e os
-   agregados estão publicados.
+2. **Gabarito humano de stance.** São seis arquivos, 1.005 linhas no total, rotulados à mão, que
+   incluem o texto do tweet, o identificador do autor e a contagem de seguidores. Não são
+   redistribuídos, pela mesma razão do item anterior. O pré-registro, o codebook e os agregados
+   estão publicados.
+   > ⚠ Esses arquivos estão em `casos/twitter-ituassu/data/repl/compos2014/stance/gold_stance_*.csv`
+   > e **foram versionados por engano** antes desta revisão, inclusive no histórico. Qualquer
+   > publicação do repositório tem de removê-los primeiro, e remover do histórico não é suficiente
+   > se o repositório já tiver sido aberto. Ver `ESTADO.md` §4.30.
 3. **Metadados de vídeo e de canal do YouTube.** Obtidos pela Data API v3, cujos termos restringem
    o armazenamento e a redistribuição. A coleta é refazível: as oitenta e cinco buscas estão
    declaradas no caso, e a chave da API é gratuita.

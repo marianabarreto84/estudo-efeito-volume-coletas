@@ -108,3 +108,4 @@ trechos_do_roteiro.txt
 # REPRODUCAO.md). Os agregados que saem dele estão em
 # casos/twitter-ituassu/data/repl/compos2014/stance/.
 gold_stance_teste_*.csv
+deposito/
