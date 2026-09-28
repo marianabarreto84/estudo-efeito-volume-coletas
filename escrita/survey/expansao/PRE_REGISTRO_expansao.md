@@ -247,3 +247,79 @@ ainda está crescendo (436 elegíveis contra ~1.280 projetados), e sortear ali
 não resta artigo por tentar, aplica o `sorteia_amostra.py` e extrai **no máximo
 os 800** da §3 — o teto de gasto continua valendo sozinho, sem depender de
 alguém lembrar dele.
+
+---
+
+## 11. ⭐ Adendo de decisão — a condição de parada foi acionada e a Mariana decidiu prosseguir (9/set/2026)
+
+> Escrito **antes** da extração, e mantido separado do pré-registro original:
+> **nenhum valor, aposta ou critério das §§1–9 foi alterado.** Este adendo registra
+> uma decisão que contraria a letra da §8, e a registra por escrito justamente para
+> que ela não passe em silêncio.
+
+### O que disparou
+
+A varredura terminou em **23/ago/2026, 05:17**, com a fila **100% tentada**
+(11.093 artigos) e **811 PDFs** recuperados. A taxa final no estrato pago é
+**7,7%** (772/10.039, IC95% de Wilson 7,2–8,2) — o intervalo **inteiro** abaixo do
+piso de 11% da §8. A condição de parada, portanto, **disparou de forma
+inequívoca**: não é caso de fronteira.
+
+⚠ A medição intermediária de 12,4%, feita a 34% da fila, **não se sustentou**, e os
+dois intervalos não se sobrepõem. A explicação provável — os 307 PDFs órfãos de
+execuções anteriores contados no numerador sem seus denominadores — está em
+[EXPANSAO_recuperacao.md §3c](../EXPANSAO_recuperacao.md) e **segue por conferir**.
+
+### A decisão
+
+**A Mariana decidiu levar os 800 adiante** (9/set/2026).
+
+### O raciocínio, para o leitor futuro julgar
+
+A §8 foi escrita para responder a **uma** pergunta: *vale a pena varrer 11 mil
+artigos por uma taxa que pode ser baixa?* Ela é uma condição de parada sobre a
+**extrapolação** — o texto da própria linha diz "a extrapolação de 1.127–2.944
+artigos não vale". Essa pergunta perdeu o objeto: a varredura **já aconteceu**,
+custou zero e está encerrada. Os 811 artigos existem em disco independentemente de
+a taxa ter frustrado a projeção.
+
+O que a extração dos 800 responde é uma pergunta **diferente**, e que a §6 já
+registrou: *o viés de acesso movia os achados da survey?* Essa pergunta não fica
+melhor respondida por uma taxa alta — ela fica respondida por uma amostra do
+estrato antes inacessível, que é exatamente o que existe agora. Uma taxa baixa
+torna o estrato recuperado **menor**, não menos informativo: n = 800 continua
+dando IC95% de ±2,7 p.p. numa proporção de 20%, que é o dimensionamento da §7.
+
+**O que a taxa baixa custa, e que fica declarado:** os 811 recuperados são uma
+fatia menor e mais seletiva do estrato pago do que se esperava, então a amostra
+representa **o que a rota aberta alcança**, não o estrato pago inteiro. Qualquer
+achado desta extração vale para essa fatia, e a generalização para os ~9,2 mil
+artigos que continuam inacessíveis **não** está autorizada por ela. Isso é uma
+limitação a mais, não uma licença.
+
+### O que este adendo NÃO autoriza
+
+- ⛔ **Não altera nenhuma aposta da §6.** A3a/A3b, A1, A2 e A4 seguem como estavam,
+  com as mesmas faixas e os mesmos critérios de "mudou". Continuam valendo, e a
+  comparação segue pelo `compara.py`, que aborta se a base antiga deixar de
+  reproduzir o `baseline_agg.txt`.
+- ⛔ **Não altera as demais condições de parada da §8.** Bloqueio/captcha e custo
+  por artigo acima de 2× o calibrado (R$0,108) continuam sendo parada imediata.
+- ⛔ **Não altera o teto de gasto.** No máximo os 800 da §3, ≈R$43, na
+  `GEMINI_API_KEY` do repositório da survey. O teto de US$ 25 do
+  `ANTHROPIC_VACINAS_API_KEY` é do rotulador do *stance* e **não se toca**.
+- ⛔ **Não altera a §9**: se algum número se mover, a propagação para a dissertação
+  continua sendo verificada por `audita_numeros.py`/`audita_contas.py` antes e
+  depois, e não manual.
+- ⛔ **Não mexe no `vocabulary`** — a proibição do
+  [DIAGNOSTICO_tipos_de_analise.md](DIAGNOSTICO_tipos_de_analise.md) §6.5 segue de
+  pé: mudar o instrumento agora faria o `compara.py` medir alteração de *prompt* em
+  vez de viés de acesso.
+
+### Como reportar
+
+A taxa final de **7,7%** é resultado, e é reportada como tal — já está no
+`survey.tex` como ameaça à validade nº 3, na forma de **censo** (11.093 tentados,
+811 recuperados), que é mais forte que a projeção que ela substituiu. O
+acionamento da condição de parada e esta decisão de prosseguir **entram no
+documento de resultados da expansão**, não como nota de rodapé.

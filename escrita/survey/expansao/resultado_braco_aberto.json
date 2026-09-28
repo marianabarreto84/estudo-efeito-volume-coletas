@@ -1,0 +1,114 @@
+{
+ "n_antigos": 1718,
+ "n_novos": 604,
+ "descartados_novos": 168,
+ "achados": {
+  "A3a": {
+   "rotulo": "amostragem",
+   "antiga": 18.68451688009313,
+   "novo": 19.70198675496689,
+   "combinada": 18.949181739879414,
+   "ic_antiga": [
+    16.82188591385332,
+    20.60535506402794
+   ],
+   "moveu_c1": false,
+   "moveu_c2": false,
+   "dif_pp": 1.0174698748737554,
+   "p": 0.583114551974451,
+   "aposta": "nao move"
+  },
+  "A3b": {
+   "rotulo": "filtragem",
+   "antiga": 80.26775320139697,
+   "novo": 83.6092715231788,
+   "combinada": 81.13695090439276,
+   "ic_antiga": [
+    78.34691501746217,
+    82.07217694994179
+   ],
+   "moveu_c1": false,
+   "moveu_c2": false,
+   "dif_pp": 3.3415183217818334,
+   "p": 0.07097697402030301,
+   "aposta": "nao move"
+  },
+  "A4": {
+   "rotulo": "Twitter",
+   "antiga": 63.736903376018624,
+   "novo": 68.70860927152317,
+   "combinada": 65.03014642549526,
+   "ic_antiga": [
+    61.525029103608844,
+    65.9487776484284
+   ],
+   "moveu_c1": false,
+   "moveu_c2": true,
+   "dif_pp": 4.971705895504552,
+   "p": 0.02752844579342084,
+   "aposta": "cai 2-6 p.p."
+  },
+  "B1": {
+   "rotulo": "API",
+   "antiga": 69.73224679860303,
+   "novo": 67.3841059602649,
+   "combinada": 69.12144702842377,
+   "ic_antiga": [
+    67.52037252619324,
+    71.88591385331782
+   ],
+   "moveu_c1": false,
+   "moveu_c2": false,
+   "dif_pp": -2.3481408383381197,
+   "p": 0.2826188351927592,
+   "aposta": "(secundario)"
+  },
+  "B3": {
+   "rotulo": "DOI persistente",
+   "antiga": 8.323632130384167,
+   "novo": 2.6490066225165565,
+   "combinada": 6.847545219638243,
+   "ic_antiga": [
+    6.984866123399302,
+    9.60419091967404
+   ],
+   "moveu_c1": true,
+   "moveu_c2": true,
+   "dif_pp": -5.674625507867612,
+   "p": 2.0365957902335197e-06,
+   "aposta": "(secundario)"
+  },
+  "A1": {
+   "rotulo": "mediana de itens",
+   "antiga": 273290.5,
+   "novo": 769584.0,
+   "combinada": 386670.0,
+   "ic_antiga": [
+    205544.0,
+    411042.0
+   ],
+   "ic_diferenca": [
+    170942.5,
+    958056.0
+   ],
+   "moveu_c1": false,
+   "moveu_c2": true,
+   "aposta": "cai, talvez < 200 mil"
+  },
+  "A2": {
+   "rotulo": "fracao < 1 milhao",
+   "antiga": 60.54018445322793,
+   "novo": 51.886792452830186,
+   "combinada": 58.30078125,
+   "ic_antiga": [
+    58.0368906455863,
+    62.91172595520422
+   ],
+   "moveu_c1": false,
+   "moveu_c2": true,
+   "dif_pp": -8.65339200039774,
+   "p": 0.0005041972754087354,
+   "aposta": "sobe 2-5 p.p."
+  }
+ }
+}

@@ -1,6 +1,6 @@
 # STATUS — Artigo da Survey
 
-> Controle de progresso da redação. Atualizado em 2026-07-02.
+> Controle de progresso da redação. Atualizado em **15/set/2026**.
 > Workspace de redação: `dissertacao-escrita/survey/` (esta pasta), que reúne o
 > manuscrito e os PDFs de referência. Movida de `Downloads/survey-redacao/survey/`
 > em 2026-07-08 para o lar único da escrita. O repositório do sistema
@@ -11,9 +11,92 @@
 
 - `survey.tex` — manuscrito (classe `article`, PT-BR). Compila com
   `pdflatex survey && bibtex survey && pdflatex survey && pdflatex survey`.
-- `referencias.bib` — bibliografia (11 refs, todas citadas, sem `[REF?]`).
-- `survey.pdf` — última compilação (limpa, sem citações indefinidas).
+- `referencias.bib` — bibliografia (17 refs, todas citadas, sem `[REF?]`; as 4
+  novas da rodada 4 foram copiadas da `.bib` da dissertação, onde já estavam conferidas).
+- `survey.pdf` — última compilação (15 p., 15/set/2026, rodada 6 v6, base 2.472,
+  limpa: zero erros, zero citações indefinidas, zero `Overfull`).
+- `revisoes/survey-N.pdf` — o PDF de cada **rodada de revisão**, para a Mariana
+  comentar. Mesmo ciclo da dissertação; ver [revisoes/README.md](revisoes/README.md).
+- `figuras.py` / `validacao.py` — geram as **6 figuras** e o `numeros.json` a partir
+  do `research.db`. `agg_results.py` continua sendo a referência das agregações.
 - `Addressing_Database-Related_Issues_in_Digital_Soci.pdf` — Heine et al. 2025 (SBBD), PDF de referência.
+
+## Extração completa dos 198 PDFs (15/set/2026, dentro da rodada 6)
+
+Detalhe em [revisoes/README.md](revisoes/README.md) §Extração completa. Em uma linha:
+**os 198 PDFs que nunca tinham passado pelo modelo foram extraídos (196; 2 corrompidos;
+6 com o texto lido pelo `pypdf`), e a base foi de 2.322 para 2.472.** Todos os números
+foram refeitos por `revisoes/extracao198/aplica_numeros.py`. Nenhuma conclusão mudou (a
+filtragem fica em 80,3%, e era 81,1%). 14 p., limpo; `versao_final/` atualizado.
+
+## Rodada 5 — `revisoes/survey-5.pdf` (14/set/2026): os comentários do survey-4
+
+Detalhe em [revisoes/README.md](revisoes/README.md) §rodada 5. Em uma linha: **texto
+reescrito para tirar maneirismos de IA** (referência: a proposta dela, o SBBD 2023 do
+grupo e a dissertação da Salgueiro); κ fora do texto (fica a concordância bruta); Claude
+Haiku só como tentativa de triangulação; figuras junto do texto que as cita; três
+pizzas no lugar da tabela dos grandes coletores. Duas afirmações corrigidas (a de
+“análise de conteúdo” ser o pior rótulo e uma que a revisão não mede). Nenhum número
+mudou. 14 p., limpo. `figuras.py` gera **9 figuras** (saiu a de κ do artigo, entrou
+`fig_grandes`); a `.bib` tem 17 entradas, 15 citadas (Cohen e Landis-Koch não são mais
+citados).
+
+- [ ] ⏳ Decisão dela: dar mais foco ao **banco de dados**? Hoje é resultado secundário.
+
+## Rodada 4 — `revisoes/survey-4.pdf` (14/set/2026): os comentários do survey-3
+
+Detalhe e tabela comentário→mudança em [revisoes/README.md](revisoes/README.md) §rodada 4.
+Em uma linha: **o achado passa a ser a onipresença da filtragem por critério** (não o
+contraste com a amostragem); itálico só em inglês (89 → 46); plataformas e estratégia
+viram barras (Figs. 3–4), BD vira pizza (Fig. 7), a temporal perde o eixo duplo; §2 com
+Tufekci, Ruths & Pfeffer e Olteanu; o exemplo dos ≈2,8 bi de tweets passa de amostragem
+a filtragem (Jimeno-Yepes 2015). Nenhum número mudou. 15 p., limpo. `figuras.py` gera
+agora **9 figuras**.
+
+- [x] Negrito no meio das frases — **cortado** a pedido dela (26 fora; ficam o título,
+      “Palavras-chave” e os rótulos das 8 ameaças). `survey-4.pdf` republicado.
+- [x] Dissertação conferida: já resume a revisão pela filtragem; nada a mudar.
+
+## Rodada 3 — `revisoes/survey-3.pdf` (14/set/2026, noite): auditoria de vieses
+
+Detalhe e tabela achado→correção em [revisoes/README.md](revisoes/README.md) §rodada 3.
+Em uma linha: **base 2.322 + critério único Gemini + composição arXiv + descarte sem
+DOI + validação 2023–26 declarada + a lacuna deixou de ser afirmada sem medida.**
+13 p., zero erros, zero indefinidas, zero `Overfull`. `figuras.py` reescrito (só-Gemini,
+série com/sem arXiv, reponderação por ano, releitura dos dumps do DBLP).
+
+- [x] Recomendação nº 1 do DIAGNOSTICO (tipos de análise só-Gemini) — **aplicada**, e
+      estendida a todas as tabelas.
+- [x] Base da expansão (2.322) no artigo; o resultado dela virou a nova §3.5.
+- [x] ~~⚠ **`corpo.tex` diverge de novo** (segue na base 1.723 e na união)~~ ✅
+      **alinhado na mesma noite** (rodada 8 da dissertação, `revisao-8.pdf`), a pedido
+      da Mariana: base 2.322, Tab. 1.1 = Tab. 4 (só Gemini), Twitter 64,9%, e a lacuna
+      citada sem afirmar o que a extração não mede. Ver
+      [REVISOES.md](../dissertacao/revisoes/REVISOES.md).
+- [ ] Prompt novo (“avaliou o efeito da redução?”, redução pré × pós-coleta, sem
+      “conveniência” como amostragem) + gabarito humano sorteado (≈30 dev + 50 teste,
+      estratificado por ano) — só Gemini, ~6–26 h de máquina, ~R$200.
+- [ ] Reimportar os 2.915 títulos sem DOI (ICWSM, HICSS, AIS, CLEF) pelo `ee` do DBLP.
+
+## Rodada 2 — `revisoes/survey-2.pdf` (14/set/2026): "levantamento sistemático" → "revisão"
+
+- Pedido do orientador, confirmado pela Mariana: **"revisão"**, e não "revisão
+  sistemática". O artigo passa a se chamar *"Coleta, Filtragem e Volume em Análises
+  de Redes Sociais Digitais: uma Revisão da Literatura"*; toda autorreferência ("o
+  levantamento", "levantamento sistemático e reprodutível") virou "a revisão", com a
+  concordância no feminino; a palavra-chave "revisão sistemática" virou "revisão da
+  literatura".
+- **Mantidos de propósito**, porque falam de outros trabalhos: "levantamento manual"
+  para o trabalho do Heine (§2 e §5) e "revisões sistemáticas tradicionais" (§2).
+- **Nenhum número mudou.** 12 p., zero erros, zero indefinidas, zero `Overfull`.
+- ✅ A dissertação foi alinhada no mesmo dia (`revisao-7.pdf`): mesma terminologia,
+  título novo no `.bib` dela, e os números de abertura trazidos para a base deste
+  artigo (1.723). A divergência da rodada 1 (abaixo) **deixou de existir**. Mapa em
+  [../dissertacao/revisoes/REVISOES.md](../dissertacao/revisoes/REVISOES.md).
+- ✅ Autoria e afiliação copiadas do front-matter da dissertação (Departamento de
+  Informática, PUC-Rio, Rio de Janeiro), e agradecimento à CAPES (Código de
+  Financiamento 001) com o texto da dissertação. E-mails informados pela Mariana:
+  `mbarreto@inf.puc-rio.br` e `sergio@inf.puc-rio.br`.
 
 ## Decisões fechadas (2026-07-02)
 
@@ -30,16 +113,95 @@
 
 | Seção | Estado | Observações |
 |---|---|---|
-| Resumo | rascunho revisado | números atualizados p/ dados atuais |
+| Resumo | revisado 9/set | reescrito na base 1.723; lidera pelo achado e já traz os 339 grandes coletores |
 | 1. Introdução | rascunho revisado | polida; removida afirmação quantitativa não sustentada |
 | 2. Trabalhos Relacionados | rascunho revisado | Heine incorporado como precursor nacional |
-| 3. Metodologia | rascunho revisado | nºs de coleta ancorados a maio/2026; piloto e ≈85% verificados |
-| 4. Resultados | rascunho revisado | tabelas + amostragem/filtragem + persistência conferidos vs `research.db`; **+ §4.3 Volume de coleta** (Fig. 1 + Tab. grandes coletores) |
-| 5. Discussão | rascunho revisado | Heine incorporado |
-| 6. Limitações | rascunho revisado | viés de editora com nºs reais; +subconjunto extraído; +concordância |
-| 7. Conclusão | rascunho revisado | escala ancorada (13.395/2.139) |
+| 3. Metodologia | revisada 9/set | + Fig. 1 (funil) e + Fig. 2 (κ por campo); o "≈85%" único saiu e virou κ campo a campo |
+| 4. Resultados | revisada 9/set | reorganizada em 5 subseções; **+§4.1 plataformas e série anual** (Fig. 3), +Tab. de famílias de API, +Fig. 4 (amostragem×filtragem), +Fig. 6 (persistência); todos os números regerados na base 1.723 |
+| 5. Discussão | revisada 9/set | Heine incorporado; + parágrafo sobre os dois achados laterais (série temporal e persistência) |
+| 6. Ameaças à validade | revisada 9/set (2×) | de 4 para **6** itens: + viés de acesso **medido por censo** (7,7%, 811/11.093) e + cobertura desigual dos modelos (+87%) |
+| 7. Conclusão | rascunho revisado | escala ancorada (13.395/1.723); reescrita em 9/set p/ liderar pelo achado |
 
-## Feito nesta sessão
+> ⚠ A coluna "Estado" acima descreve o **fonte**. O que foi publicado em
+> `revisoes/survey-1.pdf` está escrito **como artigo fechado**, de propósito: o que
+> ainda está em aberto aparece lá como *ameaça à validade medida*, não como pendência.
+> As pendências reais continuam listadas neste arquivo, e só aqui.
+
+## Rodada 1 de revisão — `revisoes/survey-1.pdf` (9/set/2026)
+
+Primeira compilação publicada para leitura da Mariana. **11 páginas**, zero erros,
+zero referências indefinidas, zero `Overfull`.
+
+### Números recomputados: a base foi de 1.718 para **1.723**
+
+O `research.db` mudou desde jul/2026 porque o **piloto de 5 artigos** da expansão
+entrou no banco. Todo o `.tex` foi regerado contra o banco atual:
+
+| | antes (jul) | agora (9/set) |
+|---|---:|---:|
+| extraídos | 2.139 | **2.147** |
+| descartados (`suggested_discard`) | 421 | **424** |
+| base de caracterização | 1.718 | **1.723** |
+| com volume legível | 1.518 | **1.522** |
+| Twitter / API / rótulo ``conteúdo'' | 1.095 / 1.198 / 1.040 | **1.097 / 1.200 / 1.045** |
+
+**Nenhum achado se move**: amostragem 18,7%, filtragem 80,3%, mediana 273 mil, 339
+grandes coletores (24% amostram, 88% filtram) — todos idênticos.
+~~⚠ O `corpo.tex` da dissertação **não** foi atualizado e segue em 2.139/1.718;
+divergência registrada no [ESTADO.md](../../ESTADO.md) §4.24.~~ ✅ Alinhado em
+14/set/2026 (rodada 2).
+
+### O que o artigo ganhou
+
+- **6 figuras**, todas reprodutíveis (`figuras.py` + `validacao.py` → `numeros.json`):
+  funil do levantamento; série anual com a fatia do Twitter/X; κ por campo;
+  amostragem × filtragem; distribuição de volume; persistência corpus × grandes
+  coletores. Paleta única, verificada para daltonismo em OKLab.
+- **§4.1 nova — "Plataformas, e a dependência de uma só"**: a fatia do Twitter/X vai
+  de **95% em 2014 a 14% em 2026**, com inflexão em 2023. É a demonstração mais
+  concreta de que a composição da literatura segue a **disponibilidade de coleta**, e
+  não o interesse de pesquisa. Vira também um parágrafo da Discussão.
+- **Tabela nova de famílias de API** efetivamente nomeadas (Twitter/X 749, YouTube
+  143, Reddit 140, Facebook/Instagram 76, TikTok 46).
+- **§3.4 reescrita**: a concordância inter-modelo deixou de ser o número único de
+  ``≈85%'' e passou a ser reportada **campo a campo** (κ de Cohen sobre os 732
+  duplamente lidos). O padrão é o argumento: **coleta e plataforma 0,64–0,99**
+  (Reddit 0,99, Twitter 0,98, API 0,74), **tipos de análise** mediana **0,40**. O
+  instrumento é sólido para o que o artigo afirma e frágil para o que ele usa como
+  contexto. Entradas novas no `.bib`: `cohen1960kappa`, `landis1977measurement`.
+- **§4.4 "Escala não traz infraestrutura" corrigida**: a versão antiga dizia que a
+  precariedade ``persiste'' no topo do volume. Medido, o quadro é mais fino — os
+  grandes coletores publicam **um pouco mais** (11% × 8% em repositório com DOI; 44%
+  × 53% sem indicação nenhuma) e mencionam **menos** tecnologia de armazenamento
+  (7% × 12%). O texto passou a dizer isso.
+- **Ameaças à validade de 4 para 6 itens** — ver abaixo.
+
+### As duas ameaças novas (e por que elas fecham decisões antigas)
+
+1. **Viés de acesso, agora medido por censo** (item 3). ⚠ **Corrigido no mesmo dia,
+   algumas horas depois da primeira publicação** — ver abaixo. A varredura de acesso
+   aberto **terminou** em 23/ago/2026 com a fila **100% tentada** (11.093 artigos) e
+   recuperou **811** deles: **7,3%** da fila (IC95% de Wilson 6,8–7,8) e **7,7%** do
+   estrato pago (772/10.039; IC95% 7,2–8,2). Por editora, de 8,9% (ACM) a menos de 4%
+   (Emerald, T&F). Isto **fecha a decisão em aberto nº 1** de forma mais forte do que o
+   previsto: não é projeção, é **censo** — a rota aberta foi esgotada, e o que ela
+   alcança é pouco mais de um artigo em treze.
+   ⚠ **O `survey-1.pdf` foi publicado citando 12,4% e uma projeção de ~830**, números
+   da medição intermediária (34% da fila). O censo os desmente e **os ICs nem se
+   sobrepõem**; o `.tex` foi corrigido e o PDF republicado no mesmo dia. A hipótese
+   para a diferença — os 307 órfãos de disco no numerador intermediário — está em
+   [EXPANSAO_recuperacao.md §3c](EXPANSAO_recuperacao.md) e **ainda precisa ser
+   conferida**.
+2. **Cobertura desigual dos modelos** (item 6). A tabela de tipos de análise agrega
+   pela união, mas só **732 dos 1.723** foram lidos por dois modelos, e quem foi lido
+   por dois acumula **4,23 rótulos contra 2,26** (+87%). O artigo passou a declarar
+   isso, com a tabela recomputada só pelo Gemini dentro da própria ameaça (top-3
+   sobrevive; magnitudes caem até 17 p.p.; 4ª e 5ª trocam).
+   ⛔ **A recomendação nº 1 do [DIAGNOSTICO_tipos_de_analise.md](expansao/DIAGNOSTICO_tipos_de_analise.md)
+   NÃO foi aplicada** — a Tab. 3 continua pela união, como no `corpo.tex`. Trocar a
+   base é decisão da Mariana e mexe nos dois documentos de uma vez.
+
+## Feito na sessão de 2026-07-02
 
 - Adicionado BibTeX de `heine2025database` (SBBD 2025, pp. 977–983) e citado na Discussão.
 - Corrigidos os percentuais de amostragem/filtragem para a base do Gemini:
@@ -162,8 +324,18 @@ Rastreabilidade fechada nesta sessão. Observações remanescentes:
 
 ## Decisões em aberto
 
-- [ ] Como reportar a fração inacessível do corpus (limitação vs. trabalho futuro).
-      Parcialmente endereçado: Limitações §2 já quantifica o viés de editora.
+- [x] **Como reportar a fração inacessível do corpus** (limitação vs. trabalho futuro).
+      ✅ **Resolvida na rodada 1 (9/set/2026), pela terceira via**: nem "limitação"
+      nem "trabalho futuro", e sim **limitação quantificada**. A medição virou o
+      item 3 das Ameaças à validade do artigo, com a taxa final medida por censo
+      (**7,7%** no estrato pago, 772/10.039, IC95% 7,2–8,2; **811** recuperados de
+      **11.093** tentados) e a leitura de que a rota aberta não compensa o *paywall*.
+      A decisão deixou de
+      depender do fim da varredura: o artigo declara o tamanho do estrato que falta,
+      e a extração da amostra pré-registrada, quando ocorrer, **testa** o achado em
+      vez de destravar a redação. O histórico da medida fica abaixo.
+      Registro anterior: parcialmente endereçado; Limitações §2 já quantificava o
+      viés de editora.
       ◐ **Em andamento desde 21/ago/2026** — a decisão pode deixar de ser
       "como reportar" e virar "o que a medição mostrou". Apurou-se que a marcação
       `pdf_inaccessible` está desatualizada: **13,25%** do estrato pago (IC95%
@@ -179,4 +351,35 @@ Rastreabilidade fechada nesta sessão. Observações remanescentes:
       pré-registrar a amostra e medir se os achados se movem, não extrair tudo.
       ⚠ O proxy institucional **não** foi usado: as editoras bloqueiam automação
       e o risco recai sobre o acesso da PUC-Rio inteira (§4 daquele documento).
+- [ ] ⭐⛔ **Extrair os 800 da expansão, ou não?** Apurado em 9/set/2026: a varredura
+      **acabou** em 23/ago (fila 100% tentada), recuperou **811 PDFs**, e a extração
+      dos 800 sorteados **nunca rodou** — bug de shell, com o laço reportando
+      `codigo 0` por cima do erro. **Nada foi gasto.** Extrair custa **~R$43** e
+      levaria a base de **1.723 para ~2.360** (+37%).
+      ⛔ **Mas a condição de parada pré-registrada disparou**: 7,7% no estrato pago,
+      IC95% inteiro abaixo do piso de 11%, e o
+      [PRE_REGISTRO](expansao/PRE_REGISTRO_expansao.md) §8 manda parar.
+      A tensão: a parada foi escrita contra a **extrapolação**, e a varredura já
+      aconteceu — os 811 existem de qualquer jeito. Extrair não desmente a aposta
+      sobre a taxa, mas contraria a **letra** da condição. **A decisão precisa ficar
+      escrita**; pré-registro contornado em silêncio vale menos que nenhum.
+      Detalhe em [EXPANSAO_recuperacao.md §3c e §7](EXPANSAO_recuperacao.md).
+- [ ] ⚠ **Conferir a hipótese dos 307 órfãos** antes de o 7,7% virar número final em
+      qualquer outro lugar — é o que explicaria a queda de 12,4% para 7,7% com ICs
+      que não se sobrepõem. Só o `survey.tex` depende disso hoje, e lá o valor está
+      reportado como censo, que não muda.
 - [ ] Gao/tipologia — resgatar se surgir fonte (ver memória do projeto).
+- [x] **Propagar a base 1.723 para o `corpo.tex`?** ✅ **Feito em 14/set/2026**
+      (rodada 7 da dissertação). Os dois documentos divergiam
+      desde 9/set (2.139/1.718 lá, 2.147/1.723 aqui). É uma passada de `grep`, mas
+      mexe em números de abertura da dissertação a 20 dias da defesa —
+      [ESTADO.md](../../ESTADO.md) §4.24.
+- [ ] **Aplicar a recomendação nº 1 do
+      [DIAGNOSTICO_tipos_de_analise.md](expansao/DIAGNOSTICO_tipos_de_analise.md)?**
+      Trocar a base da tabela de tipos de análise da união para só-Gemini alinha os
+      dois achados ao mesmo critério e remove a dependência de qual artigo a cota
+      alcançou. Hoje o problema está **declarado** no artigo (ameaça nº 6) mas
+      **não corrigido**, e a mesma troca teria de acontecer na `tab:analises-survey`
+      do `corpo.tex`. ⛔ o diagnóstico também alerta: **não** mexer no `vocabulary`
+      antes de a expansão extrair, ou o `compara.py` passa a medir mudança de
+      *prompt* em vez de viés de acesso.

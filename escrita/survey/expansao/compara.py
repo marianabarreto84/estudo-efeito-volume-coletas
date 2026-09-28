@@ -165,10 +165,21 @@ def ic_dif_medianas(novos, antigos, b=B, semente=20260929):
 # --- carga ------------------------------------------------------------
 
 
-def carrega():
+def carrega(db=DB, so_amostra=False, recuperados=False):
+    """so_amostra (15/set/2026): desde a extração dos 198 PDFs que nunca tinham
+    passado pelo modelo (159 da coleta primária, 28 sorteados, 11 fora do
+    sorteio), o banco tem artigos novos que NÃO são o estrato da expansão. Com
+    so_amostra, o estrato novo fica restrito aos ids sorteados (amostra.json),
+    que é o teste pré-registrado.
+    recuperados (15/set/2026, survey-6-v4): o estrato novo passa a ser a
+    população inteira do sorteio, os 811 recuperados pela varredura
+    (ids_populacao), já que os 11 fora do sorteio também foram extraídos."""
     base = json.load(open(BASELINE, encoding="utf-8"))
     antigos_ids = set(base["ids_com_analise"])
-    con = sqlite3.connect(DB)
+    chave = "ids_populacao" if recuperados else "ids_amostra"
+    sorteados = set(json.load(open(os.path.join(AQUI, "amostra.json"), encoding="utf-8"))[chave])
+    so_amostra = so_amostra or recuperados
+    con = sqlite3.connect(db)
     con.row_factory = sqlite3.Row
     rows = con.execute(
         "select id, analyses from articles where analyses is not null "
@@ -183,6 +194,8 @@ def carrega():
         if not any(isinstance(a.get(m), dict) for m in ACTIVE_MODELS):
             continue
         eh_antigo = r["id"] in antigos_ids
+        if so_amostra and not eh_antigo and r["id"] not in sorteados:
+            continue
         g = a.get("gemini")
         if isinstance(g, dict) and bool(g.get("suggested_discard")):
             if eh_antigo:
@@ -203,9 +216,14 @@ def main():
     ap.add_argument("--json", default=None)
     ap.add_argument("--sem-guarda", action="store_true",
                     help="nao aborta se o baseline recomputado nao bater (use so pra depurar)")
+    ap.add_argument("--db", default=DB, help="outro research.db (ex.: um backup)")
+    ap.add_argument("--so-amostra", action="store_true",
+                    help="estrato novo = só os sorteados da expansão (amostra.json)")
+    ap.add_argument("--recuperados", action="store_true",
+                    help="estrato novo = os 811 recuperados pela varredura (ids_populacao)")
     args = ap.parse_args()
 
-    antigos, novos, desc_a, desc_n = carrega()
+    antigos, novos, desc_a, desc_n = carrega(args.db, args.so_amostra, args.recuperados)
     na, nn = len(antigos), len(novos)
     print(f"base antiga (baseline congelado, pos-descarte) . {na}   (descartados {desc_a})")
     print(f"estrato novo (esta expansao, pos-descarte) ..... {nn}   (descartados {desc_n})")

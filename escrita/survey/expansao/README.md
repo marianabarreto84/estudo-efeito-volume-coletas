@@ -79,6 +79,10 @@ taxa por estrato usa esse arquivo, nunca a coluna.**
 | `taxa_recuperacao.py` | taxa por estrato e por editora. ⚠ **corrigido em 22/ago/2026** — lia o estrato da coluna volátil e dividia pela fila inteira; ver abaixo |
 | `reconcilia_pdfs.py` | religa PDFs em disco ao banco (o `retry_pdfs` só commita no fim da fila) |
 | `audita_rotulo_conteudo.py` | audita o rótulo "análise de conteúdo" contra o texto integral do PDF |
+| [`SONDAGEM_tdm_biblioteca.md`](SONDAGEM_tdm_biblioteca.md) | mensagem pronta para a DBD sobre direitos de TDM. ⏸ **não enviada** — depende de terceiros (biblioteca + editora), e a Mariana optou pela sonda manual |
+| `proxy_springer.py` | recuperação via proxy **com parada dura em bloqueio**. ⛔ inútil na prática: foi ele que provou que a Springer fechou (§4b do EXPANSAO) |
+| `sonda_springer.py` | **sonda humano-no-laço** do estrato comercial: sorteia, monta as URLs, abre as abas, recolhe do `Downloads` e casa com o DOI |
+| `sonda_springer.json` | a amostra congelada (n=200, semente `20260929`) + o poder declarado |
 | `auditoria/` | `audita_numeros.py` e `audita_contas.py` da dissertação, saída **antes** da expansão |
 
 ## ⚠ Duas medidas falsas que o `taxa_recuperacao.py` produzia
@@ -124,11 +128,146 @@ momento em que ele grava.
 
 ## Estado
 
-Ver [ESTADO.md](../../../ESTADO.md) da raiz. Em **22/ago/2026**: pré-registro
-fechado; recuperação **rodando de novo** (retomada às 17:02, ~7.350 artigos nunca
-tentados na fila); **443 PDFs** já recuperados, dos quais **307 estavam órfãos no
-disco** e entraram no banco pelo `reconcilia_pdfs`; taxa do estrato pago em
-**12,4%**; extração **encadeada e ainda não disparada**, exceto um **piloto de 5
-artigos** (≈R$0,27) que confirmou chave, esquema e pipeline — ver §10 do
-pré-registro. **Nenhum número da survey ou da dissertação foi alterado até
-aqui.**
+Ver [ESTADO.md](../../../ESTADO.md) da raiz. Em **9/set/2026**:
+
+- ✅ **Varredura ENCERRADA** em 23/ago, fila **100% tentada** (11.093). **811 PDFs**
+  recuperados; base de PDFs de 2.298 → **3.109**.
+- ⚠ **Taxa final: 7,7%** no estrato pago (772/10.039, IC95% 7,2–8,2) — **não** os
+  12,4% intermediários, que a seção acima ainda registra como histórico da execução.
+  Os ICs não se sobrepõem; a hipótese (307 órfãos de disco no numerador) está em
+  [EXPANSAO_recuperacao.md §3c](../EXPANSAO_recuperacao.md) e **segue por conferir**.
+- ⛔ **Condição de parada pré-registrada disparada** (piso de 11%). A Mariana
+  **decidiu prosseguir**; o adendo de decisão está no
+  [PRE_REGISTRO §11](PRE_REGISTRO_expansao.md), escrito **antes** da execução.
+- ⛔ **A extração encadeada nunca rodou** em 23/ago — bug de shell com `codigo 0` por
+  cima do erro. Relançada em 9/set às 08:47, com a lista passada por arquivo.
+- ⛔ **Rota do proxy fechada por inteiro** — a Springer também passou a servir desafio
+  anti-automação (§4b). Os ~2.000 artigos dela **não** são folga.
+- ◐ **Sonda humano-no-laço** aberta no lugar: n=200 congelado, 0 baixados.
+
+## A sonda do estrato comercial (9/set/2026)
+
+Depois que a rota do *proxy* fechou por inteiro
+([EXPANSAO_recuperacao.md §4b](../EXPANSAO_recuperacao.md)), o que restou de
+legítimo para alcançar conteúdo assinado é **um humano no navegador**. O desafio
+anti-automação da Springer existe para verificar que há uma pessoa presente; se há,
+ele está sendo satisfeito, não contornado. O `sonda_springer.py` automatiza tudo
+**menos** essa parte, que é justamente a que não deve ser automatizada.
+
+⚠ **O poder é declarado antes, e é modesto de propósito.** n=200 detecta diferenças
+de ~15 p.p. entre estratos; **não** detecta os 2–6 p.p. que a aposta A4 do
+pré-registro prevê (isso exigiria n≈1.500, ~8 h de clique). A sonda responde *"o
+estrato comercial é categoricamente diferente?"* — não *"de quanto ele difere"*.
+Os dois desfechos são publicáveis, e nenhum deles bloqueia a defesa.
+
+### Como rodar
+
+**Uma vez, no navegador — e é por PROXY, não por login no site.** A Springer
+reconhece o **IP institucional**, não uma conta: o PAC da DBD roteia
+`link.springer.com` (verificado em 9/set/2026: PAC no ar, 18,6 KB, domínio na
+lista) pelo gateway `139.82.115.33:16000`. ⚠ Se a página mostrar **"Log in via an
+institution"**, o proxy **não** está ativo naquela aba — não adianta clicar ali.
+
+No **Firefox** (recomendado, porque a configuração é só do navegador e sai num
+clique, sem rotear o resto da máquina):
+
+1. Configurações → buscar `proxy` → *Configurações de rede* → **Editar**
+2. **URL de configuração automática de proxy (PAC)**: `http://dbd.puc-rio.br/proxy.pac`
+3. Na primeira requisição ele pede usuário/senha do proxy (as mesmas do `.env`,
+   `PUCRIO_PROXY_USER`/`PUCRIO_PROXY_PASS`)
+4. Configurações → *Aplicativos* → **PDF** → **Salvar arquivo**. Sem isso o
+   Firefox abre o PDF no visualizador embutido em vez de baixar, e cada aba
+   vira um Ctrl+S manual — com 200 artigos, isso dobra o trabalho.
+
+**Como saber que está valendo:** abra qualquer artigo Springer. Com o proxy
+ativo aparece *Download PDF* / o banner de acesso institucional; sem ele aparece
+*Log in* e *Access this chapter*.
+
+⚠ Chrome e Edge usam o proxy **do sistema** no Windows, o que roteia a máquina
+inteira pela PUC-Rio. Dá para fazer (Configurações → Rede e Internet → Proxy →
+*Usar script de configuração*), mas é mais invasivo e mais fácil de esquecer
+ligado.
+
+```bash
+cd escrita/survey/expansao
+python sonda_springer.py --estado          # onde a sonda está
+python sonda_springer.py --lote 20 --abrir # abre 20 abas
+#   ... salvar os PDFs (o navegador passa o desafio) ...
+python sonda_springer.py --conferir        # recolhe do ~/Downloads
+```
+
+Repetir `--lote`/`--conferir` até 200/200. É retomável: o `--lote` só devolve o que
+ainda não está em `pdfs/`, então dá para parar e voltar quando quiser.
+
+Ao final, `python reconcilia_pdfs.py --aplicar` leva ao banco, e a extração desses
+200 segue o mesmo caminho dos 800 (`analyze_pdfs --models gemini`).
+
+### ⚠ 75% da amostra é LNCS, e isso pode mudar o desenho (9/set/2026)
+
+Primeiros 6 downloads reais da Mariana: **todos periódicos, zero LNCS**. E a
+página que travou era um capítulo de anais (PAM 2023, LNCS 13882).
+
+| | LNCS/capítulo | periódico |
+|---|---:|---:|
+| amostra (n=200) | **150 (75%)** | 50 (25%) |
+| população (2.013) | 1.492 (74%) | 521 (26%) |
+| já no corpus (422) | 151 | 271 |
+
+Anais LNCS costumam ser **compra separada** da assinatura de periódicos. Se a
+PUC-Rio não os cobrir, a sonda de 200 vira **n≈50 efetivo** — margem de ±13 p.p.,
+que não sustenta conclusão nenhuma e não vale uma hora de clique.
+
+✅ **MEDIDO em 9/set/2026, com o proxy ativo — a assinatura NÃO cobre LNCS.**
+Diagnóstico de 8 downloads, depois de o PAC estar valendo no Firefox:
+
+| tipo | resultado |
+|---|---|
+| **periódico** | **3 de 3 baixaram** (809 KB a 1,4 MB) |
+| **LNCS/capítulo** | **0 de 5** |
+
+Somando o que a Mariana baixou no total: **9 artigos, todos periódicos, zero
+LNCS**. A conclusão é limpa — a PUC-Rio assina os **periódicos** Springer e não
+os **anais LNCS**, que são compra separada.
+
+### O redesenho (9/set/2026)
+
+A sonda passou a ser **só de periódicos**, por `--redesenhar-periodicos 200`:
+
+| | antes | depois |
+|---|---|---|
+| população | 2.013 (74% LNCS) | **521 periódicos** |
+| amostra | 150 LNCS + 50 periódicos | **200 periódicos** |
+| n efetivo | ~50 | **200** |
+| já baixados | 9 | **9 (preservados)** |
+
+**O desenho continua sendo amostra aleatória simples.** O sorteio original foi
+uma AAS de 2.013, então seu subconjunto de periódicos (50) é uma AAS dos 521;
+completar com 150 sorteados entre os 471 restantes produz exatamente uma AAS de
+200 — sortear em duas etapas sem reposição equivale a sortear de uma vez. Nada
+do que já foi baixado se perde. A amostra antiga está preservada em
+`sonda_springer_v1_lncs.json`, e o `historico` do JSON registra a mudança e o
+motivo.
+
+⚠ **O escopo mudou junto, e vai declarado:** a sonda mede o estrato comercial
+**de periódico Springer**, não o estrato comercial inteiro. Com n=200 de 521 e
+correção de população finita, a margem melhora para **±4,4 p.p.** numa proporção
+de 20%.
+
+⭐ **A inacessibilidade dos anais LNCS é resultado, não ruído.** Uma instituição
+que assina Springer continua sem alcançar 1.492 artigos de anais do próprio
+corpus — o que reforça, do lado de dentro, a tese de que o estrato comercial é
+limite estrutural para levantamentos em escala.
+
+### Registrar o que não tem acesso
+
+```bash
+python sonda_springer.py --sem-acesso 10.1007/978-3-031-... 10.1007/...
+```
+
+Sem isso o `--lote` devolveria eternamente os mesmos artigos, e o denominador
+misturaria "ainda não tentei" com "a instituição não assina" — o que tornaria a
+taxa da sonda desonesta.
+
+⚠ O `--conferir` **recusa** arquivo que não comece com `%PDF` — é o caso da página
+de desafio salva como `.pdf`, que acontece se a aba for salva antes de o JS rodar.
+Ele diz quais foram, para reabrir.

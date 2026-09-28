@@ -1,0 +1,58 @@
+{
+ "fonte": "snapshot_buntain.sqlite (43.479 submissões + 1.015.247 comentários, 13 subreddits, jul/2013)",
+ "artigo": {
+  "participantes": 279,
+  "subreddits": 10,
+  "multi": 7,
+  "pct_multi": 2.5
+ },
+ "reconstrucao_do_recorte": {
+  "participantes": 259,
+  "subreddits_vivos": 11,
+  "qualificado_em_mais_de_uma_rede": {
+   "n": 2,
+   "pct": 0.77
+  },
+  "presente_em_mais_de_um_sub_no_recorte": {
+   "n": 70,
+   "pct": 27.03
+  },
+  "presente_em_mais_de_um_sub_no_universo": {
+   "n": 107,
+   "pct": 41.31
+  },
+  "subreddits_por_participante_no_universo": {
+   "1": 152,
+   "2": 58,
+   "3": 31,
+   "4": 14,
+   "5": 4
+  }
+ },
+ "abertura_do_recorte_com_corte_do_artigo": [
+  {
+   "recorte": "artigo: top-100 x 200",
+   "participantes": 259,
+   "multi": 2,
+   "pct": 0.77
+  },
+  {
+   "recorte": "top-100 x todos coment.",
+   "participantes": 761,
+   "multi": 30,
+   "pct": 3.94
+  },
+  {
+   "recorte": "todas submissões x 200",
+   "participantes": 2777,
+   "multi": 93,
+   "pct": 3.35
+  },
+  {
+   "recorte": "universo (tudo)",
+   "participantes": 3889,
+   "multi": 163,
+   "pct": 4.19
+  }
+ ]
+}

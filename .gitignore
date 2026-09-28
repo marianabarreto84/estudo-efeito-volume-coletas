@@ -93,3 +93,18 @@ desktop.ini
 .idea/
 *.swp
 *~
+
+# ---------------------------------------------------------------------------
+# Preparação da defesa (29/set/2026) — uso interno, não vai para o público
+# ---------------------------------------------------------------------------
+PERGUNTAS.md
+ROTEIRO.md
+errata/
+trechos_do_roteiro.txt
+.claude/skills/versao-final/
+
+# Gabarito humano de stance: traz texto de tweet, @ do autor e contagem de
+# seguidores, isto é, dado pessoal de terceiros. Não se redistribui (ver
+# REPRODUCAO.md). Os agregados que saem dele estão em
+# casos/twitter-ituassu/data/repl/compos2014/stance/.
+gold_stance_teste_*.csv

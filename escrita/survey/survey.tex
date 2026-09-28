@@ -1,8 +1,56 @@
 % =====================================================================
-%  Artigo (autônomo): levantamento sistemático sobre coleta automatizada
+%  Artigo (autônomo): revisão da literatura sobre coleta automatizada
 %  de dados em Redes Sociais Digitais.
 %
 %  Compila com:  pdflatex survey && bibtex survey && pdflatex survey && pdflatex survey
+%
+%  Figuras: geradas por `figuras.py` (fig_funil, fig_plataformas,
+%  fig_temporal, fig_estrategia, fig_amostragem, fig_bd, fig_volume,
+%  fig_grandes, fig_persistencia), lendo o research.db do sistema. As
+%  porcentagens de concordância entre os dois modelos (Seção 3.4) saem de
+%  `validacao.py`. Todo número deste arquivo sai de `numeros.json` ou da
+%  saída desses dois scripts.
+%
+%  Rodada 3 (14/set/2026): base 2.322 (com a expansão pré-registrada),
+%  critério único — todas as tabelas pela extração do Gemini.
+%  Rodada 4 (14/set/2026): achado = onipresença da filtragem; itálico e
+%  negrito só onde cabem; plataformas, estratégia e BD viram figura.
+%  Rodada 5 (14/set/2026): os 12 comentários do survey-4.pdf; o texto foi
+%  reescrito para tirar maneirismos, tomando como referência a proposta de
+%  dissertação da Mariana, o SBBD 2023 do grupo e a dissertação de
+%  Salgueiro; o kappa saiu do texto (fica a concordância bruta); o Claude
+%  Haiku aparece só como tentativa de triangulação.
+%  Rodada 6 (15/set/2026): os 14 comentários da versão final comentada
+%  (survey-5.pdf). O modelo específico só é nomeado na metodologia; o funil
+%  ganha a conta aberto/paywall; a Fig. 5 fica em barras, porque as
+%  duas taxas só somam 100% por coincidência; a Fig. 7 separa 10^7-10^8 de >=10^8; a Fig. 3 marca 2023.
+%  Rodada 6, v2 (15/set/2026): 6 comentários na versão final (survey-6-v1.pdf):
+%  sem os 87 sem rótulo de acesso; validação completa como trabalho futuro;
+%  evolução anual sem "cresce até 2023"; Pushshift como API e como arquivos;
+%  tabela dos SGBDs citados (Tab. 4).
+%  Rodada 6, v3 (15/set/2026): título com minúscula depois dos dois-pontos;
+%  37 dois-pontos trocados por ponto, vírgula ou reescrita (ficam os de lista
+%  e os rótulos estruturais); sem agradecimentos.
+%  Rodada 6, v4 (15/set/2026): 11 comentários (survey-6-v3.pdf e o PDF de
+%  trechos): frases que ficaram estranhas sem os dois-pontos; ", e não" em
+%  série; ameaças 4 e 5 com menos números; saem as ameaças "Validação da
+%  extração" e "O que a extração não mede".
+%  Extração completa (15/set/2026, comentário 4 da v3): os 198 PDFs que nunca
+%  tinham passado pelo modelo foram extraídos (196; 2 corrompidos), seis deles
+%  com o texto lido pelo pypdf. Base 2.322 -> 2.472; todos os números refeitos
+%  por revisoes/extracao198/aplica_numeros.py.
+%  Rodada 6, v4 -> v5 (15/set/2026): 8 comentários (survey-6-v4.pdf): sem o
+%  detalhe do pypdf; teste do viés de acesso sobre os 811 recuperados, sem o
+%  sorteio; Fig. 3 junto do parágrafo; ', e' só onde necessário; SGBD e
+%  arquivo não se excluem (interseção); sem o FAIR; Discussão reparagrafada.
+%  Rodada 6, v5 -> v6 (15/set/2026): 11 comentários (survey-6-v5.pdf): o
+%  funil vai direto aos 3.107 PDFs com extração; acesso aberto x paywall explica
+%  a queda; sem a Tab. de percurso; os 811 explicados; análise de conteúdo
+%  explicada; um 'apenas' por parágrafo na Seção 4.4; referências em página nova.
+%  Rodada 6, v6 -> v7 (15/set/2026): 11 comentários (survey-6-v6.pdf): por que
+%  parte dos 811 e do paywall não entrou; SGBD x arquivo com menos números;
+%  conclusão mais fluida e com a ampliação da consulta; sem 'depósito'; sem a
+%  ameaça 'Subconjunto extraído'.
 %
 %  Classe `article` padrão para compilar em qualquer instalação. Para
 %  submissão, portar para o template do veículo (ex.: sbc-template) mantendo
@@ -15,6 +63,7 @@
 \usepackage[brazil]{babel}
 \usepackage[a4paper,margin=2.5cm]{geometry}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{booktabs}
 \usepackage{amsmath}
 \usepackage{enumitem}
@@ -22,399 +71,671 @@
 \usepackage[round]{natbib}
 \usepackage[hidelinks]{hyperref}
 
-\title{\textbf{Coleta, Filtragem e Volume em Análises de Redes Sociais\\
-Digitais: um Levantamento Sistemático da Literatura}}
-\author{Mariana Barreto \and Sérgio Lifschitz\thanks{Afiliação e contato a
-completar.}\\[2pt]\small Departamento de Informática, PUC-Rio}
+\title{\textbf{Coleta, Filtragem e Volume em Análises de\\
+Redes Sociais Digitais:\\[3pt]
+uma revisão da literatura}}
+% Autoria e afiliação copiadas do front-matter da dissertação (dissertacao.tex);
+% e-mails informados pela Mariana em 14/set/2026.
+\author{%
+\begin{tabular}{c@{\qquad}c}
+Mariana Barreto & Sérgio Lifschitz\\
+\small\texttt{mbarreto@inf.puc-rio.br} & \small\texttt{sergio@inf.puc-rio.br}
+\end{tabular}\\[4pt]
+\small Departamento de Informática\\
+\small Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio)\\
+\small Rio de Janeiro, Brasil}
 \date{\today}
+
+% Posicionamento das figuras (rodada 6, v7, 15/set/2026): uma página só de
+% figuras precisa estar 80% cheia; senão, as figuras vão para o topo de uma
+% página de texto. Evita páginas com duas figuras separadas por vãos.
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.5}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.8}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
 \noindent
-Análises computacionais sobre Redes Sociais Digitais (RSD) --- da Análise de
-Redes Sociais (SNA) à modelagem de tópicos --- dependem de uma etapa de
-\emph{coleta de dados} raramente problematizada. Sabe-se pouco, de forma
-sistemática e em escala, sobre \emph{como} a literatura coleta, filtra e
-persiste esses dados, e sobre o quanto essas escolhas reduzem o volume antes
-mesmo da análise. Este artigo apresenta um levantamento sistemático e
-reprodutível que, partindo do índice DBLP, cataloga 13.395 artigos e, após
-extração estruturada, caracteriza a coleta em 1.718 que efetivamente coletam
-dados de RSD. Os resultados revelam que a \emph{amostragem estatística} é rara
-(\(\approx\)19\% dos artigos), enquanto a \emph{filtragem por critério} ---
-que corta volume antes da análise --- é a norma (\(\approx\)80\%); que a
-coleta via API domina (\(\approx\)70\%); e que a persistência de dados raramente usa
-repositórios com DOI persistente. Um recorte sobre o \emph{volume} coletado
-expõe ainda uma minoria de ``grandes coletores'', que reúnem de milhões a
-bilhões de itens filtrando agressivamente --- quase sempre sem avaliar o
-efeito dessas reduções sobre suas próprias conclusões. A extração dos dados de
-coleta foi feita com modelos de linguagem validados contra anotação manual,
-escolha metodológica que viabiliza a escala do levantamento e que detalhamos
-para garantir reprodutibilidade.
+Análises computacionais sobre Redes Sociais Digitais (RSD), como a análise de
+redes sociais (SNA), a análise de sentimentos e a modelagem de tópicos, dependem
+de uma etapa de coleta de dados que raramente é discutida. Pouco se sabe, de
+forma sistemática, sobre como a literatura coleta, filtra e armazena esses dados e sobre o quanto essas escolhas reduzem o volume antes da análise. Este
+artigo apresenta uma revisão da literatura reprodutível que, a partir do índice
+DBLP, cataloga 13.395 artigos e caracteriza a coleta de dados em 2.472 deles. O
+principal resultado é que a filtragem por critério, que reduz o volume antes da
+análise, está presente em 80,3\% dos artigos. A coleta via API predomina
+(66,4\%) e se concentra no Twitter/X, estudado em 64,8\% dos artigos. O volume
+coletado varia em sete ordens de grandeza, com mediana de cerca de 340 mil itens. Ao todo, 495 artigos coletam 10 milhões de itens ou mais. A amostragem
+estatística aparece em 18,6\% dos artigos. Apenas 6,3\% publicam os dados em
+repositórios com DOI persistente. A taxa de filtragem se mantém quando a base é
+ampliada com artigos antes inacessíveis e quando é reponderada pela
+distribuição anual do catálogo. A extração das informações foi feita por
+um modelo de linguagem, orientado por um formulário estruturado e com a origem
+de cada dado registrada. O artigo descreve também a tentativa de triangulação
+com um segundo modelo, os limites da validação e o percurso até o corpus final.
 
 \vspace{4pt}
 \noindent\textbf{Palavras-chave:} redes sociais digitais; coleta de dados;
-amostragem; análise de redes sociais; revisão sistemática; modelos de linguagem.
+amostragem; análise de redes sociais; revisão da literatura; modelos de linguagem.
 \end{abstract}
 
 % ---------------------------------------------------------------------
 \section{Introdução}
 
-As Redes Sociais Digitais (RSD) tornaram-se um substrato central da
-\textit{computational social science}~\citep{lazer2009computational}, e a
-literatura que as estuda cresceu acompanhando o volume de dados que elas
-geram. Toda análise sobre uma RSD --- detecção de comunidades, centralidade,
-sentimento, modelagem de tópicos --- é precedida por uma etapa de \emph{coleta}.
-Essa etapa, no entanto, é raramente o objeto de estudo: os trabalhos reportam
-\emph{o que} coletaram, mas há pouco conhecimento sistemático sobre \emph{como}
-o campo coleta, recorta e persiste seus dados, e sobre as consequências dessas
-escolhas. Sabe-se, por exemplo, que amostrar uma rede pode distorcer suas
-propriedades estruturais~\citep{leskovec2006sampling} e que a amostra entregue
-por uma API pode divergir do todo~\citep{morstatter2013sample}; mas falta um
-retrato em escala das práticas de coleta efetivamente adotadas.
+As Redes Sociais Digitais (RSD) se tornaram uma fonte central de dados para a
+\textit{computational social science}~\citep{lazer2009computational}. A literatura que as estuda cresceu junto com o volume de dados que elas geram.
+Toda análise sobre uma RSD, seja de detecção de comunidades, centralidade,
+sentimento ou modelagem de tópicos, depende de uma etapa anterior de coleta.
+Essa etapa, no entanto, raramente é objeto de estudo. Os trabalhos informam o
+que coletaram, mas há pouco conhecimento sistemático sobre como a área coleta,
+recorta e armazena seus dados e sobre as consequências dessas escolhas.
+Sabe-se, por exemplo, que amostrar uma rede pode distorcer suas propriedades
+estruturais~\citep{leskovec2006sampling} e que a amostra entregue por uma API
+pode divergir do conjunto completo~\citep{morstatter2013sample}. Falta, porém,
+um retrato em escala das práticas de coleta adotadas na literatura.
 
-Este artigo preenche essa lacuna com um \textbf{levantamento sistemático e
-reprodutível}. A contribuição central é empírica: uma \emph{caracterização
-quantitativa} de como 1.718 artigos coletam, filtram e persistem seus dados,
-cujo achado principal é a raridade da amostragem estatística frente à
-onipresença da filtragem por critério --- reduções de volume aplicadas antes
-da análise e quase nunca avaliadas quanto a seu efeito sobre as conclusões.
-Sustentam esse resultado dois instrumentos reprodutíveis: um \emph{pipeline}
-que vai do índice bibliográfico à extração estruturada, com proveniência
-rastreável; e um procedimento de extração em que um piloto confronta três LLMs
-contra um gabarito anotado e retém os dois mais fiéis, mitigando alucinação por
-triangulação.
+Este artigo apresenta esse retrato por meio de uma revisão da literatura
+reprodutível. A contribuição principal é uma caracterização quantitativa de como
+2.472 artigos coletam, filtram e armazenam seus dados. O resultado mais
+relevante é a presença da filtragem por critério em quatro de cada cinco
+artigos. Esses trabalhos recortam o que coletaram antes da análise, por
+palavra-chave, idioma, período ou limiar de atividade. As conclusões obtidas sobre o recorte não se estendem automaticamente ao fenômeno estudado. Além da
+caracterização, o artigo descreve o processo usado para construí-la, um
+\textit{pipeline} que vai do índice bibliográfico à extração estruturada com um
+modelo de linguagem, com a origem de cada dado registrada, e o percurso até o
+corpus final, incluindo as tentativas abandonadas e as duas verificações de viés
+que ele permitiu.
 
 % ---------------------------------------------------------------------
 \section{Trabalhos Relacionados}
+\label{sec:relacionados}
 
-O estudo de RSD por bancos de dados e esquemas conceituais foi tratado em
-trabalho anterior, que propôs uma especificação conceitual para múltiplas
+A preocupação com o efeito da coleta sobre os dados de RSD é anterior a este
+trabalho. \citet{tufekci2014bigquestions} apontou problemas metodológicos da literatura
+sobre RSD que esta revisão também encontra, entre eles a concentração dos
+estudos em uma única plataforma, o viés introduzido ao selecionar conteúdo a
+partir de \textit{hashtags} e a falta de clareza sobre a população de onde os
+dados foram coletados. \citet{ruths2014socialmedia} observaram que o material
+recolhido por palavra-chave, por \textit{hashtag} ou pelo que uma interface
+proprietária decide devolver não é amostra de nenhuma população bem definida. Os autores recomendaram que cada trabalho informe como o conjunto foi obtido e por quais
+filtros passou. \citet{olteanu2019socialdata} organizaram os vieses do dado
+social em um catálogo e dedicaram uma etapa específica aos vieses introduzidos
+pelo pesquisador durante a coleta, pela forma de consultar a plataforma e de
+filtrar o que ela devolve. Esses trabalhos discutem o problema e recomendam o
+que relatar, mas não medem com que frequência a literatura recorta seus dados,
+nem de que forma. Esta revisão procura fazer essa medição.
+
+O estudo de RSD a partir de bancos de dados e esquemas conceituais foi tratado
+em trabalho anterior, que propôs uma especificação conceitual para múltiplas
 plataformas e ilustrou análises típicas de rede e de
-conteúdo~\citep{salgueiro2023,salgueiro2022dbmodels}. Aquele trabalho assume os
-dados \emph{já coletados}; o presente levantamento volta-se à etapa anterior, a
-da coleta, e a caracteriza empiricamente em escala. Quanto ao método, revisões
-sistemáticas tradicionais dependem de triagem manual; aqui, a extração de campos
-estruturados é delegada a LLMs com triangulação inter-modelo, abordagem ainda
-pouco explorada para sintetizar práticas metodológicas de um corpus de milhares
-de artigos. Em escala nacional, um levantamento manual dos eventos brasileiros
-da área (Brasnam e SBBD) já havia inspecionado 100 artigos e apontado o
-predomínio de uma única plataforma e o uso raro de SGBDs~\citep{heine2025database};
-o presente trabalho generaliza e automatiza essa inspeção para um corpus
-internacional de milhares de artigos.
+conteúdo~\citep{salgueiro2023,salgueiro2022dbmodels}. Esse trabalho parte de
+dados já coletados; a presente revisão trata da etapa anterior, a coleta. No
+cenário nacional, um levantamento manual dos eventos brasileiros da área
+(Brasnam e SBBD) inspecionou 100 artigos e apontou o predomínio de uma única
+plataforma e o uso raro de SGBDs~\citep{heine2025database}. O presente trabalho
+amplia e automatiza essa inspeção para um corpus internacional de milhares de
+artigos. Quanto ao método, revisões da literatura costumam depender de triagem
+e leitura manuais, o que limita o número de artigos que podem ser examinados.
+Trabalhos recentes avaliaram o uso de modelos de linguagem (LLMs) nessas
+etapas, tanto na seleção de artigos~\citep{felizardo2024chatgpt,khraisha2024llm}
+quanto na extração de dados~\citep{khraisha2024llm,gartlehner2024extraction}.
+Este trabalho segue essa linha e usa um LLM para extrair de cada artigo um
+formulário estruturado sobre a coleta, o que permite aplicar o mesmo critério a
+milhares de artigos.
 
 % ---------------------------------------------------------------------
 \section{Metodologia}
+\label{sec:metodologia}
 
-O levantamento é um \textit{pipeline} reprodutível: cada DOI catalogado tem
-proveniência clara (a consulta que o retornou) e cada extração registra modelo,
-\textit{prompt} e \textit{timestamp}.
+A revisão foi construída como um \textit{pipeline} reprodutível, em que cada
+DOI catalogado guarda a consulta que o retornou e cada extração registra o
+modelo, o \textit{prompt}, a data e a hora em que foi feita. A Figura~\ref{fig:funil}
+resume as etapas, do índice bibliográfico à base de análise.
 
-\subsection{Coleta de DOIs e deduplicação}
-A coleta primária usa a API de busca do DBLP~\citep{ley2002dblp}, percorrendo o
-produto cartesiano de 6 plataformas (\texttt{instagram}, \texttt{twitter},
-\texttt{facebook}, \texttt{youtube}, \texttt{reddit}, \texttt{tiktok}) por 17
-anos (2010--2026). Foram 102 consultas e 17.812 \textit{hits}, deduplicados em
-duas camadas --- por DOI e por título normalizado, preferindo a versão em acesso
-aberto --- resultando em \textbf{13.365 candidatos únicos} da consulta ao DBLP
-(10.230 em \textit{paywall}); somadas as inclusões posteriores, o catálogo
-corrente contabiliza \textbf{13.395 artigos}.\footnote{Os números de coleta e
-\textit{download} de PDFs referem-se ao recorte de maio de 2026; o catálogo
-cresceu de forma marginal desde então.}
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.90\textwidth]{fig_funil.pdf}
+\caption{Funil da revisão, da consulta ao DBLP à base de análise. A maior
+redução ocorre no acesso ao texto completo, já que só 3.107 dos 13.395 artigos catalogados tiveram o PDF obtido por rotas abertas e gratuitas e passaram pela extração estruturada.}
+\label{fig:funil}
+\end{figure}
 
-\subsection{\textit{Download} de PDFs}
-Para cada DOI, um \textit{fetcher} agrega URLs candidatas de arXiv,
-Unpaywall~\citep{piwowar2018unpaywall}, OpenAlex~\citep{priem2022openalex} e
-Semantic Scholar, validando o PDF por \textit{Content-Type} e \textit{magic
-bytes}. Foram baixados \textbf{2.106 PDFs} em acesso aberto (taxa de 67\%). Um
-acesso institucional via \textit{proxy} recupera adicionalmente Springer e IEEE
-(\(\approx\)43\% do \textit{paywall}); as demais editoras ficam atrás de
-\textit{challenge} do Cloudflare, introduzindo um viés de cobertura por editora
-(\S\ref{sec:limitacoes}).
+\subsection{Busca, importação e deduplicação}
+A coleta primária usa a API de busca do DBLP~\citep{ley2002dblp} e combina 6
+plataformas (Instagram, Twitter, Facebook, YouTube, Reddit e TikTok) com 17
+anos (2010 a 2026), em 102 consultas que retornaram 17.812 resultados. A busca considera o nome da
+plataforma no título do registro, sem olhar o texto do artigo (99,99\% dos
+registros retornados têm o nome no título). Como a importação aceita apenas registros com DOI, 3.747 registros foram descartados, 21,0\% do total obtido na releitura
+dos arquivos XML devolvidos pela busca.\footnote{Essa releitura conta 17.863
+registros, 51 a mais (0,3\%) que o registro da coleta de maio de 2026; a
+diferença não foi rastreada.} Desses, 2.915 não têm nenhuma outra versão com
+DOI no resultado da busca (Seção~\ref{sec:limitacoes}). Os registros restantes
+foram deduplicados por DOI e por título normalizado, preferindo a versão em
+acesso aberto, o que resultou em 13.395 artigos catalogados.
 
-\subsection{Extração estruturada via LLMs}
+\subsection{Obtenção dos PDFs}
+Para cada DOI, um módulo de busca reúne os possíveis endereços do PDF em quatro
+fontes abertas: arXiv, Unpaywall~\citep{piwowar2018unpaywall},
+OpenAlex~\citep{priem2022openalex} e Semantic Scholar. Cada PDF obtido é
+validado pelo cabeçalho \texttt{Content-Type} e pela assinatura binária do
+arquivo. A busca foi feita para todos os 13.395 artigos catalogados e obteve o PDF de
+3.107, todos por essas rotas abertas e gratuitas. A maior parte dos artigos
+catalogados (10.200, segundo o DBLP) está em \textit{paywall}. É daí que vem a maior
+redução do funil. Dos 3.107 PDFs, 2.160 são de artigos em acesso aberto. Os demais vêm
+quase todos de artigos em \textit{paywall} (932) que tinham uma cópia gratuita no
+arXiv ou em repositórios institucionais. Um acesso pelo \textit{proxy}
+institucional chegou a ser implementado e testado, mas não foi usado em escala.
+As editoras detectam acesso automatizado, o que poderia levar ao bloqueio do acesso de toda a instituição. O corpus vem, portanto,
+apenas de rotas de acesso aberto, o que torna o viés de cobertura por editora mais fácil
+de medir (Seção~\ref{sec:limitacoes}).
+
+\subsection{Extração estruturada com LLMs}
 \label{sec:extracao}
-No desenho da extração, cada PDF pode ser analisado por até \textbf{três LLMs
-independentes} (Gemini 2.5 Flash, GPT-4o-mini e Claude Haiku
+Cada PDF foi lido por um modelo de linguagem com um \textit{prompt}
+estruturado, composto de um formulário de 11 campos precedido de 5 regras. Três modelos
+foram testados (Gemini 2.5 Flash, GPT-4o-mini e Claude Haiku
 4.5)\footnote{Identificadores exatos: \texttt{gemini-2.5-flash},
-\texttt{gpt-4o-mini} e \texttt{claude-haiku-4-5-20251001}.} com o mesmo
-\textit{prompt} e vocabulário compartilhado, permitindo triangulação; a
-\S\ref{sec:validacao} detalha quais modelos foram efetivamente retidos. O \textit{prompt} é um formulário de 11
-campos com 5 regras no topo; as duas mais consequentes:
+\texttt{gpt-4o-mini} e \texttt{claude-haiku-4-5-20251001}.}, com o mesmo
+\textit{prompt} e o mesmo vocabulário; a Seção~\ref{sec:validacao} descreve
+como o modelo usado foi escolhido. As duas regras mais importantes para os
+resultados são:
 
 \begin{description}[leftmargin=1.4em,style=nextline]
-  \item[Universo \textit{vs.} filtragem \textit{vs.} subconjunto] distinção
-  estrita entre o que foi coletado, o critério que o recortou e o volume final.
-  \item[Filtragem $\neq$ amostragem] amostragem estatística (aleatória,
-  estratificada, \textit{bootstrap}\dots) difere de filtragem por critério
-  (\textit{matching}, \textit{threshold}, palavra-chave, recorte temporal). Esta
-  distinção é a chave dos resultados (\S\ref{sec:resultados}).
+  \item[Universo, filtragem e subconjunto] separar o que foi coletado, o
+  critério que recortou esse conjunto e o volume final analisado.
+  \item[Filtragem $\neq$ amostragem] a amostragem estatística (aleatória,
+  estratificada, sistemática, por conveniência ou \textit{bootstrap}) é
+  diferente da filtragem por critério aplicada sobre o universo coletado
+  (correspondência a padrão, limiar, palavra-chave, idioma, exclusão de
+  \textit{bots} ou de \textit{retweets}, recorte temporal posterior à coleta).
+  A limpeza técnica simples, como deduplicação e tratamento de valores
+  ausentes, não conta como filtragem. Essa distinção é a base dos resultados da
+  Seção~\ref{sec:resultados}.
 \end{description}
 
-Os campos seguem o padrão \emph{``menciona? + detalhe''} (um \textit{booleano}
-mais um campo-texto), que separa ``não menciona'' de ``falha de extração'' e
-permite estatísticas limpas.
+Os campos seguem o padrão ``menciona? + detalhe'', com um valor booleano e um
+campo de texto, o que permite separar ``não menciona'' de ``falha de extração''.
 
-\subsection{Validação, piloto e seleção de modelos}
+\subsection{Seleção do modelo e validação}
 \label{sec:validacao}
-Um artigo rico em metodologia foi anotado manualmente como \textbf{gabarito};
-na validação, o Claude reproduziu todos os campos, o Gemini acertou a estrutura
-com pequenas invenções, e o GPT-4o-mini inventou análises de SNA. Um piloto de
-100 artigos confirmou o padrão: o GPT-4o-mini adicionou ``sentimento'' sem
-evidência em 28 casos e ``centralidade'' em 26, e afirmou ``nenhum filtro'' em
-35 casos onde os outros dois detectaram filtragem. Ele foi, então,
-\textbf{descartado} do processamento em massa por qualidade insuficiente ---
-ainda que fosse o mais barato dos três. Mantiveram-se o Gemini Flash e o Claude
-Haiku, cuja concordância média ficou em torno de 85\% nos campos categóricos.
+Os três modelos foram comparados em um piloto de 100 artigos. O GPT-4o-mini
+acrescentou ``sentimento'' sem evidência no texto em 28 casos e ``centralidade'' em 26. Também respondeu ``nenhum filtro'' em 35 casos em que os
+outros dois modelos detectaram filtragem. Por isso, apesar de ser o mais barato
+dos três, ele foi descartado. Entre os dois restantes, o Claude Haiku custa de
+três a cinco vezes mais por artigo que o Gemini Flash.\footnote{Custo médio
+observado por artigo: \texttt{gemini-2.5-flash} \(\approx\)R\$0,05;
+\texttt{claude-haiku-4-5-20251001} \(\approx\)R\$0,15 a R\$0,28.} O Gemini foi
+então adotado como instrumento e processou todo o corpus, de modo que todos os
+resultados da Seção~\ref{sec:resultados} vêm dele.
 
-Como o Claude Haiku custa, por chamada, de três a cinco vezes mais que o Gemini
-Flash,\footnote{Custo médio observado por artigo: \texttt{gemini-2.5-flash}
-\(\approx\)R\$0,05; \texttt{claude-haiku-4-5-20251001} \(\approx\)R\$0,15 a
-R\$0,28.} adotou-se um esquema de dois níveis: o \textbf{Gemini processou todo o
-corpus} e serve de base para os resultados, enquanto o Claude Haiku foi aplicado
-a um subconjunto (887 dos 2.139 extraídos) como validação e triangulação; nos
-demais, os achados repousam sobre o Gemini, cuja fidelidade foi aferida contra o
-gabarito e o piloto.
+O Claude Haiku foi aplicado a parte da base como tentativa de triangulação, mas
+a cota do provedor interrompeu o processamento em 732 artigos (29,6\% da base).
+Como a extração seguia a ordem de importação, do ano mais recente para o mais
+antigo, esses 732 artigos são todos de 2023 a 2026 e não formam uma amostra da
+base. Nesse subconjunto, os dois modelos concordaram em mais de 99\% dos
+artigos quanto à plataforma estudada e em 89\% a 92\% quanto ao método de
+coleta (uso de API, \textit{scraping} ou \textit{dataset} pré-existente). Nos
+tipos de análise, a concordância foi mais baixa e variou conforme o tipo, de
+58\% a 93\%. A discordância se concentra em rótulos amplos, cuja fronteira
+depende de interpretação, como análise temporal (58\%) e estatística descritiva
+(64\%). No rótulo temporal, a diferença vem quase toda do segundo modelo,
+que marcou análise temporal em 294 artigos em que o modelo adotado não marcou
+(o inverso ocorreu em 11). Em métodos mais específicos, como modelagem
+de tópico, detecção de comunidades e análise de rede, a concordância ficou
+entre 86\% e 89\%. Na filtragem por critério, os dois modelos concordaram em 82,5\% dos artigos e, na amostragem estatística, em 85,8\%. O instrumento é, portanto,
+mais confiável para descrever como os artigos coletam, que é o objeto desta
+revisão, do que para classificar o tipo de análise que eles fazem. A
+concordância entre os dois modelos é a verificação da extração feita neste trabalho. Uma anotação humana sistemática fica como trabalho futuro
+(Seção~\ref{sec:conclusao}).
 
-Por fim, a extração também identifica artigos que, embora retornados pela busca,
-\emph{não realizam coleta de dados de RSD} para análise computacional --- estudos
-puramente qualitativos, de entrevistas ou de posicionamento, entre outros. O
-Gemini sinalizou \textbf{421 dos 2.139} nessa condição, os quais foram
-\textbf{excluídos da caracterização}. Os resultados a seguir referem-se, portanto,
-aos \textbf{1.718 artigos} que efetivamente coletam dados de RSD (o Claude Haiku
-cobre 732 desses, \(\approx\)43\%, para triangulação).
+Os 3.107 PDFs passaram pela extração estruturada. A extração também identifica artigos que, embora retornados pela
+busca, não coletam dados de RSD para análise computacional, como estudos
+qualitativos, de entrevistas ou de posicionamento. O modelo sinalizou 635 dos
+3.107 artigos extraídos nessa condição, que foram excluídos da caracterização. Os
+resultados a seguir referem-se, portanto, aos 2.472 artigos que coletam dados
+de RSD.
+
+\subsection{Percurso até o corpus}
+\label{sec:trajetoria}
+A base final não resultou de uma única execução do \textit{pipeline}. Depois da
+primeira coleta de PDFs, uma varredura tentou de novo, pelas mesmas rotas
+abertas, os 11.093 artigos que tinham ficado sem PDF e recuperou 811. Algumas
+tentativas foram abandonadas, como o acesso pelo \textit{proxy} institucional e o
+uso do GPT-4o-mini, descritos nas seções anteriores.
+
+Dois pontos desse percurso afetam a leitura dos resultados. O primeiro é que a
+ordem em que o \textit{pipeline} processa os artigos funciona como um esquema de
+amostragem. O primeiro lote da varredura aberta, feito na ordem do
+identificador, recuperou 0 de 15 artigos, porque os primeiros identificadores
+são de 2025 e 2026, anos em que poucos artigos já têm cópia em repositórios abertos. A extração pelo segundo modelo, interrompida pela cota na
+mesma ordem, cobriu apenas 2023 a 2026. A partir daí, a varredura passou a ser
+feita em ordem aleatória. A extração pelo segundo modelo ficou como estava, com a limitação descrita na Seção~\ref{sec:validacao}.
+
+O segundo ponto é que os artigos recuperados pela varredura permitiram testar o
+viés de acesso. Esses 811 artigos ficaram sem PDF na primeira coleta, a maior parte por estar em
+\textit{paywall}. A varredura só recupera o texto completo quando existe uma cópia
+gratuita em algum repositório aberto, o que acontece com menos de 8\% dos artigos
+em \textit{paywall}. Os demais seguem fora do corpus (Seção~\ref{sec:limitacoes}).
+Os 811 recuperados representam, portanto, a parte da
+literatura que o corpus tende a deixar de fora. Se as práticas de coleta desses
+artigos fossem diferentes das do restante, a restrição ao acesso aberto
+distorceria os resultados. As expectativas sobre o que mudaria foram registradas
+antes da extração. Nesses 811 artigos, a amostragem foi de 19,6\% e a filtragem de
+83,6\%, contra 18,7\% e 80,3\% nos 1.718 artigos que já estavam na base, diferenças sem
+significância estatística (\(p=0{,}62\) e \(p=0{,}07\)). Não há sinal, portanto, de que a
+restrição ao acesso aberto altere as taxas de filtragem e de amostragem. O novo
+conjunto difere, porém, na composição, com mais artigos sobre o Twitter e coletas
+maiores (mediana de 766 mil itens, contra 273 mil), o contrário do que se esperava.
+Dos 811 artigos, 633 entraram na base de análise. Os demais ficaram de fora pelo
+mesmo critério aplicado ao restante da base, quase todos por não coletarem dados
+de RSD (Seção~\ref{sec:validacao}). Por fim, em
+uma primeira versão da análise, as tabelas somavam os rótulos dos dois modelos,
+o que dava aos artigos lidos por ambos 75\% mais rótulos de análise que aos
+demais. Todas as tabelas e figuras passaram a usar apenas o modelo adotado.
 
 % ---------------------------------------------------------------------
 \section{Resultados}
 \label{sec:resultados}
 
-Esta seção traça o retrato quantitativo da coleta no corpus: quais plataformas
-o campo estuda, como coleta e recorta os dados, que análises predominam e quão
-raramente os dados são persistidos de forma reprodutível. Os números referem-se
-aos \textbf{1.718 artigos} que efetivamente coletam dados de RSD
-(\S\ref{sec:validacao}); as porcentagens das tabelas seguem a união inter-modelo
-(``ao menos um modelo afirmou''), e o contraste amostragem \textit{vs.}\ filtragem
-(adiante) é reportado sobre a base do Gemini, de cobertura total, com o Claude
-Haiku (732 artigos) como validação.
+Esta seção descreve quais plataformas o corpus estuda e como isso mudou ao
+longo do tempo, como os dados são coletados e reduzidos, que análises
+predominam e como os dados são armazenados e publicados. Os números
+referem-se aos 2.472 artigos que coletam dados de RSD
+(Seção~\ref{sec:validacao}) e vêm todos da mesma extração. Um mesmo artigo
+pode estudar mais de uma plataforma, combinar mais de uma estratégia de coleta,
+empregar mais de um tipo de análise e citar mais de um banco de dados. Por isso, essas categorias somam mais de 100\% dos artigos.
 
-\paragraph{Plataformas (Tab.~\ref{tab:plataformas}).} O Twitter domina (mais da
-metade do corpus), reflexo de sua API acadêmica histórica, hoje descontinuada;
-Reddit, YouTube e Facebook formam o segundo grupo.
+\subsection{Plataformas estudadas}
+\label{sec:plataformas}
 
-\paragraph{Tipos de análise (Tab.~\ref{tab:analises}).} Predominam estatística
-descritiva, sentimento e classificação; as análises de rede (comunidades,
-centralidade, estrutura de rede, influência) somam fatia expressiva. O rótulo livre mais
-citado foi ``análise de conteúdo'' (1.040 ocorrências), omitido da tabela por
-ser um \emph{guarda-chuva} (engloba sentimento, tópico, enquadramento), e não um
-método.
+\paragraph{Plataformas (Fig.~\ref{fig:plataformas}).} O Twitter aparece em
+64,8\% dos artigos, mais de cinco vezes o segundo colocado, o que reflete a
+disponibilidade histórica de sua API acadêmica. Reddit, YouTube e Facebook
+formam um segundo grupo. A concentração se repete nas APIs citadas pelos
+artigos (Tab.~\ref{tab:apis}). Entre os que informam qual interface usaram, a
+família do Twitter/X aparece em 1.083 artigos, contra 173 do YouTube e 142 do
+Reddit.
 
-\paragraph{Estratégias de coleta (Tab.~\ref{tab:coleta}).} A coleta via API
-domina (69,7\%), seguida de \textit{datasets} pré-existentes (45,8\%); o
-\textit{scraping} aparece em apenas 19,1\%. As APIs mais citadas são as do
-Twitter (várias formas), a YouTube Data API v3 e a do Reddit via PRAW, além da
-extinta Pushshift~\citep{baumgartner2020pushshift}.
-
-\begin{table}[t]
+% [!htbp] e não [H]: com [H] ela não cabia no fim da p. 5 e deixava 40% da
+% página em branco; assim fica no fim da página ou no topo da seguinte.
+\begin{figure}[!htbp]
 \centering
-\begin{minipage}[t]{0.46\textwidth}\centering
-\caption{Plataformas-alvo mais frequentes.}
-\label{tab:plataformas}
-\begin{tabular}{lr}
+\includegraphics[width=0.52\textwidth]{fig_plataformas.pdf}
+\caption{Plataformas estudadas ($N=2.472$).}
+\label{fig:plataformas}
+\end{figure}
+
+\paragraph{Evolução anual (Fig.~\ref{fig:temporal}).} De 2012 a 2021, o
+Twitter aparece em 71\% a 88\% dos artigos de cada ano. Em 2023, a plataforma
+encerrou o acesso acadêmico gratuito à sua API. A queda aparece dois anos depois. Nos artigos de periódicos e anais, a fatia do Twitter se mantém entre
+67\% e 73\% de 2022 a 2024 e cai para 47\% em 2025. O intervalo é compatível
+com o tempo entre coletar os dados e publicar os resultados. Os dados sugerem,
+assim, que a escolha da plataforma acompanha a disponibilidade de coleta, e não
+apenas o interesse de pesquisa.
+
+% Logo depois do parágrafo que a cita (comentário 3 do survey-6-v4.pdf), a 70%
+% da largura; [!htbp] desde a v7, porque com [H] ela deixava o fim da p. 5 vazio.
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.70\textwidth]{fig_temporal.pdf}
+\caption{Acima, a distribuição anual dos 2.472 artigos da base, separando
+periódicos e anais (azul) de preprints do arXiv (cinza). Abaixo, a fatia do
+Twitter/X a cada ano, só em periódicos e anais (tracejada) e na base inteira
+(contínua); a linha vertical marca 2023, ano do fim do acesso acadêmico
+gratuito à API do Twitter. Anos com menos de 20 artigos não têm a fatia
+marcada.}
+\label{fig:temporal}
+\end{figure}
+
+A base também inclui 845 preprints do arXiv, que só aparecem a partir de 2022,
+quando o DBLP passou a atribuir DOI a eles. Esses preprints estudam menos o Twitter (48\%,
+contra 74\% dos artigos de periódicos e anais). Por isso, na base inteira, a
+fatia do Twitter cai antes, chegando a 55\% em 2024 e a 19\% em 2026. Na figura,
+os preprints aparecem em cinza. A entrada deles também explica o salto no número
+de artigos por ano, que fica entre 88 e 155 de 2014 a 2021 e passa de 300 de
+2022 a 2024. O ano de 2026 ainda está parcialmente indexado.
+
+\subsection{Estratégias de coleta e tipos de análise}
+
+\paragraph{Estratégias de coleta (Fig.~\ref{fig:estrategia}).} A coleta via
+API predomina (66,4\%), seguida do uso de \textit{datasets} pré-existentes
+(41,1\%); o \textit{scraping} aparece em 17,0\% dos artigos. As APIs mais
+citadas são as do Twitter (nas versões \textit{streaming}, \textit{search}, v2
+e acadêmica), a YouTube Data API v3 e a API do Reddit via
+PRAW. Entre os \textit{datasets} pré-existentes, os mais citados são os
+arquivos da Pushshift (103 artigos), os conjuntos rotulados das tarefas de
+avaliação do SemEval (69) e as coleções de dados sobre a COVID-19 (53). A
+Pushshift aparece nas duas formas de coleta porque oferecia tanto uma API de
+busca sobre o histórico do Reddit, hoje desativada, quanto arquivos desse
+histórico para download~\citep{baumgartner2020pushshift}. O reuso de dados já
+rotulados ajuda a explicar a frequência dessa estratégia, porque 40,7\% dos
+artigos que usam um \textit{dataset} pré-existente fazem classificação, contra 30,8\%
+dos demais.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.52\textwidth]{fig_estrategia.pdf}
+\caption{Estratégia de coleta ($N=2.472$).}
+\label{fig:estrategia}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Famílias de API citadas pelos artigos ($N=2.472$; cada artigo conta uma vez por família).}
+\label{tab:apis}
+\begin{tabular}{lrr@{\hspace{2em}}l}
 \toprule
-Plataforma & Artigos \\ \midrule
-Twitter & 1.095 \\ Reddit & 230 \\ YouTube & 204 \\
-Facebook & 102 \\ TikTok & 88 \\ Instagram & 62 \\
+Família & Art. & \% & Interfaces mais citadas \\ \midrule
+Twitter/X & 1.083 & 43,8 & API v1.1/v2, \textit{streaming}, \textit{search}, acadêmica, Tweepy \\
+YouTube & 173 & 7,0 & YouTube Data API v3 \\
+Reddit & 142 & 5,7 & PRAW, Pushshift~\citep{baumgartner2020pushshift} \\
+Facebook/Instagram & 126 & 5,1 & Graph API, CrowdTangle \\
+TikTok & 46 & 1,9 & TikTok Research API \\
 \bottomrule
 \end{tabular}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.50\textwidth}\centering
-\caption{Estratégia de coleta ($N=1.718$).}
-\label{tab:coleta}
-\begin{tabular}{lrr}
-\toprule
-Estratégia & Art. & \% \\ \midrule
-API & 1.198 & 69,7 \\
-\textit{Dataset} pré-existente & 787 & 45,8 \\
-Outro método & 366 & 21,3 \\
-\textit{Scraping} & 328 & 19,1 \\
-\bottomrule
-\end{tabular}
-\end{minipage}
 \end{table}
 
-\begin{table}[t]
+\paragraph{Tipos de análise (Tab.~\ref{tab:analises}).} Predominam a
+estatística descritiva, a classificação e a análise de sentimentos. A análise de rede e os métodos ligados a ela (detecção de comunidades, centralidade e influência) também aparecem com frequência. Como o tipo de análise é o campo em
+que a extração é menos confiável (Seção~\ref{sec:validacao}), a tabela serve
+mais como uma ordenação aproximada do que como estimativa de prevalência. O
+rótulo mais citado foi ``análise de conteúdo'' (1.376 ocorrências), que
+acabou ficando fora da tabela por ter sido interpretada como uma categoria
+genérica, que engloba sentimento, tópico e enquadramento. É possível perceber
+que os dados de validação apoiam essa decisão. Esse, por exemplo, foi um dos
+rótulos em que os dois modelos menos concordaram (66\% dos artigos). Além disso, na leitura do texto completo de 150 artigos com esse rótulo, só cerca
+de um em cada quatro (23,3\%) mostrava sinal do método de análise de conteúdo,
+como livro de códigos, codificadores ou medida de concordância entre eles. Entre
+150 artigos sem o rótulo, a proporção foi de 13,3\%. Na maior parte dos casos,
+portanto, o rótulo só indica que o artigo analisa texto de forma genérica.
+
+\begin{table}[H]
 \centering
-\caption{Tipos de análise (bucketizados), $N=1.718$.}
+\caption{Tipos de análise, agrupados em categorias ($N=2.472$).}
 \label{tab:analises}
 \begin{tabular}{lrr@{\hspace{2em}}lrr}
 \toprule
 Tipo & Art. & \% & Tipo & Art. & \% \\ \midrule
-Estatística descritiva & 805 & 46,9 & Modelagem de tópico   & 394 & 22,9 \\
-Sentimento             & 775 & 45,1 & Detecção de comunidades & 323 & 18,8 \\
-Classificação          & 687 & 40,0 & Centralidade          & 304 & 17,7 \\
-Temporal               & 629 & 36,6 & Influência            & 228 & 13,3 \\
-Análise de rede        & 499 & 29,0 & Clusterização        & 148 & 8,6 \\
-PLN (NER/\textit{embed.}) & 399 & 23,2 & Desinformação/\textit{bots} & 130 & 7,6 \\
+Estatística descritiva & 1.070 & 43,3 & Detecção de comunidades & 410 & 16,6 \\
+Classificação          &   863 & 34,9 & PLN (NER/\textit{embeddings}) & 370 & 15,0 \\
+Sentimento             &   831 & 33,6 & Influência            & 280 & 11,3 \\
+Análise de rede        &   741 & 30,0 & Centralidade          & 224 & 9,1 \\
+Temporal               &   513 & 20,8 & Clusterização         & 148 & 6,0 \\
+Modelagem de tópico    &   464 & 18,8 & Desinformação/\textit{bots} & 147 & 5,9 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\paragraph{Amostragem é rara; filtragem é a norma.} Este é o achado central do
-levantamento. Apenas \textbf{18,7\%} dos artigos reportam amostragem estatística,
-enquanto \textbf{80,3\%} reportam filtragem por critério --- ou seja, a literatura
-raramente ``amostra para inferir sobre um todo'' e quase sempre ``recorta o
-objeto por critério'', tipicamente sem examinar se o recorte preserva as
-conclusões. A direção do achado é robusta: os dois modelos concordam (Claude
-Haiku: 21\% de amostragem e 91\% de filtragem sobre o subconjunto validado),
-seguindo a distinção definida na \S\ref{sec:extracao}.
+\subsection{Filtragem por critério e amostragem estatística}
+\label{sec:achado}
 
-\paragraph{Persistência e reprodutibilidade.} A tecnologia de armazenamento é
-mencionada em apenas \(\approx\)14\% dos artigos e, quando o é, predominam
-formatos de arquivo simples (CSV, JSONL, Excel, Parquet) sobre SGBDs. Quanto à
-publicação dos dados, o GitHub é o mais citado (\(\approx\)380 artigos), seguido
-de disponibilização ``mediante solicitação'' (\(\approx\)140); repositórios com
-DOI persistente (Zenodo, Figshare, OSF) aparecem em \(\approx\)140 --- cerca de
-8\% do corpus, indicando baixa adesão aos princípios
-FAIR~\citep{wilkinson2016fair}.
+A filtragem por critério aparece em 80,3\% dos artigos, que recortam o que
+coletaram por palavra-chave, idioma, período, limiar de atividade ou exclusão
+de \textit{bots} e de \textit{retweets}. Recortar os dados antes da análise é,
+portanto, um procedimento comum na área.
+Essa taxa se mantém nas duas verificações de viés descritas nas
+Seções~\ref{sec:trajetoria} e~\ref{sec:limitacoes}.
 
-\subsection{Volume de coleta e os grandes coletores}
+Esse resultado é importante porque as conclusões obtidas sobre um recorte valem
+para o recorte. O que se conclui sobre os \textit{tweets} que contêm uma
+palavra-chave vale para esses \textit{tweets}, e não necessariamente para o
+debate do qual eles fazem parte. O risco é que a conclusão publicada seja lida
+como se valesse para o fenômeno como um todo, quando nem sempre é o caso. A
+amostragem estatística, que permite fazer inferências sobre o universo de onde
+a amostra foi retirada, com erro quantificável, aparece em apenas 18,6\% dos
+artigos. Filtrar e amostrar não são excludentes, e um mesmo artigo pode fazer
+as duas coisas ou nenhuma delas (Fig.~\ref{fig:amostragem}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.80\textwidth]{fig_amostragem.pdf}
+\caption{Filtragem por critério e amostragem estatística, em \% dos 2.472
+artigos da base.}
+\label{fig:amostragem}
+\end{figure}
+
+\subsection{Armazenamento e publicação dos dados}
+\label{sec:persistencia}
+
+Apenas 12,7\% dos artigos mencionam a tecnologia de armazenamento. Um banco de dados propriamente dito aparece somente em 5,4\% (Fig.~\ref{fig:bd}). Os arquivos (JSON, CSV, Parquet) aparecem um pouco mais que os SGBDs.
+Os dois não se excluem, já que 21 dos artigos que usam um SGBD guardam os dados
+também em arquivo. Entre os 133 artigos que usam um SGBD, o mais citado é o MongoDB, seguido do MySQL e do Elasticsearch. Desses, 23 não dizem qual banco de dados usaram (Tab.~\ref{tab:sgbd}).
+Quanto à publicação dos dados, o GitHub é o local mais citado (404 artigos),
+seguido da disponibilização ``mediante solicitação'' (185). Repositórios com DOI
+persistente (Zenodo, Figshare, OSF) aparecem em 155 artigos, 6,3\% da base. Mais da
+metade dos artigos (57,4\%) não informa onde os dados coletados foram guardados.
+
+% [!htbp] desde a v7 (15/set/2026), como a tabela seguinte: com [H], a figura
+% não cabia no fim da p. 8 e deixava quase um terço dela em branco.
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.70\textwidth]{fig_bd.pdf}
+\caption{Onde os artigos dizem ter guardado os dados coletados ($N=2.472$).
+Banco de dados reúne SGBDs relacionais e não relacionais (MySQL, PostgreSQL,
+MongoDB, Elasticsearch, BigQuery, entre outros); arquivos, formatos como CSV,
+JSON e Parquet. O artigo que cita SGBD e arquivo conta como banco de dados.}
+\label{fig:bd}
+\end{figure}
+
+\begin{table}[!htbp]
+\centering
+\caption{Bancos de dados citados pelos 133 artigos da fatia ``Banco de dados
+(SGBD)'' da Fig.~\ref{fig:bd}.}
+\label{tab:sgbd}
+\begin{tabular}{lr}
+\toprule
+Banco de dados & Art. \\ \midrule
+MongoDB & 32 \\
+MySQL/MariaDB & 17 \\
+Elasticsearch & 15 \\
+Hadoop (HDFS, Hive) & 11 \\
+Neo4j & 9 \\
+SQLite & 8 \\
+PostgreSQL & 7 \\
+Outros (BigQuery, Redis, Cassandra, S3, Solr\ldots) & 28 \\
+Sem nome (só ``banco de dados'') & 23 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Volume de coleta e grandes coletores}
 \label{sec:volume}
 
-Quanto \emph{coletam} os trabalhos? A resposta é uma cauda longa: a coleta
-típica fica na casa das dezenas de milhares de itens, mas uma minoria reúne de
-milhões a bilhões --- e coletar muito, como se verá, não implica amostrar.
-Medir isso exige o volume numérico do que foi coletado, disponível de forma
-estruturada para \textbf{1.518 dos 1.718 artigos}\footnote{A quantidade coletada
-é extraída pelos modelos como pares quantidade/unidade (campo
-\texttt{collection\_items}) e reside na extração do Gemini, de cobertura total;
-1.518 artigos têm ao menos uma quantidade legível. Tomamos como volume do artigo
-a \emph{maior} quantidade entre seus itens de coleta, excluídas unidades que não
-correspondem a itens coletados (\emph{tokens} de corpora de \textit{embeddings},
-contadores de visualização, palavras e sentenças de \textit{snippets}), para não
-inflar o volume com métricas alheias à coleta.}. Como as unidades variam
-(\textit{tweets}, vídeos, comentários, usuários\dots), esse indicador da maior
-dimensão coletada é robusto à mistura de unidades.
+A quantidade de dados coletada varia muito entre os trabalhos. A coleta típica
+fica na casa das centenas de milhares de itens, mas uma minoria reúne de milhões
+a bilhões. Para medir isso, usamos o volume numérico do que foi coletado,
+disponível de forma estruturada para 2.179 dos 2.472 artigos.\footnote{A
+quantidade coletada é extraída como pares quantidade/unidade (campo
+\texttt{collection\_items}); 2.179 artigos têm ao menos uma quantidade legível.
+Tomamos como volume do artigo a maior quantidade entre seus itens de coleta,
+excluídas as unidades que não correspondem a itens coletados (\textit{tokens}
+de corpora de \textit{embeddings}, contadores de visualização, palavras e
+sentenças de \textit{snippets}), para não inflar o volume com medidas alheias à
+coleta.} Como as unidades variam (\textit{tweets}, vídeos, comentários,
+usuários etc.), usar a maior quantidade coletada por artigo evita somar
+unidades diferentes.
 
-\paragraph{Uma cauda longa de quatro ordens de grandeza (Fig.~\ref{fig:volume}).}
-O volume mediano é de \(\approx\)273 mil itens, mas a distribuição se estende por
-mais de sete ordens de grandeza: 19\% dos artigos coletam menos de 10 mil itens,
-enquanto 40\% ultrapassam 1 milhão e \textbf{339 artigos (22\%) coletam ao menos
-10 milhões}. No extremo estão coletas quase exaustivas ou de acesso
-\emph{privilegiado}: \(\approx\)118 bilhões de \textit{tweets} via
-\textit{decahose} (amostra de 10\%) da API do Twitter ao longo de uma década,
-\(\approx\)30,9 bilhões de arestas de um grafo interno do Twitter, ou
-\(\approx\)13 bilhões de comentários do Reddit desde 2005. Esses extremos
-refletem condição de acesso (infraestrutura interna, \emph{firehose}, dumps
-completos), não coleta típica via API pública --- um lembrete de que o topo da
-cauda reflete condição de acesso, não técnica de coleta reproduzível.
+\paragraph{Distribuição do volume (Fig.~\ref{fig:volume}).} O volume mediano é de cerca de 340 mil itens. A distribuição se estende por mais de sete ordens
+de grandeza. Na faixa mais baixa, 18\% dos artigos coletam menos de 10 mil
+itens; 41\% ultrapassam 1 milhão, entre eles 495 artigos (23\%) que coletam 10 milhões de itens ou mais. No extremo estão coletas quase completas ou feitas com acesso
+privilegiado, como cerca de 118 bilhões de \textit{tweets} obtidos ao longo de uma década pela
+\textit{decahose} (amostra de 10\% da API do Twitter), cerca de 30,9 bilhões de
+arestas de um grafo interno do Twitter e cerca de 13 bilhões de comentários do
+Reddit desde 2005. Esses casos dependem de condições de acesso especiais
+(infraestrutura interna da plataforma, \textit{firehose}, cópias integrais da
+base) e não representam a coleta típica feita pela API pública.
 
-\begin{figure}[t]
+% [!htbp] desde a v6 (15/set/2026): sem a tabela de percurso, com [H] ela
+% não cabia no fim da p. 9 e deixava um terço da página em branco.
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.82\textwidth]{fig_volume.pdf}
+\includegraphics[width=0.78\textwidth]{fig_volume.pdf}
 \caption{Distribuição do volume coletado por ordem de grandeza (maior
-quantidade por artigo), \(N=1.518\) artigos com volume legível. Em destaque, os
-339 \emph{grandes coletores} (\(\geq\)10 milhões de itens).}
+quantidade por artigo), para os 2.179 artigos com volume legível. Em destaque,
+as duas faixas dos 495 grandes coletores (10 milhões de itens ou mais).}
 \label{fig:volume}
 \end{figure}
 
-\paragraph{Coletar muito não implica amostrar (Tab.~\ref{tab:grandes}).} Entre os
-339 grandes coletores, a amostragem estatística dentro do universo coletado
-segue \emph{minoritária}: apenas \textbf{80 (24\%)} amostram, coerente com o
-achado geral (\S\ref{sec:resultados}). Quando amostram, a fração efetivamente
-analisada é diminuta: um estudo coletou \(\approx\)2,8 bilhões de \textit{tweets}
-e analisou 28 milhões (\(\approx\)1\%); outro coletou 500 milhões e reteve
-28 mil (\(\approx\)0,01\%). Ou seja, mesmo na coleta em escala massiva, o objeto
-de análise costuma ser um recorte definido por critério --- \textbf{297 dos 339
-(88\%)} relatam filtragem ---, sem verificação de que o recorte preserva as
-conclusões.
+\paragraph{Grandes coletores (Fig.~\ref{fig:grandes}).} Entre os 495 grandes
+coletores, 427 (86\%) filtram por critério, proporção maior que a da base
+(80,3\%). Reunir dezenas de milhões de itens, portanto, não dispensa o recorte,
+que pode ser grande. Um estudo partiu da \textit{decahose} do Twitter,
+pré-filtrou cerca de 2,8 bilhões de \textit{tweets} e analisou apenas os 28
+milhões (cerca de 1\%) que continham alguma entidade
+médica~\citep{jimeno2015surveillance}. A amostragem estatística também é
+minoritária nesse grupo, em que 117 dos 495 artigos (24\%) amostram.
 
-\paragraph{Escala não traz reprodutibilidade.} A infraestrutura de dados não
-acompanha o volume: apenas \textbf{24 dos 339} (7\%) mencionam qualquer
-tecnologia de armazenamento, e \textbf{149 (44\%)} não dão nenhuma indicação de
-persistência dos dados coletados --- apesar de terem reunido dezenas de milhões
-a bilhões de itens. A publicação em repositório com DOI persistente aparece em
-apenas 36 casos (11\%); somada ao GitHub, chega a 100 (30\%). A precariedade de
-infraestrutura observada no corpus (\S\ref{sec:resultados}) persiste, portanto,
-também no extremo superior de volume.
-
-\begin{table}[t]
+\begin{figure}[H]
 \centering
-\caption{Comportamento dos 339 grandes coletores (\(\geq\)10 milhões de itens).}
-\label{tab:grandes}
-\begin{tabular}{lrr}
-\toprule
-& Artigos & \% \\ \midrule
-Amostram dentro do universo coletado & 80  & 24 \\
-Filtram por critério                 & 297 & 88 \\
-Mencionam tecnologia de BD           & 24  & 7 \\ \midrule
-\textit{Persistência:} DOI/repositório   & 36  & 11 \\
-\textit{Persistência:} GitHub            & 64  & 19 \\
-\textit{Persistência:} sob solicitação   & 21  & 6 \\
-\textit{Persistência:} outra menção      & 69  & 20 \\
-\textit{Persistência:} nenhuma indicação & 149 & 44 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\includegraphics[width=0.92\textwidth]{fig_grandes.pdf}
+\caption{Quantos dos 495 grandes coletores (10 milhões de itens ou mais)
+amostram, filtram por critério e mencionam alguma tecnologia de armazenamento
+(banco de dados ou arquivo).}
+\label{fig:grandes}
+\end{figure}
+
+\paragraph{Publicação dos dados nos grandes coletores
+(Fig.~\ref{fig:persistencia}).} Os grandes coletores publicam seus dados um
+pouco mais que a média. Entre eles, 8\% usam repositório com DOI (contra 6\% na base) e 51\% não dão nenhuma indicação sobre os dados (contra 57\%). Por outro lado,
+mencionam menos tecnologia de armazenamento (9\%, contra 13\%). Ter reunido
+dezenas de milhões ou bilhões de itens não se traduz, portanto, em
+infraestrutura de dados declarada. Metade desses trabalhos não informa o que
+foi feito com os dados depois da análise.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{fig_persistencia.pdf}
+\caption{Armazenamento e publicação dos dados na base inteira e nos grandes
+coletores.}
+\label{fig:persistencia}
+\end{figure}
 
 % ---------------------------------------------------------------------
 \section{Discussão}
+\label{sec:discussao}
 
-O retrato é o de um campo que \emph{recorta muito e justifica pouco}: a coleta é
-quase sempre um subconjunto definido por critério (palavra-chave, janela,
-\textit{top-k} de API, comunidade), sem verificação de que esse recorte é
-inócuo para as conclusões. Combinado ao que se sabe sobre o efeito da amostragem
-em grafos~\citep{leskovec2006sampling} e à divergência entre amostra de API e
-todo~\citep{morstatter2013sample}, isso sugere um risco sistemático de
-conclusões dependentes da estratégia de coleta --- hipótese que motiva
-investigação experimental dedicada (\S\ref{sec:conclusao}). Esse retrato
-converge com o de um levantamento manual precursor, restrito aos eventos
-brasileiros da área (83 artigos do Brasnam e 17 do SBBD), que já observara o
-predomínio do Twitter/X, análises conduzidas sobre amostras do todo e uso raro
-de SGBDs~\citep{heine2025database}; o presente trabalho estende essa observação
-a milhares de artigos e à escala internacional. No plano de
-reprodutibilidade, a baixa adesão a repositórios persistentes e o predomínio de
-arquivos planos sobre SGBDs indicam que a infraestrutura de dados do campo é, em
-geral, \textit{ad hoc}.
+Os resultados mostram que recortar os dados por critério é o procedimento mais
+comum na literatura, em que a coleta costuma ser um subconjunto definido por
+palavra-chave, período, \textit{top-k} de API ou comunidade. Esta revisão não
+mede se esse recorte altera as conclusões dos trabalhos. Os dados mostram, porém,
+que a amostragem estatística, que permite estimar o erro em relação ao universo
+coletado, é pouco usada. Considerando o que já se sabe sobre o efeito da
+amostragem em grafos~\citep{leskovec2006sampling} e sobre a diferença entre a
+amostra de uma API e o conjunto completo~\citep{morstatter2013sample}, há o risco
+de que parte das conclusões publicadas dependa da forma como os dados foram
+coletados. Essa hipótese precisa ser testada experimentalmente
+(Seção~\ref{sec:conclusao}).
 
-\subsection{Limitações}
+O resultado é coerente com o de um levantamento manual anterior, restrito aos
+eventos brasileiros da área (83 artigos do Brasnam e 17 do SBBD), que já havia
+observado o predomínio do Twitter/X, análises feitas sobre amostras e o uso raro
+de SGBDs~\citep{heine2025database}. Este trabalho estende essa observação para
+milhares de artigos e para o cenário internacional.
+
+A série temporal (Fig.~\ref{fig:temporal}) mostra que, dentro das seis
+plataformas consultadas, a composição da literatura acompanha a disponibilidade
+de coleta. A fatia do Twitter cai nos anos seguintes ao fim do acesso acadêmico
+gratuito à sua API, em 2023. A queda não indica necessariamente perda de
+interesse pelo tema. Ela acompanha a mudança na forma de acesso, o que reforça a
+importância da etapa de coleta para entender os resultados publicados.
+
+Quanto ao armazenamento, a baixa adesão a repositórios com DOI e o uso mais
+frequente de arquivos do que de SGBDs indicam que a infraestrutura de dados da
+área costuma ser montada caso a caso, o que dificulta reproduzir a coleta de um
+trabalho publicado.
+
+\subsection{Ameaças à validade}
 \label{sec:limitacoes}
 \begin{enumerate}[leftmargin=1.4em]
-  \item \textbf{Cobertura do DBLP}: o universo limita-se ao que o DBLP indexa;
-  revistas de comunicação/sociologia, fora do escopo de ciência da computação,
-  podem ficar de fora.
-  \item \textbf{Viés de cobertura por editora}: dos 10.230 artigos em
-  \textit{paywall}, o acesso institucional via \textit{proxy} recupera apenas
-  Springer e IEEE (\(\approx\)43\% do \textit{paywall}); ACM, Wiley, SAGE,
-  Taylor \& Francis e Emerald ficam atrás do \textit{challenge} do Cloudflare, e
-  a Elsevier atrás de anti-\textit{bot} próprio, permanecendo inacessíveis. Como
-  a extração recai sobre os PDFs obtidos, essas editoras ficam sub-representadas.
-  \item \textbf{Subconjunto extraído}: os 1.718 artigos caracterizados (dos 2.139
-  com PDF acessível e extração estruturada, após excluir 421 que não coletam dados
-  de RSD) são os de PDF acessível (acesso aberto mais Springer/IEEE via
-  \textit{proxy}), não uma amostra aleatória dos 13.395 catalogados; os achados
-  descrevem essa fração acessível, e o viés de editora acima se propaga aos
-  resultados.
-  \item \textbf{Não determinismo e alucinação dos LLMs}: mitigados por
-  triangulação de modelos, validação contra gabarito manual e versionamento de
-  cada extração. A concordância inter-modelo (\(\approx\)85\% nos campos
-  categóricos) delimita a confiança nos achados; o campo mais subjetivo --- o
-  tipo de análise --- é também o de maior divergência entre modelos.
+  \item \textbf{Cobertura do DBLP e da consulta}: o universo se limita ao que o DBLP indexa. Revistas de comunicação e sociologia, fora da ciência da
+  computação, podem ficar de fora. Dentro do DBLP, a busca alcança apenas os
+  registros com o nome de uma das seis plataformas no título. Ficam fora os
+  trabalhos que analisam uma plataforma sem nomeá-la no título (``\textit{tweets}'',
+  ``\textit{social media}'', ``X'') e as plataformas não consultadas, como
+  Weibo, Telegram, Mastodon e Bluesky. Isso limita a análise da
+  Seção~\ref{sec:plataformas} às seis plataformas da consulta. Parte da queda do Twitter em 2025 e 2026 também pode vir da troca do nome da plataforma para X nos
+  títulos.
+  \item \textbf{Exigência de DOI na importação}: 3.747 dos 17.863 registros
+  retornados (21,0\%) não têm DOI no DBLP e foram descartados, 2.915 deles sem
+  nenhuma outra versão com DOI. Desses, 921 são preprints do arXiv anteriores a 2022. Os 1.994 restantes se concentram em algumas conferências, como ICWSM (212
+  títulos; 71\% dos registros dessa conferência não têm DOI), HICSS (122), CLEF
+  (113) e as da AIS (AMCIS, ICIS, PACIS, ECIS e ACIS, 280 no total). A perda,
+  portanto, não é aleatória, ela sub-representa a principal conferência da área
+  e a comunidade de sistemas de informação. Como boa parte dessas conferências
+  publica em acesso aberto, trata-se de uma limitação da importação, que pode
+  ser corrigida em trabalho futuro.
+  \item \textbf{Viés de cobertura por editora}: como o corpus vem apenas de acesso aberto, cada editora fica representada
+  conforme a frequência com que seus artigos têm uma cópia gratuita em
+  repositórios abertos, como o arXiv ou os repositórios das universidades. Dos
+  10.200 artigos em \textit{paywall}, chegam menos ao corpus os de editoras cujos
+  artigos raramente têm essa cópia (Emerald, Taylor \& Francis e
+  Wiley recuperam menos de 5\%, contra 8,9\% da ACM). O acesso institucional
+  também não resolveria o problema. Em verificação feita em setembro de 2026,
+  todas as editoras do estrato, inclusive Springer e IEEE, que somam 4.356
+  artigos, respondem ao acesso automatizado com desafios
+  anti-automação.\footnote{A Springer devolve HTTP 200 com uma página de desafio
+  anti-automação de 3 KB no endereço do PDF, enquanto a página de destino
+  continua respondendo normalmente; a IEEE devolve HTTP 202 com corpo vazio.
+  Verificado em quatro DOIs de periódico e de capítulo, de 2015 a 2022, com a
+  mesma resposta.} A barreira, portanto, é a política das editoras em relação
+  ao acesso automatizado, e não a assinatura. Por isso, a caracterização
+  descreve a literatura disponível em acesso aberto.
+  \item \textbf{Tamanho do viés de acesso e seu efeito}: esse viés foi medido.
+  Todos os 11.093 artigos do catálogo que estavam sem PDF foram tentados de novo, em ordem aleatória, pelas rotas de acesso aberto. Desses, 811 tiveram o texto completo recuperado. Entre os artigos em \textit{paywall}, a taxa de
+  recuperação ficou abaixo de 8\%. Os artigos recuperados foram extraídos e
+  incorporados à base (Seção~\ref{sec:trajetoria}). As taxas de filtragem e de
+  amostragem praticamente não mudaram. O que mudou foi principalmente a composição do corpus,
+  que passou a ter mais artigos sobre o Twitter e coletas maiores.
+  \item \textbf{Composição temporal da base}: como mencionado na
+  Seção~\ref{sec:plataformas}, os preprints do arXiv só entram na base a partir de 2022. Os artigos recentes também estão mais disponíveis em acesso aberto.
+  Por isso, os anos antigos pesam menos na base (os 2.472 artigos analisados) do
+  que no catálogo (os 13.395 artigos catalogados a partir da busca). Os anos de
+  2010 a 2021 somam 69\% do catálogo, mas apenas 44\% da base. Dando a cada ano
+  o peso que ele tem no catálogo, as taxas de filtragem e de amostragem quase não
+  mudam (79,9\% e 20,1\%), mas a fatia do Twitter sobe de 64,8\% para 72,4\%. As
+  proporções da Seção~\ref{sec:resultados} descrevem, portanto, a base, que
+  pode diferir do catálogo nesse ponto.
 \end{enumerate}
 
 % ---------------------------------------------------------------------
 \section{Conclusão}
 \label{sec:conclusao}
 
-Este levantamento caracterizou, em escala (13.395 artigos catalogados, 1.718 com
-coleta de RSD caracterizada) e de forma reprodutível, como a literatura de RSD coleta
-seus dados, com o achado central de que a amostragem estatística é rara e a
-filtragem por critério é a norma --- quase sempre sem verificação de impacto.
-Esse resultado abre uma agenda experimental clara:
-medir, por tipo de análise, o efeito de coletar mais do que os trabalhos
-coletaram, testando se as conclusões publicadas se sustentam sob coletas mais
-amplas --- agenda desenvolvida em trabalho subsequente.
+Esta revisão caracterizou, de forma reprodutível, como a literatura sobre RSD
+coleta seus dados, a partir de 13.395 artigos catalogados e de 2.472 com a
+coleta caracterizada. O principal resultado é a presença da filtragem por
+critério em 80,3\% dos artigos. Esses trabalhos recortam o que coletaram antes
+da análise, de modo que as conclusões obtidas valem para o recorte e não se
+estendem automaticamente ao fenômeno estudado. A amostragem estatística, que
+permitiria essa extensão, aparece em apenas 18,6\% dos artigos. Mesmo entre os
+trabalhos que coletam muito, a filtragem é comum e chega a 86\% entre os 495 que
+reuniram 10 milhões de itens ou mais. A taxa de filtragem se mantém quando a base
+é ampliada com os artigos antes inacessíveis e quando os anos são reponderados
+pelo catálogo. A descrição do corpus, ao contrário, muda nos dois casos. Três outros resultados completam o quadro: a concentração em uma única
+plataforma, o Twitter, cuja fatia cai depois do fim do acesso acadêmico
+gratuito à sua API; a infraestrutura de dados montada caso a caso, que não
+melhora com a escala; e o uso raro de repositórios com DOI persistente, que
+dificulta verificar um resultado publicado a partir dos mesmos dados.
 
+O próximo passo é experimental e consiste em medir, por tipo de análise, o
+efeito de coletar mais do que os trabalhos coletaram. A proposta é tratar cada estudo publicado
+como uma amostra sub-coletada do seu próprio tema, coletar um superconjunto
+sobre o mesmo tema e verificar se a conclusão publicada muda e se ela já havia
+se estabilizado no volume original. Essa investigação é objeto de trabalho
+subsequente. Ficam também três questões em aberto sobre o próprio instrumento:
+a validação completa da extração, com o segundo modelo aplicado a toda a base e
+não apenas aos 732 artigos mais recentes; com que frequência os trabalhos
+verificam o efeito do seu recorte, o que os campos extraídos aqui não medem; e
+quanto das taxas depende das definições do \textit{prompt}, o que só uma
+anotação humana sobre uma amostra sorteada da base pode responder. A consulta
+também pode ser ampliada para plataformas que ficaram de fora, como Weibo,
+Telegram, Mastodon e Bluesky, e para artigos que não nomeiam a plataforma no
+título.
+
+\clearpage
 \bibliographystyle{plainnat}
 \bibliography{referencias}
 

@@ -42,6 +42,8 @@ reddit-buntain/
     ├── FASE0_descoberta.md      <- viabilidade + predições
     ├── FASE1_coleta.md          <- volume do universo + estado da coleta
     ├── RESULTADOS_RB3.md        <- o resultado: 3% -> 57,6% sob o mesmo limiar
+    ├── RB3_recorte_reconstruido.md <- 25/set: o recorte do artigo refeito no nosso
+    │                               dado (259 x 279). Qualifica o 19x; ver ESTADO §4.31
     ├── curva_rb3.json           <- (gerado) curva por limiar; alimenta a Fig. 5.1
     │                               da dissertação via figuras/gerar_figuras.py
     └── snapshot_buntain.sqlite  <- (gerado) submissions + comentários

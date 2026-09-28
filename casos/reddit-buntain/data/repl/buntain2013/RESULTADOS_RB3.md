@@ -7,6 +7,14 @@
 
 ---
 
+> ⚠ **Leia junto:** [RB3_recorte_reconstruido.md](RB3_recorte_reconstruido.md)
+> (25/set/2026) refaz o **recorte do artigo** sobre este mesmo instantâneo. Conclusão:
+> o recorte é reproduzível (259 participantes × 279), mas os 3% e os 57,6% **não
+> compartilham a operacionalização** — o artigo exige ≥20 arestas de saída *em cada rede
+> de subreddit*, e esta página corta por ≥20 mensagens no total. Com a definição do artigo
+> fixa, coletar tudo leva de 0,8% a 4,2%. A comparação que segura população e definição dá
+> **2,5% → 41,3%**. Os números desta página continuam válidos para o que cada linha declara.
+
 ## 1. A afirmação do alvo
 
 Buntain e Golbeck (2014, §5.3) relatam que **apenas ~3% dos usuários (7 de 279)**

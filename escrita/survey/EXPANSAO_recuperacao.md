@@ -112,6 +112,44 @@ arrisca o acesso da PUC-Rio inteira, não só o da Mariana.** A Springer é a ú
 que respondeu normalmente; se um dia for usada, deve ser devagar e com parada ao
 primeiro 403.
 
+### 4b. ⛔ A Springer também fechou — e a tabela acima media o passo errado (9/set/2026)
+
+> Apurado quando a Mariana autorizou a rota lenta ("está OK expandir mais se for
+> feito com cuidado"). O cuidado foi construído primeiro, e foi ele que achou isto.
+
+**A linha "Springer 200" da tabela acima mede a *landing page*, não o PDF.** A
+página de destino de fato responde 200 e traz a `citation_pdf_url` normalmente.
+O **endpoint do PDF** devolve:
+
+```
+HTTP 200 · text/html · 3.038 bytes
+"Client Challenge ... JavaScript is disabled in your browser.
+ Please enable JavaScript to proceed. A required part of this site couldn't load."
+```
+
+Testado em **4 DOIs** diversos — periódico e capítulo/LNCS, de 2015 a 2022 —, com
+resposta **byte a byte idêntica**. Não é item sem assinatura nem artigo específico:
+é a Springer inteira, por essa via.
+
+⚠ **O sinal não é detectável por status code.** É HTTP **200**, corpo curto, e por
+isso passou pelo diagnóstico de agosto e pela primeira versão da trava do
+[`proxy_springer.py`](expansao/proxy_springer.py). Os marcadores foram
+acrescentados à `CHALLENGE` no mesmo dia.
+
+**Consequência: a rota do proxy está fechada por inteiro.** ACM, Elsevier, SAGE,
+T&F, Emerald e Wiley já bloqueavam; a IEEE fechou entre mai e ago/2026 (202 com
+corpo vazio); a Springer fechou até set/2026. **Não sobrou editora colhível por
+automação**, e os ~2.000 artigos da Springer que pareciam folga não são alcançáveis.
+
+⛔ **O que existe no `PROXIMAS_ETAPAS.md` do repo da survey — `curl_cffi` para
+forjar o *fingerprint* TLS do Chrome, ou Playwright para executar o desafio — é
+contornar um controle anti-automação, não usar uma assinatura.** Fica registrado
+como conhecido e **não implementado**, por decisão: o risco deixa de ser de ritmo e
+passa a ser de burlar uma proteção deliberada, com a conta caindo sobre o acesso da
+PUC-Rio inteira. As rotas legítimas que sobram são pedir ao autor, COMEX/comutação
+bibliográfica, e baixar manualmente pelo navegador — nenhuma automatizável em 2.000
+artigos.
+
 ## 5. ⚠ Incidente de método: a ordem da fila é um esquema de amostragem
 
 O primeiro lote rodou na ordem padrão do script (`order_by(id)`) e recuperou
@@ -137,7 +175,64 @@ o offset escorregava — pulando artigos **nunca tentados**, que é o oposto do 
 se queria. Desde 22/ago a exclusão é **por DOI**, lida dos logs de tentativa
 (`--skip-file`), o que torna a retomada exata e idempotente.
 
+## 3c. ⭐ A varredura TERMINOU — e a taxa final é **7,7%**, não 12,4% (23/ago/2026)
+
+> Apurado em **9/set/2026**, lendo os logs e o banco. A varredura fechou às
+> **05:17 de 23/ago** e ninguém tinha lido o desfecho até aqui.
+
+A fila inteira foi tentada: **11.093 de 11.093** artigos, 100% dela. O resultado
+final, por `taxa_recuperacao.py` sobre o `estratos.json`:
+
+| estrato | recuperados | taxa | IC95% |
+|---|---:|---:|---|
+| **pago** (`closed` no DBLP) | 772/10.039 | **7,7%** | 7,2–8,2 |
+| aberto que já falhara | 34/981 | 3,5% | 2,5–4,8 |
+| sem rótulo no DBLP | 5/73 | 6,8% | 3,0–15,1 |
+| **total** | **811/11.093** | **7,3%** | 6,8–7,8 |
+
+Por editora, dentro do estrato pago: ACM 8,9% (206/2.304), IEEE 7,7% (157/2.045),
+Springer 7,6% (164/2.154), Elsevier 6,2% (72/1.155), SAGE 6,5%, Wiley 4,6%,
+Taylor & Francis 4,3%, Emerald 3,4%.
+
+**Ganho real: 811 artigos**, 6,1% do catálogo, obtidos **sem credencial nenhuma**.
+A base de PDFs foi de 2.298 para **3.109**.
+
+### ⚠ A condição de parada pré-registrada DISPAROU
+
+O [PRE_REGISTRO](expansao/PRE_REGISTRO_expansao.md) §8 diz: *taxa final < 11% →
+**Parar**; a sondagem de 70 era otimista, a extrapolação de 1.127–2.944 não vale,
+reporta-se a taxa real e o trabalho vira uma nota de método.* O estrato pago
+fechou em 7,7% com o **IC95% inteiro abaixo** do piso (teto em 8,2%). O
+`sorteia_amostra.py` imprimiu o `!! PARAR` e **mesmo assim sorteou** os 800 — o
+sorteio não é bloqueante, só avisa.
+
+⚠ **Decisão da Mariana**, e não automática: a parada foi escrita contra a
+*extrapolação*, não contra a extração dos artigos que de fato existem. Os 811
+estão em disco. Ver [ESTADO.md](../../ESTADO.md) §3.
+
+### ⚠ Por que 12,4% virou 7,7%
+
+Os dois intervalos **não se sobrepõem** (11,3–13,6 × 7,2–8,2), então não é
+flutuação amostral. Com `--shuffle`, qualquer prefixo da fila deveria ser amostra
+não enviesada dela — e não foi.
+
+A explicação mais provável, e que **vale conferir antes de ir a qualquer lugar**:
+a contagem intermediária foi feita logo depois de o `reconcilia_pdfs` trazer
+**307 PDFs órfãos do disco** (§Estado do [expansao/README.md](expansao/README.md)),
+recuperados por execuções anteriores em **outra ordem** — inclusive a primeira, em
+`order_by(id)`. Esses 307 entraram no **numerador** sem que seus denominadores
+estivessem no conjunto tentado daquela medição.
+
+É o **terceiro** artefato de medição desta mesma frente, e o terceiro da mesma
+família: o instrumento contamina o que mede (§3b, §5, §5b). A diferença é que os
+dois primeiros empurravam a taxa **para baixo** e este empurrava **para cima** —
+o que é pior, porque um número otimista não dispara desconfiança.
+
 ## 6. O que vem depois (⏳ não feito)
+
+> ⚠ **Desatualizado em parte desde 23/ago/2026** — os passos 1 a 3 **foram
+> executados**; o passo 4 (extrair) **falhou e não rodou**. Ver §7. O texto abaixo
+> fica como registro do plano.
 
 Recuperar PDF é barato; **extrair não é**. O próximo passo **não** é extrair os
 ~1.300, e sim:
@@ -157,3 +252,54 @@ não pode ser gasto aqui.
 
 O prompt para retomar isto numa sessão nova está em
 [PROMPT_expansao.md](PROMPT_expansao.md).
+
+---
+
+## 7. ⛔ A extração NÃO rodou — e o log disse que tinha rodado (23/ago/2026)
+
+> Apurado em **9/set/2026**. Nada disto tinha sido lido.
+
+O `extrai_apos_varredura.sh` esperou a varredura corretamente, sorteou os 800 e
+**falhou ao montar o comando de extração**. O trecho, do
+`pdfs/.extracao_loop.log`:
+
+```
+=== extracao de 0 artigos (~R$ 0) 05:21:35 ===
+FileNotFoundError: ... '/c/Users/maria/.../amostra.json'
+python.exe -m scripts.analyze_pdfs: error: argument --ids: expected at least one argument
+=== extracao terminou 23/08 05:21:49 codigo 0 ===
+```
+
+**A causa** é de shell, não de método: o script imprime o caminho da amostra como
+caminho **do Windows** (`C:\Users\...`) e o interpola dentro de um `$(python -c
+...)` executado pelo **bash**, que o entrega como `/c/Users/...`. O Python do
+Windows não abre esse caminho, `--ids` fica sem argumento, e o `analyze_pdfs`
+aborta.
+
+⚠ **O laço reportou `codigo 0`** — sucesso — porque o `$?` lido era o do último
+comando do bloco, não o do `analyze_pdfs`. É por isso que o fracasso passou
+**17 dias** sem ser notado: o log termina com uma linha de sucesso.
+
+**Estado real, conferido no banco em 9/set/2026:**
+
+| | |
+|---|---:|
+| PDFs em disco e no banco | **3.109** |
+| com extração estruturada | **2.147** |
+| **PDFs sem extração** | **962** (dos quais os 811 da varredura) |
+| sorteados e nunca extraídos | **800** |
+
+**Nada foi gasto** — a conta da extração continua zerada, e os 800 seguem
+sorteados pela semente pré-registrada `20260929`. Retomar é rodar o
+`analyze_pdfs` com a lista lida do `amostra.json`, **sem** passar pelo shell:
+
+```bash
+# do repo da survey; le a amostra em Python, sem interpolacao de caminho
+python -m scripts.analyze_pdfs --models gemini --workers 5 --ids $(
+  python -c "import json,sys;print(' '.join(map(str,json.load(open(sys.argv[1],encoding='utf-8'))['ids_amostra'])))" \
+    "$(cygpath -u 'C:/Users/maria/Documents/GitHub/dissertacao-mestrado/escrita/survey/expansao/amostra.json')"
+)
+```
+
+⛔ **Não rodar sem decisão da Mariana**: gasta (~R$43) e a condição de parada
+pré-registrada disparou (§3c).

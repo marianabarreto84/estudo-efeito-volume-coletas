@@ -1,0 +1,409 @@
+{
+  "n_catalogo": 13395,
+  "n_extraidos": 3107,
+  "n_descartados": 635,
+  "N": 2472,
+  "plataformas": {
+    "twitter": 1602,
+    "reddit": 284,
+    "youtube": 280,
+    "facebook": 186,
+    "tiktok": 107,
+    "instagram": 98
+  },
+  "estrategia": {
+    "API": 1642,
+    "Dataset pre-existente": 1016,
+    "Outro metodo": 313,
+    "Scraping": 421
+  },
+  "analises": {
+    "Estatística descritiva": 1070,
+    "Classificação": 863,
+    "Sentimento": 831,
+    "Análise de rede": 741,
+    "Temporal": 513,
+    "Modelagem de tópico": 464,
+    "Detecção de comunidades": 410,
+    "PLN (NER/embed.)": 370,
+    "Influência": 280,
+    "Centralidade": 224,
+    "Clusterização": 148,
+    "Desinformação/bots": 147,
+    "Predição de links": 4
+  },
+  "rotulo_analise_de_conteudo": 1376,
+  "amostragem_filtragem": {
+    "gemini_N": 2472,
+    "gemini_amostragem": 460,
+    "gemini_filtragem": 1985,
+    "claude_N": 732,
+    "claude_amostragem": 157,
+    "claude_filtragem": 665
+  },
+  "validacao": {
+    "n": 732,
+    "ano_min": 2023,
+    "ano_max": 2026,
+    "n_ate_2022": 0,
+    "pct_arxiv": 75.5464480874317,
+    "pct_twitter": 43.85245901639344,
+    "pct_twitter_resto": 73.62068965517241
+  },
+  "persistencia_corpus": {
+    "nenhuma": 1420,
+    "outra": 381,
+    "github": 371,
+    "request": 145,
+    "doi": 155
+  },
+  "db_tech_corpus": 313,
+  "persistencia_gemini": {
+    "github": 404,
+    "request": 185,
+    "doi": 155
+  },
+  "volume": {
+    "N": 2179,
+    "mediana": 339763,
+    "pct_lt_10k": 18.31115190454337,
+    "pct_ge_1M": 41.07388710417623,
+    "grandes": 495,
+    "pct_grandes": 22.716842588343276
+  },
+  "grandes": {
+    "n": 495,
+    "amostram": 117,
+    "filtram": 427,
+    "db_tech": 44,
+    "persistencia": {
+      "github": 85,
+      "nenhuma": 252,
+      "doi": 40,
+      "request": 33,
+      "outra": 85
+    }
+  },
+  "extremos": [
+    {
+      "q": 118000000000,
+      "u": "tweets"
+    },
+    {
+      "q": 100000000000,
+      "u": "submissões"
+    },
+    {
+      "q": 100000000000,
+      "u": "engajamentos"
+    },
+    {
+      "q": 95831789680,
+      "u": "reações"
+    },
+    {
+      "q": 47276434192,
+      "u": "retweets"
+    },
+    {
+      "q": 41267348020,
+      "u": "tweets"
+    }
+  ],
+  "api_familias": {
+    "Twitter/X": 1083,
+    "YouTube": 173,
+    "Reddit": 142,
+    "Facebook/Instagram": 126,
+    "TikTok": 46
+  },
+  "temporal": {
+    "anos": [
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "total": [
+      9,
+      19,
+      30,
+      36,
+      88,
+      107,
+      97,
+      139,
+      155,
+      123,
+      128,
+      153,
+      316,
+      333,
+      341,
+      314,
+      84
+    ],
+    "twitter": [
+      8,
+      16,
+      24,
+      26,
+      74,
+      94,
+      85,
+      110,
+      120,
+      91,
+      103,
+      108,
+      215,
+      217,
+      186,
+      109,
+      16
+    ],
+    "arxiv": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      194,
+      213,
+      206,
+      176,
+      56
+    ],
+    "twitter_sem_arxiv": [
+      8,
+      16,
+      24,
+      26,
+      74,
+      94,
+      85,
+      110,
+      120,
+      91,
+      103,
+      108,
+      85,
+      88,
+      91,
+      65,
+      9
+    ]
+  },
+  "composicao": {
+    "arxiv": {
+      "n": 845,
+      "amostragem": 17.988165680473372,
+      "filtragem": 83.19526627218934,
+      "twitter": 47.928994082840234,
+      "api": 67.33727810650888
+    },
+    "nao_arxiv": {
+      "n": 1627,
+      "amostragem": 18.930547019053474,
+      "filtragem": 78.79532882606023,
+      "twitter": 73.57098955132145,
+      "api": 65.94960049170253
+    },
+    "ate_2021": {
+      "n": 1084,
+      "amostragem": 21.03321033210332,
+      "filtragem": 79.33579335793358,
+      "twitter": 79.24354243542436,
+      "api": 65.4059040590406,
+      "pct_base": 43.85113268608414,
+      "pct_catalogo": 69.01082493467712
+    },
+    "de_2022": {
+      "n": 1388,
+      "amostragem": 16.714697406340058,
+      "filtragem": 81.05187319884726,
+      "twitter": 53.53025936599423,
+      "api": 67.21902017291066,
+      "pct_base": 56.14886731391586,
+      "pct_catalogo": 30.989175065322883
+    },
+    "arxiv_ate_2021": 0,
+    "pct_arxiv_de_2022": 60.87896253602305
+  },
+  "reponderado": {
+    "twitter": 72.39337956751571,
+    "amostragem": 20.131739216583245,
+    "filtragem": 79.89217472870679,
+    "api": 65.8276007385932
+  },
+  "bruto": {
+    "n": 2472,
+    "amostragem": 18.6084142394822,
+    "filtragem": 80.29935275080906,
+    "twitter": 64.80582524271844,
+    "api": 66.42394822006473
+  },
+  "importacao": {
+    "hits_releitura": 17863,
+    "sem_doi": 3747,
+    "pct_sem_doi": 20.976319767116387,
+    "perda_real": 2915,
+    "perda_real_corr": 921,
+    "perda_real_sem_corr": 1994,
+    "perda_icwsm": 212,
+    "icwsm_hits": {
+      "sem_doi": 276,
+      "com_doi": 111
+    },
+    "perda_hicss": 122,
+    "perda_clef": 113,
+    "perda_ais": 280,
+    "top_venues": [
+      [
+        "CoRR",
+        921
+      ],
+      [
+        "ICWSM",
+        212
+      ],
+      [
+        "HICSS",
+        122
+      ],
+      [
+        "CLEF",
+        113
+      ],
+      [
+        "AMCIS",
+        102
+      ],
+      [
+        "?",
+        71
+      ],
+      [
+        "ICIS",
+        59
+      ],
+      [
+        "PACIS",
+        59
+      ],
+      [
+        "LREC",
+        51
+      ],
+      [
+        "ISCRAM",
+        41
+      ],
+      [
+        "ECIS",
+        39
+      ],
+      [
+        "AMIA",
+        33
+      ]
+    ],
+    "pct_plataforma_no_titulo": 99.98880367239545
+  },
+  "datasets": {
+    "n": 1016,
+    "familias": {
+      "Pushshift": 103,
+      "SemEval": 69,
+      "COVID-19": 53,
+      "Kaggle": 43,
+      "Deteccao de bots": 40
+    },
+    "so_dataset": 449,
+    "pct_classif_reusa": 40.74803149606299,
+    "pct_classif_nao_reusa": 30.837912087912088
+  },
+  "filtra_amostra": {
+    "so_filtra": 1595,
+    "filtra_e_amostra": 390,
+    "so_amostra": 70,
+    "nenhum": 417
+  },
+  "funil_acesso": {
+    "catalogo": {
+      "open": 3108,
+      "closed": 10200,
+      "outro": 87
+    },
+    "pdfs": {
+      "open": 2161,
+      "closed": 933,
+      "outro": 15
+    },
+    "pdfs_sem_extracao": 2,
+    "extraidos": {
+      "open": 2160,
+      "closed": 932,
+      "outro": 15
+    }
+  },
+  "funil": [
+    [
+      "Registros retornados pelo DBLP",
+      17812
+    ],
+    [
+      "Artigos unicos catalogados",
+      13395
+    ],
+    [
+      "PDFs obtidos, com extracao estruturada",
+      3107
+    ],
+    [
+      "Coletam dados de RSD (base)",
+      2472
+    ]
+  ],
+  "bd": {
+    "sem_detalhe": 12,
+    "nenhuma": 2159,
+    "sgbd": 133,
+    "arquivo": 168
+  },
+  "bd_sgbd_e_arquivo": 21,
+  "sgbd_tipos": {
+    "n": 133,
+    "tipos": {
+      "MongoDB": 32,
+      "MySQL/MariaDB": 17,
+      "Elasticsearch": 15,
+      "Hadoop (HDFS, Hive)": 11,
+      "SQLite": 8,
+      "PostgreSQL": 7,
+      "Neo4j": 9,
+      "Outros": 28,
+      "Sem nome": 23
+    }
+  }
+}

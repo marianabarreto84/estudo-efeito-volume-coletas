@@ -27,7 +27,7 @@
 
 ## 2. O que este repositório contém
 
-Este repo abriga o sistema de levantamento sistemático que alimenta a survey:
+Este repo abriga o sistema de revisão da literatura que alimenta a survey:
 
 - Backend **FastAPI + SQLite** que cataloga artigos sobre coleta de dados em
   redes sociais.
