@@ -1284,8 +1284,8 @@ afirmação e precisões, cada uma com a fonte da correção. **Decisão da Mari
 banca**; existe pronto para o caso de ser pedido ou de a decisão mudar. A Parte B do
 [ROTEIRO.md](ROTEIRO.md) remete a ele e mantém a coluna do que dizer.
 
-**5. O `PERGUNTAS.md` foi auditado e ampliado.** De 88 para **104** entradas, com **índice por
-gravidade** no topo e uma seção nova (**2.10**, artefatos e infraestrutura). Dezessete entradas novas,
+**5. O `PERGUNTAS.md` foi auditado e ampliado.** De 88 para **105** entradas, com **índice por
+gravidade** no topo e uma seção nova (**2.10**, artefatos e infraestrutura). Dezoito entradas novas,
 entre elas a tensão entre a PP3 prometida por tipo de análise e a resposta que desloca a unidade
 para a afirmação (2.1.10), as apostas pré-registradas que erraram (2.1.12), o alvo de 2018 que tem
 linha na tabela mestre e quase nada de texto (2.3.8) e o teto de 0,972 do NMI (2.5.14). Os números
@@ -1326,6 +1326,18 @@ texto está errado: ele está comprimido.
   artigo não?"*. É a pergunta de fundo da defesa, e a resposta em uma linha é que eles recomendam e
   ela mede: prevalência, teste da afirmação publicada, e a conclusão de que a sensibilidade é
   propriedade da afirmação, o que permite dizer **quando** a ressalva importa. → PERGUNTAS 2.1.16.
+
+**8. O caso do TikTok ganhou a sua própria entrada de defesa (PERGUNTAS 2.9.7).** A pergunta
+esperada não é "por que não houve expansão", que já estava respondida, e sim a versão dura: por que
+o caso está na dissertação, se não pode ser expandido e não passa pelo protocolo. A resposta
+registrada tem três partes. Ele mostra uma **quarta decisão de coleta** governando o número
+publicado, o momento da verificação, que é o fenômeno da tese com o eixo trocado. A expansão é
+impossível **por construção**, e não só por credencial: a quantidade medida é o que desapareceu, e
+coletar hoje alcança só o que sobreviveu, de modo que coletar depois é coletar menos. E ele passa
+pela Fase 0 (seis das sete afirmações reproduzem, quatro exatas) e pelas Fases 2 e 3 no eixo
+temporal, faltando só a Fase 1, que a tabela mestre deixa vazia em vez de preencher. A concessão
+registrada, se a objeção for de forma: isto poderia ser uma seção do capítulo de método sobre rotas
+de coleta, e o conteúdo não mudaria.
 
 **7. A taxonomia de tipos de análise foi auditada (28/set/2026).** A pergunta da Mariana era como
 garantir que o prompt não enviesou a detecção das análises. A resposta tem três camadas, todas
