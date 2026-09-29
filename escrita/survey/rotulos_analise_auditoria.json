@@ -1,0 +1,150 @@
+{
+ "base": 2472,
+ "artigos_com_rotulo": 2452,
+ "rotulos": 14237,
+ "rotulos_por_artigo": 5.81,
+ "fora_da_taxonomia": 7533,
+ "fora_pct": 52.9,
+ "fora_sem_guarda_chuva": 6189,
+ "fora_sem_guarda_chuva_pct": 43.5,
+ "artigos_sem_categoria_nenhuma": 143,
+ "artigos_sem_categoria_pct": 5.8,
+ "categorias": 13,
+ "artigos_por_categoria": {
+  "Estatística descritiva": 1070,
+  "Classificação": 863,
+  "Sentimento": 831,
+  "Análise de rede": 741,
+  "Temporal": 513,
+  "Modelagem de tópico": 464,
+  "Detecção de comunidades": 410,
+  "PLN (NER/embed.)": 370,
+  "Influência": 280,
+  "Centralidade": 224,
+  "Clusterização": 148,
+  "Desinformação/bots": 147,
+  "Predição de links": 4
+ },
+ "orfaos_mais_frequentes": [
+  [
+   "analise de conteudo",
+   1344
+  ],
+  [
+   "analise de correlacao",
+   232
+  ],
+  [
+   "analise de polarizacao",
+   230
+  ],
+  [
+   "analise de hashtags",
+   198
+  ],
+  [
+   "identificacao de bots",
+   140
+  ],
+  [
+   "regressao logistica",
+   105
+  ],
+  [
+   "validacao inter-anotadores",
+   79
+  ],
+  [
+   "processamento de linguagem natural",
+   76
+  ],
+  [
+   "deteccao de spam/bots",
+   76
+  ],
+  [
+   "regressao linear",
+   69
+  ],
+  [
+   "machine learning",
+   67
+  ],
+  [
+   "estatistica inferencial",
+   64
+  ],
+  [
+   "analise descritiva",
+   63
+  ],
+  [
+   "regressao",
+   55
+  ],
+  [
+   "anotacao manual",
+   54
+  ],
+  [
+   "random forest",
+   48
+  ],
+  [
+   "teste t",
+   40
+  ],
+  [
+   "analise de similaridade",
+   39
+  ],
+  [
+   "analise de engajamento",
+   37
+  ],
+  [
+   "visualizacao de dados",
+   37
+  ],
+  [
+   "analise de regressao",
+   34
+  ],
+  [
+   "deep learning",
+   34
+  ],
+  [
+   "modelagem preditiva",
+   34
+  ],
+  [
+   "teste qui-quadrado",
+   33
+  ],
+  [
+   "analise comparativa",
+   31
+  ],
+  [
+   "validacao cruzada",
+   31
+  ],
+  [
+   "deteccao de bots",
+   30
+  ],
+  [
+   "analise de series temporais",
+   27
+  ],
+  [
+   "identificacao de lideres de opiniao",
+   27
+  ],
+  [
+   "extracao de caracteristicas",
+   27
+  ]
+ ]
+}
