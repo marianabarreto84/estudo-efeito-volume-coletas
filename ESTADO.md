@@ -1327,17 +1327,24 @@ texto está errado: ele está comprimido.
   ela mede: prevalência, teste da afirmação publicada, e a conclusão de que a sensibilidade é
   propriedade da afirmação, o que permite dizer **quando** a ressalva importa. → PERGUNTAS 2.1.16.
 
-**8. O caso do TikTok ganhou a sua própria entrada de defesa (PERGUNTAS 2.9.7).** A pergunta
-esperada não é "por que não houve expansão", que já estava respondida, e sim a versão dura: por que
-o caso está na dissertação, se não pode ser expandido e não passa pelo protocolo. A resposta
-registrada tem três partes. Ele mostra uma **quarta decisão de coleta** governando o número
-publicado, o momento da verificação, que é o fenômeno da tese com o eixo trocado. A expansão é
-impossível **por construção**, e não só por credencial: a quantidade medida é o que desapareceu, e
-coletar hoje alcança só o que sobreviveu, de modo que coletar depois é coletar menos. E ele passa
-pela Fase 0 (seis das sete afirmações reproduzem, quatro exatas) e pelas Fases 2 e 3 no eixo
-temporal, faltando só a Fase 1, que a tabela mestre deixa vazia em vez de preencher. A concessão
-registrada, se a objeção for de forma: isto poderia ser uma seção do capítulo de método sobre rotas
-de coleta, e o conteúdo não mudaria.
+**8. A defesa do caso do TikTok foi refeita, e a primeira versão estava errada
+(PERGUNTAS 2.9.7).** A pergunta da Mariana desmontou a resposta anterior: se o alvo não é
+expansível por definição, a impossibilidade da expansão é argumento **contra** incluí-lo, e não a
+favor. A pergunta real é **por que esse alvo**, e ela tem resposta documentada em
+[ALVOS_candidatos.md](casos/tiktok/ALVOS_candidatos.md), que o `corpo.tex` não traz.
+⭐ O achado que sustenta a resposta é sobre a plataforma, e não sobre o artigo: **no TikTok os dois
+critérios de escolha de alvo são incompatíveis.** Os trabalhos de 300 a 530 citações são estudos
+culturais feitos à mão, sem afirmação computacional testável; os computacionais com sub-coleta
+declarada têm de 2 a 12 citações. Não é falha de busca: os 55 artigos de TikTok do corpus são todos
+de 2025-2026 e o mais citado tem 25 citações. **Três candidatos foram avaliados e recusados com
+motivo verificável** em 21/ago/2026, entre eles o que era a recomendação (periódico revisado por
+pares, 7 a 12 citações, com o melhor alvo-teste do conjunto: sete tópicos e um corte de dez mil
+visualizações), recusado porque o `robots.txt` do TikTok proíbe o endpoint de busca que a coleta
+dele usou, porque não publica identificadores e porque a janela é um instantâneo de 2023 sem data de
+início. Só então o critério da célula mudou, às claras, para "que trabalho publica dado suficiente
+para ser verificado sem coleta". A A2 do [ROTEIRO.md](ROTEIRO.md) ganhou esse resumo, e o
+`robots.txt` ficou registrado como argumento mais forte que a credencial revogada, que é a única
+razão que a §2.4 dá.
 
 **7. A taxonomia de tipos de análise foi auditada (28/set/2026).** A pergunta da Mariana era como
 garantir que o prompt não enviesou a detecção das análises. A resposta tem três camadas, todas
