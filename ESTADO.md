@@ -1284,8 +1284,8 @@ afirmação e precisões, cada uma com a fonte da correção. **Decisão da Mari
 banca**; existe pronto para o caso de ser pedido ou de a decisão mudar. A Parte B do
 [ROTEIRO.md](ROTEIRO.md) remete a ele e mantém a coluna do que dizer.
 
-**5. O `PERGUNTAS.md` foi auditado e ampliado.** De ~85 para **102** entradas, com **índice por
-gravidade** no topo e uma seção nova (**2.10**, artefatos e infraestrutura). Doze entradas novas,
+**5. O `PERGUNTAS.md` foi auditado e ampliado.** De 88 para **106** entradas, com **índice por
+gravidade** no topo e uma seção nova (**2.10**, artefatos e infraestrutura). Dezessete entradas novas,
 entre elas a tensão entre a PP3 prometida por tipo de análise e a resposta que desloca a unidade
 para a afirmação (2.1.10), as apostas pré-registradas que erraram (2.1.12), o alvo de 2018 que tem
 linha na tabela mestre e quase nada de texto (2.3.8) e o teto de 0,972 do NMI (2.5.14). Os números
