@@ -44,14 +44,16 @@ antes da medição.
    e é dado pessoal de terceiros. O que se publica são os agregados: as curvas, as contagens por
    dia, as tabelas de resultado. Os acervos originais estão preservados no laboratório eTC da
    PUC-Rio e o acesso é institucional.
-2. **Gabarito humano de stance.** São seis arquivos, 1.005 linhas no total, rotulados à mão, que
-   incluem o texto do tweet, o identificador do autor e a contagem de seguidores. Não são
-   redistribuídos, pela mesma razão do item anterior. O pré-registro, o codebook e os agregados
-   estão publicados.
-   > ⚠ Esses arquivos estão em `casos/twitter-ituassu/data/repl/compos2014/stance/gold_stance_*.csv`
-   > e **foram versionados por engano** antes desta revisão, inclusive no histórico. Qualquer
-   > publicação do repositório tem de removê-los primeiro, e remover do histórico não é suficiente
-   > se o repositório já tiver sido aberto. Ver `ESTADO.md` §4.30.
+2. **Rotulagem humana e reconstruções de amostra.** Seis arquivos de gabarito de *stance*
+   (`casos/twitter-ituassu/data/repl/compos2014/stance/gold_stance_*.csv`, 1.005 linhas) e três JSON
+   de reconstrução de amostra trazem o texto da publicação, o identificador do autor e a contagem de
+   seguidores. Eles **fazem parte deste repositório**, porque é deles que sai a rotulagem que o
+   Capítulo 4 usa e sem eles a etapa mais cara do caso não é verificável. O que os números do texto
+   usam são os agregados, e é por eles que o mapa acima aponta.
+   > ⚠ Quem reusar esses arquivos está reusando dado pessoal de terceiros publicado numa plataforma
+   > que hoje proíbe a redistribuição do conteúdo. O depósito de artefatos que acompanha este
+   > trabalho **não os inclui**: ele traz só scripts, pré-registros e agregados, verificados por
+   > conteúdo, e o `MANIFESTO.md` de lá lista o que ficou de fora e por quê.
 3. **Metadados de vídeo e de canal do YouTube.** Obtidos pela Data API v3, cujos termos restringem
    o armazenamento e a redistribuição. A coleta é refazível: as oitenta e cinco buscas estão
    declaradas no caso, e a chave da API é gratuita.
