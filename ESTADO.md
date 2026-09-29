@@ -1346,6 +1346,39 @@ para ser verificado sem coleta". A A2 do [ROTEIRO.md](ROTEIRO.md) ganhou esse re
 `robots.txt` ficou registrado como argumento mais forte que a credencial revogada, que é a única
 razão que a §2.4 dá.
 
+**9. ⭐ O caso do TikTok passou a responder às duas perguntas do protocolo (28/set/2026).** Foi
+a Mariana que viu: se o mesmo corpus é reverificado em três datas, o conjunto disponível numa data é
+**subconjunto** do da anterior, e essa é a relação que o protocolo pede, com o eixo trocado. A conta
+faltava porque a atribuição autor × plataforma só havia rodado na coleta **federal**, que tem uma
+data de verificação, e a coleta com três datas é a da **Saxônia**. Cruzar as duas coisas não exige
+coleta nenhuma.
+
+Resultado, pela regra de atribuição do próprio caso, sobre o mesmo painel de 100.926 publicações
+([`fase3_eixo_temporal.py`](casos/tiktok/analise/fase3_eixo_temporal.py)):
+
+| verificação | deletados | taxa | autor | plataforma | indefinido |
+|---|---:|---:|---:|---:|---:|
+| 02/out/2024, 1 mês | 6.375 | 6,3% | 61,8% | 18,0% | 20,2% |
+| 10/dez/2024, 3 meses | 17.585 | 17,4% | 63,7% | 15,5% | 20,8% |
+| 13/jan/2025, 4,5 meses | 21.053 | 20,9% | 65,3% | 15,1% | 19,7% |
+
+**A taxa muda e não convergiu** (triplica, e a outra coleta marca 39,7% aos 16 meses); **a atribuição
+não muda e já havia convergido** na primeira reverificação, um mês depois da eleição, com o valor do
+artigo (66,7%) alcançado no último horizonte. São duas afirmações do mesmo corpus, sob a mesma
+decisão de coleta, uma frágil e uma robusta: é o padrão central da dissertação reproduzido no quarto
+eixo, e desfaz a leitura de que o caso não instancia o protocolo. → PERGUNTAS 2.9.8.
+
+⚠ **O que não é mensurável, e por quê.** A composição de **conteúdo** dos dois lados da linha de
+deleção seria o teste mais forte e não dá: a única variável de conteúdo publicada é a anotação de
+**360 posts**, e eles estão **100% deletados já na segunda data** (contra 17,4% do painel), com 122
+deles, 33,9%, já deletados na primeira (contra 6,3%). A amostra de anotação está **dentro do estrato
+deletado**, sobram três posts anotados disponíveis na última data, e os autores declaram que
+subconjuntos aleatórios não são publicados e que o acesso ao conteúdo deletado é restrito.
+⭐ Consequência sobre o alvo, que é achado próprio: as duas afirmações de anotação dele, um em cada
+cinco posts com intolerância e a maioria com humor, descrevem esse subconjunto não aleatório de
+conteúdo deletado, e não o corpus. É a mesma estrutura do caso das vacinas, onde uma afirmação
+verdadeira no estrato viral é lida como se valesse para o debate.
+
 **7. A taxonomia de tipos de análise foi auditada (28/set/2026).** A pergunta da Mariana era como
 garantir que o prompt não enviesou a detecção das análises. A resposta tem três camadas, todas
 declaradas: as regras 1 e 5 do prompt (evidência direta, e só o que foi executado), o campo ser
