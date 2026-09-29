@@ -1,0 +1,66 @@
+{
+ "n_painel": 100926,
+ "n_coleta": 195373,
+ "por_data": {
+  "2024_10_02": {
+   "horizonte": "1 mes",
+   "deletados": 6375,
+   "taxa_pct": 6.3,
+   "autor_pct_dos_deletados": 61.8,
+   "plataforma_pct_dos_deletados": 18.0,
+   "indefinido_pct_dos_deletados": 20.2,
+   "plataforma_conv_F_pct_de_todos": 3.0
+  },
+  "2024_12_10": {
+   "horizonte": "3 meses",
+   "deletados": 17585,
+   "taxa_pct": 17.4,
+   "autor_pct_dos_deletados": 63.7,
+   "plataforma_pct_dos_deletados": 15.5,
+   "indefinido_pct_dos_deletados": 20.8,
+   "plataforma_conv_F_pct_de_todos": 7.5
+  },
+  "2025_01_13": {
+   "horizonte": "4,5 meses",
+   "deletados": 21053,
+   "taxa_pct": 20.9,
+   "autor_pct_dos_deletados": 65.3,
+   "plataforma_pct_dos_deletados": 15.1,
+   "indefinido_pct_dos_deletados": 19.7,
+   "plataforma_conv_F_pct_de_todos": 8.7
+  }
+ },
+ "leitura": {
+  "taxa": {
+   "mudou": "sim, triplica: 6.3% -> 20.9%",
+   "convergiu": "nao; o crescimento desacelera mas nao assenta, e a outra coleta do mesmo artigo marca 39,7%% aos 16 meses"
+  },
+  "atribuicao_autor_x_plataforma": {
+   "mudou": "nao; autor vai de 61.8% a 65.3% dos deletados (3.5 p.p.) e plataforma de 18.0% a 15.1%",
+   "convergiu": "sim, ja na primeira reverificacao, um mes depois da eleicao",
+   "alvo_do_artigo": "cerca de dois tercos (66,7%) de retirada pelo autor"
+  },
+  "por_que_importa": "duas afirmacoes do mesmo corpus, sob a mesma decisao de coleta: quanto foi deletado depende da data, e quem deletou nao. E o padrao central da dissertacao, reproduzido no quarto eixo."
+ },
+ "amostra_anotada": {
+  "linhas_de_anotacao": 935,
+  "posts_unicos": 360,
+  "estados_por_data": {
+   "2024_10_02": {
+    "AVAILABLE": 232,
+    "DELETED": 122,
+    "NOT_RESCRAPED": 6
+   },
+   "2024_12_10": {
+    "DELETED": 360
+   },
+   "2025_01_13": {
+    "DELETED": 348,
+    "UNKNOWN_ERROR": 9,
+    "AVAILABLE": 3
+   }
+  },
+  "achado": "os 360 posts anotados estao 100% DELETED ja na segunda data, contra 17.4% do painel; 122 deles (33.9%) ja estavam deletados na primeira, contra 6.3%. A amostra de anotacao esta dentro do estrato deletado, e os autores declaram que subconjuntos aleatorios nao sao publicados.",
+  "consequencia": "nao ha grupo sobrevivente anotado para comparar (3 posts na ultima data), de modo que a composicao de CONTEUDO dos dois lados da linha de delecao nao e mensuravel com o que esta publicado. As duas afirmacoes de anotacao do artigo descrevem esse subconjunto, que e conteudo deletado, e nao o corpus."
+ }
+}
