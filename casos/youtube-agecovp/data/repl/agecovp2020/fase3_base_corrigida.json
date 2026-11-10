@@ -1,0 +1,53 @@
+{
+ "limiar_inscritos": 10000,
+ "truncada (texto entregue)": {
+  "n_tema": 1615,
+  "mediana_inscritos": {
+   "aprovados": 28000.0,
+   "descartados": 61500,
+   "canal_no_corpus": 199000.0,
+   "canal_fora_do_corpus": 1070
+  },
+  "filtro_dentro_de_cada_estrato": {
+   "canal no corpus": {
+    "ugc_passa_pct": 24.5,
+    "n_passa": 721,
+    "ugc_descarta_pct": 21.0,
+    "n_descarta": 319,
+    "delta_pp": -3.5
+   },
+   "canal fora do corpus": {
+    "ugc_passa_pct": 65.1,
+    "n_passa": 401,
+    "ugc_descarta_pct": 54.0,
+    "n_descarta": 174,
+    "delta_pp": -11.1
+   }
+  }
+ },
+ "corrigida (descricao completa)": {
+  "n_tema": 1833,
+  "mediana_inscritos": {
+   "aprovados": 20000,
+   "descartados": 67600.0,
+   "canal_no_corpus": 199000,
+   "canal_fora_do_corpus": 1315.0
+  },
+  "filtro_dentro_de_cada_estrato": {
+   "canal no corpus": {
+    "ugc_passa_pct": 27.0,
+    "n_passa": 829,
+    "ugc_descarta_pct": 19.6,
+    "n_descarta": 296,
+    "delta_pp": -7.4
+   },
+   "canal fora do corpus": {
+    "ugc_passa_pct": 64.6,
+    "n_passa": 514,
+    "ugc_descarta_pct": 50.5,
+    "n_descarta": 194,
+    "delta_pp": -14.1
+   }
+  }
+ }
+}

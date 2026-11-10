@@ -1,0 +1,46 @@
+{
+ "artigo": {
+  "participantes": 279,
+  "subreddits": 10,
+  "multi": 7,
+  "pct": 2.5
+ },
+ "convencoes": [
+  {
+   "convencao": "arestas, >20",
+   "participantes": 188,
+   "subreddits": 9,
+   "multi_recorte": 0,
+   "pct_recorte": 0.0,
+   "multi_universo_mesma_pop": 11,
+   "pct_universo_mesma_pop": 5.9
+  },
+  {
+   "convencao": "arestas, >=20",
+   "participantes": 205,
+   "subreddits": 10,
+   "multi_recorte": 1,
+   "pct_recorte": 0.5,
+   "multi_universo_mesma_pop": 14,
+   "pct_universo_mesma_pop": 6.8
+  },
+  {
+   "convencao": "respostas, >20",
+   "participantes": 235,
+   "subreddits": 11,
+   "multi_recorte": 2,
+   "pct_recorte": 0.9,
+   "multi_universo_mesma_pop": 21,
+   "pct_universo_mesma_pop": 8.9
+  },
+  {
+   "convencao": "respostas, >=20",
+   "participantes": 259,
+   "subreddits": 11,
+   "multi_recorte": 2,
+   "pct_recorte": 0.8,
+   "multi_universo_mesma_pop": 25,
+   "pct_universo_mesma_pop": 9.7
+  }
+ ]
+}

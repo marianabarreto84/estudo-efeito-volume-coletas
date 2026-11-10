@@ -1,0 +1,635 @@
+{
+ "seed": 20260928,
+ "banda_neutralidade": 0.05,
+ "replicas": 400,
+ "limiar_inscritos": 10000,
+ "instrumento": {
+  "n_amostra": 400,
+  "campos": {
+   "so o titulo": {
+    "vader_exatos_pct": 18.2,
+    "vader_mae": 0.398,
+    "textblob_exatos_pct": 23.5,
+    "textblob_mae": 0.1283
+   },
+   "so a descricao": {
+    "vader_exatos_pct": 41.8,
+    "vader_mae": 0.1161,
+    "textblob_exatos_pct": 49.5,
+    "textblob_mae": 0.0282
+   },
+   "titulo + descricao": {
+    "vader_exatos_pct": 75.2,
+    "vader_mae": 0.0289,
+    "textblob_exatos_pct": 85.0,
+    "textblob_mae": 0.0052
+   },
+   "titulo + descricao + tags": {
+    "vader_exatos_pct": 69.5,
+    "vader_mae": 0.0398,
+    "textblob_exatos_pct": 74.5,
+    "textblob_mae": 0.0099
+   }
+  },
+  "escolhido": "titulo + descricao"
+ },
+ "ponto_original_gabarito": {
+  "n": 3782,
+  "alvo_artigo": {
+   "vader_pos": 59.0,
+   "textblob_pos": 72.0
+  },
+  "medido": {
+   "VADER_banda_0.00": {
+    "positivo": 62.6,
+    "neutro": 15.7,
+    "negativo": 21.7,
+    "erro_pp": 3.6
+   },
+   "VADER_banda_0.05": {
+    "positivo": 61.9,
+    "neutro": 17.2,
+    "negativo": 20.9,
+    "erro_pp": 2.9
+   },
+   "VADER_banda_0.10": {
+    "positivo": 61.1,
+    "neutro": 18.6,
+    "negativo": 20.3,
+    "erro_pp": 2.1
+   },
+   "TextBlob_banda_0.00": {
+    "positivo": 81.2,
+    "neutro": 10.5,
+    "negativo": 8.3,
+    "erro_pp": 9.2
+   },
+   "TextBlob_banda_0.05": {
+    "positivo": 74.7,
+    "neutro": 20.2,
+    "negativo": 5.1,
+    "erro_pp": 2.7
+   },
+   "TextBlob_banda_0.10": {
+    "positivo": 62.8,
+    "neutro": 34.5,
+    "negativo": 2.7,
+    "erro_pp": -9.2
+   }
+  }
+ },
+ "artefato_do_texto_truncado": {
+  "mediana_truncada": 125.0,
+  "mediana_completa": 409.0,
+  "sem_descricao_completa": 278,
+  "no_tema_truncada": 1615,
+  "no_tema_completa": 1833,
+  "pos_truncada": {
+   "VADER": 46.2,
+   "TextBlob": 46.9
+  },
+  "pos_completa": {
+   "VADER": 62.8,
+   "TextBlob": 64.9
+  }
+ },
+ "validacao_cruzada": {
+  "n": 552,
+  "VADER": {
+   "publicado": {
+    "positivo": 61.8,
+    "neutro": 12.7,
+    "negativo": 25.5
+   },
+   "nosso_completo": {
+    "positivo": 62.0,
+    "neutro": 12.1,
+    "negativo": 25.9
+   },
+   "nosso_truncado": {
+    "positivo": 49.3,
+    "neutro": 25.4,
+    "negativo": 25.4
+   }
+  },
+  "TextBlob": {
+   "publicado": {
+    "positivo": 72.1,
+    "neutro": 23.0,
+    "negativo": 4.9
+   },
+   "nosso_completo": {
+    "positivo": 72.3,
+    "neutro": 22.8,
+    "negativo": 4.9
+   },
+   "nosso_truncado": {
+    "positivo": 54.9,
+    "neutro": 37.1,
+    "negativo": 8.0
+   }
+  }
+ },
+ "coleta": {
+  "todos os coletados": {
+   "n": 3446,
+   "com filtro (analogo ao corpus do artigo)": {
+    "n": 1299,
+    "VADER": {
+     "positivo": 63.8,
+     "neutro": 14.9,
+     "negativo": 21.3,
+     "pos_ic95": [
+      61.4,
+      66.4
+     ],
+     "polaridade_media": 0.3156,
+     "pos_menos_neg_pp": 42.5
+    },
+    "TextBlob": {
+     "positivo": 67.1,
+     "neutro": 26.1,
+     "negativo": 6.9,
+     "pos_ic95": [
+      64.5,
+      69.7
+     ],
+     "polaridade_media": 0.1416,
+     "pos_menos_neg_pp": 60.2
+    }
+   },
+   "SEM filtro (tudo o que a busca devolveu)": {
+    "n": 3446,
+    "VADER": {
+     "positivo": 62.8,
+     "neutro": 15.7,
+     "negativo": 21.4,
+     "pos_ic95": [
+      61.1,
+      64.4
+     ],
+     "polaridade_media": 0.3215,
+     "pos_menos_neg_pp": 41.4
+    },
+    "TextBlob": {
+     "positivo": 64.9,
+     "neutro": 28.2,
+     "negativo": 6.8,
+     "pos_ic95": [
+      63.3,
+      66.9
+     ],
+     "polaridade_media": 0.139,
+     "pos_menos_neg_pp": 58.1
+    }
+   },
+   "so os descartados pelo filtro": {
+    "n": 2147,
+    "VADER": {
+     "positivo": 62.2,
+     "neutro": 16.3,
+     "negativo": 21.5,
+     "pos_ic95": [
+      59.9,
+      64.5
+     ],
+     "polaridade_media": 0.325,
+     "pos_menos_neg_pp": 40.7
+    },
+    "TextBlob": {
+     "positivo": 63.6,
+     "neutro": 29.5,
+     "negativo": 6.8,
+     "pos_ic95": [
+      61.6,
+      65.6
+     ],
+     "polaridade_media": 0.1374,
+     "pos_menos_neg_pp": 56.8
+    }
+   },
+   "delta_sem_menos_com": {
+    "VADER": {
+     "delta_pp": -1.0,
+     "ic95": [
+      -4.1,
+      2.0
+     ],
+     "significativo": false
+    },
+    "TextBlob": {
+     "delta_pp": -2.1,
+     "ic95": [
+      -5.3,
+      1.0
+     ],
+     "significativo": false
+    }
+   }
+  },
+  "so no tema": {
+   "n": 1833,
+   "com filtro (analogo ao corpus do artigo)": {
+    "n": 1186,
+    "VADER": {
+     "positivo": 63.0,
+     "neutro": 14.8,
+     "negativo": 22.2,
+     "pos_ic95": [
+      59.9,
+      65.6
+     ],
+     "polaridade_media": 0.3044,
+     "pos_menos_neg_pp": 40.8
+    },
+    "TextBlob": {
+     "positivo": 67.1,
+     "neutro": 26.1,
+     "negativo": 6.8,
+     "pos_ic95": [
+      64.4,
+      69.9
+     ],
+     "polaridade_media": 0.141,
+     "pos_menos_neg_pp": 60.3
+    }
+   },
+   "SEM filtro (tudo o que a busca devolveu)": {
+    "n": 1833,
+    "VADER": {
+     "positivo": 63.0,
+     "neutro": 14.1,
+     "negativo": 22.9,
+     "pos_ic95": [
+      60.6,
+      65.2
+     ],
+     "polaridade_media": 0.3082,
+     "pos_menos_neg_pp": 40.1
+    },
+    "TextBlob": {
+     "positivo": 67.8,
+     "neutro": 25.8,
+     "negativo": 6.4,
+     "pos_ic95": [
+      65.6,
+      70.0
+     ],
+     "polaridade_media": 0.1421,
+     "pos_menos_neg_pp": 61.4
+    }
+   },
+   "so os descartados pelo filtro": {
+    "n": 647,
+    "VADER": {
+     "positivo": 63.1,
+     "neutro": 12.7,
+     "negativo": 24.3,
+     "pos_ic95": [
+      59.4,
+      66.6
+     ],
+     "polaridade_media": 0.3152,
+     "pos_menos_neg_pp": 38.8
+    },
+    "TextBlob": {
+     "positivo": 68.9,
+     "neutro": 25.3,
+     "negativo": 5.7,
+     "pos_ic95": [
+      65.5,
+      72.8
+     ],
+     "polaridade_media": 0.1443,
+     "pos_menos_neg_pp": 63.2
+    }
+   },
+   "delta_sem_menos_com": {
+    "VADER": {
+     "delta_pp": 0.0,
+     "ic95": [
+      -3.6,
+      4.2
+     ],
+     "significativo": false
+    },
+    "TextBlob": {
+     "delta_pp": 0.6,
+     "ic95": [
+      -2.6,
+      3.8
+     ],
+     "significativo": false
+    }
+   }
+  }
+ },
+ "explicacao_do_artigo": {
+  "n": 1833,
+  "UGC (conteudo de usuario)": {
+   "n": 712,
+   "VADER": {
+    "positivo": 64.9,
+    "neutro": 14.6,
+    "negativo": 20.5,
+    "polaridade_media": 0.3454
+   },
+   "TextBlob": {
+    "positivo": 66.9,
+    "neutro": 26.3,
+    "negativo": 6.9,
+    "polaridade_media": 0.1284
+   }
+  },
+  "institucional / imprensa": {
+   "n": 1121,
+   "VADER": {
+    "positivo": 61.8,
+    "neutro": 13.7,
+    "negativo": 24.4,
+    "polaridade_media": 0.2846
+   },
+   "TextBlob": {
+    "positivo": 68.3,
+    "neutro": 25.5,
+    "negativo": 6.2,
+    "polaridade_media": 0.1508
+   }
+  },
+  "delta_ugc_menos_institucional": {
+   "VADER": {
+    "delta_pp": 3.1,
+    "ic95": [
+     -2.0,
+     7.6
+    ],
+    "significativo": false
+   },
+   "TextBlob": {
+    "delta_pp": -1.5,
+    "ic95": [
+     -5.9,
+     3.0
+    ],
+    "significativo": false
+   }
+  }
+ },
+ "sensibilidade": {
+  "banda_0.00": {
+   "VADER": {
+    "com_filtro": {
+     "positivo": 64.2,
+     "neutro": 13.4,
+     "negativo": 22.4
+    },
+    "sem_filtro": {
+     "positivo": 63.9,
+     "neutro": 12.9,
+     "negativo": 23.2
+    },
+    "delta_pp": -0.3
+   },
+   "TextBlob": {
+    "com_filtro": {
+     "positivo": 73.6,
+     "neutro": 16.2,
+     "negativo": 10.2
+    },
+    "sem_filtro": {
+     "positivo": 75.0,
+     "neutro": 15.2,
+     "negativo": 9.9
+    },
+    "delta_pp": 1.4
+   }
+  },
+  "banda_0.05": {
+   "VADER": {
+    "com_filtro": {
+     "positivo": 63.0,
+     "neutro": 14.8,
+     "negativo": 22.2
+    },
+    "sem_filtro": {
+     "positivo": 63.0,
+     "neutro": 14.1,
+     "negativo": 22.9
+    },
+    "delta_pp": 0.0
+   },
+   "TextBlob": {
+    "com_filtro": {
+     "positivo": 67.1,
+     "neutro": 26.1,
+     "negativo": 6.8
+    },
+    "sem_filtro": {
+     "positivo": 67.8,
+     "neutro": 25.8,
+     "negativo": 6.4
+    },
+    "delta_pp": 0.7
+   }
+  },
+  "banda_0.10": {
+   "VADER": {
+    "com_filtro": {
+     "positivo": 62.4,
+     "neutro": 15.9,
+     "negativo": 21.8
+    },
+    "sem_filtro": {
+     "positivo": 62.4,
+     "neutro": 15.3,
+     "negativo": 22.3
+    },
+    "delta_pp": 0.0
+   },
+   "TextBlob": {
+    "com_filtro": {
+     "positivo": 58.2,
+     "neutro": 37.6,
+     "negativo": 4.2
+    },
+    "sem_filtro": {
+     "positivo": 57.6,
+     "neutro": 38.3,
+     "negativo": 4.1
+    },
+    "delta_pp": -0.6
+   }
+  },
+  "so_escrita_latina": {
+   "VADER": {
+    "com_filtro": {
+     "positivo": 62.9,
+     "neutro": 14.8,
+     "negativo": 22.3
+    },
+    "sem_filtro": {
+     "positivo": 62.9,
+     "neutro": 14.1,
+     "negativo": 23.0
+    },
+    "delta_pp": 0.0
+   },
+   "TextBlob": {
+    "com_filtro": {
+     "positivo": 67.3,
+     "neutro": 25.8,
+     "negativo": 6.9
+    },
+    "sem_filtro": {
+     "positivo": 67.9,
+     "neutro": 25.6,
+     "negativo": 6.5
+    },
+    "delta_pp": 0.6
+   },
+   "n": 1826
+  },
+  "texto_truncado": {
+   "VADER": {
+    "com_filtro": {
+     "positivo": 48.1,
+     "neutro": 25.5,
+     "negativo": 26.5
+    },
+    "sem_filtro": {
+     "positivo": 46.9,
+     "neutro": 26.1,
+     "negativo": 27.0
+    },
+    "delta_pp": -1.2
+   },
+   "TextBlob": {
+    "com_filtro": {
+     "positivo": 52.8,
+     "neutro": 38.0,
+     "negativo": 9.2
+    },
+    "sem_filtro": {
+     "positivo": 51.9,
+     "neutro": 38.3,
+     "negativo": 9.8
+    },
+    "delta_pp": -0.9
+   }
+  }
+ },
+ "convergencia_sem_filtro_no_tema": {
+  "50": {
+   "VADER": {
+    "pos": 62.9,
+    "ic95": [
+     52.0,
+     76.0
+    ]
+   },
+   "TextBlob": {
+    "pos": 67.4,
+    "ic95": [
+     56.0,
+     80.0
+    ]
+   }
+  },
+  "100": {
+   "VADER": {
+    "pos": 63.0,
+    "ic95": [
+     53.0,
+     73.0
+    ]
+   },
+   "TextBlob": {
+    "pos": 67.4,
+    "ic95": [
+     58.0,
+     76.0
+    ]
+   }
+  },
+  "200": {
+   "VADER": {
+    "pos": 63.1,
+    "ic95": [
+     57.0,
+     69.0
+    ]
+   },
+   "TextBlob": {
+    "pos": 67.5,
+    "ic95": [
+     61.5,
+     74.0
+    ]
+   }
+  },
+  "400": {
+   "VADER": {
+    "pos": 62.8,
+    "ic95": [
+     58.0,
+     67.2
+    ]
+   },
+   "TextBlob": {
+    "pos": 67.6,
+    "ic95": [
+     64.0,
+     71.8
+    ]
+   }
+  },
+  "800": {
+   "VADER": {
+    "pos": 63.0,
+    "ic95": [
+     60.8,
+     65.5
+    ]
+   },
+   "TextBlob": {
+    "pos": 67.8,
+    "ic95": [
+     65.4,
+     70.1
+    ]
+   }
+  },
+  "1200": {
+   "VADER": {
+    "pos": 62.9,
+    "ic95": [
+     61.2,
+     64.6
+    ]
+   },
+   "TextBlob": {
+    "pos": 67.8,
+    "ic95": [
+     66.2,
+     69.4
+    ]
+   }
+  },
+  "1833": {
+   "VADER": {
+    "pos": 63.0,
+    "ic95": [
+     63.0,
+     63.0
+    ]
+   },
+   "TextBlob": {
+    "pos": 67.8,
+    "ic95": [
+     67.8,
+     67.8
+    ]
+   }
+  }
+ }
+}

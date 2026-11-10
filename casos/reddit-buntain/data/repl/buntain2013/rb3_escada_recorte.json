@@ -1,0 +1,61 @@
+{
+ "populacao_fixa": 259,
+ "artigo": {
+  "participantes": 279,
+  "multi": 7,
+  "pct": 2.5
+ },
+ "posts_no_recorte": 1261,
+ "posts_no_universo": 43479,
+ "escada": [
+  {
+   "degrau": "top-100 x 200 (o do artigo)",
+   "posts": 1261,
+   "qualificado_em_mais_de_1": {
+    "n": 2,
+    "pct": 0.8
+   },
+   "presente_em_mais_de_1": {
+    "n": 70,
+    "pct": 27.0
+   }
+  },
+  {
+   "degrau": "top-100 x todos os comentarios",
+   "posts": 1261,
+   "qualificado_em_mais_de_1": {
+    "n": 9,
+    "pct": 3.5
+   },
+   "presente_em_mais_de_1": {
+    "n": 90,
+    "pct": 34.7
+   }
+  },
+  {
+   "degrau": "TODAS as submissoes x 200",
+   "posts": 43479,
+   "qualificado_em_mais_de_1": {
+    "n": 15,
+    "pct": 5.8
+   },
+   "presente_em_mais_de_1": {
+    "n": 93,
+    "pct": 35.9
+   }
+  },
+  {
+   "degrau": "universo (tudo)",
+   "posts": 43479,
+   "qualificado_em_mais_de_1": {
+    "n": 25,
+    "pct": 9.7
+   },
+   "presente_em_mais_de_1": {
+    "n": 107,
+    "pct": 41.3
+   }
+  }
+ ],
+ "conferencia_presenca_universo": 107
+}

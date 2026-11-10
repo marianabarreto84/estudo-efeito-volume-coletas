@@ -1,0 +1,272 @@
+{
+ "corpus_publicado": {
+  "min": "2020-01-28T12:39:44Z",
+  "max": "2022-08-21T22:48:04Z"
+ },
+ "nossa_coleta": {
+  "min": "2020-01-11T12:43:23Z",
+  "max": "2022-08-31T09:12:22Z"
+ },
+ "publicados_depois_do_mais_recente_deles": 18,
+ "limiar_inscritos": 10000,
+ "cortes": {
+  "como publicado (descricao truncada)": {
+   "sem corte": {
+    "n_coletados": 3446,
+    "n_tema": 1615,
+    "filtro": {
+     "ugc_passa_pct": 39.0,
+     "ugc_descarta_pct": 32.7,
+     "delta_pp": -6.4,
+     "ic95": [
+      -11.4,
+      -1.4
+     ]
+    },
+    "funil": {
+     "ugc_dentro_pct": 23.5,
+     "n_dentro": 1040,
+     "ugc_fora_pct": 61.7,
+     "n_fora": 575,
+     "delta_pp": 38.3,
+     "ic95": [
+      33.5,
+      43.0
+     ]
+    },
+    "residuo_no_tema_pct": 23.0
+   },
+   "2022-08-21": {
+    "n_coletados": 3426,
+    "n_tema": 1613,
+    "filtro": {
+     "ugc_passa_pct": 39.0,
+     "ugc_descarta_pct": 32.7,
+     "delta_pp": -6.3,
+     "ic95": [
+      -11.3,
+      -1.2
+     ]
+    },
+    "funil": {
+     "ugc_dentro_pct": 23.4,
+     "n_dentro": 1039,
+     "ugc_fora_pct": 61.8,
+     "n_fora": 574,
+     "delta_pp": 38.5,
+     "ic95": [
+      33.7,
+      43.2
+     ]
+    },
+    "residuo_no_tema_pct": 23.1
+   },
+   "2022-06-30": {
+    "n_coletados": 3357,
+    "n_tema": 1605,
+    "filtro": {
+     "ugc_passa_pct": 39.0,
+     "ugc_descarta_pct": 32.7,
+     "delta_pp": -6.4,
+     "ic95": [
+      -11.4,
+      -1.3
+     ]
+    },
+    "funil": {
+     "ugc_dentro_pct": 23.4,
+     "n_dentro": 1035,
+     "ugc_fora_pct": 61.9,
+     "n_fora": 570,
+     "delta_pp": 38.5,
+     "ic95": [
+      33.8,
+      43.3
+     ]
+    },
+    "residuo_no_tema_pct": 23.7
+   },
+   "2022-01-01": {
+    "n_coletados": 3113,
+    "n_tema": 1533,
+    "filtro": {
+     "ugc_passa_pct": 39.4,
+     "ugc_descarta_pct": 33.4,
+     "delta_pp": -6.0,
+     "ic95": [
+      -11.2,
+      -0.8
+     ]
+    },
+    "funil": {
+     "ugc_dentro_pct": 23.6,
+     "n_dentro": 987,
+     "ugc_fora_pct": 63.0,
+     "n_fora": 546,
+     "delta_pp": 39.4,
+     "ic95": [
+      34.6,
+      44.2
+     ]
+    },
+    "residuo_no_tema_pct": 24.3
+   },
+   "2021-06-30": {
+    "n_coletados": 2800,
+    "n_tema": 1418,
+    "filtro": {
+     "ugc_passa_pct": 39.6,
+     "ugc_descarta_pct": 34.7,
+     "delta_pp": -4.9,
+     "ic95": [
+      -10.5,
+      0.6
+     ]
+    },
+    "funil": {
+     "ugc_dentro_pct": 23.3,
+     "n_dentro": 915,
+     "ugc_fora_pct": 65.4,
+     "n_fora": 503,
+     "delta_pp": 42.1,
+     "ic95": [
+      37.2,
+      47.1
+     ]
+    },
+    "residuo_no_tema_pct": 24.2
+   }
+  },
+  "corrigido (descricao completa)": {
+   "sem corte": {
+    "n_coletados": 3446,
+    "n_tema": 1833,
+    "filtro": {
+     "ugc_passa_pct": 41.4,
+     "ugc_descarta_pct": 31.8,
+     "delta_pp": -9.6,
+     "ic95": [
+      -14.5,
+      -4.7
+     ]
+    },
+    "funil": {
+     "ugc_dentro_pct": 25.1,
+     "n_dentro": 1125,
+     "ugc_fora_pct": 60.7,
+     "n_fora": 708,
+     "delta_pp": 35.7,
+     "ic95": [
+      31.3,
+      40.1
+     ]
+    },
+    "residuo_no_tema_pct": 24.9
+   },
+   "2022-08-21": {
+    "n_coletados": 3426,
+    "n_tema": 1831,
+    "filtro": {
+     "ugc_passa_pct": 41.4,
+     "ugc_descarta_pct": 31.9,
+     "delta_pp": -9.5,
+     "ic95": [
+      -14.4,
+      -4.6
+     ]
+    },
+    "funil": {
+     "ugc_dentro_pct": 25.0,
+     "n_dentro": 1124,
+     "ugc_fora_pct": 60.8,
+     "n_fora": 707,
+     "delta_pp": 35.8,
+     "ic95": [
+      31.4,
+      40.2
+     ]
+    },
+    "residuo_no_tema_pct": 25.1
+   },
+   "2022-06-30": {
+    "n_coletados": 3357,
+    "n_tema": 1819,
+    "filtro": {
+     "ugc_passa_pct": 41.4,
+     "ugc_descarta_pct": 31.6,
+     "delta_pp": -9.8,
+     "ic95": [
+      -14.7,
+      -4.9
+     ]
+    },
+    "funil": {
+     "ugc_dentro_pct": 25.0,
+     "n_dentro": 1117,
+     "ugc_fora_pct": 60.8,
+     "n_fora": 702,
+     "delta_pp": 35.8,
+     "ic95": [
+      31.4,
+      40.3
+     ]
+    },
+    "residuo_no_tema_pct": 25.6
+   },
+   "2022-01-01": {
+    "n_coletados": 3113,
+    "n_tema": 1740,
+    "filtro": {
+     "ugc_passa_pct": 41.9,
+     "ugc_descarta_pct": 31.9,
+     "delta_pp": -10.1,
+     "ic95": [
+      -15.1,
+      -5.0
+     ]
+    },
+    "funil": {
+     "ugc_dentro_pct": 25.3,
+     "n_dentro": 1067,
+     "ugc_fora_pct": 61.5,
+     "n_fora": 673,
+     "delta_pp": 36.2,
+     "ic95": [
+      31.7,
+      40.7
+     ]
+    },
+    "residuo_no_tema_pct": 26.4
+   },
+   "2021-06-30": {
+    "n_coletados": 2800,
+    "n_tema": 1609,
+    "filtro": {
+     "ugc_passa_pct": 42.1,
+     "ugc_descarta_pct": 33.2,
+     "delta_pp": -9.0,
+     "ic95": [
+      -14.4,
+      -3.6
+     ]
+    },
+    "funil": {
+     "ugc_dentro_pct": 24.9,
+     "n_dentro": 987,
+     "ugc_fora_pct": 63.7,
+     "n_fora": 622,
+     "delta_pp": 38.7,
+     "ic95": [
+      34.1,
+      43.4
+     ]
+    },
+    "residuo_no_tema_pct": 26.8
+   }
+  }
+ },
+ "data_mediana": {
+  "dentro_do_corpus": "2020-08-21",
+  "fora_do_corpus": "2020-05-17"
+ }
+}
